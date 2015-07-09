@@ -1,0 +1,16 @@
+[TODO: Code removal, update and fixes]
+* Remove inappropriate this., class. and other illogical/invalid code.
+ * Stopped at GameContent -> PortalHelper.cs.
+* Remove invalid casts. Invalid casts will cause crashes.
+* Update nasty code that was generated badly.
+* Try to rename variables to be human readable.
+* Fix crashes that anyone reports or you come across. Crash log should be pasted.
+
+[TODO: Implement better systems]
+* Implement database system to remove hardcoded npcs, items, etc.
+* Possibly implement Lua for better modifying usage.
+
+[TODO: In-game Testing]
+* Test everything in-game to make sure it works
+* [IMPORTANT]: Test Medium and Large world generation
+* Test all UI options.

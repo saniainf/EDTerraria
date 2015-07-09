@@ -1,0 +1,8 @@
+.idea*/
+bin*/
+Debug*/
+Release*/
+obj*/
+x86*/
+*.suo
+*.sdf

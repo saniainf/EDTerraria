@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{5D89B135-90D3-4CBC-8833-C6C67C2BED1E}</ProjectGuid>
+    <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Terraria</RootNamespace>
+    <AssemblyName>Terraria</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
+    <XnaPlatform>Windows</XnaPlatform>
+    <XnaProfile>Reach</XnaProfile>
+    <XnaCrossPlatformGroupID>30cb6cc6-3e26-4704-83d8-7ec3e4f019b8</XnaCrossPlatformGroupID>
+    <XnaOutputType>Game</XnaOutputType>
+    <ApplicationIcon>Game.ico</ApplicationIcon>
+    <Thumbnail>GameThumbnail.png</Thumbnail>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <XnaCompressContent>false</XnaCompressContent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\x86\</OutputPath>
+    <DefineConstants>WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <XnaCompressContent>true</XnaCompressContent>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.GamerServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Net, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Xna.Framework.Storage, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Xna.Framework.Video, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Xna.Framework.Xact, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Refs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Net" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Achievements\Achievement.cs" />
+    <Compile Include="Achievements\AchievementCategory.cs" />
+    <Compile Include="Achievements\AchievementCondition.cs" />
+    <Compile Include="Achievements\AchievementManager.cs" />
+    <Compile Include="Achievements\AchievementTracker.cs" />
+    <Compile Include="Achievements\ConditionFloatTracker.cs" />
+    <Compile Include="Achievements\ConditionIntTracker.cs" />
+    <Compile Include="Achievements\ConditionsCompletedTracker.cs" />
+    <Compile Include="Achievements\IAchievementTracker.cs" />
+    <Compile Include="Achievements\TrackerType.cs" />
+    <Compile Include="Animation.cs" />
+    <Compile Include="BitsByte.cs" />
+    <Compile Include="Entities\Chest.cs" />
+    <Compile Include="Entities\Cloud.cs" />
+    <Compile Include="Collision.cs" />
+    <Compile Include="CombatText.cs" />
+    <Compile Include="DataStructures\AnchorData.cs" />
+    <Compile Include="DataStructures\BufferPool.cs" />
+    <Compile Include="DataStructures\CachedBuffer.cs" />
+    <Compile Include="DataStructures\DoubleStack.cs" />
+    <Compile Include="DataStructures\DrawAnimation.cs" />
+    <Compile Include="DataStructures\DrawAnimationVertical.cs" />
+    <Compile Include="DataStructures\DrawData.cs" />
+    <Compile Include="DataStructures\DrillDebugDraw.cs" />
+    <Compile Include="DataStructures\PlacementHook.cs" />
+    <Compile Include="DataStructures\Point16.cs" />
+    <Compile Include="DataStructures\TileEntity.cs" />
+    <Compile Include="DataStructures\TileObjectPreviewData.cs" />
+    <Compile Include="DelegateMethods.cs" />
+    <Compile Include="Dust.cs" />
+    <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Extensions\AnchorType.cs" />
+    <Compile Include="Extensions\EnumerationExtensions.cs" />
+    <Compile Include="Extensions\LiquidPlacement.cs" />
+    <Compile Include="Extensions\TileIDEnum.cs" />
+    <Compile Include="Extensions\TileObjectDirection.cs" />
+    <Compile Include="Framing.cs" />
+    <Compile Include="GameContent\Achievements\AchievementsHelper.cs" />
+    <Compile Include="GameContent\Achievements\CustomFlagCondition.cs" />
+    <Compile Include="GameContent\Achievements\CustomFloatCondition.cs" />
+    <Compile Include="GameContent\Achievements\CustomIntCondition.cs" />
+    <Compile Include="GameContent\Achievements\ItemCraftCondition.cs" />
+    <Compile Include="GameContent\Achievements\ItemPickupCondition.cs" />
+    <Compile Include="GameContent\Achievements\NPCKilledCondition.cs" />
+    <Compile Include="GameContent\Achievements\ProgressionEventCondition.cs" />
+    <Compile Include="GameContent\Achievements\TileDestroyedCondition.cs" />
+    <Compile Include="GameContent\Biomes\CampsiteBiome.cs" />
+    <Compile Include="GameContent\Biomes\CaveHouseBiome.cs" />
+    <Compile Include="GameContent\Biomes\CorruptionPitBiome.cs" />
+    <Compile Include="GameContent\Biomes\DesertBiome.cs" />
+    <Compile Include="GameContent\Biomes\EnchantedSwordBiome.cs" />
+    <Compile Include="GameContent\Biomes\GraniteBiome.cs" />
+    <Compile Include="GameContent\Biomes\HiveBiome.cs" />
+    <Compile Include="GameContent\Biomes\HoneyPatchBiome.cs" />
+    <Compile Include="GameContent\Biomes\MahoganyTreeBiome.cs" />
+    <Compile Include="GameContent\Biomes\MarbleBiome.cs" />
+    <Compile Include="GameContent\Biomes\MiningExplosivesBiome.cs" />
+    <Compile Include="GameContent\Biomes\ThinIceBiome.cs" />
+    <Compile Include="GameContent\ChildSafety.cs" />
+    <Compile Include="GameContent\Dyes\LegacyHairShaderData.cs" />
+    <Compile Include="GameContent\Dyes\ReflectiveArmorShaderData.cs" />
+    <Compile Include="GameContent\Dyes\TeamArmorShaderData.cs" />
+    <Compile Include="GameContent\Events\BlameNPCTest.cs" />
+    <Compile Include="GameContent\Events\CultistRitual.cs" />
+    <Compile Include="GameContent\Events\MoonlordDeathDrama.cs" />
+    <Compile Include="GameContent\Events\ScreenDarkness.cs" />
+    <Compile Include="GameContent\Events\ScreenObstruction.cs" />
+    <Compile Include="GameContent\Generation\ActionGrass.cs" />
+    <Compile Include="GameContent\Generation\ActionPlaceStatue.cs" />
+    <Compile Include="GameContent\Generation\ActionStalagtite.cs" />
+    <Compile Include="GameContent\Generation\ActionVines.cs" />
+    <Compile Include="GameContent\Generation\PassLegacy.cs" />
+    <Compile Include="GameContent\Generation\ShapeBranch.cs" />
+    <Compile Include="GameContent\Generation\ShapeFloodFill.cs" />
+    <Compile Include="GameContent\Generation\ShapeRoot.cs" />
+    <Compile Include="GameContent\Generation\ShapeRunner.cs" />
+    <Compile Include="GameContent\Generation\TrackGenerator.cs" />
+    <Compile Include="GameContent\Generation\WorldGenLegacyMethod.cs" />
+    <Compile Include="GameContent\Liquid\LiquidRenderer.cs" />
+    <Compile Include="GameContent\NetModules\NetLiquidModule.cs" />
+    <Compile Include="GameContent\PortalHelper.cs" />
+    <Compile Include="GameContent\Shaders\BloodMoonScreenShaderData.cs" />
+    <Compile Include="GameContent\Shaders\MoonLordScreenShaderData.cs" />
+    <Compile Include="GameContent\Skies\MartianSky.cs" />
+    <Compile Include="GameContent\Skies\MoonLordSky.cs" />
+    <Compile Include="GameContent\Skies\NebulaSky.cs" />
+    <Compile Include="GameContent\Skies\SlimeSky.cs" />
+    <Compile Include="GameContent\Skies\SolarSky.cs" />
+    <Compile Include="GameContent\Skies\StardustSky.cs" />
+    <Compile Include="GameContent\Skies\VortexSky.cs" />
+    <Compile Include="GameContent\Tile_Entities\TEItemFrame.cs" />
+    <Compile Include="GameContent\Tile_Entities\TETrainingDummy.cs" />
+    <Compile Include="GameContent\UI\Chat\AchievementTagHandler.cs" />
+    <Compile Include="GameContent\UI\Chat\ColorTagHandler.cs" />
+    <Compile Include="GameContent\UI\Chat\ItemTagHandler.cs" />
+    <Compile Include="GameContent\UI\Chat\NameTagHandler.cs" />
+    <Compile Include="GameContent\UI\Chat\PlainTagHandler.cs" />
+    <Compile Include="GameContent\UI\Elements\UIAchievementListItem.cs" />
+    <Compile Include="GameContent\UI\Elements\UICharacter.cs" />
+    <Compile Include="GameContent\UI\Elements\UICharacterListItem.cs" />
+    <Compile Include="GameContent\UI\Elements\UIGenProgressBar.cs" />
+    <Compile Include="GameContent\UI\Elements\UIHeader.cs" />
+    <Compile Include="GameContent\UI\Elements\UIImage.cs" />
+    <Compile Include="GameContent\UI\Elements\UIImageButton.cs" />
+    <Compile Include="GameContent\UI\Elements\UIImageFramed.cs" />
+    <Compile Include="GameContent\UI\Elements\UIList.cs" />
+    <Compile Include="GameContent\UI\Elements\UIPanel.cs" />
+    <Compile Include="GameContent\UI\Elements\UIProgressBar.cs" />
+    <Compile Include="GameContent\UI\Elements\UIScrollbar.cs" />
+    <Compile Include="GameContent\UI\Elements\UIText.cs" />
+    <Compile Include="GameContent\UI\Elements\UITextPanel.cs" />
+    <Compile Include="GameContent\UI\Elements\UIToggleImage.cs" />
+    <Compile Include="GameContent\UI\Elements\UIWorldListItem.cs" />
+    <Compile Include="GameContent\UI\EmoteBubble.cs" />
+    <Compile Include="GameContent\UI\EmoteID.cs" />
+    <Compile Include="GameContent\UI\ItemRarity.cs" />
+    <Compile Include="GameContent\UI\States\UIAchievementsMenu.cs" />
+    <Compile Include="GameContent\UI\States\UICharacterSelect.cs" />
+    <Compile Include="GameContent\UI\States\UIWorldLoad.cs" />
+    <Compile Include="GameContent\UI\States\UIWorldSelect.cs" />
+    <Compile Include="GameContent\UI\WorldUIAnchor.cs" />
+    <Compile Include="Gore.cs" />
+    <Compile Include="GameContent\Graphics\Capture\CaptureBiome.cs" />
+    <Compile Include="GameContent\Graphics\Capture\CaptureCamera.cs" />
+    <Compile Include="GameContent\Graphics\Capture\CaptureInterface.cs" />
+    <Compile Include="GameContent\Graphics\Capture\CaptureManager.cs" />
+    <Compile Include="GameContent\Graphics\Capture\CaptureSettings.cs" />
+    <Compile Include="GameContent\Graphics\Effects\CustomSky.cs" />
+    <Compile Include="GameContent\Graphics\Effects\EffectManager.cs" />
+    <Compile Include="GameContent\Graphics\Effects\EffectPriority.cs" />
+    <Compile Include="GameContent\Graphics\Effects\Filter.cs" />
+    <Compile Include="GameContent\Graphics\Effects\FilterManager.cs" />
+    <Compile Include="GameContent\Graphics\Effects\Filters.cs" />
+    <Compile Include="GameContent\Graphics\Effects\GameEffect.cs" />
+    <Compile Include="GameContent\Graphics\Effects\MissingEffectException.cs" />
+    <Compile Include="GameContent\Graphics\Effects\Overlay.cs" />
+    <Compile Include="GameContent\Graphics\Effects\OverlayManager.cs" />
+    <Compile Include="GameContent\Graphics\Effects\OverlayMode.cs" />
+    <Compile Include="GameContent\Graphics\Effects\Overlays.cs" />
+    <Compile Include="GameContent\Graphics\Effects\SimpleOverlay.cs" />
+    <Compile Include="GameContent\Graphics\Effects\SkyManager.cs" />
+    <Compile Include="GameContent\Graphics\Shaders\ArmorShaderData.cs" />
+    <Compile Include="GameContent\Graphics\Shaders\ArmorShaderDataSet.cs" />
+    <Compile Include="GameContent\Graphics\Shaders\GameShaders.cs" />
+    <Compile Include="GameContent\Graphics\Shaders\HairShaderData.cs" />
+    <Compile Include="GameContent\Graphics\Shaders\HairShaderDataSet.cs" />
+    <Compile Include="GameContent\Graphics\Shaders\MiscShaderData.cs" />
+    <Compile Include="GameContent\Graphics\Shaders\ScreenShaderData.cs" />
+    <Compile Include="GameContent\Graphics\Shaders\ShaderData.cs" />
+    <Compile Include="GameContent\Graphics\TextureManager.cs" />
+    <Compile Include="GameContent\Graphics\TileBatch.cs" />
+    <Compile Include="GameContent\Graphics\VertexColors.cs" />
+    <Compile Include="HitTile.cs" />
+    <Compile Include="ID\AchievementHelperID.cs" />
+    <Compile Include="ID\AnimationID.cs" />
+    <Compile Include="ID\BuffID.cs" />
+    <Compile Include="ID\ChainID.cs" />
+    <Compile Include="ID\Colors.cs" />
+    <Compile Include="ID\DustID.cs" />
+    <Compile Include="ID\ExtrasID.cs" />
+    <Compile Include="ID\GlowMaskID.cs" />
+    <Compile Include="ID\GoreID.cs" />
+    <Compile Include="ID\InvasionID.cs" />
+    <Compile Include="ID\ItemID.cs" />
+    <Compile Include="ID\MessageID.cs" />
+    <Compile Include="ID\MountID.cs" />
+    <Compile Include="ID\NPCID.cs" />
+    <Compile Include="ID\PlayerTextureID.cs" />
+    <Compile Include="ID\PlayerVariantID.cs" />
+    <Compile Include="ID\ProjectileID.cs" />
+    <Compile Include="ID\SetFactory.cs" />
+    <Compile Include="ID\StatusID.cs" />
+    <Compile Include="ID\TileEntityID.cs" />
+    <Compile Include="ID\TileID.cs" />
+    <Compile Include="ID\WallID.cs" />
+    <Compile Include="IngameOptions.cs" />
+    <Compile Include="Initializers\AchievementInitializer.cs" />
+    <Compile Include="Initializers\ChatInitializer.cs" />
+    <Compile Include="Initializers\DyeInitializer.cs" />
+    <Compile Include="Initializers\NetworkInitializer.cs" />
+    <Compile Include="Initializers\PlayerDataInitializer.cs" />
+    <Compile Include="Initializers\ScreenEffectInitializer.cs" />
+    <Compile Include="IO\FavoritesFile.cs" />
+    <Compile Include="IO\FileData.cs" />
+    <Compile Include="IO\FileMetadata.cs" />
+    <Compile Include="IO\FileType.cs" />
+    <Compile Include="IO\PlayerFileData.cs" />
+    <Compile Include="IO\Preferences.cs" />
+    <Compile Include="IO\WorldFile.cs" />
+    <Compile Include="IO\WorldFileData.cs" />
+    <Compile Include="Entities\Item.cs" />
+    <Compile Include="ItemText.cs" />
+    <Compile Include="keyBoardInput.cs" />
+    <Compile Include="Lang.cs" />
+    <Compile Include="Lighting.cs" />
+    <Compile Include="Liquid.cs" />
+    <Compile Include="LiquidBuffer.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="World\Map\MapHelper.cs" />
+    <Compile Include="World\Map\MapTile.cs" />
+    <Compile Include="World\Map\WorldMap.cs" />
+    <Compile Include="MessageBuffer.cs" />
+    <Compile Include="Minecart.cs" />
+    <Compile Include="Modules\AnchorDataModule.cs" />
+    <Compile Include="Modules\AnchorTypesModule.cs" />
+    <Compile Include="Modules\LiquidDeathModule.cs" />
+    <Compile Include="Modules\LiquidPlacementModule.cs" />
+    <Compile Include="Modules\TileObjectAlternatesModule.cs" />
+    <Compile Include="Modules\TileObjectBaseModule.cs" />
+    <Compile Include="Modules\TileObjectCoordinatesModule.cs" />
+    <Compile Include="Modules\TileObjectDrawModule.cs" />
+    <Compile Include="Modules\TileObjectStyleModule.cs" />
+    <Compile Include="Modules\TileObjectSubTilesModule.cs" />
+    <Compile Include="Modules\TilePlacementHooksModule.cs" />
+    <Compile Include="Entities\Mount.cs" />
+    <Compile Include="NetMessage.cs" />
+    <Compile Include="Netplay.cs" />
+    <Compile Include="Net\AddressType.cs" />
+    <Compile Include="Net\LegacyNetBufferPool.cs" />
+    <Compile Include="Net\NetManager.cs" />
+    <Compile Include="Net\NetModule.cs" />
+    <Compile Include="Net\NetPacket.cs" />
+    <Compile Include="Net\RemoteAddress.cs" />
+    <Compile Include="Net\ServerSocialMode.cs" />
+    <Compile Include="Net\Sockets\ISocket.cs" />
+    <Compile Include="Net\Sockets\SocketConnectionAccepted.cs" />
+    <Compile Include="Net\Sockets\SocketReceiveCallback.cs" />
+    <Compile Include="Net\Sockets\SocketSendCallback.cs" />
+    <Compile Include="Net\Sockets\TcpSocket.cs" />
+    <Compile Include="Net\TcpAddress.cs" />
+    <Compile Include="Entities\NPC.cs" />
+    <Compile Include="World\Tile\TileObjectData.cs" />
+    <Compile Include="Entities\Player.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Entities\Projectile.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rain.cs" />
+    <Compile Include="Recipe.cs" />
+    <Compile Include="Ref.cs" />
+    <Compile Include="Net\RemoteClient.cs" />
+    <Compile Include="Net\RemoteServer.cs" />
+    <Compile Include="Sign.cs" />
+    <Compile Include="Entities\Star.cs" />
+    <Compile Include="TargetDummy.cs" />
+    <Compile Include="World\Tile\Tile.cs" />
+    <Compile Include="World\Tile\TileObject.cs" />
+    <Compile Include="TimeLogger.cs" />
+    <Compile Include="UI\AchievementCompleteUI.cs" />
+    <Compile Include="UI\AchievementsUI.cs" />
+    <Compile Include="UI\CalculatedStyle.cs" />
+    <Compile Include="UI\Chat\ChatLine.cs" />
+    <Compile Include="UI\Chat\ChatManager.cs" />
+    <Compile Include="UI\Chat\ITagHandler.cs" />
+    <Compile Include="UI\Chat\TextSnippet.cs" />
+    <Compile Include="UI\ChestUI.cs" />
+    <Compile Include="UI\ItemSlot.cs" />
+    <Compile Include="UI\StyleDimension.cs" />
+    <Compile Include="UI\UIAlign.cs" />
+    <Compile Include="UI\UIElement.cs" />
+    <Compile Include="UI\UIEvent.cs" />
+    <Compile Include="UI\UIMouseEvent.cs" />
+    <Compile Include="UI\UIScrollWheelEvent.cs" />
+    <Compile Include="UI\UIState.cs" />
+    <Compile Include="UI\UserInterface.cs" />
+    <Compile Include="Utilities\CrashDump.cs" />
+    <Compile Include="Utilities\FileOperationAPIWrapper.cs" />
+    <Compile Include="Utilities\FileUtilities.cs" />
+    <Compile Include="Utilities\MultiTimer.cs" />
+    <Compile Include="Utilities\Utils.cs" />
+    <Compile Include="WaterfallManager.cs" />
+    <Compile Include="Entities\Wiring.cs" />
+    <Compile Include="WorldGen.cs" />
+    <Compile Include="WorldSections.cs" />
+    <Compile Include="World\Generation\Actions.cs" />
+    <Compile Include="World\Generation\BiomeCollection.cs" />
+    <Compile Include="World\Generation\Biomes.cs" />
+    <Compile Include="World\Generation\Conditions.cs" />
+    <Compile Include="World\Generation\GenAction.cs" />
+    <Compile Include="World\Generation\GenBase.cs" />
+    <Compile Include="World\Generation\GenCondition.cs" />
+    <Compile Include="World\Generation\GenerationProgress.cs" />
+    <Compile Include="World\Generation\GenModShape.cs" />
+    <Compile Include="World\Generation\GenPass.cs" />
+    <Compile Include="World\Generation\GenSearch.cs" />
+    <Compile Include="World\Generation\GenShape.cs" />
+    <Compile Include="World\Generation\GenStructure.cs" />
+    <Compile Include="World\Generation\MicroBiome.cs" />
+    <Compile Include="World\Generation\Modifiers.cs" />
+    <Compile Include="World\Generation\ModShapes.cs" />
+    <Compile Include="World\Generation\Passes.cs" />
+    <Compile Include="World\Generation\Searches.cs" />
+    <Compile Include="World\Generation\ShapeData.cs" />
+    <Compile Include="World\Generation\Shapes.cs" />
+    <Compile Include="World\Generation\SimpleStructure.cs" />
+    <Compile Include="World\Generation\StructureMap.cs" />
+    <Compile Include="World\Generation\WorldGenerator.cs" />
+    <Compile Include="World\Generation\WorldUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Game.ico" />
+    <Content Include="GameThumbnail.png">
+      <XnaPlatformSpecific>true</XnaPlatformSpecific>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TerrariaContent\TerrariaContent.contentproj">
+      <Name>TerrariaContent</Name>
+      <XnaReferenceType>Content</XnaReferenceType>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
+  <!--
+      To modify your build process, add your task inside one of the targets below and uncomment it. 
+      Other similar extension points exist, see Microsoft.Common.targets.
+      <Target Name="BeforeBuild">
+      </Target>
+      <Target Name="AfterBuild">
+      </Target>
+    -->
+</Project>
