@@ -22,23 +22,17 @@ namespace Terraria.Graphics.Capture
 
         public bool IsCapturing
         {
-            get
-            {
-                return this._camera.IsCapturing;
-            }
+            get { return _camera.IsCapturing; }
         }
 
         public bool Active
         {
-            get
-            {
-                return this._interface.Active;
-            }
+            get { return _interface.Active; }
             set
             {
-                if (Main.CaptureModeDisabled || this._interface.Active == value)
+                if (Main.CaptureModeDisabled || _interface.Active == value)
                     return;
-                this._interface.ToggleCamera(value);
+                _interface.ToggleCamera(value);
             }
         }
 
@@ -46,41 +40,41 @@ namespace Terraria.Graphics.Capture
         {
             get
             {
-                if (!this.Active)
+                if (!Active)
                     return false;
-                return this._interface.UsingMap();
+                return _interface.UsingMap();
             }
         }
 
         public CaptureManager()
         {
-            this._interface = new CaptureInterface();
-            this._camera = new CaptureCamera(Main.instance.GraphicsDevice);
+            _interface = new CaptureInterface();
+            _camera = new CaptureCamera(Main.instance.GraphicsDevice);
         }
 
         public void Scrolling()
         {
-            this._interface.Scrolling();
+            _interface.Scrolling();
         }
 
         public void Update()
         {
-            this._interface.Update();
+            _interface.Update();
         }
 
         public void Draw(SpriteBatch sb)
         {
-            this._interface.Draw(sb);
+            _interface.Draw(sb);
         }
 
         public float GetProgress()
         {
-            return this._camera.GetProgress();
+            return _camera.GetProgress();
         }
 
         public void Capture()
         {
-            this.Capture(new CaptureSettings()
+            Capture(new CaptureSettings()
             {
                 Area = new Rectangle(2660, 100, 1000, 1000),
                 UseScaling = false
@@ -89,12 +83,12 @@ namespace Terraria.Graphics.Capture
 
         public void Capture(CaptureSettings settings)
         {
-            this._camera.Capture(settings);
+            _camera.Capture(settings);
         }
 
         public void DrawTick()
         {
-            this._camera.DrawTick();
+            _camera.DrawTick();
         }
     }
 }

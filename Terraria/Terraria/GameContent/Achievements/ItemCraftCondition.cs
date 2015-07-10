@@ -21,42 +21,40 @@ namespace Terraria.GameContent.Achievements
         private short[] _itemIds;
 
         private ItemCraftCondition(short itemId)
-            : base("ITEM_PICKUP_" + (object)itemId)
+            : base("ITEM_PICKUP_" + itemId)
         {
-            this._itemIds = new short[1]
-      {
-        itemId
-      };
-            ItemCraftCondition.ListenForCraft(this);
+            _itemIds = new short[1] { itemId };
+            ListenForCraft(this);
         }
 
         private ItemCraftCondition(short[] itemIds)
-            : base("ITEM_PICKUP_" + (object)itemIds[0])
+            : base("ITEM_PICKUP_" + itemIds[0])
         {
-            this._itemIds = itemIds;
-            ItemCraftCondition.ListenForCraft(this);
+            _itemIds = itemIds;
+            ListenForCraft(this);
         }
 
         private static void ListenForCraft(ItemCraftCondition condition)
         {
-            if (!ItemCraftCondition._isListenerHooked)
+            if (!_isListenerHooked)
             {
-                AchievementsHelper.OnItemCraft += new AchievementsHelper.ItemCraftEvent(ItemCraftCondition.ItemCraftListener);
-                ItemCraftCondition._isListenerHooked = true;
+                AchievementsHelper.OnItemCraft += new AchievementsHelper.ItemCraftEvent(ItemCraftListener);
+                _isListenerHooked = true;
             }
+
             for (int index = 0; index < condition._itemIds.Length; ++index)
             {
-                if (!ItemCraftCondition._listeners.ContainsKey(condition._itemIds[index]))
-                    ItemCraftCondition._listeners[condition._itemIds[index]] = new List<ItemCraftCondition>();
-                ItemCraftCondition._listeners[condition._itemIds[index]].Add(condition);
+                if (!_listeners.ContainsKey(condition._itemIds[index]))
+                    _listeners[condition._itemIds[index]] = new List<ItemCraftCondition>();
+                _listeners[condition._itemIds[index]].Add(condition);
             }
         }
 
         private static void ItemCraftListener(short itemId, int count)
         {
-            if (!ItemCraftCondition._listeners.ContainsKey(itemId))
+            if (!_listeners.ContainsKey(itemId))
                 return;
-            foreach (AchievementCondition achievementCondition in ItemCraftCondition._listeners[itemId])
+            foreach (AchievementCondition achievementCondition in _listeners[itemId])
                 achievementCondition.Complete();
         }
 

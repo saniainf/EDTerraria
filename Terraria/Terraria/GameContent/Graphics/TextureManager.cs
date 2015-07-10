@@ -19,21 +19,22 @@ namespace Terraria.Graphics
     internal static class TextureManager
     {
         private static ConcurrentDictionary<string, Texture2D> _textures = new ConcurrentDictionary<string, Texture2D>();
-        private static ConcurrentQueue<TextureManager.LoadPair> _loadQueue = new ConcurrentQueue<TextureManager.LoadPair>();
+        private static ConcurrentQueue<LoadPair> _loadQueue = new ConcurrentQueue<LoadPair>();
         private static readonly object _loadThreadLock = new object();
         public static Texture2D BlankTexture;
 
         public static void Initialize()
         {
-            TextureManager.BlankTexture = new Texture2D(Main.graphics.GraphicsDevice, 4, 4);
-            ThreadPool.QueueUserWorkItem(new WaitCallback(TextureManager.Run));
+            BlankTexture = new Texture2D(Main.graphics.GraphicsDevice, 4, 4);
+            ThreadPool.QueueUserWorkItem(new WaitCallback(Run));
         }
 
         public static Texture2D Load(string name)
         {
-            if (TextureManager._textures.ContainsKey(name))
-                return TextureManager._textures[name];
-            Texture2D texture2D = TextureManager.BlankTexture;
+            if (_textures.ContainsKey(name))
+                return _textures[name];
+
+            Texture2D texture2D = BlankTexture;
             if (name != "")
             {
                 if (name != null)
@@ -44,17 +45,18 @@ namespace Terraria.Graphics
                     }
                     catch
                     {
-                        texture2D = TextureManager.BlankTexture;
+                        texture2D = BlankTexture;
                     }
                 }
             }
-            TextureManager._textures[name] = texture2D;
+
+            _textures[name] = texture2D;
             return texture2D;
         }
 
         public static Ref<Texture2D> Retrieve(string name)
         {
-            return new Ref<Texture2D>(TextureManager.Load(name));
+            return new Ref<Texture2D>(Load(name));
         }
 
         public static void Run(object context)
@@ -63,24 +65,26 @@ namespace Terraria.Graphics
             Main.instance.Exiting += (EventHandler<EventArgs>)((obj, args) =>
             {
                 looping = false;
-                if (!Monitor.TryEnter(TextureManager._loadThreadLock))
+                if (!Monitor.TryEnter(_loadThreadLock))
                     return;
-                Monitor.Pulse(TextureManager._loadThreadLock);
-                Monitor.Exit(TextureManager._loadThreadLock);
+
+                Monitor.Pulse(_loadThreadLock);
+                Monitor.Exit(_loadThreadLock);
             });
-            Monitor.Enter(TextureManager._loadThreadLock);
+
+            Monitor.Enter(_loadThreadLock);
             while (looping)
             {
-                if (TextureManager._loadQueue.Count != 0)
+                if (_loadQueue.Count != 0)
                 {
-                    TextureManager.LoadPair result;
-                    if (TextureManager._loadQueue.TryDequeue(out result))
-                        result.TextureRef.Value = TextureManager.Load(result.Path);
+                    LoadPair result;
+                    if (_loadQueue.TryDequeue(out result))
+                        result.TextureRef.Value = Load(result.Path);
                 }
                 else
-                    Monitor.Wait(TextureManager._loadThreadLock);
+                    Monitor.Wait(_loadThreadLock);
             }
-            Monitor.Exit(TextureManager._loadThreadLock);
+            Monitor.Exit(_loadThreadLock);
         }
 
         private struct LoadPair
@@ -90,8 +94,8 @@ namespace Terraria.Graphics
 
             public LoadPair(string path, Ref<Texture2D> textureRef)
             {
-                this.Path = path;
-                this.TextureRef = textureRef;
+                Path = path;
+                TextureRef = textureRef;
             }
         }
     }

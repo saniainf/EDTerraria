@@ -22,7 +22,7 @@ namespace Terraria.GameContent.Generation
 
         public ShapeFloodFill(int maximumActions = 100)
         {
-            this._maximumActions = maximumActions;
+            _maximumActions = maximumActions;
         }
 
         public override bool Perform(Point origin, GenAction action)
@@ -30,11 +30,12 @@ namespace Terraria.GameContent.Generation
             Queue<Point> queue = new Queue<Point>();
             HashSet<Point16> hashSet = new HashSet<Point16>();
             queue.Enqueue(origin);
-            int num = this._maximumActions;
+
+            int num = _maximumActions;
             while (queue.Count > 0 && num > 0)
             {
                 Point point = queue.Dequeue();
-                if (!hashSet.Contains(new Point16(point.X, point.Y)) && this.UnitApply(action, origin, point.X, point.Y))
+                if (!hashSet.Contains(new Point16(point.X, point.Y)) && UnitApply(action, origin, point.X, point.Y))
                 {
                     hashSet.Add(new Point16(point));
                     --num;
@@ -48,6 +49,7 @@ namespace Terraria.GameContent.Generation
                         queue.Enqueue(new Point(point.X, point.Y - 1));
                 }
             }
+
             while (queue.Count > 0)
             {
                 Point point = queue.Dequeue();
@@ -57,6 +59,7 @@ namespace Terraria.GameContent.Generation
                     break;
                 }
             }
+
             return queue.Count == 0;
         }
     }

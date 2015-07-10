@@ -18,8 +18,8 @@ namespace Terraria.GameContent.Generation
     {
         public override bool Apply(Point origin, int x, int y, params object[] args)
         {
-            WorldGen.PlaceTight(x, y, (ushort)165, false);
-            return this.UnitApply(origin, x, y, args);
+            WorldGen.PlaceTight(x, y, 165, false);
+            return UnitApply(origin, x, y, args);
         }
     }
 }

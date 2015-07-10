@@ -19,21 +19,18 @@ namespace Terraria.GameContent.Dyes
     public class ReflectiveArmorShaderData : ArmorShaderData
     {
         public ReflectiveArmorShaderData(Effect shader, string passName)
-            : base(shader, passName)
-        {
-        }
+            : base(shader, passName) { }
 
         public override void Apply(Entity entity, DrawData? drawData)
         {
             if (entity == null)
-            {
-                this._shader.Parameters["uLightSource"].SetValue(Vector3.Zero);
-            }
+                _shader.Parameters["uLightSource"].SetValue(Vector3.Zero);
             else
             {
                 float num1 = 0.0f;
                 if (drawData.HasValue)
                     num1 = drawData.Value.rotation;
+
                 Vector2 vector2_1 = entity.position;
                 float x1 = (float)entity.width;
                 float y1 = (float)entity.height;
@@ -54,8 +51,10 @@ namespace Terraria.GameContent.Dyes
                     float num6 = 1f;
                     spinningpoint /= num6;
                 }
+
                 if (entity.direction == -1)
                     spinningpoint.X *= -1f;
+
                 spinningpoint = Utils.RotatedBy(spinningpoint, -(double)num1, new Vector2());
                 Vector3 vector3 = new Vector3(spinningpoint, (float)(1.0 - ((double)spinningpoint.X * (double)spinningpoint.X + (double)spinningpoint.Y * (double)spinningpoint.Y)));
                 vector3.X *= 2f;
@@ -63,7 +62,7 @@ namespace Terraria.GameContent.Dyes
                 vector3.Y *= 2f;
                 vector3.Normalize();
                 vector3.Z *= 0.6f;
-                this._shader.Parameters["uLightSource"].SetValue(vector3);
+                _shader.Parameters["uLightSource"].SetValue(vector3);
             }
             base.Apply(entity, drawData);
         }

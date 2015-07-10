@@ -24,10 +24,11 @@ namespace Terraria.Graphics
             public SpriteEffects Effects;
             public VertexColors Colors;
         }
+
         private static float[] xCornerOffsets;
         private static float[] yCornerOffsets;
         private GraphicsDevice graphicsDevice;
-        private TileBatch.SpriteData[] spriteDataQueue = new TileBatch.SpriteData[2048];
+        private SpriteData[] spriteDataQueue = new SpriteData[2048];
         private Texture2D[] spriteTextures;
         private int queuedSpriteCount;
         private SpriteBatch _spriteBatch;
@@ -38,69 +39,73 @@ namespace Terraria.Graphics
         private short[] fallbackIndexData;
         private VertexPositionColorTexture[] vertices = new VertexPositionColorTexture[8192];
         private int vertexBufferPosition;
-        public TileBatch(GraphicsDevice graphicsDevice)
+
+        public TileBatch(GraphicsDevice g)
         {
-            this.graphicsDevice = graphicsDevice;
-            this._spriteBatch = new SpriteBatch(graphicsDevice);
-            this.Allocate();
+            graphicsDevice = g;
+            _spriteBatch = new SpriteBatch(graphicsDevice);
+            Allocate();
         }
+
         private void Allocate()
         {
-            if (this.vertexBuffer == null || this.vertexBuffer.IsDisposed)
+            if (vertexBuffer == null || vertexBuffer.IsDisposed)
             {
-                this.vertexBuffer = new DynamicVertexBuffer(this.graphicsDevice, typeof(VertexPositionColorTexture), 8192, BufferUsage.WriteOnly);
-                this.vertexBufferPosition = 0;
-                this.vertexBuffer.ContentLost += delegate(object sender, EventArgs e)
+                vertexBuffer = new DynamicVertexBuffer(graphicsDevice, typeof(VertexPositionColorTexture), 8192, BufferUsage.WriteOnly);
+                vertexBufferPosition = 0;
+                vertexBuffer.ContentLost += delegate(object sender, EventArgs e)
                 {
-                    this.vertexBufferPosition = 0;
+                    vertexBufferPosition = 0;
                 };
             }
-            if (this.indexBuffer == null || this.indexBuffer.IsDisposed)
+
+            if (indexBuffer == null || indexBuffer.IsDisposed)
             {
-                if (this.fallbackIndexData == null)
+                if (fallbackIndexData == null)
                 {
-                    this.fallbackIndexData = new short[12288];
+                    fallbackIndexData = new short[12288];
                     for (int i = 0; i < 2048; i++)
                     {
-                        this.fallbackIndexData[i * 6] = (short)(i * 4);
-                        this.fallbackIndexData[i * 6 + 1] = (short)(i * 4 + 1);
-                        this.fallbackIndexData[i * 6 + 2] = (short)(i * 4 + 2);
-                        this.fallbackIndexData[i * 6 + 3] = (short)(i * 4);
-                        this.fallbackIndexData[i * 6 + 4] = (short)(i * 4 + 2);
-                        this.fallbackIndexData[i * 6 + 5] = (short)(i * 4 + 3);
+                        fallbackIndexData[i * 6] = (short)(i * 4);
+                        fallbackIndexData[i * 6 + 1] = (short)(i * 4 + 1);
+                        fallbackIndexData[i * 6 + 2] = (short)(i * 4 + 2);
+                        fallbackIndexData[i * 6 + 3] = (short)(i * 4);
+                        fallbackIndexData[i * 6 + 4] = (short)(i * 4 + 2);
+                        fallbackIndexData[i * 6 + 5] = (short)(i * 4 + 3);
                     }
                 }
-                this.indexBuffer = new DynamicIndexBuffer(this.graphicsDevice, typeof(short), 12288, BufferUsage.WriteOnly);
-                this.indexBuffer.SetData<short>(this.fallbackIndexData);
-                this.indexBuffer.ContentLost += delegate(object sender, EventArgs e)
+
+                indexBuffer = new DynamicIndexBuffer(graphicsDevice, typeof(short), 12288, BufferUsage.WriteOnly);
+                indexBuffer.SetData<short>(fallbackIndexData);
+                indexBuffer.ContentLost += delegate(object sender, EventArgs e)
                 {
-                    this.indexBuffer.SetData<short>(this.fallbackIndexData);
+                    indexBuffer.SetData<short>(fallbackIndexData);
                 };
             }
         }
+
         private void FlushRenderState()
         {
-            this.Allocate();
-            this.graphicsDevice.SetVertexBuffer(this.vertexBuffer);
-            this.graphicsDevice.Indices = this.indexBuffer;
-            this.graphicsDevice.SamplerStates[0] = SamplerState.PointClamp;
+            Allocate();
+            graphicsDevice.SetVertexBuffer(vertexBuffer);
+            graphicsDevice.Indices = indexBuffer;
+            graphicsDevice.SamplerStates[0] = SamplerState.PointClamp;
         }
+
         public void Dispose()
         {
-            if (this.vertexBuffer != null)
-            {
-                this.vertexBuffer.Dispose();
-            }
-            if (this.indexBuffer != null)
-            {
-                this.indexBuffer.Dispose();
-            }
+            if (vertexBuffer != null)
+                vertexBuffer.Dispose();
+            if (indexBuffer != null)
+                indexBuffer.Dispose();
         }
+
         public void Begin()
         {
-            this._spriteBatch.Begin();
-            this._spriteBatch.End();
+            _spriteBatch.Begin();
+            _spriteBatch.End();
         }
+
         public void Draw(Texture2D texture, Vector2 position, VertexColors colors)
         {
             Vector4 vector = default(Vector4);
@@ -108,8 +113,9 @@ namespace Terraria.Graphics
             vector.Y = position.Y;
             vector.Z = 1f;
             vector.W = 1f;
-            this.InternalDraw(texture, ref vector, true, ref TileBatch.nullRectangle, ref colors, ref TileBatch.vector2Zero, SpriteEffects.None);
+            InternalDraw(texture, ref vector, true, ref nullRectangle, ref colors, ref vector2Zero, SpriteEffects.None);
         }
+
         public void Draw(Texture2D texture, Vector2 position, Rectangle? sourceRectangle, VertexColors colors, Vector2 origin, float scale, SpriteEffects effects)
         {
             Vector4 vector = default(Vector4);
@@ -117,12 +123,14 @@ namespace Terraria.Graphics
             vector.Y = position.Y;
             vector.Z = scale;
             vector.W = scale;
-            this.InternalDraw(texture, ref vector, true, ref sourceRectangle, ref colors, ref origin, effects);
+            InternalDraw(texture, ref vector, true, ref sourceRectangle, ref colors, ref origin, effects);
         }
+
         public void Draw(Texture2D texture, Vector4 destination, VertexColors colors)
         {
-            this.InternalDraw(texture, ref destination, false, ref TileBatch.nullRectangle, ref colors, ref TileBatch.vector2Zero, SpriteEffects.None);
+            InternalDraw(texture, ref destination, false, ref nullRectangle, ref colors, ref vector2Zero, SpriteEffects.None);
         }
+
         public void Draw(Texture2D texture, Vector2 position, VertexColors colors, Vector2 scale)
         {
             Vector4 vector = default(Vector4);
@@ -130,8 +138,9 @@ namespace Terraria.Graphics
             vector.Y = position.Y;
             vector.Z = scale.X;
             vector.W = scale.Y;
-            this.InternalDraw(texture, ref vector, true, ref TileBatch.nullRectangle, ref colors, ref TileBatch.vector2Zero, SpriteEffects.None);
+            InternalDraw(texture, ref vector, true, ref nullRectangle, ref colors, ref vector2Zero, SpriteEffects.None);
         }
+
         public void Draw(Texture2D texture, Rectangle destinationRectangle, Rectangle? sourceRectangle, VertexColors colors)
         {
             Vector4 vector = default(Vector4);
@@ -139,8 +148,9 @@ namespace Terraria.Graphics
             vector.Y = (float)destinationRectangle.Y;
             vector.Z = (float)destinationRectangle.Width;
             vector.W = (float)destinationRectangle.Height;
-            this.InternalDraw(texture, ref vector, false, ref sourceRectangle, ref colors, ref TileBatch.vector2Zero, SpriteEffects.None);
+            InternalDraw(texture, ref vector, false, ref sourceRectangle, ref colors, ref vector2Zero, SpriteEffects.None);
         }
+
         private static short[] CreateIndexData()
         {
             short[] array = new short[12288];
@@ -155,13 +165,13 @@ namespace Terraria.Graphics
             }
             return array;
         }
+
         private unsafe void InternalDraw(Texture2D texture, ref Vector4 destination, bool scaleDestination, ref Rectangle? sourceRectangle, ref VertexColors colors, ref Vector2 origin, SpriteEffects effects)
         {
-            if (this.queuedSpriteCount >= this.spriteDataQueue.Length)
-            {
-                Array.Resize<TileBatch.SpriteData>(ref this.spriteDataQueue, this.spriteDataQueue.Length << 1);
-            }
-            fixed (TileBatch.SpriteData* ptr = &this.spriteDataQueue[this.queuedSpriteCount])
+            if (queuedSpriteCount >= spriteDataQueue.Length)
+                Array.Resize<SpriteData>(ref spriteDataQueue, spriteDataQueue.Length << 1);
+
+            fixed (SpriteData* ptr = &spriteDataQueue[queuedSpriteCount])
             {
                 float num = destination.Z;
                 float num2 = destination.W;
@@ -192,6 +202,7 @@ namespace Terraria.Graphics
                         num2 *= num4;
                     }
                 }
+
                 ptr->Destination.X = destination.X;
                 ptr->Destination.Y = destination.Y;
                 ptr->Destination.Z = num;
@@ -201,69 +212,68 @@ namespace Terraria.Graphics
                 ptr->Effects = effects;
                 ptr->Colors = colors;
             }
-            if (this.spriteTextures == null || this.spriteTextures.Length != this.spriteDataQueue.Length)
-            {
-                Array.Resize<Texture2D>(ref this.spriteTextures, this.spriteDataQueue.Length);
-            }
-            this.spriteTextures[this.queuedSpriteCount++] = texture;
+
+            if (spriteTextures == null || spriteTextures.Length != spriteDataQueue.Length)
+                Array.Resize<Texture2D>(ref spriteTextures, spriteDataQueue.Length);
+            spriteTextures[queuedSpriteCount++] = texture;
         }
+
         public void End()
         {
-            if (this.queuedSpriteCount == 0)
-            {
+            if (queuedSpriteCount == 0)
                 return;
-            }
-            this.FlushRenderState();
-            this.Flush();
+
+            FlushRenderState();
+            Flush();
         }
+
         private void Flush()
         {
             Texture2D texture2D = null;
             int num = 0;
-            for (int i = 0; i < this.queuedSpriteCount; i++)
+            for (int i = 0; i < queuedSpriteCount; i++)
             {
-                if (this.spriteTextures[i] != texture2D)
+                if (spriteTextures[i] != texture2D)
                 {
                     if (i > num)
-                    {
-                        this.RenderBatch(texture2D, this.spriteDataQueue, num, i - num);
-                    }
+                        RenderBatch(texture2D, spriteDataQueue, num, i - num);
                     num = i;
-                    texture2D = this.spriteTextures[i];
+                    texture2D = spriteTextures[i];
                 }
             }
-            this.RenderBatch(texture2D, this.spriteDataQueue, num, this.queuedSpriteCount - num);
-            Array.Clear(this.spriteTextures, 0, this.queuedSpriteCount);
-            this.queuedSpriteCount = 0;
+
+            RenderBatch(texture2D, spriteDataQueue, num, queuedSpriteCount - num);
+            Array.Clear(spriteTextures, 0, queuedSpriteCount);
+            queuedSpriteCount = 0;
         }
-        private unsafe void RenderBatch(Texture2D texture, TileBatch.SpriteData[] sprites, int offset, int count)
+
+        private unsafe void RenderBatch(Texture2D texture, SpriteData[] sprites, int offset, int count)
         {
-            this.graphicsDevice.Textures[0] = texture;
+            graphicsDevice.Textures[0] = texture;
             float num = 1f / (float)texture.Width;
             float num2 = 1f / (float)texture.Height;
             while (count > 0)
             {
                 SetDataOptions options = SetDataOptions.NoOverwrite;
                 int num3 = count;
-                if (num3 > 2048 - this.vertexBufferPosition)
+                if (num3 > 2048 - vertexBufferPosition)
                 {
-                    num3 = 2048 - this.vertexBufferPosition;
+                    num3 = 2048 - vertexBufferPosition;
                     if (num3 < 256)
                     {
-                        this.vertexBufferPosition = 0;
+                        vertexBufferPosition = 0;
                         options = SetDataOptions.Discard;
                         num3 = count;
                         if (num3 > 2048)
-                        {
                             num3 = 2048;
-                        }
                     }
                 }
-                fixed (TileBatch.SpriteData* ptr = &sprites[offset])
+
+                fixed (SpriteData* ptr = &sprites[offset])
                 {
-                    fixed (VertexPositionColorTexture* ptr2 = &this.vertices[0])
+                    fixed (VertexPositionColorTexture* ptr2 = &vertices[0])
                     {
-                        TileBatch.SpriteData* ptr3 = ptr;
+                        SpriteData* ptr3 = ptr;
                         VertexPositionColorTexture* ptr4 = ptr2;
                         for (int i = 0; i < num3; i++)
                         {
@@ -275,20 +285,16 @@ namespace Terraria.Graphics
                             ptr4[3].Color = ptr3->Colors.BottomLeftColor;
                             for (int j = 0; j < 4; j++)
                             {
-                                float num6 = TileBatch.xCornerOffsets[j];
-                                float num7 = TileBatch.yCornerOffsets[j];
+                                float num6 = xCornerOffsets[j];
+                                float num7 = yCornerOffsets[j];
                                 float num8 = (num6 - num4) * ptr3->Destination.Z;
                                 float num9 = (num7 - num5) * ptr3->Destination.W;
                                 float x = ptr3->Destination.X + num8;
                                 float y = ptr3->Destination.Y + num9;
                                 if ((ptr3->Effects & SpriteEffects.FlipVertically) != SpriteEffects.None)
-                                {
                                     num6 = 1f - num6;
-                                }
                                 if ((ptr3->Effects & SpriteEffects.FlipHorizontally) != SpriteEffects.None)
-                                {
                                     num7 = 1f - num7;
-                                }
                                 ptr4->Position.X = x;
                                 ptr4->Position.Y = y;
                                 ptr4->Position.Z = 0f;
@@ -300,32 +306,27 @@ namespace Terraria.Graphics
                         }
                     }
                 }
-                int offsetInBytes = this.vertexBufferPosition * sizeof(VertexPositionColorTexture) * 4;
-                this.vertexBuffer.SetData<VertexPositionColorTexture>(offsetInBytes, this.vertices, 0, num3 * 4, sizeof(VertexPositionColorTexture), options);
-                int minVertexIndex = this.vertexBufferPosition * 4;
+
+                int offsetInBytes = vertexBufferPosition * sizeof(VertexPositionColorTexture) * 4;
+                vertexBuffer.SetData<VertexPositionColorTexture>(offsetInBytes, vertices, 0, num3 * 4, sizeof(VertexPositionColorTexture), options);
+                int minVertexIndex = vertexBufferPosition * 4;
                 int numVertices = num3 * 4;
-                int startIndex = this.vertexBufferPosition * 6;
+                int startIndex = vertexBufferPosition * 6;
                 int primitiveCount = num3 * 2;
-                this.graphicsDevice.DrawIndexedPrimitives(PrimitiveType.TriangleList, 0, minVertexIndex, numVertices, startIndex, primitiveCount);
-                this.vertexBufferPosition += num3;
+                graphicsDevice.DrawIndexedPrimitives(PrimitiveType.TriangleList, 0, minVertexIndex, numVertices, startIndex, primitiveCount);
+                vertexBufferPosition += num3;
                 offset += num3;
                 count -= num3;
             }
         }
+
         static TileBatch()
         {
-            // Note: this type is marked as 'beforefieldinit'.
             float[] array = new float[4];
             array[1] = 1f;
             array[2] = 1f;
-            TileBatch.xCornerOffsets = array;
-            TileBatch.yCornerOffsets = new float[]
-			{
-				0f,
-				0f,
-				1f,
-				1f
-			};
+            xCornerOffsets = array;
+            yCornerOffsets = new float[] { 0f, 0f, 1f, 1f };
         }
     }
 }

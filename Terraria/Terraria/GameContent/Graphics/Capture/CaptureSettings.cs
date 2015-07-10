@@ -25,7 +25,7 @@ namespace Terraria.Graphics.Capture
         public CaptureSettings()
         {
             DateTime dateTime = DateTime.Now.ToLocalTime();
-            this.OutputName = "Capture " + dateTime.Year.ToString("D4") + "-" + dateTime.Month.ToString("D2") + "-" + dateTime.Day.ToString("D2") + " " + dateTime.Hour.ToString("D2") + "_" + dateTime.Minute.ToString("D2") + "_" + dateTime.Second.ToString("D2");
+            OutputName = "Capture " + dateTime.Year.ToString("D4") + "-" + dateTime.Month.ToString("D2") + "-" + dateTime.Day.ToString("D2") + " " + dateTime.Hour.ToString("D2") + "_" + dateTime.Minute.ToString("D2") + "_" + dateTime.Second.ToString("D2");
         }
     }
 }

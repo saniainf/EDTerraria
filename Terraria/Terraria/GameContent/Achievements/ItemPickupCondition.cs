@@ -22,42 +22,41 @@ namespace Terraria.GameContent.Achievements
         private short[] _itemIds;
 
         private ItemPickupCondition(short itemId)
-            : base("ITEM_PICKUP_" + (object)itemId)
+            : base("ITEM_PICKUP_" + itemId)
         {
-            this._itemIds = new short[1]
-      {
-        itemId
-      };
-            ItemPickupCondition.ListenForPickup(this);
+            _itemIds = new short[1] { itemId };
+            ListenForPickup(this);
         }
 
         private ItemPickupCondition(short[] itemIds)
-            : base("ITEM_PICKUP_" + (object)itemIds[0])
+            : base("ITEM_PICKUP_" + itemIds[0])
         {
-            this._itemIds = itemIds;
-            ItemPickupCondition.ListenForPickup(this);
+            _itemIds = itemIds;
+            ListenForPickup(this);
         }
 
         private static void ListenForPickup(ItemPickupCondition condition)
         {
-            if (!ItemPickupCondition._isListenerHooked)
+            if (!_isListenerHooked)
             {
-                AchievementsHelper.OnItemPickup += new AchievementsHelper.ItemPickupEvent(ItemPickupCondition.ItemPickupListener);
-                ItemPickupCondition._isListenerHooked = true;
+                AchievementsHelper.OnItemPickup += new AchievementsHelper.ItemPickupEvent(ItemPickupListener);
+                _isListenerHooked = true;
             }
+
             for (int index = 0; index < condition._itemIds.Length; ++index)
             {
-                if (!ItemPickupCondition._listeners.ContainsKey(condition._itemIds[index]))
-                    ItemPickupCondition._listeners[condition._itemIds[index]] = new List<ItemPickupCondition>();
-                ItemPickupCondition._listeners[condition._itemIds[index]].Add(condition);
+                if (!_listeners.ContainsKey(condition._itemIds[index]))
+                    _listeners[condition._itemIds[index]] = new List<ItemPickupCondition>();
+                _listeners[condition._itemIds[index]].Add(condition);
             }
         }
 
         private static void ItemPickupListener(Player player, short itemId, int count)
         {
-            if (player.whoAmI != Main.myPlayer || !ItemPickupCondition._listeners.ContainsKey(itemId))
+            if (player.whoAmI != Main.myPlayer || !_listeners.ContainsKey(itemId))
                 return;
-            foreach (AchievementCondition achievementCondition in ItemPickupCondition._listeners[itemId])
+
+            foreach (AchievementCondition achievementCondition in _listeners[itemId])
                 achievementCondition.Complete();
         }
 

@@ -25,33 +25,30 @@ namespace Terraria.GameContent.Events
 
         public static void Update(int newEntry)
         {
-            if (BlameNPCTest.npcTypes.ContainsKey(newEntry))
+            if (npcTypes.ContainsKey(newEntry))
             {
                 Dictionary<int, int> dictionary;
                 int index;
-                (dictionary = BlameNPCTest.npcTypes)[index = newEntry] = dictionary[index] + 1;
+                (dictionary = npcTypes)[index = newEntry] = dictionary[index] + 1;
             }
             else
-                BlameNPCTest.npcTypes[newEntry] = 1;
-            BlameNPCTest.mostSeen = Enumerable.ToList<KeyValuePair<int, int>>((IEnumerable<KeyValuePair<int, int>>)BlameNPCTest.npcTypes);
-            BlameNPCTest.mostSeen.Sort((Comparison<KeyValuePair<int, int>>)((x, y) => x.Value.CompareTo(y.Value)));
+                npcTypes[newEntry] = 1;
+
+            mostSeen = Enumerable.ToList<KeyValuePair<int, int>>((IEnumerable<KeyValuePair<int, int>>)npcTypes);
+            mostSeen.Sort((Comparison<KeyValuePair<int, int>>)((x, y) => x.Value.CompareTo(y.Value)));
         }
 
         public static void Draw(SpriteBatch sb)
         {
             if (Main.netDiag || Main.showFrameRate)
                 return;
-            for (int index = 0; index < BlameNPCTest.mostSeen.Count; ++index)
+
+            for (int index = 0; index < mostSeen.Count; ++index)
             {
                 int num1 = 200 + index % 13 * 100;
                 int num2 = 200 + index / 13 * 30;
-                ChatManager.DrawColorCodedString(sb, Main.fontItemStack, string.Concat(new object[4]
-        {
-          (object) BlameNPCTest.mostSeen[index].Key,
-          (object) " (",
-          (object) BlameNPCTest.mostSeen[index].Value,
-          (object) ")"
-        }), new Vector2((float)num1, (float)num2), Color.White, 0.0f, Vector2.Zero, Vector2.One, -1f, 0 != 0);
+                ChatManager.DrawColorCodedString(sb, Main.fontItemStack, string.Concat(new object[4] { mostSeen[index].Key, " (",
+                    mostSeen[index].Value, ")" }), new Vector2((float)num1, (float)num2), Color.White, 0.0f, Vector2.Zero, Vector2.One, -1f, 0 != 0);
             }
         }
     }

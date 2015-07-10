@@ -23,78 +23,78 @@ namespace Terraria.GameContent.Achievements
 
         public static bool CurrentlyMining
         {
-            get
-            {
-                return AchievementsHelper._isMining;
-            }
-            set
-            {
-                AchievementsHelper._isMining = value;
-            }
+            get { return _isMining; }
+            set { _isMining = value; }
         }
 
-        public static event AchievementsHelper.ItemPickupEvent OnItemPickup;
-
-        public static event AchievementsHelper.ItemCraftEvent OnItemCraft;
-
-        public static event AchievementsHelper.TileDestroyedEvent OnTileDestroyed;
-
-        public static event AchievementsHelper.NPCKilledEvent OnNPCKilled;
-
-        public static event AchievementsHelper.ProgressionEventEvent OnProgressionEvent;
+        public delegate void ItemPickupEvent(Player player, short itemId, int count);
+        public delegate void ItemCraftEvent(short itemId, int count);
+        public delegate void TileDestroyedEvent(Player player, ushort itemId);
+        public delegate void NPCKilledEvent(Player player, short npcId);
+        public delegate void ProgressionEventEvent(int eventID);
+        public static event ItemPickupEvent OnItemPickup;
+        public static event ItemCraftEvent OnItemCraft;
+        public static event TileDestroyedEvent OnTileDestroyed;
+        public static event NPCKilledEvent OnNPCKilled;
+        public static event ProgressionEventEvent OnProgressionEvent;
 
         public static void NotifyTileDestroyed(Player player, ushort tile)
         {
-            if (Main.gameMenu || !AchievementsHelper._isMining || AchievementsHelper.OnTileDestroyed == null)
+            if (Main.gameMenu || !_isMining || OnTileDestroyed == null)
                 return;
-            AchievementsHelper.OnTileDestroyed(player, tile);
+
+            OnTileDestroyed(player, tile);
         }
 
         public static void NotifyItemPickup(Player player, Item item)
         {
-            if (AchievementsHelper.OnItemPickup == null)
+            if (OnItemPickup == null)
                 return;
-            AchievementsHelper.OnItemPickup(player, (short)item.netID, item.stack);
+
+            OnItemPickup(player, (short)item.netID, item.stack);
         }
 
         public static void NotifyItemPickup(Player player, Item item, int customStack)
         {
-            if (AchievementsHelper.OnItemPickup == null)
+            if (OnItemPickup == null)
                 return;
-            AchievementsHelper.OnItemPickup(player, (short)item.netID, customStack);
+
+            OnItemPickup(player, (short)item.netID, customStack);
         }
 
         public static void NotifyItemCraft(Recipe recipe)
         {
-            if (AchievementsHelper.OnItemCraft == null)
+            if (OnItemCraft == null)
                 return;
-            AchievementsHelper.OnItemCraft((short)recipe.createItem.netID, recipe.createItem.stack);
+
+            OnItemCraft((short)recipe.createItem.netID, recipe.createItem.stack);
         }
 
         public static void Initialize()
         {
-            Player.OnEnterWorld += new Action<Player>(AchievementsHelper.OnPlayerEnteredWorld);
+            Player.OnEnterWorld += new Action<Player>(OnPlayerEnteredWorld);
         }
 
         private static void OnPlayerEnteredWorld(Player player)
         {
-            if (AchievementsHelper.OnItemPickup != null)
+            if (OnItemPickup != null)
             {
                 for (int index = 0; index < 58; ++index)
-                    AchievementsHelper.OnItemPickup(player, (short)player.inventory[index].type, player.inventory[index].stack);
+                    OnItemPickup(player, (short)player.inventory[index].type, player.inventory[index].stack);
                 for (int index = 0; index < player.armor.Length; ++index)
-                    AchievementsHelper.OnItemPickup(player, (short)player.armor[index].type, player.armor[index].stack);
+                    OnItemPickup(player, (short)player.armor[index].type, player.armor[index].stack);
                 for (int index = 0; index < player.dye.Length; ++index)
-                    AchievementsHelper.OnItemPickup(player, (short)player.dye[index].type, player.dye[index].stack);
+                    OnItemPickup(player, (short)player.dye[index].type, player.dye[index].stack);
                 for (int index = 0; index < player.miscEquips.Length; ++index)
-                    AchievementsHelper.OnItemPickup(player, (short)player.miscEquips[index].type, player.miscEquips[index].stack);
+                    OnItemPickup(player, (short)player.miscEquips[index].type, player.miscEquips[index].stack);
                 for (int index = 0; index < player.miscDyes.Length; ++index)
-                    AchievementsHelper.OnItemPickup(player, (short)player.miscDyes[index].type, player.miscDyes[index].stack);
+                    OnItemPickup(player, (short)player.miscDyes[index].type, player.miscDyes[index].stack);
                 for (int index = 0; index < player.bank.item.Length; ++index)
-                    AchievementsHelper.OnItemPickup(player, (short)player.bank.item[index].type, player.bank.item[index].stack);
+                    OnItemPickup(player, (short)player.bank.item[index].type, player.bank.item[index].stack);
                 for (int index = 0; index < player.bank2.item.Length; ++index)
-                    AchievementsHelper.OnItemPickup(player, (short)player.bank2.item[index].type, player.bank2.item[index].stack);
+                    OnItemPickup(player, (short)player.bank2.item[index].type, player.bank2.item[index].stack);
             }
+
             if (player.statManaMax > 20)
                 Main.Achievements.GetCondition("STAR_POWER", "Use").Complete();
             if (player.statLifeMax == 500 && player.statManaMax == 200)
@@ -103,6 +103,7 @@ namespace Terraria.GameContent.Achievements
                 Main.Achievements.GetCondition("HOLD_ON_TIGHT", "Equip").Complete();
             if (player.miscEquips[3].type > 0)
                 Main.Achievements.GetCondition("THE_CAVALRY", "Equip").Complete();
+
             for (int index = 0; index < player.armor.Length; ++index)
             {
                 if ((int)player.armor[index].wingSlot > 0)
@@ -111,18 +112,22 @@ namespace Terraria.GameContent.Achievements
                     break;
                 }
             }
+
             if (player.armor[0].stack > 0 && player.armor[1].stack > 0 && player.armor[2].stack > 0)
                 Main.Achievements.GetCondition("MATCHING_ATTIRE", "Equip").Complete();
             if (player.armor[10].stack > 0 && player.armor[11].stack > 0 && player.armor[12].stack > 0)
                 Main.Achievements.GetCondition("FASHION_STATEMENT", "Equip").Complete();
+
             bool flag = true;
             for (int index = 0; index < player.extraAccessorySlots + 3 + 5; ++index)
             {
                 if (player.dye[index].type < 1 || player.dye[index].stack < 1)
                     flag = false;
             }
+
             if (!flag)
                 return;
+
             Main.Achievements.GetCondition("DYE_HARD", "Equip").Complete();
         }
 
@@ -132,7 +137,8 @@ namespace Terraria.GameContent.Achievements
             {
                 if (!npc.playerInteraction[Main.myPlayer])
                     return;
-                AchievementsHelper.NotifyNPCKilledDirect(Main.player[Main.myPlayer], npc.netID);
+
+                NotifyNPCKilledDirect(Main.player[Main.myPlayer], npc.netID);
             }
             else
             {
@@ -146,19 +152,21 @@ namespace Terraria.GameContent.Achievements
 
         public static void NotifyNPCKilledDirect(Player player, int npcNetID)
         {
-            if (AchievementsHelper.OnNPCKilled == null)
+            if (OnNPCKilled == null)
                 return;
-            AchievementsHelper.OnNPCKilled(player, (short)npcNetID);
+
+            OnNPCKilled(player, (short)npcNetID);
         }
 
         public static void NotifyProgressionEvent(int eventID)
         {
-            if (AchievementsHelper.OnProgressionEvent == null)
+            if (OnProgressionEvent == null)
                 return;
+
             if (Main.netMode == 2)
                 NetMessage.SendData(98, -1, -1, "", eventID, 0.0f, 0.0f, 0.0f, 0, 0, 0);
             else
-                AchievementsHelper.OnProgressionEvent(eventID);
+                OnProgressionEvent(eventID);
         }
 
         public static void HandleOnEquip(Player player, Item item, int context)
@@ -173,13 +181,16 @@ namespace Terraria.GameContent.Achievements
                 Main.Achievements.GetCondition("MATCHING_ATTIRE", "Equip").Complete();
             if (context == 9 && player.armor[10].stack > 0 && (player.armor[11].stack > 0 && player.armor[12].stack > 0))
                 Main.Achievements.GetCondition("FASHION_STATEMENT", "Equip").Complete();
+
             if (context != 12)
                 return;
+
             for (int index = 0; index < player.extraAccessorySlots + 3 + 5; ++index)
             {
                 if (player.dye[index].type < 1 || player.dye[index].stack < 1)
                     return;
             }
+
             Main.Achievements.GetCondition("DYE_HARD", "Equip").Complete();
         }
 
@@ -272,52 +283,47 @@ namespace Terraria.GameContent.Achievements
 
         public static void CheckMechaMayhem(int justKilled = -1)
         {
-            if (!AchievementsHelper.mayhemOK)
+            if (!mayhemOK)
             {
-                if (!NPC.AnyNPCs((int)sbyte.MaxValue) || !NPC.AnyNPCs(134) || (!NPC.AnyNPCs(126) || !NPC.AnyNPCs(125)))
+                if (!NPC.AnyNPCs(127) || !NPC.AnyNPCs(134) || (!NPC.AnyNPCs(126) || !NPC.AnyNPCs(125)))
                     return;
-                AchievementsHelper.mayhemOK = true;
-                AchievementsHelper.mayhem1down = false;
-                AchievementsHelper.mayhem2down = false;
-                AchievementsHelper.mayhem3down = false;
+
+                mayhemOK = true;
+                mayhem1down = false;
+                mayhem2down = false;
+                mayhem3down = false;
             }
             else
             {
                 if (justKilled == 125 || justKilled == 126)
-                    AchievementsHelper.mayhem1down = true;
-                else if (!NPC.AnyNPCs(125) && !NPC.AnyNPCs(126) && !AchievementsHelper.mayhem1down)
+                    mayhem1down = true;
+                else if (!NPC.AnyNPCs(125) && !NPC.AnyNPCs(126) && !mayhem1down)
                 {
-                    AchievementsHelper.mayhemOK = false;
+                    mayhemOK = false;
                     return;
                 }
+
                 if (justKilled == 134)
-                    AchievementsHelper.mayhem2down = true;
-                else if (!NPC.AnyNPCs(134) && !AchievementsHelper.mayhem2down)
+                    mayhem2down = true;
+                else if (!NPC.AnyNPCs(134) && !mayhem2down)
                 {
-                    AchievementsHelper.mayhemOK = false;
+                    mayhemOK = false;
                     return;
                 }
-                if (justKilled == (int)sbyte.MaxValue)
-                    AchievementsHelper.mayhem3down = true;
-                else if (!NPC.AnyNPCs((int)sbyte.MaxValue) && !AchievementsHelper.mayhem3down)
+
+                if (justKilled == 127)
+                    mayhem3down = true;
+                else if (!NPC.AnyNPCs(127) && !mayhem3down)
                 {
-                    AchievementsHelper.mayhemOK = false;
+                    mayhemOK = false;
                     return;
                 }
-                if (!AchievementsHelper.mayhem1down || !AchievementsHelper.mayhem2down || !AchievementsHelper.mayhem3down)
+
+                if (!mayhem1down || !mayhem2down || !mayhem3down)
                     return;
-                AchievementsHelper.NotifyProgressionEvent(21);
+
+                NotifyProgressionEvent(21);
             }
         }
-
-        public delegate void ItemPickupEvent(Player player, short itemId, int count);
-
-        public delegate void ItemCraftEvent(short itemId, int count);
-
-        public delegate void TileDestroyedEvent(Player player, ushort itemId);
-
-        public delegate void NPCKilledEvent(Player player, short npcId);
-
-        public delegate void ProgressionEventEvent(int eventID);
     }
 }

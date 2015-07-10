@@ -18,23 +18,8 @@ namespace Terraria.GameContent.Generation
 {
     internal class TrackGenerator
     {
-        private static readonly byte[] INVALID_WALLS = new byte[13]
-    {
-      (byte) 7,
-      (byte) 94,
-      (byte) 95,
-      (byte) 8,
-      (byte) 98,
-      (byte) 99,
-      (byte) 9,
-      (byte) 96,
-      (byte) 97,
-      (byte) 3,
-      (byte) 83,
-      (byte) 87,
-      (byte) 86
-    };
-        private TrackGenerator.TrackHistory[] _historyCache = new TrackGenerator.TrackHistory[2048];
+        private static readonly byte[] INVALID_WALLS = { 7, 94, 95, 8, 98, 99, 9, 96, 97, 3, 83, 87, 86 };
+        private TrackHistory[] _historyCache = new TrackHistory[2048];
         private const int TOTAL_TILE_IGNORES = 150;
         private const int PLAYER_HEIGHT = 6;
         private const int MAX_RETRIES = 400;
@@ -51,9 +36,9 @@ namespace Terraria.GameContent.Generation
                 int y = random.Next((int)Main.worldSurface + 25, Main.maxTilesY - 200);
                 if (this.IsLocationEmpty(x, y))
                 {
-                    while (this.IsLocationEmpty(x, y + 1))
+                    while (IsLocationEmpty(x, y + 1))
                         ++y;
-                    if (this.FindPath(x, y, minimumLength, false))
+                    if (FindPath(x, y, minimumLength, false))
                         --num;
                 }
             }
@@ -75,21 +60,23 @@ namespace Terraria.GameContent.Generation
         {
             if (y > Main.maxTilesY - 200 || x < 0 || (y < (int)Main.worldSurface || x > Main.maxTilesX - 5))
                 return false;
+
             byte num = Main.tile[x, y].wall;
-            for (int index = 0; index < TrackGenerator.INVALID_WALLS.Length; ++index)
+            for (int index = 0; index < INVALID_WALLS.Length; ++index)
             {
-                if ((int)num == (int)TrackGenerator.INVALID_WALLS[index])
+                if (num == INVALID_WALLS[index])
                     return false;
             }
+
             for (int index = -1; index <= 1; ++index)
             {
-                if (Main.tile[x + index, y].active() && ((int)Main.tile[x + index, y].type == 314 || !TileID.Sets.GeneralPlacementTiles[(int)Main.tile[x + index, y].type]))
+                if (Main.tile[x + index, y].active() && (Main.tile[x + index, y].type == 314 || !TileID.Sets.GeneralPlacementTiles[Main.tile[x + index, y].type]))
                     return false;
             }
             return true;
         }
 
-        private void SmoothTrack(TrackGenerator.TrackHistory[] history, int length)
+        private void SmoothTrack(TrackHistory[] history, int length)
         {
             int val2 = length - 1;
             bool flag = false;
@@ -98,15 +85,15 @@ namespace Terraria.GameContent.Generation
                 if (flag)
                 {
                     val2 = Math.Min(index1 + 15, val2);
-                    if ((int)history[index1].Y >= (int)history[val2].Y)
+                    if (history[index1].Y >= history[val2].Y)
                     {
-                        for (int index2 = index1 + 1; (int)history[index2].Y > (int)history[index1].Y; ++index2)
+                        for (int index2 = index1 + 1; history[index2].Y > history[index1].Y; ++index2)
                             history[index2].Y = history[index1].Y;
-                        if ((int)history[index1].Y == (int)history[val2].Y)
+                        if ((int)history[index1].Y == history[val2].Y)
                             flag = false;
                     }
                 }
-                else if ((int)history[index1].Y > (int)history[val2].Y)
+                else if (history[index1].Y > history[val2].Y)
                     flag = true;
                 else
                     val2 = index1;
@@ -115,7 +102,7 @@ namespace Terraria.GameContent.Generation
 
         public bool FindPath(int x, int y, int minimumLength, bool debugMode = false)
         {
-            TrackGenerator.TrackHistory[] history = this._historyCache;
+            TrackHistory[] history = this._historyCache;
             int index1 = 0;
             Tile[,] tileArray = Main.tile;
             bool flag1 = true;
@@ -131,13 +118,14 @@ namespace Terraria.GameContent.Generation
             for (int index2 = 1000000; index2 > 0 && flag1 && index1 < history.Length - 1; ++index1)
             {
                 --index2;
-                history[index1] = new TrackGenerator.TrackHistory(x, y, yDirection);
+                history[index1] = new TrackHistory(x, y, yDirection);
                 bool flag3 = false;
                 int num5 = 1;
                 if (index1 > minimumLength >> 1)
                     num5 = -1;
                 else if (index1 > (minimumLength >> 1) - 5)
                     num5 = 0;
+
                 if (flag2)
                 {
                     int num6 = 0;
@@ -148,18 +136,20 @@ namespace Terraria.GameContent.Generation
                         int num8;
                         for (num8 = 0; num8 <= num3; ++num8)
                         {
-                            if (this.IsLocationEmpty(x + (num8 + 1) * num1, y + (num8 + 1) * index3 * num5))
+                            if (IsLocationEmpty(x + (num8 + 1) * num1, y + (num8 + 1) * index3 * num5))
                             {
                                 flag4 = true;
                                 break;
                             }
                         }
+
                         if (num8 < num7)
                         {
                             num7 = num8;
                             num6 = index3;
                         }
                     }
+
                     if (flag4)
                     {
                         yDirection = num6;
@@ -168,7 +158,7 @@ namespace Terraria.GameContent.Generation
                             ++index1;
                             x += num1;
                             y += yDirection * num5;
-                            history[index1] = new TrackGenerator.TrackHistory(x, y, yDirection);
+                            history[index1] = new TrackHistory(x, y, yDirection);
                             num4 = index1;
                         }
                         x += num1;
@@ -194,20 +184,21 @@ namespace Terraria.GameContent.Generation
                             break;
                         }
                     }
+
                     if (!flag3)
                     {
                         while (index1 > num4 && y == (int)history[index1].Y)
                             --index1;
-                        x = (int)history[index1].X;
-                        y = (int)history[index1].Y;
-                        yDirection = (int)history[index1].YDirection - 1;
+                        x = history[index1].X;
+                        y = history[index1].Y;
+                        yDirection = history[index1].YDirection - 1;
                         --num2;
                         if (num2 <= 0)
                         {
                             index1 = length;
-                            x = (int)history[index1].X;
-                            y = (int)history[index1].Y;
-                            yDirection = (int)history[index1].YDirection;
+                            x = history[index1].X;
+                            y = history[index1].Y;
+                            yDirection = history[index1].YDirection;
                             flag2 = true;
                             num2 = 200;
                         }
@@ -215,29 +206,33 @@ namespace Terraria.GameContent.Generation
                     }
                 }
             }
+
             if (length <= minimumLength && !debugMode)
                 return false;
-            this.SmoothTrack(history, length);
+
+            SmoothTrack(history, length);
             if (!debugMode)
             {
                 for (int index2 = 0; index2 < length; ++index2)
                 {
                     for (int index3 = -1; index3 < 7; ++index3)
                     {
-                        if (!this.CanTrackBePlaced((int)history[index2].X, (int)history[index2].Y - index3))
+                        if (!this.CanTrackBePlaced(history[index2].X, history[index2].Y - index3))
                             return false;
                     }
                 }
             }
+
             for (int index2 = 0; index2 < length; ++index2)
             {
-                TrackGenerator.TrackHistory trackHistory = history[index2];
+                TrackHistory trackHistory = history[index2];
                 for (int index3 = 0; index3 < 6; ++index3)
-                    Main.tile[(int)trackHistory.X, (int)trackHistory.Y - index3].active(false);
+                    Main.tile[trackHistory.X, trackHistory.Y - index3].active(false);
             }
+
             for (int index2 = 0; index2 < length; ++index2)
             {
-                TrackGenerator.TrackHistory trackHistory = history[index2];
+                TrackHistory trackHistory = history[index2];
                 Tile.SmoothSlope((int)trackHistory.X, (int)trackHistory.Y + 1, true);
                 Tile.SmoothSlope((int)trackHistory.X, (int)trackHistory.Y - 6, true);
                 Main.tile[(int)trackHistory.X, (int)trackHistory.Y].ResetToType((ushort)314);
@@ -252,6 +247,7 @@ namespace Terraria.GameContent.Generation
                     }
                 }
             }
+
             return true;
         }
 
@@ -273,16 +269,16 @@ namespace Terraria.GameContent.Generation
 
             public TrackHistory(int x, int y, int yDirection)
             {
-                this.X = (short)x;
-                this.Y = (short)y;
-                this.YDirection = (byte)yDirection;
+                X = (short)x;
+                Y = (short)y;
+                YDirection = (byte)yDirection;
             }
 
             public TrackHistory(short x, short y, byte yDirection)
             {
-                this.X = x;
-                this.Y = y;
-                this.YDirection = yDirection;
+                X = x;
+                Y = y;
+                YDirection = yDirection;
             }
         }
     }

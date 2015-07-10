@@ -20,42 +20,41 @@ namespace Terraria.GameContent.Achievements
         private int[] _eventIDs;
 
         private ProgressionEventCondition(int eventID)
-            : base("PROGRESSION_EVENT_" + (object)eventID)
+            : base("PROGRESSION_EVENT_" + eventID)
         {
-            this._eventIDs = new int[1]
-      {
-        eventID
-      };
-            ProgressionEventCondition.ListenForPickup(this);
+            _eventIDs = new int[1] { eventID };
+            ListenForPickup(this);
         }
 
         private ProgressionEventCondition(int[] eventIDs)
-            : base("PROGRESSION_EVENT_" + (object)eventIDs[0])
+            : base("PROGRESSION_EVENT_" + eventIDs[0])
         {
-            this._eventIDs = eventIDs;
-            ProgressionEventCondition.ListenForPickup(this);
+            _eventIDs = eventIDs;
+            ListenForPickup(this);
         }
 
         private static void ListenForPickup(ProgressionEventCondition condition)
         {
-            if (!ProgressionEventCondition._isListenerHooked)
+            if (!_isListenerHooked)
             {
-                AchievementsHelper.OnProgressionEvent += new AchievementsHelper.ProgressionEventEvent(ProgressionEventCondition.ProgressionEventListener);
-                ProgressionEventCondition._isListenerHooked = true;
+                AchievementsHelper.OnProgressionEvent += new AchievementsHelper.ProgressionEventEvent(ProgressionEventListener);
+                _isListenerHooked = true;
             }
+
             for (int index = 0; index < condition._eventIDs.Length; ++index)
             {
-                if (!ProgressionEventCondition._listeners.ContainsKey(condition._eventIDs[index]))
-                    ProgressionEventCondition._listeners[condition._eventIDs[index]] = new List<ProgressionEventCondition>();
-                ProgressionEventCondition._listeners[condition._eventIDs[index]].Add(condition);
+                if (!_listeners.ContainsKey(condition._eventIDs[index]))
+                    _listeners[condition._eventIDs[index]] = new List<ProgressionEventCondition>();
+                _listeners[condition._eventIDs[index]].Add(condition);
             }
         }
 
         private static void ProgressionEventListener(int eventID)
         {
-            if (!ProgressionEventCondition._listeners.ContainsKey(eventID))
+            if (!_listeners.ContainsKey(eventID))
                 return;
-            foreach (AchievementCondition achievementCondition in ProgressionEventCondition._listeners[eventID])
+
+            foreach (AchievementCondition achievementCondition in _listeners[eventID])
                 achievementCondition.Complete();
         }
 
@@ -74,6 +73,7 @@ namespace Terraria.GameContent.Achievements
             ProgressionEventCondition[] progressionEventConditionArray = new ProgressionEventCondition[eventIDs.Length];
             for (int index = 0; index < eventIDs.Length; ++index)
                 progressionEventConditionArray[index] = new ProgressionEventCondition(eventIDs[index]);
+
             return progressionEventConditionArray;
         }
     }

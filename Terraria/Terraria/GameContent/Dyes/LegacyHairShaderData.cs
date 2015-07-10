@@ -17,29 +17,29 @@ namespace Terraria.GameContent.Dyes
 {
     internal class LegacyHairShaderData : HairShaderData
     {
-        private LegacyHairShaderData.ColorProcessingMethod _colorProcessor;
+        public delegate Color ColorProcessingMethod(Player player, Color color, ref bool lighting);
+        private ColorProcessingMethod _colorProcessor;
 
         public LegacyHairShaderData()
-            : base((Effect)null, (string)null)
+            : base(null, null)
         {
-            this._shaderDisabled = true;
+            _shaderDisabled = true;
         }
 
         public override Color GetColor(Player player, Color lightColor)
         {
             bool lighting = true;
-            Color color = this._colorProcessor(player, player.hairColor, ref lighting);
+            Color color = _colorProcessor(player, player.hairColor, ref lighting);
             if (lighting)
                 return new Color(color.ToVector4() * lightColor.ToVector4());
+
             return color;
         }
 
-        public LegacyHairShaderData UseLegacyMethod(LegacyHairShaderData.ColorProcessingMethod colorProcessor)
+        public LegacyHairShaderData UseLegacyMethod(ColorProcessingMethod colorProcessor)
         {
-            this._colorProcessor = colorProcessor;
+            _colorProcessor = colorProcessor;
             return this;
         }
-
-        public delegate Color ColorProcessingMethod(Player player, Color color, ref bool lighting);
     }
 }

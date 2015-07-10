@@ -20,50 +20,47 @@ namespace Terraria.GameContent.Achievements
         [JsonProperty("Value")]
         private float _value;
         private float _maxValue;
+
         public float Value
         {
-            get
-            {
-                return this._value;
-            }
+            get { return _value; }
             set
             {
                 float num = Utils.Clamp<float>(value, 0f, this._maxValue);
-                if (this._tracker != null)
-                {
-                    ((ConditionFloatTracker)this._tracker).SetValue(num, true);
-                }
-                this._value = num;
-                if (this._value == this._maxValue)
-                {
-                    this.Complete();
-                }
+                if (_tracker != null)
+                    ((ConditionFloatTracker)_tracker).SetValue(num, true);
+                _value = num;
+                if (_value == _maxValue)
+                    Complete();
             }
         }
-        private CustomFloatCondition(string name, float maxValue)
+
+        private CustomFloatCondition(string name, float maxVal)
             : base(name)
         {
-            this._maxValue = maxValue;
-            this._value = 0f;
+            _maxValue = maxVal;
+            _value = 0f;
         }
+
         public override void Clear()
         {
-            this._value = 0f;
+            _value = 0f;
             base.Clear();
         }
+
         public override void Load(JObject state)
         {
             base.Load(state);
-            this._value = (float)state.GetValue("Value");
+            _value = (float)state.GetValue("Value");
             if (this._tracker != null)
-            {
-                ((ConditionFloatTracker)this._tracker).SetValue(this._value, false);
-            }
+                ((ConditionFloatTracker)_tracker).SetValue(_value, false);
         }
+
         protected override IAchievementTracker CreateAchievementTracker()
         {
-            return new ConditionFloatTracker(this._maxValue);
+            return new ConditionFloatTracker(_maxValue);
         }
+
         public static AchievementCondition Create(string name, float maxValue)
         {
             return new CustomFloatCondition(name, maxValue);

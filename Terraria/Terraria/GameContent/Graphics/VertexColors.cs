@@ -21,18 +21,18 @@ namespace Terraria.Graphics
 
         public VertexColors(Color color)
         {
-            this.TopLeftColor = color;
-            this.TopRightColor = color;
-            this.BottomRightColor = color;
-            this.BottomLeftColor = color;
+            TopLeftColor = color;
+            TopRightColor = color;
+            BottomRightColor = color;
+            BottomLeftColor = color;
         }
 
         public VertexColors(Color topLeft, Color topRight, Color bottomRight, Color bottomLeft)
         {
-            this.TopLeftColor = topLeft;
-            this.TopRightColor = topRight;
-            this.BottomLeftColor = bottomLeft;
-            this.BottomRightColor = bottomRight;
+            TopLeftColor = topLeft;
+            TopRightColor = topRight;
+            BottomLeftColor = bottomLeft;
+            BottomRightColor = bottomRight;
         }
     }
 }

@@ -27,14 +27,16 @@ namespace Terraria.GameContent.Events
                 num = 0.95f;
                 amount = 0.3f;
             }
-            ScreenObstruction.screenObstruction = MathHelper.Lerp(ScreenObstruction.screenObstruction, num, amount);
+
+            screenObstruction = MathHelper.Lerp(screenObstruction, num, amount);
         }
 
         public static void Draw(SpriteBatch spriteBatch)
         {
-            if ((double)ScreenObstruction.screenObstruction == 0.0)
+            if (ScreenObstruction.screenObstruction == 0.0)
                 return;
-            Color color = Color.Black * ScreenObstruction.screenObstruction;
+
+            Color color = Color.Black * screenObstruction;
             int width = Main.extraTexture[49].Width;
             int num = 10;
             Rectangle rect = Main.player[Main.myPlayer].getRect();

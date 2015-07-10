@@ -20,50 +20,47 @@ namespace Terraria.GameContent.Achievements
         [JsonProperty("Value")]
         private int _value;
         private int _maxValue;
+
         public int Value
         {
-            get
-            {
-                return this._value;
-            }
+            get { return +_value; }
             set
             {
-                int num = Utils.Clamp<int>(value, 0, this._maxValue);
-                if (this._tracker != null)
-                {
-                    ((ConditionIntTracker)this._tracker).SetValue(num, true);
-                }
-                this._value = num;
-                if (this._value == this._maxValue)
-                {
-                    this.Complete();
-                }
+                int num = Utils.Clamp<int>(value, 0, _maxValue);
+                if (_tracker != null)
+                    ((ConditionIntTracker)_tracker).SetValue(num, true);
+                _value = num;
+                if (_value == _maxValue)
+                    Complete();
             }
         }
-        private CustomIntCondition(string name, int maxValue)
+
+        private CustomIntCondition(string name, int maxVal)
             : base(name)
         {
-            this._maxValue = maxValue;
-            this._value = 0;
+            _maxValue = maxVal;
+            _value = 0;
         }
+
         public override void Clear()
         {
-            this._value = 0;
+            _value = 0;
             base.Clear();
         }
+
         public override void Load(JObject state)
         {
             base.Load(state);
-            this._value = (int)state.GetValue("Value");
+            _value = (int)state.GetValue("Value");
             if (this._tracker != null)
-            {
-                ((ConditionIntTracker)this._tracker).SetValue(this._value, false);
-            }
+                ((ConditionIntTracker)_tracker).SetValue(_value, false);
         }
+
         protected override IAchievementTracker CreateAchievementTracker()
         {
-            return new ConditionIntTracker(this._maxValue);
+            return new ConditionIntTracker(_maxValue);
         }
+
         public static AchievementCondition Create(string name, int maxValue)
         {
             return new CustomIntCondition(name, maxValue);

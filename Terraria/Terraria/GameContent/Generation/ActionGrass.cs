@@ -20,7 +20,8 @@ namespace Terraria.GameContent.Generation
         {
             if (GenBase._tiles[x, y].active() || GenBase._tiles[x, y - 1].active())
                 return false;
-            WorldGen.PlaceTile(x, y, (int)Utils.SelectRandom<ushort>(GenBase._random, (ushort)3, (ushort)73), 1 != 0, 0 != 0, -1, 0);
+
+            WorldGen.PlaceTile(x, y, (int)Utils.SelectRandom<ushort>(GenBase._random, 3, 73), 1 != 0, 0 != 0, -1, 0);
             return this.UnitApply(origin, x, y, args);
         }
     }

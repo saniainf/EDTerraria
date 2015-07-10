@@ -25,28 +25,32 @@ namespace Terraria.GameContent.Events
             Vector2 mountedCenter = Main.player[Main.myPlayer].MountedCenter;
             for (int index = 0; index < 200; ++index)
             {
-                if (Main.npc[index].active && Main.npc[index].type == 370 && (double)Main.npc[index].Distance(mountedCenter) < 3000.0 && ((double)Main.npc[index].ai[0] >= 10.0 || (double)Main.npc[index].ai[0] == 9.0 && (double)Main.npc[index].ai[2] > 120.0))
+                if (Main.npc[index].active && Main.npc[index].type == 370 && Main.npc[index].Distance(mountedCenter) < 3000.0 && (Main.npc[index].ai[0] >= 10.0 ||
+                    Main.npc[index].ai[0] == 9.0 && Main.npc[index].ai[2] > 120.0))
                 {
                     num = 0.95f;
                     amount = 0.03f;
                 }
             }
-            ScreenDarkness.screenObstruction = MathHelper.Lerp(ScreenDarkness.screenObstruction, num, amount);
+
+            screenObstruction = MathHelper.Lerp(screenObstruction, num, amount);
         }
 
         public static void DrawBack(SpriteBatch spriteBatch)
         {
-            if ((double)ScreenDarkness.screenObstruction == 0.0)
+            if (screenObstruction == 0.0)
                 return;
-            Color color = Color.Black * ScreenDarkness.screenObstruction;
+
+            Color color = Color.Black * screenObstruction;
             spriteBatch.Draw(Main.magicPixel, new Rectangle(-2, -2, Main.screenWidth + 4, Main.screenHeight + 4), new Rectangle?(new Rectangle(0, 0, 1, 1)), color);
         }
 
         public static void DrawFront(SpriteBatch spriteBatch)
         {
-            if ((double)ScreenDarkness.screenObstruction == 0.0)
+            if (screenObstruction == 0.0)
                 return;
-            Color color = new Color(0, 0, 120) * ScreenDarkness.screenObstruction * 0.3f;
+
+            Color color = new Color(0, 0, 120) * screenObstruction * 0.3f;
             spriteBatch.Draw(Main.magicPixel, new Rectangle(-2, -2, Main.screenWidth + 4, Main.screenHeight + 4), new Rectangle?(new Rectangle(0, 0, 1, 1)), color);
         }
     }

@@ -1,6 +1,5 @@
 [TODO: Code removal, update and fixes]
 * Remove inappropriate this., class. and other illogical/invalid code.
- * Stopped at GameContent -> PortalHelper.cs.
 * Remove invalid casts. Invalid casts will cause crashes.
 * Update nasty code that was generated badly.
 * Try to rename variables to be human readable.

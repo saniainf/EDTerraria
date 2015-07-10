@@ -22,32 +22,34 @@ namespace Terraria.GameContent.Achievements
         private ushort[] _tileIds;
 
         private TileDestroyedCondition(ushort[] tileIds)
-            : base("TILE_DESTROYED_" + (object)tileIds[0])
+            : base("TILE_DESTROYED_" + tileIds[0])
         {
-            this._tileIds = tileIds;
-            TileDestroyedCondition.ListenForDestruction(this);
+            _tileIds = tileIds;
+            ListenForDestruction(this);
         }
 
         private static void ListenForDestruction(TileDestroyedCondition condition)
         {
-            if (!TileDestroyedCondition._isListenerHooked)
+            if (!_isListenerHooked)
             {
-                AchievementsHelper.OnTileDestroyed += new AchievementsHelper.TileDestroyedEvent(TileDestroyedCondition.TileDestroyedListener);
-                TileDestroyedCondition._isListenerHooked = true;
+                AchievementsHelper.OnTileDestroyed += new AchievementsHelper.TileDestroyedEvent(TileDestroyedListener);
+                _isListenerHooked = true;
             }
+
             for (int index = 0; index < condition._tileIds.Length; ++index)
             {
-                if (!TileDestroyedCondition._listeners.ContainsKey(condition._tileIds[index]))
-                    TileDestroyedCondition._listeners[condition._tileIds[index]] = new List<TileDestroyedCondition>();
-                TileDestroyedCondition._listeners[condition._tileIds[index]].Add(condition);
+                if (!_listeners.ContainsKey(condition._tileIds[index]))
+                    _listeners[condition._tileIds[index]] = new List<TileDestroyedCondition>();
+                _listeners[condition._tileIds[index]].Add(condition);
             }
         }
 
         private static void TileDestroyedListener(Player player, ushort tileId)
         {
-            if (player.whoAmI != Main.myPlayer || !TileDestroyedCondition._listeners.ContainsKey(tileId))
+            if (player.whoAmI != Main.myPlayer || !_listeners.ContainsKey(tileId))
                 return;
-            foreach (AchievementCondition achievementCondition in TileDestroyedCondition._listeners[tileId])
+
+            foreach (AchievementCondition achievementCondition in _listeners[tileId])
                 achievementCondition.Complete();
         }
 
