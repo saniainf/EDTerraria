@@ -19,13 +19,13 @@ namespace Terraria.Modules
         {
             if (copyFrom == null)
             {
-                this.water = false;
-                this.lava = false;
+                water = false;
+                lava = false;
             }
             else
             {
-                this.water = copyFrom.water;
-                this.lava = copyFrom.lava;
+                water = copyFrom.water;
+                lava = copyFrom.lava;
             }
         }
     }

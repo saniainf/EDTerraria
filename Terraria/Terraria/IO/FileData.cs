@@ -16,7 +16,6 @@ namespace Terraria.IO
     public abstract class FileData
     {
         protected string _path;
-        protected bool _isCloudSave;
         public FileMetadata Metadata;
         public string Name;
         public readonly string Type;
@@ -24,57 +23,43 @@ namespace Terraria.IO
 
         public string Path
         {
-            get
-            {
-                return this._path;
-            }
-        }
-
-        public bool IsCloudSave
-        {
-            get
-            {
-                return this._isCloudSave;
-            }
+            get { return _path; }
         }
 
         public bool IsFavorite
         {
-            get
-            {
-                return this._isFavorite;
-            }
+            get { return _isFavorite; }
         }
 
         protected FileData(string type)
         {
-            this.Type = type;
+            Type = type;
         }
 
-        protected FileData(string type, string path, bool isCloud)
+        protected FileData(string type, string path)
         {
-            this.Type = type;
-            this._path = path;
-            this._isCloudSave = isCloud;
-            this._isFavorite = (isCloud ? Main.CloudFavoritesData : Main.LocalFavoriteData).IsFavorite(this);
+            Type = type;
+            _path = path;
+            _isFavorite = Main.LocalFavoriteData.IsFavorite(this);
         }
 
         public void ToggleFavorite()
         {
-            this.SetFavorite(!this.IsFavorite, true);
+            SetFavorite(!IsFavorite, true);
         }
 
         public string GetFileName(bool includeExtension = true)
         {
-            return FileUtilities.GetFileName(this.Path, includeExtension);
+            return FileUtilities.GetFileName(Path, includeExtension);
         }
 
         public void SetFavorite(bool favorite, bool saveChanges = true)
         {
-            this._isFavorite = favorite;
+            _isFavorite = favorite;
             if (!saveChanges)
                 return;
-            (this.IsCloudSave ? Main.CloudFavoritesData : Main.LocalFavoriteData).SaveFavorite(this);
+
+            Main.LocalFavoriteData.SaveFavorite(this);
         }
 
         public abstract void SetAsActive();

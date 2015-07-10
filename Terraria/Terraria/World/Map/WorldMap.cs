@@ -75,7 +75,6 @@ namespace Terraria.Map
         }
         public void Load()
         {
-            bool isCloudSave = Main.ActivePlayerFileData.IsCloudSave;
             if (!Main.mapEnabled)
             {
                 return;
@@ -124,10 +123,7 @@ namespace Terraria.Map
                             streamWriter.WriteLine(value);
                             streamWriter.WriteLine("");
                         }
-                        if (!isCloudSave)
-                        {
-                            File.Copy(text2, text2 + ".bad", true);
-                        }
+                        File.Copy(text2, text2 + ".bad", true);
                         this.Clear();
                     }
                 }

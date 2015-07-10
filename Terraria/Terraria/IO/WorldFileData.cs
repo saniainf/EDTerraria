@@ -51,10 +51,8 @@ namespace Terraria.IO
         {
         }
 
-        public WorldFileData(string path, bool cloudSave)
-            : base("World", path, cloudSave)
-        {
-        }
+        public WorldFileData(string path)
+            : base("World", path) { }
 
         public override void SetAsActive()
         {
@@ -84,7 +82,7 @@ namespace Terraria.IO
 
         public static WorldFileData FromInvalidWorld(string path, bool cloudSave)
         {
-            WorldFileData worldFileData = new WorldFileData(path, cloudSave);
+            WorldFileData worldFileData = new WorldFileData(path);
             worldFileData.IsExpertMode = false;
             worldFileData.Metadata = FileMetadata.FromCurrentSettings(FileType.World);
             worldFileData.SetWorldSize(1, 1);

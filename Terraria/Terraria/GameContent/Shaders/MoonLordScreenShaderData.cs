@@ -18,14 +18,13 @@ namespace Terraria.GameContent.Shaders
         private int _moonLordIndex = -1;
 
         public MoonLordScreenShaderData(string passName)
-            : base(passName)
-        {
-        }
+            : base(passName) { }
 
         private void UpdateMoonLordIndex()
         {
-            if (this._moonLordIndex >= 0 && Main.npc[this._moonLordIndex].active && Main.npc[this._moonLordIndex].type == 398)
+            if (_moonLordIndex >= 0 && Main.npc[_moonLordIndex].active && Main.npc[_moonLordIndex].type == 398)
                 return;
+
             int num = -1;
             for (int index = 0; index < Main.npc.Length; ++index)
             {
@@ -35,14 +34,14 @@ namespace Terraria.GameContent.Shaders
                     break;
                 }
             }
-            this._moonLordIndex = num;
+            _moonLordIndex = num;
         }
 
         public override void Apply()
         {
-            this.UpdateMoonLordIndex();
-            if (this._moonLordIndex != -1)
-                this.UseTargetPosition(Main.npc[this._moonLordIndex].Center);
+            UpdateMoonLordIndex();
+            if (_moonLordIndex != -1)
+                UseTargetPosition(Main.npc[_moonLordIndex].Center);
             base.Apply();
         }
     }

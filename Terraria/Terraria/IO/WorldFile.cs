@@ -59,7 +59,7 @@ namespace Terraria.IO
 
         public static WorldFileData CreateMetadata(string name, bool cloudSave, bool isExpertMode)
         {
-            WorldFileData data = new WorldFileData(Main.GetWorldPathFromName(name, cloudSave), cloudSave)
+            WorldFileData data = new WorldFileData(Main.GetWorldPathFromName(name, cloudSave))
             {
                 Name = name,
                 IsExpertMode = isExpertMode,
@@ -85,11 +85,11 @@ namespace Terraria.IO
             }
         }
 
-        public static WorldFileData GetAllMetadata(string file, bool cloudSave)
+        public static WorldFileData GetAllMetadata(string file)
         {
             if (file != null)
             {
-                WorldFileData data = new WorldFileData(file, cloudSave);
+                WorldFileData data = new WorldFileData(file);
                 if (!FileUtilities.Exists(file))
                 {
                     data.CreationTime = DateTime.Now;
@@ -104,13 +104,10 @@ namespace Terraria.IO
                         {
                             int num = reader.ReadInt32();
                             if (num >= 0x87)
-                            {
                                 data.Metadata = FileMetadata.Read(reader, FileType.World);
-                            }
                             else
-                            {
                                 data.Metadata = FileMetadata.FromCurrentSettings(FileType.World);
-                            }
+
                             if (num <= Main.curRelease)
                             {
                                 reader.ReadInt16();
@@ -126,17 +123,10 @@ namespace Terraria.IO
                                 data.SetWorldSize(x, y);
                                 data.IsExpertMode = (num >= 0x70) && reader.ReadBoolean();
                                 if (num >= 0x8d)
-                                {
                                     data.CreationTime = DateTime.FromBinary(reader.ReadInt64());
-                                }
-                                else if (!cloudSave)
-                                {
-                                    data.CreationTime = File.GetCreationTime(file);
-                                }
                                 else
-                                {
                                     data.CreationTime = DateTime.Now;
-                                }
+                                data.CreationTime = File.GetCreationTime(file);
                                 reader.ReadByte();
                                 reader.ReadInt32();
                                 reader.ReadInt32();
@@ -211,21 +201,13 @@ namespace Terraria.IO
             {
                 try
                 {
-                    byte[] buffer = null;
-                    bool flag = false;
-                    if (flag)
-                    {
-                        int length = 0x18;
-                        buffer = new byte[length];
-                    }
-                    using (Stream stream = flag ? ((Stream)new MemoryStream(buffer)) : ((Stream)new FileStream(file, FileMode.Open)))
+                    using (Stream stream = (new FileStream(file, FileMode.Open)))
                     {
                         using (BinaryReader reader = new BinaryReader(stream))
                         {
                             if (reader.ReadInt32() >= 0x87)
-                            {
                                 return FileMetadata.Read(reader, FileType.World);
-                            }
+
                             return FileMetadata.FromCurrentSettings(FileType.World);
                         }
                     }

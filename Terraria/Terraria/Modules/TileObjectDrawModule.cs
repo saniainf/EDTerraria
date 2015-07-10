@@ -21,17 +21,17 @@ namespace Terraria.Modules
         {
             if (copyFrom == null)
             {
-                this.yOffset = 0;
-                this.flipHorizontal = false;
-                this.flipVertical = false;
-                this.stepDown = 0;
+                yOffset = 0;
+                flipHorizontal = false;
+                flipVertical = false;
+                stepDown = 0;
             }
             else
             {
-                this.yOffset = copyFrom.yOffset;
-                this.flipHorizontal = copyFrom.flipHorizontal;
-                this.flipVertical = copyFrom.flipVertical;
-                this.stepDown = copyFrom.stepDown;
+                yOffset = copyFrom.yOffset;
+                flipHorizontal = copyFrom.flipHorizontal;
+                flipVertical = copyFrom.flipVertical;
+                stepDown = copyFrom.stepDown;
             }
         }
     }

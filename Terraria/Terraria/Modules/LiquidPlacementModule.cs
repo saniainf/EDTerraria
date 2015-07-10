@@ -21,13 +21,13 @@ namespace Terraria.Modules
         {
             if (copyFrom == null)
             {
-                this.water = LiquidPlacement.Allowed;
-                this.lava = LiquidPlacement.Allowed;
+                water = LiquidPlacement.Allowed;
+                lava = LiquidPlacement.Allowed;
             }
             else
             {
-                this.water = copyFrom.water;
-                this.lava = copyFrom.lava;
+                water = copyFrom.water;
+                lava = copyFrom.lava;
             }
         }
     }

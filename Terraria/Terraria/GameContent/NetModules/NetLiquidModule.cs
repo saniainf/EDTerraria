@@ -23,12 +23,13 @@ namespace Terraria.GameContent.NetModules
             packet.Writer.Write((ushort)changes.Count);
             foreach (int num in changes)
             {
-                int index1 = num >> 16 & (int)ushort.MaxValue;
-                int index2 = num & (int)ushort.MaxValue;
+                int index1 = num >> 16 & 65535;
+                int index2 = num & 65535;
                 packet.Writer.Write(num);
                 packet.Writer.Write(Main.tile[index1, index2].liquid);
                 packet.Writer.Write(Main.tile[index1, index2].liquidType());
             }
+
             return packet;
         }
 
@@ -40,8 +41,8 @@ namespace Terraria.GameContent.NetModules
                 int num2 = reader.ReadInt32();
                 byte num3 = reader.ReadByte();
                 byte num4 = reader.ReadByte();
-                int index2 = num2 >> 16 & (int)ushort.MaxValue;
-                int index3 = num2 & (int)ushort.MaxValue;
+                int index2 = num2 >> 16 & 65535;
+                int index3 = num2 & 65535;
                 Tile tile = Main.tile[index2, index3];
                 if (tile != null)
                 {
@@ -49,6 +50,7 @@ namespace Terraria.GameContent.NetModules
                     tile.liquidType((int)num4);
                 }
             }
+
             return true;
         }
     }

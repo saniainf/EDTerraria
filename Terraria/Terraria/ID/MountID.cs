@@ -17,7 +17,7 @@ namespace Terraria.ID
         public static class Sets
         {
             public static SetFactory Factory = new SetFactory(MountID.Count);
-            public static bool[] Cart = MountID.Sets.Factory.CreateBoolSet(6, 11, 13);
+            public static bool[] Cart = Factory.CreateBoolSet(6, 11, 13);
         }
     }
 }

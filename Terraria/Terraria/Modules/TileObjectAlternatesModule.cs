@@ -20,16 +20,14 @@ namespace Terraria.Modules
         public TileObjectAlternatesModule(TileObjectAlternatesModule copyFrom = null)
         {
             if (copyFrom == null)
-                this.data = (List<TileObjectData>)null;
+                data = null;
             else if (copyFrom.data == null)
-            {
-                this.data = (List<TileObjectData>)null;
-            }
+                data = null;
             else
             {
-                this.data = new List<TileObjectData>(copyFrom.data.Count);
+                data = new List<TileObjectData>(copyFrom.data.Count);
                 for (int index = 0; index < copyFrom.data.Count; ++index)
-                    this.data.Add(new TileObjectData(copyFrom.data[index]));
+                    data.Add(new TileObjectData(copyFrom.data[index]));
             }
         }
     }

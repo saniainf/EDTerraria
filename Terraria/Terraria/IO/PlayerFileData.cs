@@ -27,37 +27,29 @@ namespace Terraria.IO
 
         public Player Player
         {
-            get
-            {
-                return this._player;
-            }
+            get { return _player; }
             set
             {
-                this._player = value;
+                _player = value;
                 if (value == null)
                     return;
-                this.Name = this._player.name;
+
+                Name = _player.name;
             }
         }
 
         public PlayerFileData()
-            : base("Player")
-        {
-        }
+            : base("Player") { }
 
-        public PlayerFileData(string path, bool cloudSave)
-            : base("Player", path, cloudSave)
-        {
-        }
+        public PlayerFileData(string path)
+            : base("Player", path) { }
 
         public static PlayerFileData CreateAndSave(Player player)
         {
             PlayerFileData playerFile = new PlayerFileData();
             playerFile.Metadata = FileMetadata.FromCurrentSettings(FileType.Player);
             playerFile.Player = player;
-            playerFile._isCloudSave = false;
-            playerFile._path = Main.GetPlayerPathFromName(player.name, playerFile.IsCloudSave);
-            (playerFile.IsCloudSave ? Main.CloudFavoritesData : Main.LocalFavoriteData).ClearEntry((FileData)playerFile);
+            playerFile._path = Main.GetPlayerPathFromName(player.name, false);
             Player.SavePlayer(playerFile, true);
             return playerFile;
         }
@@ -65,51 +57,55 @@ namespace Terraria.IO
         public override void SetAsActive()
         {
             Main.ActivePlayerFileData = this;
-            Main.player[Main.myPlayer] = this.Player;
+            Main.player[Main.myPlayer] = Player;
         }
 
         public void UpdatePlayTimer()
         {
-            if (Main.instance.IsActive && !Main.gamePaused && (Main.hasFocus && this._isTimerActive))
-                this.StartPlayTimer();
+            if (Main.instance.IsActive && !Main.gamePaused && (Main.hasFocus && _isTimerActive))
+                StartPlayTimer();
             else
-                this.PausePlayTimer();
+                PausePlayTimer();
         }
 
         public void StartPlayTimer()
         {
-            this._isTimerActive = true;
-            if (this._timer.IsRunning)
+            _isTimerActive = true;
+            if (_timer.IsRunning)
                 return;
-            this._timer.Start();
+
+            _timer.Start();
         }
 
         public void PausePlayTimer()
         {
-            if (!this._timer.IsRunning)
+            if (!_timer.IsRunning)
                 return;
-            this._timer.Stop();
+
+            _timer.Stop();
         }
 
         public TimeSpan GetPlayTime()
         {
-            if (this._timer.IsRunning)
-                return this._playTime + this._timer.Elapsed;
-            return this._playTime;
+            if (_timer.IsRunning)
+                return _playTime + _timer.Elapsed;
+
+            return _playTime;
         }
 
         public void StopPlayTimer()
         {
-            this._isTimerActive = false;
-            if (!this._timer.IsRunning)
+            _isTimerActive = false;
+            if (!_timer.IsRunning)
                 return;
-            this._playTime += this._timer.Elapsed;
-            this._timer.Reset();
+
+            _playTime += _timer.Elapsed;
+            _timer.Reset();
         }
 
         public void SetPlayTime(TimeSpan time)
         {
-            this._playTime = time;
+            _playTime = time;
         }
     }
 }

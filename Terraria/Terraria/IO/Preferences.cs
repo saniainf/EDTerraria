@@ -27,10 +27,11 @@ namespace Terraria.IO
         public bool AutoSave;
         public event Action<Preferences> OnSave;
         public event Action<Preferences> OnLoad;
+
         public Preferences(string path, bool parseAllTypes = false, bool useBson = false)
         {
-            this._path = path;
-            this.UseBson = useBson;
+            _path = path;
+            UseBson = useBson;
             if (parseAllTypes)
             {
                 JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings();
@@ -41,43 +42,39 @@ namespace Terraria.IO
             }
             _serializerSettings = new JsonSerializerSettings();
         }
+
         public bool Load()
         {
             bool result;
-            lock (this._lock)
+            lock (_lock)
             {
-                if (!File.Exists(this._path))
-                {
+                if (!File.Exists(_path))
                     result = false;
-                }
                 else
                 {
                     try
                     {
-                        if (!this.UseBson)
+                        if (!UseBson)
                         {
-                            string text = File.ReadAllText(this._path);
-                            this._data = JsonConvert.DeserializeObject<Dictionary<string, object>>(text, this._serializerSettings);
+                            string text = File.ReadAllText(_path);
+                            this._data = JsonConvert.DeserializeObject<Dictionary<string, object>>(text, _serializerSettings);
                         }
                         else
                         {
-                            using (FileStream fileStream = File.OpenRead(this._path))
+                            using (FileStream fileStream = File.OpenRead(_path))
                             {
                                 using (BsonReader bsonReader = new BsonReader(fileStream))
                                 {
-                                    JsonSerializer jsonSerializer = JsonSerializer.Create(this._serializerSettings);
-                                    this._data = jsonSerializer.Deserialize<Dictionary<string, object>>(bsonReader);
+                                    JsonSerializer jsonSerializer = JsonSerializer.Create(_serializerSettings);
+                                    _data = jsonSerializer.Deserialize<Dictionary<string, object>>(bsonReader);
                                 }
                             }
                         }
-                        if (this._data == null)
-                        {
-                            this._data = new Dictionary<string, object>();
-                        }
-                        if (this.OnLoad != null)
-                        {
-                            this.OnLoad(this);
-                        }
+
+                        if (_data == null)
+                            _data = new Dictionary<string, object>();
+                        if (OnLoad != null)
+                            OnLoad(this);
                         result = true;
                     }
                     catch (Exception)
@@ -88,50 +85,48 @@ namespace Terraria.IO
             }
             return result;
         }
+
         public bool Save(bool createFile = true)
         {
             bool result;
-            lock (this._lock)
+            lock (_lock)
             {
                 try
                 {
-                    if (this.OnSave != null)
-                    {
-                        this.OnSave(this);
-                    }
-                    if (!createFile && !File.Exists(this._path))
+                    if (OnSave != null)
+                        OnSave(this);
+                    if (!createFile && !File.Exists(_path))
                     {
                         result = false;
                         return result;
                     }
-                    Directory.GetParent(this._path).Create();
+
+                    Directory.GetParent(_path).Create();
                     if (!createFile)
+                        File.SetAttributes(_path, FileAttributes.Normal);
+                    if (!UseBson)
                     {
-                        File.SetAttributes(this._path, FileAttributes.Normal);
-                    }
-                    if (!this.UseBson)
-                    {
-                        File.WriteAllText(this._path, JsonConvert.SerializeObject(_data, null, _serializerSettings));
-                        File.SetAttributes(this._path, FileAttributes.Normal);
+                        File.WriteAllText(_path, JsonConvert.SerializeObject(_data, null, _serializerSettings));
+                        File.SetAttributes(_path, FileAttributes.Normal);
                     }
                     else
                     {
-                        using (FileStream fileStream = File.Create(this._path))
+                        using (FileStream fileStream = File.Create(_path))
                         {
                             using (BsonWriter bsonWriter = new BsonWriter(fileStream))
                             {
-                                File.SetAttributes(this._path, FileAttributes.Normal);
-                                JsonSerializer jsonSerializer = JsonSerializer.Create(this._serializerSettings);
-                                jsonSerializer.Serialize(bsonWriter, this._data);
+                                File.SetAttributes(_path, FileAttributes.Normal);
+                                JsonSerializer jsonSerializer = JsonSerializer.Create(_serializerSettings);
+                                jsonSerializer.Serialize(bsonWriter, _data);
                             }
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Unable to write file at: " + this._path);
+                    Console.WriteLine("Unable to write file at: " + _path);
                     Console.WriteLine(ex.ToString());
-                    Monitor.Exit(this._lock);
+                    Monitor.Exit(_lock);
                     result = false;
                     return result;
                 }
@@ -139,40 +134,34 @@ namespace Terraria.IO
             }
             return result;
         }
+
         public void Put(string name, object value)
         {
-            lock (this._lock)
+            lock (_lock)
             {
-                this._data[name] = value;
-                if (this.AutoSave)
-                {
-                    this.Save(true);
-                }
+                _data[name] = value;
+                if (AutoSave)
+                    Save(true);
             }
         }
+
         public T Get<T>(string name, T defaultValue)
         {
             T result;
-            lock (this._lock)
+            lock (_lock)
             {
                 try
                 {
                     object obj;
-                    if (this._data.TryGetValue(name, out obj))
+                    if (_data.TryGetValue(name, out obj))
                     {
                         if (obj is T)
-                        {
-                            result = (T)((object)obj);
-                        }
+                            result = (T)(obj);
                         else
-                        {
-                            result = (T)((object)Convert.ChangeType(obj, typeof(T)));
-                        }
+                            result = (T)(Convert.ChangeType(obj, typeof(T)));
                     }
                     else
-                    {
                         result = defaultValue;
-                    }
                 }
                 catch
                 {
@@ -181,9 +170,10 @@ namespace Terraria.IO
             }
             return result;
         }
+
         public void Get<T>(string name, ref T currentValue)
         {
-            currentValue = this.Get<T>(name, currentValue);
+            currentValue = Get<T>(name, currentValue);
         }
     }
 }

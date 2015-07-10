@@ -21,17 +21,17 @@ namespace Terraria.Modules
         {
             if (copyFrom == null)
             {
-                this.style = 0;
-                this.horizontal = false;
-                this.styleWrapLimit = 0;
-                this.styleMultiplier = 1;
+                style = 0;
+                horizontal = false;
+                styleWrapLimit = 0;
+                styleMultiplier = 1;
             }
             else
             {
-                this.style = copyFrom.style;
-                this.horizontal = copyFrom.horizontal;
-                this.styleWrapLimit = copyFrom.styleWrapLimit;
-                this.styleMultiplier = copyFrom.styleMultiplier;
+                style = copyFrom.style;
+                horizontal = copyFrom.horizontal;
+                styleWrapLimit = copyFrom.styleWrapLimit;
+                styleMultiplier = copyFrom.styleMultiplier;
             }
         }
     }

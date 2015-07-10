@@ -16,13 +16,11 @@ namespace Terraria.GameContent.Shaders
     internal class BloodMoonScreenShaderData : ScreenShaderData
     {
         public BloodMoonScreenShaderData(string passName)
-            : base(passName)
-        {
-        }
+            : base(passName) { }
 
         public override void Apply()
         {
-            this.UseOpacity((1f - Utils.SmoothStep((float)Main.worldSurface + 50f, (float)Main.rockLayer + 100f, (float)(((double)Main.screenPosition.Y + (double)(Main.screenHeight / 2)) / 16.0))) * 0.75f);
+            UseOpacity((1f - Utils.SmoothStep((float)Main.worldSurface + 50f, (float)Main.rockLayer + 100f, (float)((Main.screenPosition.Y + (Main.screenHeight / 2)) / 16.0))) * 0.75f);
             base.Apply();
         }
     }

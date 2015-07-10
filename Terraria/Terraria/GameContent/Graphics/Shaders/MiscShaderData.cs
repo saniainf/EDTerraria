@@ -25,81 +25,81 @@ namespace Terraria.Graphics.Shaders
         private Ref<Texture2D> _uImage;
 
         public MiscShaderData(Effect shader, string passName)
-            : base(shader, passName)
-        {
-        }
+            : base(shader, passName) { }
 
         public virtual void Apply(DrawData? drawData = null)
         {
-            this._shader.Parameters["uColor"].SetValue(this._uColor);
-            this._shader.Parameters["uSaturation"].SetValue(this._uSaturation);
-            this._shader.Parameters["uSecondaryColor"].SetValue(this._uSecondaryColor);
-            this._shader.Parameters["uTime"].SetValue(Main.GlobalTime);
-            this._shader.Parameters["uOpacity"].SetValue(this._uOpacity);
+            _shader.Parameters["uColor"].SetValue(_uColor);
+            _shader.Parameters["uSaturation"].SetValue(_uSaturation);
+            _shader.Parameters["uSecondaryColor"].SetValue(_uSecondaryColor);
+            _shader.Parameters["uTime"].SetValue(Main.GlobalTime);
+            _shader.Parameters["uOpacity"].SetValue(_uOpacity);
             if (drawData.HasValue)
             {
                 DrawData drawData1 = drawData.Value;
-                this._shader.Parameters["uSourceRect"].SetValue(new Vector4((float)drawData1.sourceRect.Value.X, (float)drawData1.sourceRect.Value.Y, (float)drawData1.sourceRect.Value.Width, (float)drawData1.sourceRect.Value.Height));
-                this._shader.Parameters["uWorldPosition"].SetValue(Main.screenPosition + drawData1.position);
-                this._shader.Parameters["uImageSize0"].SetValue(new Vector2((float)drawData1.texture.Width, (float)drawData1.texture.Height));
+                _shader.Parameters["uSourceRect"].SetValue(new Vector4((float)drawData1.sourceRect.Value.X, (float)drawData1.sourceRect.Value.Y,
+                    (float)drawData1.sourceRect.Value.Width, (float)drawData1.sourceRect.Value.Height));
+                _shader.Parameters["uWorldPosition"].SetValue(Main.screenPosition + drawData1.position);
+                _shader.Parameters["uImageSize0"].SetValue(new Vector2((float)drawData1.texture.Width, (float)drawData1.texture.Height));
             }
             else
-                this._shader.Parameters["uSourceRect"].SetValue(new Vector4(0.0f, 0.0f, 4f, 4f));
-            if (this._uImage != null)
+                _shader.Parameters["uSourceRect"].SetValue(new Vector4(0.0f, 0.0f, 4f, 4f));
+
+            if (_uImage != null)
             {
-                Main.graphics.GraphicsDevice.Textures[1] = (Texture)this._uImage.Value;
-                this._shader.Parameters["uImageSize1"].SetValue(new Vector2((float)this._uImage.Value.Width, (float)this._uImage.Value.Height));
+                Main.graphics.GraphicsDevice.Textures[1] = _uImage.Value;
+                _shader.Parameters["uImageSize1"].SetValue(new Vector2((float)_uImage.Value.Width, (float)_uImage.Value.Height));
             }
-            this.Apply();
+            Apply();
         }
 
         public MiscShaderData UseColor(float r, float g, float b)
         {
-            return this.UseColor(new Vector3(r, g, b));
+            return UseColor(new Vector3(r, g, b));
         }
 
         public MiscShaderData UseColor(Color color)
         {
-            return this.UseColor(color.ToVector3());
+            return UseColor(color.ToVector3());
         }
 
         public MiscShaderData UseColor(Vector3 color)
         {
-            this._uColor = color;
+            _uColor = color;
             return this;
         }
 
         public MiscShaderData UseImage(string path)
         {
-            this._uImage = TextureManager.Retrieve(path);
+            _uImage = TextureManager.Retrieve(path);
             return this;
         }
 
         public MiscShaderData UseOpacity(float alpha)
         {
-            this._uOpacity = alpha;
+            _uOpacity = alpha;
             return this;
         }
 
         public MiscShaderData UseSecondaryColor(float r, float g, float b)
         {
-            return this.UseSecondaryColor(new Vector3(r, g, b));
+            return UseSecondaryColor(new Vector3(r, g, b));
         }
 
         public MiscShaderData UseSecondaryColor(Color color)
         {
-            return this.UseSecondaryColor(color.ToVector3());
+            return UseSecondaryColor(color.ToVector3());
         }
 
         public MiscShaderData UseSecondaryColor(Vector3 color)
         {
-            this._uSecondaryColor = color;
+            _uSecondaryColor = color;
             return this;
         }
 
         public MiscShaderData UseSaturation(float saturation)
         {
-            this._uSaturation = saturation;
+            _uSaturation = saturation;
             return this;
         }
 

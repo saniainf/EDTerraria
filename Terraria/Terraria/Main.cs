@@ -123,9 +123,9 @@ namespace Terraria
         public static string versionNumber = "v1.3.0.3";
         public static string versionNumber2 = "v1.3.0.3";
         public static Vector2 destroyerHB = new Vector2(0f, 0f);
-        private static string favSavePath = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "/My Games/Terraria/favorites.json";
-        public static FavoritesFile LocalFavoriteData = new FavoritesFile(favSavePath, false);
-        public static FavoritesFile CloudFavoritesData = new FavoritesFile("/favorites.json", true);
+        private static string favSavePath = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\My Games\\Terraria\\favorites.json";
+        public static FavoritesFile LocalFavoriteData = new FavoritesFile(favSavePath);
+        public static FavoritesFile CloudFavoritesData = new FavoritesFile("/favorites.json");
         public static FileMetadata WorldFileMetadata;
         public static FileMetadata MapFileMetadata;
         private AchievementManager _achievements;
@@ -1239,7 +1239,7 @@ namespace Terraria
         public static Player PendingPlayer = null;
         public static List<WorldFileData> WorldList = new List<WorldFileData>();
         public static WorldFileData ActiveWorldFileData = new WorldFileData();
-        public static string SavePath = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "/My Games/Terraria";
+        public static string SavePath = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\My Games\\Terraria";
         public static string WorldPath = Main.SavePath + Path.DirectorySeparatorChar + "Worlds";
         public static string CloudWorldPath = "worlds";
         public static string PlayerPath = Main.SavePath + Path.DirectorySeparatorChar + "Players";
@@ -2149,7 +2149,7 @@ namespace Terraria
             int num = Math.Min(files.Length, Main.maxLoadWorld);
             for (int i = 0; i < num; i++)
             {
-                WorldFileData allMetadata = WorldFile.GetAllMetadata(files[i], false);
+                WorldFileData allMetadata = WorldFile.GetAllMetadata(files[i]);
                 if (allMetadata != null)
                 {
                     Main.WorldList.Add(allMetadata);
@@ -2739,7 +2739,7 @@ namespace Terraria
                             if (text.Length > 6 && text.Substring(0, 6).ToLower() == "world=")
                             {
                                 string file = text.Substring(6);
-                                Main.ActiveWorldFileData = WorldFile.GetAllMetadata(file, false);
+                                Main.ActiveWorldFileData = WorldFile.GetAllMetadata(file);
                             }
                             if (text.Length > 5 && text.Substring(0, 5).ToLower() == "port=")
                             {
@@ -2914,7 +2914,7 @@ namespace Terraria
         }
         public void SetWorld(string world, bool cloud)
         {
-            Main.ActiveWorldFileData = WorldFile.GetAllMetadata(world, cloud);
+            Main.ActiveWorldFileData = WorldFile.GetAllMetadata(world);
         }
         public void SetWorldName(string world)
         {
@@ -36632,14 +36632,7 @@ namespace Terraria
 							"\" -lang ",
 							Lang.lang
 						});
-                        if (Main.ActiveWorldFileData.IsCloudSave)
-                        {
-                            text = text + " -cloudworld \"" + Main.worldPathName + "\"";
-                        }
-                        else
-                        {
-                            text = text + " -world \"" + Main.worldPathName + "\"";
-                        }
+                        text = text + " -world \"" + Main.worldPathName + "\"";
                         this.tServer.StartInfo.FileName = "TerrariaServer.exe";
                         this.tServer.StartInfo.Arguments = text;
                         if (Main.libPath != "")

@@ -12,7 +12,7 @@ namespace Terraria.ID
 {
     public class AnimationID
     {
-        public const short MushroomStatueTurningOn = (short)0;
-        public const short MushroomStatueTurningOff = (short)1;
+        public const short MushroomStatueTurningOn = 0;
+        public const short MushroomStatueTurningOff = 1;
     }
 }

@@ -32,6 +32,7 @@ namespace Terraria.Graphics.Capture
             {
                 if (Main.CaptureModeDisabled || _interface.Active == value)
                     return;
+
                 _interface.ToggleCamera(value);
             }
         }
@@ -42,6 +43,7 @@ namespace Terraria.Graphics.Capture
             {
                 if (!Active)
                     return false;
+
                 return _interface.UsingMap();
             }
         }

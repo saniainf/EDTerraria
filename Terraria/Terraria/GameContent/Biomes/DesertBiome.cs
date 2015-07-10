@@ -17,7 +17,6 @@ using System.Runtime.InteropServices;
 
 internal class DesertBiome : MicroBiome
 {
-    // Methods
     private void AddTileVariance(ClusterGroup clusters, Point start, Vector2 scale)
     {
         int num = (int) (scale.X * clusters.Width);
@@ -37,6 +36,7 @@ internal class DesertBiome : MicroBiome
                 }
             }
         }
+
         for (int j = -20; j < (num + 20); j++)
         {
             for (int m = -20; m < (num2 + 20); m++)
@@ -55,6 +55,7 @@ internal class DesertBiome : MicroBiome
                             break;
                         }
                     }
+
                     bool flag2 = true;
                     for (int num12 = 1; num12 <= 3; num12++)
                     {
@@ -64,14 +65,11 @@ internal class DesertBiome : MicroBiome
                             break;
                         }
                     }
+
                     if ((flag ^ flag2) && (GenBase._random.Next(5) == 0))
-                    {
                         WorldGen.PlaceTile(num9, num10 + (flag ? -1 : 1), 0xa5, true, true, -1, 0);
-                    }
                     else if (flag && (GenBase._random.Next(5) == 0))
-                    {
                         WorldGen.PlaceTile(num9, num10 - 1, 0xbb, true, true, -1, 0x1d + GenBase._random.Next(6));
-                    }
                 }
             }
         }
@@ -96,14 +94,14 @@ internal class DesertBiome : MicroBiome
                         case 60:
                             return false;
                     }
+
                     if (j > y)
-                    {
                         y = j;
-                    }
                     break;
                 }
             }
         }
+
         WorldGen.UndergroundDesertLocation = new Rectangle(origin.X, y, width, height);
         start = new Point(origin.X, y);
         return true;
@@ -117,9 +115,8 @@ internal class DesertBiome : MicroBiome
         int yHubCount = (int) (((GenBase._random.NextFloat() + 1f) * 80f) * num);
         Vector2 scale = new Vector2(4f, 2f);
         if (!this.FindStart(origin, scale, xHubCount, yHubCount, out point))
-        {
             return false;
-        }
+
         ClusterGroup clusters = new ClusterGroup();
         clusters.Generate(xHubCount, yHubCount);
         this.PlaceSand(clusters, point, scale);
@@ -138,6 +135,7 @@ internal class DesertBiome : MicroBiome
                 }
             }
         }
+
         return true;
     }
 
@@ -165,24 +163,21 @@ internal class DesertBiome : MicroBiome
                     {
                         float num12 = 0f;
                         foreach (Hub hub in cluster)
-                        {
+
                             num12 += 1f / Vector2.DistanceSquared(hub.Position, vector3);
-                        }
+
                         if (num12 > num5)
                         {
                             if (num5 > num7)
-                            {
                                 num7 = num5;
-                            }
                             num5 = num12;
                             num6 = k;
                         }
                         else if (num12 > num7)
-                        {
                             num7 = num12;
-                        }
                     }
                 }
+
                 float num13 = num5 + num7;
                 Tile tile = GenBase._tiles[x, y];
                 bool flag = num10 >= 0.8f;
@@ -262,6 +257,7 @@ internal class DesertBiome : MicroBiome
                 }
             }
         }
+
         float num8 = num5 / ((float) (num + (num3 * 2)));
         int num9 = 0;
         for (int j = -num3; j < (num + num3); j++)
@@ -269,9 +265,8 @@ internal class DesertBiome : MicroBiome
             float num11 = (Math.Abs((float) (((float) (j + num3)) / ((float) (num + (num3 * 2))))) * 2f) - 1f;
             num11 = MathHelper.Clamp(num11, -1f, 1f);
             if ((j % 3) == 0)
-            {
                 num9 = Utils.Clamp<int>(num9 + GenBase._random.Next(-1, 2), -10, 10);
-            }
+
             float num12 = (float) Math.Sqrt((double) (1f - (((num11 * num11) * num11) * num11)));
             int min = (num4 - ((int) (num12 * (num4 - num8)))) + num9;
             int num14 = num4 - ((int) ((num4 - num8) * ((num12 - (0.15f / ((float) Math.Sqrt(Math.Max((double) 0.01, (double) (Math.Abs((float) (8f * num11)) - 0.1)))))) + 0.25f)));
@@ -288,6 +283,7 @@ internal class DesertBiome : MicroBiome
                 }
                 numArray[j + num3] = (short) Utils.Clamp<int>((num15 + min) - 70, min, numArray[j + num3]);
             }
+
             for (int m = num4 - 1; m >= min; m--)
             {
                 int num20 = j + start.X;
@@ -298,20 +294,14 @@ internal class DesertBiome : MicroBiome
                 Tile tile3 = GenBase._tiles[num20, num21 + 2];
                 tile.type = (WorldGen.SolidTile(testTile) && WorldGen.SolidTile(tile3)) ? ((ushort) 0x35) : ((ushort) 0x18d);
                 if (m > (min + 5))
-                {
                     tile.wall = 0xbb;
-                }
                 tile.active(true);
                 if (tile.wall != 0xbb)
-                {
                     tile.wall = 0;
-                }
                 if (m < num14)
                 {
                     if (m > (min + 5))
-                    {
                         tile.wall = 0xbb;
-                    }
                     tile.active(false);
                 }
                 WorldGen.SquareWallFrame(num20, num21, true);
@@ -319,18 +309,15 @@ internal class DesertBiome : MicroBiome
         }
     }
 
-    // Nested Types
-    private class Cluster : List<DesertBiome.Hub>
+    private class Cluster : List<Hub>
     {
     }
 
-    private class ClusterGroup : List<DesertBiome.Cluster>
+    private class ClusterGroup : List<Cluster>
     {
-        // Fields
         public int Height;
         public int Width;
 
-        // Methods
         private void AttemptClaim(int x, int y, int[,] clusterIndexMap, List<List<Point>> pointClusters, int index)
         {
             int num = clusterIndexMap[x, y];
@@ -347,8 +334,8 @@ internal class DesertBiome : MicroBiome
 
         public void Generate(int width, int height)
         {
-            this.Width = width;
-            this.Height = height;
+            Width = width;
+            Height = height;
             base.Clear();
             bool[,] hubMap = new bool[width, height];
             int x = (width >> 1) - 1;
@@ -364,6 +351,7 @@ internal class DesertBiome : MicroBiome
                     hubMap[num7, i] = WorldGen.genRand.Next(2) == 0;
                 }
             }
+
             List<List<Point>> pointClusters = new List<List<Point>>();
             for (int j = 0; j < hubMap.GetLength(0); j++)
             {
@@ -372,14 +360,13 @@ internal class DesertBiome : MicroBiome
                     if (hubMap[j, num9] && (WorldGen.genRand.Next(2) == 0))
                     {
                         List<Point> pointCluster = new List<Point>();
-                        this.SearchForCluster(hubMap, pointCluster, j, num9, 2);
+                        SearchForCluster(hubMap, pointCluster, j, num9, 2);
                         if (pointCluster.Count > 2)
-                        {
                             pointClusters.Add(pointCluster);
-                        }
                     }
                 }
             }
+
             int[,] clusterIndexMap = new int[hubMap.GetLength(0), hubMap.GetLength(1)];
             for (int k = 0; k < clusterIndexMap.GetLength(0); k++)
             {
@@ -388,6 +375,7 @@ internal class DesertBiome : MicroBiome
                     clusterIndexMap[k, num11] = -1;
                 }
             }
+
             for (int m = 0; m < pointClusters.Count; m++)
             {
                 foreach (Point point2 in pointClusters[m])
@@ -395,6 +383,7 @@ internal class DesertBiome : MicroBiome
                     clusterIndexMap[point2.X, point2.Y] = m;
                 }
             }
+
             for (int n = 0; n < pointClusters.Count; n++)
             {
                 List<Point> list3 = pointClusters[n];
@@ -403,57 +392,48 @@ internal class DesertBiome : MicroBiome
                     int num14 = point3.X;
                     int num15 = point3.Y;
                     if (clusterIndexMap[num14, num15] == -1)
-                    {
                         break;
-                    }
+
                     int index = clusterIndexMap[num14, num15];
                     if (num14 > 0)
-                    {
-                        this.AttemptClaim(num14 - 1, num15, clusterIndexMap, pointClusters, index);
-                    }
+                        AttemptClaim(num14 - 1, num15, clusterIndexMap, pointClusters, index);
                     if (num14 < (clusterIndexMap.GetLength(0) - 1))
-                    {
-                        this.AttemptClaim(num14 + 1, num15, clusterIndexMap, pointClusters, index);
-                    }
+                        AttemptClaim(num14 + 1, num15, clusterIndexMap, pointClusters, index);
                     if (num15 > 0)
-                    {
-                        this.AttemptClaim(num14, num15 - 1, clusterIndexMap, pointClusters, index);
-                    }
+                        AttemptClaim(num14, num15 - 1, clusterIndexMap, pointClusters, index);
                     if (num15 < (clusterIndexMap.GetLength(1) - 1))
-                    {
-                        this.AttemptClaim(num14, num15 + 1, clusterIndexMap, pointClusters, index);
-                    }
+                        AttemptClaim(num14, num15 + 1, clusterIndexMap, pointClusters, index);
                 }
             }
+
             foreach (List<Point> list4 in pointClusters)
             {
                 list4.Clear();
             }
+
             for (int num17 = 0; num17 < clusterIndexMap.GetLength(0); num17++)
             {
                 for (int num18 = 0; num18 < clusterIndexMap.GetLength(1); num18++)
                 {
                     if (clusterIndexMap[num17, num18] != -1)
-                    {
                         pointClusters[clusterIndexMap[num17, num18]].Add(new Point(num17, num18));
-                    }
                 }
             }
+
             foreach (List<Point> list5 in pointClusters)
             {
                 if (list5.Count < 4)
-                {
                     list5.Clear();
-                }
             }
+
             foreach (List<Point> list6 in pointClusters)
             {
-                DesertBiome.Cluster item = new DesertBiome.Cluster();
+                Cluster item = new Cluster();
                 if (list6.Count > 0)
                 {
                     foreach (Point point4 in list6)
                     {
-                        item.Add(new DesertBiome.Hub(point4.X + ((WorldGen.genRand.NextFloat() - 0.5f) * 0.5f), point4.Y + ((WorldGen.genRand.NextFloat() - 0.5f) * 0.5f)));
+                        item.Add(new Hub(point4.X + ((WorldGen.genRand.NextFloat() - 0.5f) * 0.5f), point4.Y + ((WorldGen.genRand.NextFloat() - 0.5f) * 0.5f)));
                     }
                     base.Add(item);
                 }
@@ -468,21 +448,13 @@ internal class DesertBiome : MicroBiome
             if (level != -1)
             {
                 if ((x > 0) && hubMap[x - 1, y])
-                {
-                    this.SearchForCluster(hubMap, pointCluster, x - 1, y, level);
-                }
+                    SearchForCluster(hubMap, pointCluster, x - 1, y, level);
                 if ((x < (hubMap.GetLength(0) - 1)) && hubMap[x + 1, y])
-                {
-                    this.SearchForCluster(hubMap, pointCluster, x + 1, y, level);
-                }
+                    SearchForCluster(hubMap, pointCluster, x + 1, y, level);
                 if ((y > 0) && hubMap[x, y - 1])
-                {
-                    this.SearchForCluster(hubMap, pointCluster, x, y - 1, level);
-                }
+                    SearchForCluster(hubMap, pointCluster, x, y - 1, level);
                 if ((y < (hubMap.GetLength(1) - 1)) && hubMap[x, y + 1])
-                {
-                    this.SearchForCluster(hubMap, pointCluster, x, y + 1, level);
-                }
+                    SearchForCluster(hubMap, pointCluster, x, y + 1, level);
             }
         }
     }
@@ -493,12 +465,12 @@ internal class DesertBiome : MicroBiome
         public Vector2 Position;
         public Hub(Vector2 position)
         {
-            this.Position = position;
+            Position = position;
         }
 
         public Hub(float x, float y)
         {
-            this.Position = new Vector2(x, y);
+            Position = new Vector2(x, y);
         }
     }
 }

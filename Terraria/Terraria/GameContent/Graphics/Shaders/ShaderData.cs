@@ -20,24 +20,26 @@ namespace Terraria.Graphics.Shaders
 
         public ShaderData(Effect shader, string passName)
         {
-            this._passName = passName;
-            this._shader = shader;
+            _passName = passName;
+            _shader = shader;
             if (shader == null || passName == null)
                 return;
-            this._effectPass = shader.CurrentTechnique.Passes[passName];
+
+            _effectPass = shader.CurrentTechnique.Passes[passName];
         }
 
         public void SwapProgram(string passName)
         {
-            this._passName = passName;
+            _passName = passName;
             if (passName == null)
                 return;
-            this._effectPass = this._shader.CurrentTechnique.Passes[passName];
+
+            _effectPass = _shader.CurrentTechnique.Passes[passName];
         }
 
         public virtual void Apply()
         {
-            this._effectPass.Apply();
+            _effectPass.Apply();
         }
     }
 }

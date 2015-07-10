@@ -49468,7 +49468,7 @@ namespace Terraria
             Main.PlaySound(10, -1, -1, 1);
             clearWorld();
             generateWorld(-1, threadContext as GenerationProgress);
-            WorldFile.saveWorld(Main.ActiveWorldFileData.IsCloudSave, true);
+            WorldFile.saveWorld(false, true);
             if ((Main.menuMode == 10) || (Main.menuMode == 0x378))
             {
                 Main.menuMode = 6;

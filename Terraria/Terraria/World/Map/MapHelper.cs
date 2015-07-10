@@ -1792,7 +1792,6 @@ namespace Terraria.Map
         }
         public static void SaveMap()
         {
-            bool isCloudSave = Main.ActivePlayerFileData.IsCloudSave;
             if (!Main.mapEnabled || MapHelper.saveLock)
             {
                 return;
@@ -1805,10 +1804,7 @@ namespace Terraria.Map
                     MapHelper.saveLock = true;
                     try
                     {
-                        if (!isCloudSave)
-                        {
-                            Directory.CreateDirectory(text);
-                        }
+                        Directory.CreateDirectory(text);
                     }
                     catch
                     {

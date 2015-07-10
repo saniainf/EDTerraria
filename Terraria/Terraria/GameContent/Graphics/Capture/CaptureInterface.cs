@@ -22,7 +22,7 @@ namespace Terraria.Graphics.Capture
 {
     internal class CaptureInterface
     {
-        private static Dictionary<int, CaptureInterface.CaptureInterfaceMode> Modes = CaptureInterface.FillModes();
+        private static Dictionary<int, CaptureInterfaceMode> Modes = FillModes();
         public static bool JustActivated = false;
         public static bool EdgeAPinned = false;
         public static bool EdgeBPinned = false;
@@ -40,93 +40,90 @@ namespace Terraria.Graphics.Capture
         public int HoveredMode;
         private static CaptureSettings CameraSettings;
 
-        private static Dictionary<int, CaptureInterface.CaptureInterfaceMode> FillModes()
+        private static Dictionary<int, CaptureInterfaceMode> FillModes()
         {
-            return new Dictionary<int, CaptureInterface.CaptureInterfaceMode>()
-      {
-        {
-          0,
-          (CaptureInterface.CaptureInterfaceMode) new CaptureInterface.ModeEdgeSelection()
-        },
-        {
-          1,
-          (CaptureInterface.CaptureInterfaceMode) new CaptureInterface.ModeDragBounds()
-        },
-        {
-          2,
-          (CaptureInterface.CaptureInterfaceMode) new CaptureInterface.ModeChangeSettings()
-        }
-      };
+            return new Dictionary<int, CaptureInterfaceMode>()
+            {
+                { 0, new ModeEdgeSelection() },
+                { 1, new ModeDragBounds() },
+                { 2, new ModeChangeSettings() }
+            };
         }
 
         public static Rectangle GetArea()
         {
-            return new Rectangle(Math.Min(CaptureInterface.EdgeA.X, CaptureInterface.EdgeB.X), Math.Min(CaptureInterface.EdgeA.Y, CaptureInterface.EdgeB.Y), Math.Abs(CaptureInterface.EdgeA.X - CaptureInterface.EdgeB.X) + 1, Math.Abs(CaptureInterface.EdgeA.Y - CaptureInterface.EdgeB.Y) + 1);
+            return new Rectangle(Math.Min(EdgeA.X, EdgeB.X), Math.Min(EdgeA.Y, EdgeB.Y), Math.Abs(EdgeA.X - EdgeB.X) + 1, Math.Abs(EdgeA.Y - EdgeB.Y) + 1);
         }
 
         public void Update()
         {
-            this.UpdateCamera();
-            if (CaptureInterface.CameraLock)
+            UpdateCamera();
+            if (CameraLock)
                 return;
+
             bool flag = Main.keyState.IsKeyDown(Keys.F1);
-            if (flag && !this.KeyToggleActiveHeld && (Main.mouseItem.type == 0 || this.Active) && !Main.CaptureModeDisabled)
-                this.ToggleCamera(!this.Active);
-            this.KeyToggleActiveHeld = flag;
-            if (!this.Active)
+            if (flag && !KeyToggleActiveHeld && (Main.mouseItem.type == 0 || Active) && !Main.CaptureModeDisabled)
+                ToggleCamera(!Active);
+            KeyToggleActiveHeld = flag;
+            if (!Active)
                 return;
+
             Main.blockMouse = true;
-            if (CaptureInterface.JustActivated && Main.mouseLeftRelease && !Main.mouseLeft)
-                CaptureInterface.JustActivated = false;
-            if (this.UpdateButtons(new Vector2((float)Main.mouseX, (float)Main.mouseY)) && Main.mouseLeft)
+            if (JustActivated && Main.mouseLeftRelease && !Main.mouseLeft)
+                JustActivated = false;
+            if (UpdateButtons(new Vector2((float)Main.mouseX, (float)Main.mouseY)) && Main.mouseLeft)
                 return;
-            foreach (KeyValuePair<int, CaptureInterface.CaptureInterfaceMode> keyValuePair in CaptureInterface.Modes)
+
+            foreach (KeyValuePair<int, CaptureInterfaceMode> keyValuePair in Modes)
             {
-                keyValuePair.Value.Selected = keyValuePair.Key == this.SelectedMode;
+                keyValuePair.Value.Selected = keyValuePair.Key == SelectedMode;
                 keyValuePair.Value.Update();
             }
         }
 
         public void Draw(SpriteBatch sb)
         {
-            if (!this.Active)
+            if (!Active)
                 return;
-            foreach (CaptureInterface.CaptureInterfaceMode captureInterfaceMode in CaptureInterface.Modes.Values)
+
+            foreach (CaptureInterfaceMode captureInterfaceMode in Modes.Values)
                 captureInterfaceMode.Draw(sb);
             Main.mouseText = false;
             Main.instance.GUIBarsDraw();
-            this.DrawButtons(sb);
+            DrawButtons(sb);
             Main.instance.DrawMouseOver();
             Utils.DrawBorderStringBig(sb, Lang.inter[81], new Vector2((float)Main.screenWidth * 0.5f, 100f), Color.White, 1f, 0.5f, 0.5f, -1);
             Utils.DrawCursorSingle(sb, Main.cursorColor, float.NaN, Main.cursorScale, new Vector2(), 0, 0);
-            this.DrawCameraLock(sb);
+            DrawCameraLock(sb);
         }
 
         public void ToggleCamera(bool On = true)
         {
-            if (CaptureInterface.CameraLock)
+            if (CameraLock)
                 return;
-            bool flag = this.Active;
-            this.Active = CaptureInterface.Modes.ContainsKey(this.SelectedMode) && On;
-            if (flag != this.Active)
+
+            bool flag = Active;
+            Active = Modes.ContainsKey(SelectedMode) && On;
+            if (flag != Active)
                 Main.PlaySound(12, -1, -1, 1);
-            foreach (KeyValuePair<int, CaptureInterface.CaptureInterfaceMode> keyValuePair in CaptureInterface.Modes)
-                keyValuePair.Value.ToggleActive(this.Active && keyValuePair.Key == this.SelectedMode);
+            foreach (KeyValuePair<int, CaptureInterfaceMode> keyValuePair in Modes)
+                keyValuePair.Value.ToggleActive(Active && keyValuePair.Key == SelectedMode);
+
             if (!On || flag)
                 return;
-            CaptureInterface.JustActivated = true;
+            JustActivated = true;
         }
 
         private bool UpdateButtons(Vector2 mouse)
         {
-            this.HoveredMode = -1;
+            HoveredMode = -1;
             bool flag1 = !Main.graphics.IsFullScreen;
             int num1 = 9;
             for (int index = 0; index < num1; ++index)
             {
                 if (new Rectangle(24 + 46 * index, 24, 42, 42).Contains(Utils.ToPoint(mouse)))
                 {
-                    this.HoveredMode = index;
+                    HoveredMode = index;
                     bool flag2 = Main.mouseLeft && Main.mouseLeftRelease;
                     int num2 = 0;
                     int num3 = index;
@@ -139,49 +136,53 @@ namespace Terraria.Graphics.Capture
                         Point point1 = Utils.ToTileCoordinates(Main.screenPosition);
                         Point point2 = Utils.ToTileCoordinates(Main.screenPosition + new Vector2((float)Main.screenWidth, (float)Main.screenHeight));
                         settings.Area = new Rectangle(point1.X, point1.Y, point2.X - point1.X + 1, point2.Y - point1.Y + 1);
-                        settings.Biome = CaptureBiome.Biomes[CaptureInterface.Settings.BiomeChoice];
-                        settings.CaptureBackground = !CaptureInterface.Settings.TransparentBackground;
-                        settings.CaptureEntities = CaptureInterface.Settings.IncludeEntities;
-                        settings.UseScaling = CaptureInterface.Settings.PackImage;
-                        CaptureInterface.StartCamera(settings);
+                        settings.Biome = CaptureBiome.Biomes[Settings.BiomeChoice];
+                        settings.CaptureBackground = !Settings.TransparentBackground;
+                        settings.CaptureEntities = Settings.IncludeEntities;
+                        settings.UseScaling = Settings.PackImage;
+                        StartCamera(settings);
                     }
+
                     int num7 = index;
                     int num8 = num6;
                     int num9 = 1;
                     int num10 = num8 + num9;
-                    if (num7 == num8 && flag2 && (CaptureInterface.EdgeAPinned && CaptureInterface.EdgeBPinned))
-                        CaptureInterface.StartCamera(new CaptureSettings()
+                    if (num7 == num8 && flag2 && (EdgeAPinned && EdgeBPinned))
+                        StartCamera(new CaptureSettings()
                         {
-                            Area = CaptureInterface.GetArea(),
-                            Biome = CaptureBiome.Biomes[CaptureInterface.Settings.BiomeChoice],
-                            CaptureBackground = !CaptureInterface.Settings.TransparentBackground,
-                            CaptureEntities = CaptureInterface.Settings.IncludeEntities,
-                            UseScaling = CaptureInterface.Settings.PackImage
+                            Area = GetArea(),
+                            Biome = CaptureBiome.Biomes[Settings.BiomeChoice],
+                            CaptureBackground = !Settings.TransparentBackground,
+                            CaptureEntities = Settings.IncludeEntities,
+                            UseScaling = Settings.PackImage
                         });
+
                     int num11 = index;
                     int num12 = num10;
                     int num13 = 1;
                     int num14 = num12 + num13;
-                    if (num11 == num12 && flag2 && this.SelectedMode != 0)
+                    if (num11 == num12 && flag2 && SelectedMode != 0)
                     {
-                        this.SelectedMode = 0;
-                        this.ToggleCamera(true);
+                        SelectedMode = 0;
+                        ToggleCamera(true);
                     }
+
                     int num15 = index;
                     int num16 = num14;
                     int num17 = 1;
                     int num18 = num16 + num17;
-                    if (num15 == num16 && flag2 && this.SelectedMode != 1)
+                    if (num15 == num16 && flag2 && SelectedMode != 1)
                     {
-                        this.SelectedMode = 1;
-                        this.ToggleCamera(true);
+                        SelectedMode = 1;
+                        ToggleCamera(true);
                     }
+
                     int num19 = index;
                     int num20 = num18;
                     int num21 = 1;
                     int num22 = num20 + num21;
                     if (num19 == num20 && flag2)
-                        CaptureInterface.ResetFocus();
+                        ResetFocus();
                     int num23 = index;
                     int num24 = num22;
                     int num25 = 1;
@@ -192,30 +193,26 @@ namespace Terraria.Graphics.Capture
                     int num28 = num26;
                     int num29 = 1;
                     int num30 = num28 + num29;
-                    if (num27 == num28 && flag2 && this.SelectedMode != 2)
+                    if (num27 == num28 && flag2 && SelectedMode != 2)
                     {
-                        this.SelectedMode = 2;
-                        this.ToggleCamera(true);
+                        SelectedMode = 2;
+                        ToggleCamera(true);
                     }
+
                     int num31 = index;
                     int num32 = num30;
                     int num33 = 1;
                     int num34 = num32 + num33;
                     if (num31 == num32 && flag2 && flag1)
-                        Process.Start(string.Concat(new object[4]
-            {
-              (object) Main.SavePath,
-              (object) Path.DirectorySeparatorChar,
-              (object) "Captures",
-              (object) Path.DirectorySeparatorChar
-            }));
+                        Process.Start(string.Concat(new object[4] { Main.SavePath, Path.DirectorySeparatorChar, "Captures", Path.DirectorySeparatorChar }));
+
                     int num35 = index;
                     int num36 = num34;
                     int num37 = 1;
                     int num38 = num36 + num37;
                     if (num35 == num36 && flag2)
                     {
-                        this.ToggleCamera(false);
+                        ToggleCamera(false);
                         Main.blockMouse = true;
                         Main.mouseLeftRelease = false;
                     }
@@ -235,11 +232,11 @@ namespace Terraria.Graphics.Capture
                 float scale = 0.8f;
                 Vector2 position = new Vector2((float)(24 + 46 * index), 24f);
                 Color color = Main.inventoryBack * 0.8f;
-                if (this.SelectedMode == 0 && index == 2)
+                if (SelectedMode == 0 && index == 2)
                     texture2D = Main.inventoryBack14Texture;
-                else if (this.SelectedMode == 1 && index == 3)
+                else if (SelectedMode == 1 && index == 3)
                     texture2D = Main.inventoryBack14Texture;
-                else if (this.SelectedMode == 2 && index == 6)
+                else if (SelectedMode == 2 && index == 6)
                     texture2D = Main.inventoryBack14Texture;
                 else if (index >= 2 && index <= 3)
                     texture2D = Main.inventoryBack2Texture;
@@ -270,12 +267,13 @@ namespace Terraria.Graphics.Capture
                         texture2D = Main.cameraTexture[5];
                         break;
                 }
+
                 sb.Draw(texture2D, position + new Vector2(26f) * scale, new Rectangle?(), Color.White, 0.0f, Utils.Size(texture2D) / 2f, 1f, SpriteEffects.None, 0.0f);
                 bool flag = false;
                 switch (index)
                 {
                     case 1:
-                        if (!CaptureInterface.EdgeAPinned || !CaptureInterface.EdgeBPinned)
+                        if (!EdgeAPinned || !EdgeBPinned)
                         {
                             flag = true;
                             break;
@@ -299,14 +297,15 @@ namespace Terraria.Graphics.Capture
                 if (flag)
                     sb.Draw(Main.cdTexture, position + new Vector2(26f) * scale, new Rectangle?(), Color.White * 0.65f, 0.0f, Utils.Size(Main.cdTexture) / 2f, 1f, SpriteEffects.None, 0.0f);
             }
+
             string cursorText = "";
-            switch (this.HoveredMode)
+            switch (HoveredMode)
             {
                 case -1:
-                    switch (this.HoveredMode)
+                    switch (HoveredMode)
                     {
                         case 1:
-                            if (!CaptureInterface.EdgeAPinned || !CaptureInterface.EdgeBPinned)
+                            if (!EdgeAPinned || !EdgeBPinned)
                             {
                                 cursorText = cursorText + "\n" + Lang.inter[112];
                                 break;
@@ -327,9 +326,10 @@ namespace Terraria.Graphics.Capture
                             }
                             break;
                     }
+
                     if (!(cursorText != ""))
                         break;
-                    Main.instance.MouseText(cursorText, 0, (byte)0);
+                    Main.instance.MouseText(cursorText, 0, 0);
                     break;
                 case 0:
                     cursorText = Lang.inter[111];
@@ -380,20 +380,21 @@ namespace Terraria.Graphics.Capture
             float num8 = (float)(Main.maxTilesX - 10);
             float num9 = (float)(Main.maxTilesY - 10);
             num3 = Main.mapFullscreenScale;
-            float num10 = (float)((double)Main.screenWidth / (double)Main.maxTilesX * 0.800000011920929);
-            if ((double)Main.mapFullscreenScale < (double)num10)
+            float num10 = (float)(Main.screenWidth / Main.maxTilesX * 0.800000011920929);
+            if (Main.mapFullscreenScale < num10)
                 Main.mapFullscreenScale = num10;
-            if ((double)Main.mapFullscreenScale > 16.0)
+            if (Main.mapFullscreenScale > 16.0)
                 Main.mapFullscreenScale = 16f;
             float num11 = Main.mapFullscreenScale;
-            if ((double)Main.mapFullscreenPos.X < (double)num6)
+            if (Main.mapFullscreenPos.X < num6)
                 Main.mapFullscreenPos.X = num6;
-            if ((double)Main.mapFullscreenPos.X > (double)num8)
+            if (Main.mapFullscreenPos.X > num8)
                 Main.mapFullscreenPos.X = num8;
-            if ((double)Main.mapFullscreenPos.Y < (double)num7)
+            if (Main.mapFullscreenPos.Y < num7)
                 Main.mapFullscreenPos.Y = num7;
-            if ((double)Main.mapFullscreenPos.Y > (double)num9)
+            if (Main.mapFullscreenPos.Y > num9)
                 Main.mapFullscreenPos.Y = num9;
+
             float num12 = Main.mapFullscreenPos.X;
             float num13 = Main.mapFullscreenPos.Y;
             float num14 = num12 * num11;
@@ -418,7 +419,7 @@ namespace Terraria.Graphics.Capture
                 num24 = y1 - 5f * num27;
                 num25 = (num21 - 8.045f) * num27;
                 float num28 = (num22 + 0.12f) * num27;
-                if ((double)num27 < 1.2)
+                if (num27 < 1.2)
                     num26 = num28 + 1f;
             }
             else if (Main.maxTilesX == 6400)
@@ -428,7 +429,7 @@ namespace Terraria.Graphics.Capture
                 num24 = y1 - 3.85f * num27;
                 num25 = (num21 - 13.6f) * num27;
                 float num28 = (num22 - 6.92f) * num27;
-                if ((double)num27 < 1.2)
+                if (num27 < 1.2)
                     num26 = num28 + 2f;
             }
             else if (Main.maxTilesX == 6300)
@@ -438,7 +439,7 @@ namespace Terraria.Graphics.Capture
                 num24 = y1 - 4.08f * num27;
                 num25 = (num21 - 26.69f) * num27;
                 float num28 = (num22 - 6.92f) * num27;
-                if ((double)num27 < 1.2)
+                if (num27 < 1.2)
                     num26 = num28 + 2f;
             }
             else if (Main.maxTilesX == 4200)
@@ -449,27 +450,31 @@ namespace Terraria.Graphics.Capture
                 num25 = (num21 - 16f) * num27;
                 num26 = (num22 - 8.31f) * num27;
             }
+
             if (Goal == 0)
             {
-                int x2 = (int)((-(double)x1 + (double)PinX) / (double)num11 + (double)num6);
-                int y2 = (int)((-(double)y1 + (double)PinY) / (double)num11 + (double)num7);
+                int x2 = (int)((-x1 + PinX) / num11 + num6);
+                int y2 = (int)((-y1 + PinY) / num11 + num7);
                 bool flag = false;
-                if ((double)x2 < (double)num6)
+                if ((double)x2 < num6)
                     flag = true;
-                if ((double)x2 >= (double)num8)
+                if ((double)x2 >= num8)
                     flag = true;
-                if ((double)y2 < (double)num7)
+                if ((double)y2 < num7)
                     flag = true;
-                if ((double)y2 >= (double)num9)
+                if ((double)y2 >= num9)
                     flag = true;
+
                 if (!flag)
                 {
                     result = new Point(x2, y2);
                     return true;
                 }
+
                 result = new Point(-1, -1);
                 return false;
             }
+
             if (Goal == 1)
             {
                 Vector2 vector2_1 = new Vector2(x1, y1);
@@ -477,6 +482,7 @@ namespace Terraria.Graphics.Capture
                 result = Utils.ToPoint(vector2_1 + vector2_2);
                 return true;
             }
+
             result = new Point(-1, -1);
             return false;
         }
@@ -484,11 +490,12 @@ namespace Terraria.Graphics.Capture
         private static void ConstraintPoints()
         {
             int fluff = Lighting.offScreenTiles;
-            if (CaptureInterface.EdgeAPinned)
-                CaptureInterface.PointWorldClamp(ref CaptureInterface.EdgeA, fluff);
-            if (!CaptureInterface.EdgeBPinned)
+            if (EdgeAPinned)
+                PointWorldClamp(ref EdgeA, fluff);
+            if (!EdgeBPinned)
                 return;
-            CaptureInterface.PointWorldClamp(ref CaptureInterface.EdgeB, fluff);
+
+            PointWorldClamp(ref EdgeB, fluff);
         }
 
         private static void PointWorldClamp(ref Point point, int fluff)
@@ -506,17 +513,18 @@ namespace Terraria.Graphics.Capture
 
         public bool UsingMap()
         {
-            if (CaptureInterface.CameraLock)
+            if (CameraLock)
                 return true;
-            return CaptureInterface.Modes[this.SelectedMode].UsingMap();
+
+            return Modes[SelectedMode].UsingMap();
         }
 
         public static void ResetFocus()
         {
-            CaptureInterface.EdgeAPinned = false;
-            CaptureInterface.EdgeBPinned = false;
-            CaptureInterface.EdgeA = new Point(-1, -1);
-            CaptureInterface.EdgeB = new Point(-1, -1);
+            EdgeAPinned = false;
+            EdgeBPinned = false;
+            EdgeA = new Point(-1, -1);
+            EdgeB = new Point(-1, -1);
         }
 
         public void Scrolling()
@@ -524,68 +532,75 @@ namespace Terraria.Graphics.Capture
             int num1 = (Main.mouseState.ScrollWheelValue - Main.oldMouseWheel) / 120 % 30;
             if (num1 < 0)
                 num1 += 30;
-            int num2 = this.SelectedMode;
-            this.SelectedMode -= num1;
-            while (this.SelectedMode < 0)
-                this.SelectedMode += 2;
-            while (this.SelectedMode > 2)
-                this.SelectedMode -= 2;
-            if (this.SelectedMode == num2)
+
+            int num2 = SelectedMode;
+            SelectedMode -= num1;
+            while (SelectedMode < 0)
+                SelectedMode += 2;
+            while (SelectedMode > 2)
+                SelectedMode -= 2;
+            if (SelectedMode == num2)
                 return;
+
             Main.PlaySound(12, -1, -1, 1);
         }
 
         private void UpdateCamera()
         {
-            if (CaptureInterface.CameraLock && (double)CaptureInterface.CameraFrame == 4.0)
-                CaptureManager.Instance.Capture(CaptureInterface.CameraSettings);
-            CaptureInterface.CameraFrame += (float)Utils.ToDirectionInt(CaptureInterface.CameraLock);
-            if ((double)CaptureInterface.CameraFrame < 0.0)
-                CaptureInterface.CameraFrame = 0.0f;
-            if ((double)CaptureInterface.CameraFrame > 5.0)
-                CaptureInterface.CameraFrame = 5f;
-            if ((double)CaptureInterface.CameraFrame == 5.0)
-                ++CaptureInterface.CameraWaiting;
-            if ((double)CaptureInterface.CameraWaiting <= 60.0)
+            if (CameraLock && CameraFrame == 4.0)
+                CaptureManager.Instance.Capture(CameraSettings);
+            CameraFrame += (float)Utils.ToDirectionInt(CameraLock);
+            if (CameraFrame < 0.0)
+                CameraFrame = 0.0f;
+            if (CameraFrame > 5.0)
+                CameraFrame = 5f;
+            if (CameraFrame == 5.0)
+                ++CameraWaiting;
+            if (CameraWaiting <= 60.0)
                 return;
-            CaptureInterface.CameraWaiting = 60f;
+
+            CameraWaiting = 60f;
         }
 
         private void DrawCameraLock(SpriteBatch sb)
         {
-            if ((double)CaptureInterface.CameraFrame == 0.0)
+            if (CameraFrame == 0.0)
                 return;
-            sb.Draw(Main.magicPixel, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), new Rectangle?(new Rectangle(0, 0, 1, 1)), Color.Black * (CaptureInterface.CameraFrame / 5f));
-            if ((double)CaptureInterface.CameraFrame != 5.0)
+            sb.Draw(Main.magicPixel, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), new Rectangle?(new Rectangle(0, 0, 1, 1)), Color.Black * (CameraFrame / 5f));
+            if (CameraFrame != 5.0)
                 return;
-            float num1 = (float)((double)CaptureInterface.CameraWaiting - 60.0 + 5.0);
-            if ((double)num1 <= 0.0)
+            float num1 = (float)(CameraWaiting - 60.0 + 5.0);
+            if (num1 <= 0.0)
                 return;
+
             float num2 = num1 / 5f;
             float num3 = CaptureManager.Instance.GetProgress() * 100f;
-            if ((double)num3 > 100.0)
+            if (num3 > 100.0)
                 num3 = 100f;
+
             string text1 = num3.ToString("##") + " ";
             string text2 = "/ 100%";
             Vector2 vector2_1 = Main.fontDeathText.MeasureString(text1);
             Vector2 vector2_2 = Main.fontDeathText.MeasureString(text2);
-            Vector2 vector2_3 = new Vector2(-vector2_1.X, (float)(-(double)vector2_1.Y / 2.0));
-            Vector2 vector2_4 = new Vector2(0.0f, (float)(-(double)vector2_2.Y / 2.0));
-            ChatManager.DrawColorCodedStringWithShadow(sb, Main.fontDeathText, text1, new Vector2((float)Main.screenWidth, (float)Main.screenHeight) / 2f + vector2_3, Color.White * num2, 0.0f, Vector2.Zero, Vector2.One, -1f, 2f);
-            ChatManager.DrawColorCodedStringWithShadow(sb, Main.fontDeathText, text2, new Vector2((float)Main.screenWidth, (float)Main.screenHeight) / 2f + vector2_4, Color.White * num2, 0.0f, Vector2.Zero, Vector2.One, -1f, 2f);
+            Vector2 vector2_3 = new Vector2(-vector2_1.X, (float)(-vector2_1.Y / 2.0));
+            Vector2 vector2_4 = new Vector2(0.0f, (float)(-vector2_2.Y / 2.0));
+            ChatManager.DrawColorCodedStringWithShadow(sb, Main.fontDeathText, text1, new Vector2((float)Main.screenWidth,
+                (float)Main.screenHeight) / 2f + vector2_3, Color.White * num2, 0.0f, Vector2.Zero, Vector2.One, -1f, 2f);
+            ChatManager.DrawColorCodedStringWithShadow(sb, Main.fontDeathText, text2, new Vector2((float)Main.screenWidth,
+                (float)Main.screenHeight) / 2f + vector2_4, Color.White * num2, 0.0f, Vector2.Zero, Vector2.One, -1f, 2f);
         }
 
         public static void StartCamera(CaptureSettings settings)
         {
             Main.PlaySound(40, -1, -1, 1);
-            CaptureInterface.CameraSettings = settings;
-            CaptureInterface.CameraLock = true;
-            CaptureInterface.CameraWaiting = 0.0f;
+            CameraSettings = settings;
+            CameraLock = true;
+            CameraWaiting = 0.0f;
         }
 
         public static void EndCamera()
         {
-            CaptureInterface.CameraLock = false;
+            CameraLock = false;
         }
 
         public static class Settings
@@ -611,26 +626,25 @@ namespace Terraria.Graphics.Capture
             public abstract bool UsingMap();
         }
 
-        private class ModeEdgeSelection : CaptureInterface.CaptureInterfaceMode
+        private class ModeEdgeSelection : CaptureInterfaceMode
         {
             public override void Update()
             {
-                if (!this.Selected)
+                if (!Selected)
                     return;
-                this.EdgePlacement(new Vector2((float)Main.mouseX, (float)Main.mouseY));
+                EdgePlacement(new Vector2((float)Main.mouseX, (float)Main.mouseY));
             }
 
             public override void Draw(SpriteBatch sb)
             {
-                if (!this.Selected)
+                if (!Selected)
                     return;
-                this.DrawMarkedArea(sb);
-                this.DrawCursors(sb);
+
+                DrawMarkedArea(sb);
+                DrawCursors(sb);
             }
 
-            public override void ToggleActive(bool tickedOn)
-            {
-            }
+            public override void ToggleActive(bool tickedOn) { }
 
             public override bool UsingMap()
             {
@@ -639,49 +653,52 @@ namespace Terraria.Graphics.Capture
 
             private void EdgePlacement(Vector2 mouse)
             {
-                if (CaptureInterface.JustActivated)
+                if (JustActivated)
                     return;
+
                 if (!Main.mapFullscreen)
                 {
                     if (Main.mouseLeft)
                     {
-                        CaptureInterface.EdgeAPinned = true;
-                        CaptureInterface.EdgeA = Utils.ToTileCoordinates(Main.MouseWorld);
+                        EdgeAPinned = true;
+                        EdgeA = Utils.ToTileCoordinates(Main.MouseWorld);
                     }
+
                     if (Main.mouseRight)
                     {
-                        CaptureInterface.EdgeBPinned = true;
-                        CaptureInterface.EdgeB = Utils.ToTileCoordinates(Main.MouseWorld);
+                        EdgeBPinned = true;
+                        EdgeB = Utils.ToTileCoordinates(Main.MouseWorld);
                     }
                 }
                 else
                 {
                     Point result;
-                    if (CaptureInterface.GetMapCoords((int)mouse.X, (int)mouse.Y, 0, out result))
+                    if (GetMapCoords((int)mouse.X, (int)mouse.Y, 0, out result))
                     {
                         if (Main.mouseLeft)
                         {
-                            CaptureInterface.EdgeAPinned = true;
-                            CaptureInterface.EdgeA = result;
+                            EdgeAPinned = true;
+                            EdgeA = result;
                         }
                         if (Main.mouseRight)
                         {
-                            CaptureInterface.EdgeBPinned = true;
-                            CaptureInterface.EdgeB = result;
+                            EdgeBPinned = true;
+                            EdgeB = result;
                         }
                     }
                 }
-                CaptureInterface.ConstraintPoints();
+                ConstraintPoints();
             }
 
             private void DrawMarkedArea(SpriteBatch sb)
             {
-                if (!CaptureInterface.EdgeAPinned || !CaptureInterface.EdgeBPinned)
+                if (!EdgeAPinned || !EdgeBPinned)
                     return;
-                int PinX = Math.Min(CaptureInterface.EdgeA.X, CaptureInterface.EdgeB.X);
-                int PinY = Math.Min(CaptureInterface.EdgeA.Y, CaptureInterface.EdgeB.Y);
-                int num1 = Math.Abs(CaptureInterface.EdgeA.X - CaptureInterface.EdgeB.X);
-                int num2 = Math.Abs(CaptureInterface.EdgeA.Y - CaptureInterface.EdgeB.Y);
+
+                int PinX = Math.Min(EdgeA.X, EdgeB.X);
+                int PinY = Math.Min(EdgeA.Y, EdgeB.Y);
+                int num1 = Math.Abs(EdgeA.X - EdgeB.X);
+                int num2 = Math.Abs(EdgeA.Y - EdgeB.Y);
                 if (!Main.mapFullscreen)
                 {
                     Rectangle rectangle1 = Main.ReverseGravitySupport(new Rectangle(PinX * 16, PinY * 16, (num1 + 1) * 16, (num2 + 1) * 16));
@@ -690,8 +707,9 @@ namespace Terraria.Graphics.Capture
                     Rectangle.Intersect(ref rectangle2, ref rectangle1, out result);
                     if (result.Width == 0 || result.Height == 0)
                         return;
+
                     result.Offset(-rectangle2.X, -rectangle2.Y);
-                    sb.Draw(Main.magicPixel, result, CaptureInterface.Settings.MarkedAreaColor);
+                    sb.Draw(Main.magicPixel, result, Settings.MarkedAreaColor);
                     for (int index = 0; index < 2; ++index)
                     {
                         sb.Draw(Main.magicPixel, new Rectangle(result.X, result.Y + (index == 1 ? result.Height : -2), result.Width, 2), Color.White);
@@ -700,18 +718,18 @@ namespace Terraria.Graphics.Capture
                 }
                 else
                 {
-                    Point result1;
-                    CaptureInterface.GetMapCoords(PinX, PinY, 1, out result1);
-                    Point result2;
-                    CaptureInterface.GetMapCoords(PinX + num1 + 1, PinY + num2 + 1, 1, out result2);
+                    Point result1, result2;
+                    GetMapCoords(PinX, PinY, 1, out result1);
+                    GetMapCoords(PinX + num1 + 1, PinY + num2 + 1, 1, out result2);
                     Rectangle rectangle1 = new Rectangle(result1.X, result1.Y, result2.X - result1.X, result2.Y - result1.Y);
                     Rectangle rectangle2 = new Rectangle(0, 0, Main.screenWidth + 1, Main.screenHeight + 1);
                     Rectangle result3;
                     Rectangle.Intersect(ref rectangle2, ref rectangle1, out result3);
                     if (result3.Width == 0 || result3.Height == 0)
                         return;
+
                     result3.Offset(-rectangle2.X, -rectangle2.Y);
-                    sb.Draw(Main.magicPixel, result3, CaptureInterface.Settings.MarkedAreaColor);
+                    sb.Draw(Main.magicPixel, result3, Settings.MarkedAreaColor);
                     for (int index = 0; index < 2; ++index)
                     {
                         sb.Draw(Main.magicPixel, new Rectangle(result3.X, result3.Y + (index == 1 ? result3.Height : -2), result3.Width, 2), Color.White);
@@ -731,16 +749,15 @@ namespace Terraria.Graphics.Capture
                     min -= Main.screenPosition;
                     max -= Main.screenPosition;
                 }
+
                 Vector3 vector3 = Main.rgbToHsl(Main.cursorColor);
-                Main.hslToRgb((float)(((double)vector3.X + 0.330000013113022) % 1.0), vector3.Y, vector3.Z);
-                Main.hslToRgb((float)(((double)vector3.X - 0.330000013113022) % 1.0), vector3.Y, vector3.Z);
+                Main.hslToRgb((float)((vector3.X + 0.330000013113022) % 1.0), vector3.Y, vector3.Z);
+                Main.hslToRgb((float)((vector3.X - 0.330000013113022) % 1.0), vector3.Y, vector3.Z);
                 Color white;
                 Color color = white = Color.White;
                 bool flag = (double)Main.player[Main.myPlayer].gravDir == -1.0;
-                if (!CaptureInterface.EdgeAPinned)
-                {
+                if (!EdgeAPinned)
                     Utils.DrawCursorSingle(sb, color, 3.926991f, Main.cursorScale * num1 * num2, new Vector2((float)((double)Main.mouseX - 5.0 + 12.0), (float)((double)Main.mouseY + 2.5 + 12.0)), 4, 0);
-                }
                 else
                 {
                     int specialMode = 0;
@@ -748,10 +765,10 @@ namespace Terraria.Graphics.Capture
                     Vector2 vector2_1 = Vector2.Zero;
                     if (!Main.mapFullscreen)
                     {
-                        Vector2 vector2_2 = Utils.ToVector2(CaptureInterface.EdgeA) * 16f;
+                        Vector2 vector2_2 = Utils.ToVector2(EdgeA) * 16f;
                         float num4;
                         Vector2 vector2_3;
-                        if (!CaptureInterface.EdgeBPinned)
+                        if (!EdgeBPinned)
                         {
                             specialMode = 1;
                             Vector2 vector2_4 = vector2_2 + Vector2.One * 8f;
@@ -759,21 +776,23 @@ namespace Terraria.Graphics.Capture
                             num4 = Utils.ToRotation(-vector2_4 + Main.ReverseGravitySupport(new Vector2((float)Main.mouseX, (float)Main.mouseY), 0.0f) + Main.screenPosition);
                             if (flag)
                                 num4 = -num4;
+
                             vector2_3 = Vector2.Clamp(vector2_4, min, max);
                             if (vector2_3 != vector2_4)
                                 num4 = Utils.ToRotation(vector2_4 - vector2_3);
                         }
                         else
                         {
-                            Vector2 vector2_4 = new Vector2((float)(Utils.ToInt(CaptureInterface.EdgeA.X > CaptureInterface.EdgeB.X) * 16), (float)(Utils.ToInt(CaptureInterface.EdgeA.Y > CaptureInterface.EdgeB.Y) * 16));
+                            Vector2 vector2_4 = new Vector2((float)(Utils.ToInt(EdgeA.X > EdgeB.X) * 16), (float)(Utils.ToInt(EdgeA.Y > EdgeB.Y) * 16));
                             Vector2 vector2_5 = vector2_2 + vector2_4;
                             vector2_3 = Vector2.Clamp(vector2_5, min, max);
-                            num4 = Utils.ToRotation(Utils.ToVector2(CaptureInterface.EdgeB) * 16f + new Vector2(16f) - vector2_4 - vector2_3);
+                            num4 = Utils.ToRotation(Utils.ToVector2(EdgeB) * 16f + new Vector2(16f) - vector2_4 - vector2_3);
                             if (vector2_3 != vector2_5)
                             {
                                 num4 = Utils.ToRotation(vector2_5 - vector2_3);
                                 specialMode = 1;
                             }
+
                             if (flag)
                                 num4 *= -1f;
                         }
@@ -781,30 +800,29 @@ namespace Terraria.Graphics.Capture
                     }
                     else
                     {
-                        Point result1 = CaptureInterface.EdgeA;
-                        if (CaptureInterface.EdgeBPinned)
+                        Point result1 = EdgeA;
+                        if (EdgeBPinned)
                         {
-                            int num4 = Utils.ToInt(CaptureInterface.EdgeA.X > CaptureInterface.EdgeB.X);
-                            int num5 = Utils.ToInt(CaptureInterface.EdgeA.Y > CaptureInterface.EdgeB.Y);
+                            int num4 = Utils.ToInt(EdgeA.X > EdgeB.X);
+                            int num5 = Utils.ToInt(EdgeA.Y > EdgeB.Y);
                             result1.X += num4;
                             result1.Y += num5;
-                            CaptureInterface.GetMapCoords(result1.X, result1.Y, 1, out result1);
-                            Point result2 = CaptureInterface.EdgeB;
+                            GetMapCoords(result1.X, result1.Y, 1, out result1);
+                            Point result2 = EdgeB;
                             result2.X += 1 - num4;
                             result2.Y += 1 - num5;
-                            CaptureInterface.GetMapCoords(result2.X, result2.Y, 1, out result2);
+                            GetMapCoords(result2.X, result2.Y, 1, out result2);
                             Vector2 vector2_2 = Vector2.Clamp(Utils.ToVector2(result1), min, max);
                             num3 = Utils.ToRotation(Utils.ToVector2(result2) - vector2_2);
                         }
                         else
-                            CaptureInterface.GetMapCoords(result1.X, result1.Y, 1, out result1);
+                            GetMapCoords(result1.X, result1.Y, 1, out result1);
                         Utils.DrawCursorSingle(sb, color, num3 - 1.570796f, Main.cursorScale * num1, Utils.ToVector2(result1), 4, 0);
                     }
                 }
-                if (!CaptureInterface.EdgeBPinned)
-                {
-                    Utils.DrawCursorSingle(sb, white, 0.7853982f, Main.cursorScale * num1 * num2, new Vector2((float)((double)Main.mouseX + 2.5 + 12.0), (float)((double)Main.mouseY - 5.0 + 12.0)), 5, 0);
-                }
+
+                if (!EdgeBPinned)
+                    Utils.DrawCursorSingle(sb, white, 0.7853982f, Main.cursorScale * num1 * num2, new Vector2((float)(Main.mouseX + 2.5 + 12.0), (float)(Main.mouseY - 5.0 + 12.0)), 5, 0);
                 else
                 {
                     int specialMode = 0;
@@ -812,10 +830,10 @@ namespace Terraria.Graphics.Capture
                     Vector2 vector2_1 = Vector2.Zero;
                     if (!Main.mapFullscreen)
                     {
-                        Vector2 vector2_2 = Utils.ToVector2(CaptureInterface.EdgeB) * 16f;
+                        Vector2 vector2_2 = Utils.ToVector2(EdgeB) * 16f;
                         float num4;
                         Vector2 vector2_3;
-                        if (!CaptureInterface.EdgeAPinned)
+                        if (!EdgeAPinned)
                         {
                             specialMode = 1;
                             Vector2 vector2_4 = vector2_2 + Vector2.One * 8f;
@@ -823,21 +841,23 @@ namespace Terraria.Graphics.Capture
                             num4 = Utils.ToRotation(-vector2_4 + Main.ReverseGravitySupport(new Vector2((float)Main.mouseX, (float)Main.mouseY), 0.0f) + Main.screenPosition);
                             if (flag)
                                 num4 = -num4;
+
                             vector2_3 = Vector2.Clamp(vector2_4, min, max);
                             if (vector2_3 != vector2_4)
                                 num4 = Utils.ToRotation(vector2_4 - vector2_3);
                         }
                         else
                         {
-                            Vector2 vector2_4 = new Vector2((float)(Utils.ToInt(CaptureInterface.EdgeB.X >= CaptureInterface.EdgeA.X) * 16), (float)(Utils.ToInt(CaptureInterface.EdgeB.Y >= CaptureInterface.EdgeA.Y) * 16));
+                            Vector2 vector2_4 = new Vector2((float)(Utils.ToInt(EdgeB.X >= EdgeA.X) * 16), (float)(Utils.ToInt(EdgeB.Y >= EdgeA.Y) * 16));
                             Vector2 vector2_5 = vector2_2 + vector2_4;
                             vector2_3 = Vector2.Clamp(vector2_5, min, max);
-                            num4 = Utils.ToRotation(Utils.ToVector2(CaptureInterface.EdgeA) * 16f + new Vector2(16f) - vector2_4 - vector2_3);
+                            num4 = Utils.ToRotation(Utils.ToVector2(EdgeA) * 16f + new Vector2(16f) - vector2_4 - vector2_3);
                             if (vector2_3 != vector2_5)
                             {
                                 num4 = Utils.ToRotation(vector2_5 - vector2_3);
                                 specialMode = 1;
                             }
+
                             if (flag)
                                 num4 *= -1f;
                         }
@@ -845,30 +865,30 @@ namespace Terraria.Graphics.Capture
                     }
                     else
                     {
-                        Point result1 = CaptureInterface.EdgeB;
-                        if (CaptureInterface.EdgeAPinned)
+                        Point result1 = EdgeB;
+                        if (EdgeAPinned)
                         {
-                            int num4 = Utils.ToInt(CaptureInterface.EdgeB.X >= CaptureInterface.EdgeA.X);
-                            int num5 = Utils.ToInt(CaptureInterface.EdgeB.Y >= CaptureInterface.EdgeA.Y);
+                            int num4 = Utils.ToInt(EdgeB.X >= EdgeA.X);
+                            int num5 = Utils.ToInt(EdgeB.Y >= EdgeA.Y);
                             result1.X += num4;
                             result1.Y += num5;
-                            CaptureInterface.GetMapCoords(result1.X, result1.Y, 1, out result1);
-                            Point result2 = CaptureInterface.EdgeA;
+                            GetMapCoords(result1.X, result1.Y, 1, out result1);
+                            Point result2 = EdgeA;
                             result2.X += 1 - num4;
                             result2.Y += 1 - num5;
-                            CaptureInterface.GetMapCoords(result2.X, result2.Y, 1, out result2);
+                            GetMapCoords(result2.X, result2.Y, 1, out result2);
                             Vector2 vector2_2 = Vector2.Clamp(Utils.ToVector2(result1), min, max);
                             num3 = Utils.ToRotation(Utils.ToVector2(result2) - vector2_2);
                         }
                         else
-                            CaptureInterface.GetMapCoords(result1.X, result1.Y, 1, out result1);
+                            GetMapCoords(result1.X, result1.Y, 1, out result1);
                         Utils.DrawCursorSingle(sb, white, num3 - 1.570796f, Main.cursorScale * num1, Utils.ToVector2(result1), 5, 0);
                     }
                 }
             }
         }
 
-        private class ModeDragBounds : CaptureInterface.CaptureInterfaceMode
+        private class ModeDragBounds : CaptureInterfaceMode
         {
             public int currentAim = -1;
             private int caughtEdge = -1;
@@ -877,33 +897,36 @@ namespace Terraria.Graphics.Capture
 
             public override void Update()
             {
-                if (!this.Selected || CaptureInterface.JustActivated)
+                if (!Selected || JustActivated)
                     return;
-                this.DragBounds(new Vector2((float)Main.mouseX, (float)Main.mouseY));
+
+                DragBounds(new Vector2((float)Main.mouseX, (float)Main.mouseY));
             }
 
             public override void Draw(SpriteBatch sb)
             {
-                if (!this.Selected)
+                if (!Selected)
                     return;
-                this.DrawMarkedArea(sb);
+
+                DrawMarkedArea(sb);
             }
 
             public override void ToggleActive(bool tickedOn)
             {
                 if (tickedOn)
                     return;
-                this.currentAim = -1;
+
+                currentAim = -1;
             }
 
             public override bool UsingMap()
             {
-                return this.caughtEdge != -1;
+                return caughtEdge != -1;
             }
 
             private void DragBounds(Vector2 mouse)
             {
-                if (!CaptureInterface.EdgeAPinned || !CaptureInterface.EdgeBPinned)
+                if (!EdgeAPinned || !EdgeBPinned)
                 {
                     bool flag1 = false;
                     if (Main.mouseLeft)
@@ -915,33 +938,36 @@ namespace Terraria.Graphics.Capture
                         if (!Main.mapFullscreen)
                             result = Utils.ToTileCoordinates(Main.screenPosition + mouse);
                         else
-                            flag2 = CaptureInterface.GetMapCoords((int)mouse.X, (int)mouse.Y, 0, out result);
+                            flag2 = GetMapCoords((int)mouse.X, (int)mouse.Y, 0, out result);
+
                         if (flag2)
                         {
-                            if (!CaptureInterface.EdgeAPinned)
+                            if (!EdgeAPinned)
                             {
-                                CaptureInterface.EdgeAPinned = true;
-                                CaptureInterface.EdgeA = result;
+                                EdgeAPinned = true;
+                                EdgeA = result;
                             }
-                            if (!CaptureInterface.EdgeBPinned)
+
+                            if (!EdgeBPinned)
                             {
-                                CaptureInterface.EdgeBPinned = true;
-                                CaptureInterface.EdgeB = result;
+                                EdgeBPinned = true;
+                                EdgeB = result;
                             }
                         }
-                        this.currentAim = 3;
-                        this.caughtEdge = 1;
+
+                        currentAim = 3;
+                        caughtEdge = 1;
                     }
                 }
-                int PinX = Math.Min(CaptureInterface.EdgeA.X, CaptureInterface.EdgeB.X);
-                int PinY = Math.Min(CaptureInterface.EdgeA.Y, CaptureInterface.EdgeB.Y);
-                int num1 = Math.Abs(CaptureInterface.EdgeA.X - CaptureInterface.EdgeB.X);
-                int num2 = Math.Abs(CaptureInterface.EdgeA.Y - CaptureInterface.EdgeB.Y);
-                bool flag = (double)Main.player[Main.myPlayer].gravDir == -1.0;
+
+                int PinX = Math.Min(EdgeA.X, EdgeB.X);
+                int PinY = Math.Min(EdgeA.Y, EdgeB.Y);
+                int num1 = Math.Abs(EdgeA.X - EdgeB.X);
+                int num2 = Math.Abs(EdgeA.Y - EdgeB.Y);
+                bool flag = Main.player[Main.myPlayer].gravDir == -1.0;
                 int num3 = 1 - Utils.ToInt(flag);
                 int num4 = Utils.ToInt(flag);
-                Rectangle rectangle1;
-                Rectangle rectangle2;
+                Rectangle rectangle1, rectangle2;
                 if (!Main.mapFullscreen)
                 {
                     rectangle1 = Main.ReverseGravitySupport(new Rectangle(PinX * 16, PinY * 16, (num1 + 1) * 16, (num2 + 1) * 16));
@@ -950,59 +976,59 @@ namespace Terraria.Graphics.Capture
                     Rectangle.Intersect(ref rectangle2, ref rectangle1, out result);
                     if (result.Width == 0 || result.Height == 0)
                         return;
+
                     result.Offset(-rectangle2.X, -rectangle2.Y);
                 }
                 else
                 {
-                    Point result1;
-                    CaptureInterface.GetMapCoords(PinX, PinY, 1, out result1);
-                    Point result2;
-                    CaptureInterface.GetMapCoords(PinX + num1 + 1, PinY + num2 + 1, 1, out result2);
+                    Point result1, result2;
+                    GetMapCoords(PinX, PinY, 1, out result1);
+                    GetMapCoords(PinX + num1 + 1, PinY + num2 + 1, 1, out result2);
                     rectangle1 = new Rectangle(result1.X, result1.Y, result2.X - result1.X, result2.Y - result1.Y);
                     rectangle2 = new Rectangle(0, 0, Main.screenWidth + 1, Main.screenHeight + 1);
                     Rectangle result3;
                     Rectangle.Intersect(ref rectangle2, ref rectangle1, out result3);
                     if (result3.Width == 0 || result3.Height == 0)
                         return;
+
                     result3.Offset(-rectangle2.X, -rectangle2.Y);
                 }
-                this.dragging = false;
+
+                dragging = false;
                 if (!Main.mouseLeft)
-                    this.currentAim = -1;
-                if (this.currentAim != -1)
+                    currentAim = -1;
+                if (currentAim != -1)
                 {
-                    this.dragging = true;
+                    dragging = true;
                     Point point2;
                     if (!Main.mapFullscreen)
-                    {
                         point2 = Utils.ToTileCoordinates(Main.MouseWorld);
-                    }
                     else
                     {
                         Point result;
-                        if (!CaptureInterface.GetMapCoords((int)mouse.X, (int)mouse.Y, 0, out result))
+                        if (!GetMapCoords((int)mouse.X, (int)mouse.Y, 0, out result))
                             return;
                         point2 = result;
                     }
-                    switch (this.currentAim)
+                    switch (currentAim)
                     {
                         case 0:
                         case 1:
-                            if (this.caughtEdge == 0)
-                                CaptureInterface.EdgeA.Y = point2.Y;
-                            if (this.caughtEdge == 1)
+                            if (caughtEdge == 0)
+                                EdgeA.Y = point2.Y;
+                            if (caughtEdge == 1)
                             {
-                                CaptureInterface.EdgeB.Y = point2.Y;
+                                EdgeB.Y = point2.Y;
                                 break;
                             }
                             break;
                         case 2:
                         case 3:
-                            if (this.caughtEdge == 0)
-                                CaptureInterface.EdgeA.X = point2.X;
-                            if (this.caughtEdge == 1)
+                            if (caughtEdge == 0)
+                                EdgeA.X = point2.X;
+                            if (caughtEdge == 1)
                             {
-                                CaptureInterface.EdgeB.X = point2.X;
+                                EdgeB.X = point2.X;
                                 break;
                             }
                             break;
@@ -1010,42 +1036,42 @@ namespace Terraria.Graphics.Capture
                 }
                 else
                 {
-                    this.caughtEdge = -1;
+                    caughtEdge = -1;
                     Rectangle drawbox = rectangle1;
                     drawbox.Offset(-rectangle2.X, -rectangle2.Y);
-                    this.inMap = drawbox.Contains(Utils.ToPoint(mouse));
+                    inMap = drawbox.Contains(Utils.ToPoint(mouse));
                     for (int boundIndex = 0; boundIndex < 4; ++boundIndex)
                     {
-                        Rectangle bound = this.GetBound(drawbox, boundIndex);
+                        Rectangle bound = GetBound(drawbox, boundIndex);
                         bound.Inflate(8, 8);
                         if (bound.Contains(Utils.ToPoint(mouse)))
                         {
-                            this.currentAim = boundIndex;
+                            currentAim = boundIndex;
                             if (boundIndex == 0)
                             {
-                                this.caughtEdge = CaptureInterface.EdgeA.Y >= CaptureInterface.EdgeB.Y ? num3 : num4;
+                                caughtEdge = EdgeA.Y >= EdgeB.Y ? num3 : num4;
                                 break;
                             }
-                            if (boundIndex == 1)
+                            else if (boundIndex == 1)
                             {
-                                this.caughtEdge = CaptureInterface.EdgeA.Y < CaptureInterface.EdgeB.Y ? num3 : num4;
+                                caughtEdge = EdgeA.Y < EdgeB.Y ? num3 : num4;
                                 break;
                             }
-                            if (boundIndex == 2)
+                            else if (boundIndex == 2)
                             {
-                                this.caughtEdge = CaptureInterface.EdgeA.X >= CaptureInterface.EdgeB.X ? 1 : 0;
+                                caughtEdge = EdgeA.X >= EdgeB.X ? 1 : 0;
                                 break;
                             }
-                            if (boundIndex == 3)
+                            else if (boundIndex == 3)
                             {
-                                this.caughtEdge = CaptureInterface.EdgeA.X < CaptureInterface.EdgeB.X ? 1 : 0;
+                                caughtEdge = EdgeA.X < EdgeB.X ? 1 : 0;
                                 break;
                             }
                             break;
                         }
                     }
                 }
-                CaptureInterface.ConstraintPoints();
+                ConstraintPoints();
             }
 
             private Rectangle GetBound(Rectangle drawbox, int boundIndex)
@@ -1063,12 +1089,13 @@ namespace Terraria.Graphics.Capture
 
             public void DrawMarkedArea(SpriteBatch sb)
             {
-                if (!CaptureInterface.EdgeAPinned || !CaptureInterface.EdgeBPinned)
+                if (!EdgeAPinned || !EdgeBPinned)
                     return;
-                int PinX = Math.Min(CaptureInterface.EdgeA.X, CaptureInterface.EdgeB.X);
-                int PinY = Math.Min(CaptureInterface.EdgeA.Y, CaptureInterface.EdgeB.Y);
-                int num1 = Math.Abs(CaptureInterface.EdgeA.X - CaptureInterface.EdgeB.X);
-                int num2 = Math.Abs(CaptureInterface.EdgeA.Y - CaptureInterface.EdgeB.Y);
+
+                int PinX = Math.Min(EdgeA.X, EdgeB.X);
+                int PinY = Math.Min(EdgeA.Y, EdgeB.Y);
+                int num1 = Math.Abs(EdgeA.X - EdgeB.X);
+                int num2 = Math.Abs(EdgeA.Y - EdgeB.Y);
                 Rectangle result1;
                 if (!Main.mapFullscreen)
                 {
@@ -1081,33 +1108,35 @@ namespace Terraria.Graphics.Capture
                 }
                 else
                 {
-                    Point result2;
-                    CaptureInterface.GetMapCoords(PinX, PinY, 1, out result2);
-                    Point result3;
-                    CaptureInterface.GetMapCoords(PinX + num1 + 1, PinY + num2 + 1, 1, out result3);
+                    Point result2, result3;
+                    GetMapCoords(PinX, PinY, 1, out result2);
+                    GetMapCoords(PinX + num1 + 1, PinY + num2 + 1, 1, out result3);
                     Rectangle rectangle1 = new Rectangle(result2.X, result2.Y, result3.X - result2.X, result3.Y - result2.Y);
                     Rectangle rectangle2 = new Rectangle(0, 0, Main.screenWidth + 1, Main.screenHeight + 1);
                     Rectangle.Intersect(ref rectangle2, ref rectangle1, out result1);
                     if (result1.Width == 0 || result1.Height == 0)
                         return;
+
                     result1.Offset(-rectangle2.X, -rectangle2.Y);
                 }
-                sb.Draw(Main.magicPixel, result1, CaptureInterface.Settings.MarkedAreaColor);
+
+                sb.Draw(Main.magicPixel, result1, Settings.MarkedAreaColor);
                 Rectangle r = Rectangle.Empty;
                 for (int index = 0; index < 2; ++index)
                 {
-                    if (this.currentAim != index)
-                        this.DrawBound(sb, new Rectangle(result1.X, result1.Y + (index == 1 ? result1.Height : -2), result1.Width, 2), 0);
+                    if (currentAim != index)
+                        DrawBound(sb, new Rectangle(result1.X, result1.Y + (index == 1 ? result1.Height : -2), result1.Width, 2), 0);
                     else
                         r = new Rectangle(result1.X, result1.Y + (index == 1 ? result1.Height : -2), result1.Width, 2);
-                    if (this.currentAim != index + 2)
-                        this.DrawBound(sb, new Rectangle(result1.X + (index == 1 ? result1.Width : -2), result1.Y, 2, result1.Height), 0);
+                    if (currentAim != index + 2)
+                        DrawBound(sb, new Rectangle(result1.X + (index == 1 ? result1.Width : -2), result1.Y, 2, result1.Height), 0);
                     else
                         r = new Rectangle(result1.X + (index == 1 ? result1.Width : -2), result1.Y, 2, result1.Height);
                 }
+
                 if (!(r != Rectangle.Empty))
                     return;
-                this.DrawBound(sb, r, 1 + Utils.ToInt(this.dragging));
+                DrawBound(sb, r, 1 + Utils.ToInt(dragging));
             }
 
             private void DrawBound(SpriteBatch sb, Rectangle r, int mode)
@@ -1126,6 +1155,7 @@ namespace Terraria.Graphics.Capture
                 {
                     if (mode != 2)
                         return;
+
                     Rectangle destinationRectangle = new Rectangle(r.X - 2, r.Y, r.Width + 4, r.Height);
                     sb.Draw(Main.magicPixel, destinationRectangle, Color.Gold);
                     destinationRectangle = new Rectangle(r.X, r.Y - 2, r.Width, r.Height + 4);
@@ -1135,7 +1165,7 @@ namespace Terraria.Graphics.Capture
             }
         }
 
-        private class ModeChangeSettings : CaptureInterface.CaptureInterfaceMode
+        private class ModeChangeSettings : CaptureInterfaceMode
         {
             private int hoveredButton = -1;
             private const int ButtonsCount = 7;
@@ -1144,7 +1174,7 @@ namespace Terraria.Graphics.Capture
             private Rectangle GetRect()
             {
                 Rectangle rectangle = new Rectangle(0, 0, 224, 170);
-                if (CaptureInterface.Settings.ScreenAnchor == 0)
+                if (Settings.ScreenAnchor == 0)
                 {
                     rectangle.X = 227 - rectangle.Width / 2;
                     rectangle.Y = 80;
@@ -1155,6 +1185,7 @@ namespace Terraria.Graphics.Capture
                     int num = index / 11 + (index % 11 >= 3 ? 1 : 0);
                     rectangle.Y += 48 * num;
                 }
+
                 return rectangle;
             }
 
@@ -1164,15 +1195,15 @@ namespace Terraria.Graphics.Capture
                 {
                     case 0:
                         key = Lang.inter[74];
-                        value = Lang.inter[73 - Utils.ToInt(CaptureInterface.Settings.PackImage)];
+                        value = Lang.inter[73 - Utils.ToInt(Settings.PackImage)];
                         break;
                     case 1:
                         key = Lang.inter[75];
-                        value = Lang.inter[73 - Utils.ToInt(CaptureInterface.Settings.IncludeEntities)];
+                        value = Lang.inter[73 - Utils.ToInt(Settings.IncludeEntities)];
                         break;
                     case 2:
                         key = Lang.inter[76];
-                        value = Lang.inter[73 - Utils.ToInt(!CaptureInterface.Settings.TransparentBackground)];
+                        value = Lang.inter[73 - Utils.ToInt(!Settings.TransparentBackground)];
                         break;
                     case 6:
                         key = "      " + Lang.menu[86];
@@ -1186,19 +1217,19 @@ namespace Terraria.Graphics.Capture
                 switch (button)
                 {
                     case 0:
-                        CaptureInterface.Settings.PackImage = !CaptureInterface.Settings.PackImage;
+                        Settings.PackImage = !Settings.PackImage;
                         break;
                     case 1:
-                        CaptureInterface.Settings.IncludeEntities = !CaptureInterface.Settings.IncludeEntities;
+                        Settings.IncludeEntities = !Settings.IncludeEntities;
                         break;
                     case 2:
-                        CaptureInterface.Settings.TransparentBackground = !CaptureInterface.Settings.TransparentBackground;
+                        Settings.TransparentBackground = !Settings.TransparentBackground;
                         break;
                     case 6:
-                        CaptureInterface.Settings.PackImage = false;
-                        CaptureInterface.Settings.IncludeEntities = true;
-                        CaptureInterface.Settings.TransparentBackground = false;
-                        CaptureInterface.Settings.BiomeChoice = 0;
+                        Settings.PackImage = false;
+                        Settings.IncludeEntities = true;
+                        Settings.TransparentBackground = false;
+                        Settings.BiomeChoice = 0;
                         break;
                 }
             }
@@ -1217,16 +1248,18 @@ namespace Terraria.Graphics.Capture
                             r.Y = start.Y + 24 * index1;
                             if (index1 == 1 && index2 == 4)
                                 r.X -= 24;
+
                             int num1 = 0;
                             if (r.Contains(mouse))
                             {
                                 if (Main.mouseLeft && Main.mouseLeftRelease)
-                                    CaptureInterface.Settings.BiomeChoice = this.BiomeWater(index3);
+                                    Settings.BiomeChoice = BiomeWater(index3);
                                 ++num1;
                             }
-                            if (CaptureInterface.Settings.BiomeChoice == this.BiomeWater(index3))
+
+                            if (Settings.BiomeChoice == BiomeWater(index3))
                                 num1 += 2;
-                            Texture2D texture = Main.liquidTexture[this.BiomeWater(index3)];
+                            Texture2D texture = Main.liquidTexture[BiomeWater(index3)];
                             int x = (int)Main.wFrame * 18;
                             Color white = Color.White;
                             float num2 = 1f;
@@ -1273,12 +1306,13 @@ namespace Terraria.Graphics.Capture
 
             public override void Update()
             {
-                if (!this.Selected || CaptureInterface.JustActivated)
+                if (!Selected || JustActivated)
                     return;
+
                 Point point = new Point(Main.mouseX, Main.mouseY);
-                this.hoveredButton = -1;
-                Rectangle rect = this.GetRect();
-                this.inUI = rect.Contains(point);
+                hoveredButton = -1;
+                Rectangle rect = GetRect();
+                inUI = rect.Contains(point);
                 rect.Inflate(-20, -20);
                 rect.Height = 16;
                 int num = rect.Y;
@@ -1287,47 +1321,53 @@ namespace Terraria.Graphics.Capture
                     rect.Y = num + index * 20;
                     if (rect.Contains(point))
                     {
-                        this.hoveredButton = index;
+                        hoveredButton = index;
                         break;
                     }
                 }
-                if (!Main.mouseLeft || !Main.mouseLeftRelease || this.hoveredButton == -1)
+
+                if (!Main.mouseLeft || !Main.mouseLeftRelease || hoveredButton == -1)
                     return;
-                this.PressButton(this.hoveredButton);
+                PressButton(hoveredButton);
             }
 
             public override void Draw(SpriteBatch sb)
             {
-                if (!this.Selected)
+                if (!Selected)
                     return;
-                ((CaptureInterface.ModeDragBounds)CaptureInterface.Modes[1]).currentAim = -1;
-                ((CaptureInterface.ModeDragBounds)CaptureInterface.Modes[1]).DrawMarkedArea(sb);
-                Rectangle rect = this.GetRect();
-                Utils.DrawInvBG(sb, rect, new Color(63, 65, 151, (int)byte.MaxValue) * 0.485f);
+
+                ((ModeDragBounds)Modes[1]).currentAim = -1;
+                ((ModeDragBounds)Modes[1]).DrawMarkedArea(sb);
+                Rectangle rect = GetRect();
+                Utils.DrawInvBG(sb, rect, new Color(63, 65, 151, 255) * 0.485f);
                 for (int button = 0; button < 7; ++button)
                 {
                     string key = "";
                     string text = "";
-                    this.ButtonDraw(button, ref key, ref text);
+                    ButtonDraw(button, ref key, ref text);
                     Color baseColor = Color.White;
-                    if (button == this.hoveredButton)
+                    if (button == hoveredButton)
                         baseColor = Color.Gold;
-                    ChatManager.DrawColorCodedStringWithShadow(sb, Main.fontItemStack, key, Utils.TopLeft(rect) + new Vector2(20f, (float)(20 + 20 * button)), baseColor, 0.0f, Vector2.Zero, Vector2.One, -1f, 2f);
-                    ChatManager.DrawColorCodedStringWithShadow(sb, Main.fontItemStack, text, Utils.TopRight(rect) + new Vector2(-20f, (float)(20 + 20 * button)), baseColor, 0.0f, Main.fontItemStack.MeasureString(text) * Vector2.UnitX, Vector2.One, -1f, 2f);
+                    ChatManager.DrawColorCodedStringWithShadow(sb, Main.fontItemStack, key, Utils.TopLeft(rect) + new Vector2(20f, (float)(20 + 20 * button)),
+                        baseColor, 0.0f, Vector2.Zero, Vector2.One, -1f, 2f);
+                    ChatManager.DrawColorCodedStringWithShadow(sb, Main.fontItemStack, text, Utils.TopRight(rect) + new Vector2(-20f, (float)(20 + 20 * button)),
+                        baseColor, 0.0f, Main.fontItemStack.MeasureString(text) * Vector2.UnitX, Vector2.One, -1f, 2f);
                 }
-                this.DrawWaterChoices(sb, Utils.ToPoint(Utils.TopLeft(rect) + new Vector2((float)(rect.Width / 2 - 58), 90f)), Utils.ToPoint(Main.MouseScreen));
+
+                DrawWaterChoices(sb, Utils.ToPoint(Utils.TopLeft(rect) + new Vector2((float)(rect.Width / 2 - 58), 90f)), Utils.ToPoint(Main.MouseScreen));
             }
 
             public override void ToggleActive(bool tickedOn)
             {
                 if (!tickedOn)
                     return;
-                this.hoveredButton = -1;
+
+                hoveredButton = -1;
             }
 
             public override bool UsingMap()
             {
-                return this.inUI;
+                return inUI;
             }
         }
     }

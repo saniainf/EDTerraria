@@ -20,26 +20,21 @@ namespace Terraria.Graphics.Effects
 
         public bool IsLoaded
         {
-            get
-            {
-                return this._isLoaded;
-            }
+            get { return _isLoaded; }
         }
 
         public EffectPriority Priority
         {
-            get
-            {
-                return this._priority;
-            }
+            get { return _priority; }
         }
 
         public void Load()
         {
-            if (this._isLoaded)
+            if (_isLoaded)
                 return;
-            this._isLoaded = true;
-            this.OnLoad();
+
+            _isLoaded = true;
+            OnLoad();
         }
 
         public virtual void OnLoad() { }

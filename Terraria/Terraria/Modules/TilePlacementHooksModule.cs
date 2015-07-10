@@ -23,17 +23,17 @@ namespace Terraria.Modules
         {
             if (copyFrom == null)
             {
-                this.check = new PlacementHook();
-                this.postPlaceEveryone = new PlacementHook();
-                this.postPlaceMyPlayer = new PlacementHook();
-                this.placeOverride = new PlacementHook();
+                check = new PlacementHook();
+                postPlaceEveryone = new PlacementHook();
+                postPlaceMyPlayer = new PlacementHook();
+                placeOverride = new PlacementHook();
             }
             else
             {
-                this.check = copyFrom.check;
-                this.postPlaceEveryone = copyFrom.postPlaceEveryone;
-                this.postPlaceMyPlayer = copyFrom.postPlaceMyPlayer;
-                this.placeOverride = copyFrom.placeOverride;
+                check = copyFrom.check;
+                postPlaceEveryone = copyFrom.postPlaceEveryone;
+                postPlaceMyPlayer = copyFrom.postPlaceMyPlayer;
+                placeOverride = copyFrom.placeOverride;
             }
         }
     }

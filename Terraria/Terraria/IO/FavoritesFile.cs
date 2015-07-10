@@ -21,36 +21,39 @@ namespace Terraria.IO
         public readonly string Path;
         public readonly bool IsCloudSave;
 
-        public FavoritesFile(string path, bool isCloud)
+        public FavoritesFile(string path)
         {
-            this.Path = path;
-            this.IsCloudSave = false;
+            Path = path;
         }
 
         public void SaveFavorite(FileData fileData)
         {
-            if (!this._data.ContainsKey(fileData.Type))
-                this._data.Add(fileData.Type, new Dictionary<string, bool>());
-            this._data[fileData.Type][fileData.GetFileName(true)] = fileData.IsFavorite;
-            this.Save();
+            if (!_data.ContainsKey(fileData.Type))
+                _data.Add(fileData.Type, new Dictionary<string, bool>());
+
+            _data[fileData.Type][fileData.GetFileName(true)] = fileData.IsFavorite;
+            Save();
         }
 
         public void ClearEntry(FileData fileData)
         {
-            if (!this._data.ContainsKey(fileData.Type))
+            if (!_data.ContainsKey(fileData.Type))
                 return;
-            this._data[fileData.Type].Remove(fileData.GetFileName(true));
-            this.Save();
+
+            _data[fileData.Type].Remove(fileData.GetFileName(true));
+            Save();
         }
 
         public bool IsFavorite(FileData fileData)
         {
-            if (!this._data.ContainsKey(fileData.Type))
+            if (!_data.ContainsKey(fileData.Type))
                 return false;
+
             string fileName = fileData.GetFileName(true);
             bool flag;
-            if (this._data[fileData.Type].TryGetValue(fileName, out flag))
+            if (_data[fileData.Type].TryGetValue(fileName, out flag))
                 return flag;
+
             return false;
         }
 
@@ -62,15 +65,14 @@ namespace Terraria.IO
         public void Load()
         {
             if (!FileUtilities.Exists(Path))
-            {
-                this._data.Clear();
-            }
+                _data.Clear();
             else
             {
-                this._data = (Dictionary<string, Dictionary<string, bool>>)JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, bool>>>(Encoding.ASCII.GetString(FileUtilities.ReadAllBytes(Path)));
-                if (this._data != null)
+                _data = (Dictionary<string, Dictionary<string, bool>>)JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, bool>>>(Encoding.ASCII.GetString(FileUtilities.ReadAllBytes(Path)));
+                if (_data != null)
                     return;
-                this._data = new Dictionary<string, Dictionary<string, bool>>();
+
+                _data = new Dictionary<string, Dictionary<string, bool>>();
             }
         }
     }

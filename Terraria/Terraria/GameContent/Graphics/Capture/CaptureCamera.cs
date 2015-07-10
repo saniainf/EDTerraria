@@ -24,7 +24,7 @@ namespace Terraria.Graphics.Capture
     internal class CaptureCamera
     {
         private readonly object _captureLock = new object();
-        private Queue<CaptureCamera.CaptureChunk> _renderQueue = new Queue<CaptureCamera.CaptureChunk>();
+        private Queue<CaptureChunk> _renderQueue = new Queue<CaptureChunk>();
         public const int CHUNK_SIZE = 128;
         public const int FRAMEBUFFER_PIXEL_SIZE = 2048;
         public const int INNER_CHUNK_SIZE = 126;
@@ -48,9 +48,9 @@ namespace Terraria.Graphics.Capture
         {
             get
             {
-                Monitor.Enter(this._captureLock);
-                bool flag = this._activeSettings != null;
-                Monitor.Exit(this._captureLock);
+                Monitor.Enter(_captureLock);
+                bool flag = _activeSettings != null;
+                Monitor.Exit(_captureLock);
                 return flag;
             }
         }
@@ -58,33 +58,36 @@ namespace Terraria.Graphics.Capture
         public CaptureCamera(GraphicsDevice graphics)
         {
             CameraExists = true;
-            this._graphics = graphics;
-            this._spriteBatch = new SpriteBatch(graphics);
+            _graphics = graphics;
+            _spriteBatch = new SpriteBatch(graphics);
+
             try
             {
-                this._frameBuffer = new RenderTarget2D(graphics, 2048, 2048, false, graphics.PresentationParameters.BackBufferFormat, DepthFormat.Depth24);
+                _frameBuffer = new RenderTarget2D(graphics, 2048, 2048, false, graphics.PresentationParameters.BackBufferFormat, DepthFormat.Depth24);
             }
             catch
             {
                 Main.CaptureModeDisabled = true;
                 return;
             }
-            this._downscaleSampleState = SamplerState.AnisotropicClamp;
+
+            _downscaleSampleState = SamplerState.AnisotropicClamp;
         }
 
         ~CaptureCamera()
         {
-            this.Dispose();
+            Dispose();
         }
 
         public void Capture(CaptureSettings settings)
         {
             Main.GlobalTimerPaused = true;
-            Monitor.Enter(this._captureLock);
-            if (this._activeSettings != null)
+            Monitor.Enter(_captureLock);
+            if (_activeSettings != null)
                 throw new InvalidOperationException("Capture called while another capture was already active.");
-            this._activeSettings = settings;
+            _activeSettings = settings;
             Microsoft.Xna.Framework.Rectangle rectangle = settings.Area;
+
             float num1 = 1f;
             if (settings.UseScaling)
             {
@@ -93,16 +96,17 @@ namespace Terraria.Graphics.Capture
                 if (rectangle.Height << 4 > 4096)
                     num1 = Math.Min(num1, 4096f / (float)(rectangle.Height << 4));
                 num1 = Math.Min(1f, num1);
-                this._outputImageSize = new Size((int)MathHelper.Clamp((float)(int)((double)num1 * (double)(rectangle.Width << 4)), 1f, 4096f), (int)MathHelper.Clamp((float)(int)((double)num1 * (double)(rectangle.Height << 4)), 1f, 4096f));
-                this._outputData = new byte[4 * this._outputImageSize.Width * this._outputImageSize.Height];
-                int num2 = (int)Math.Floor((double)num1 * 2048.0);
-                this._scaledFrameData = new byte[4 * num2 * num2];
-                this._scaledFrameBuffer = new RenderTarget2D(this._graphics, num2, num2, false, this._graphics.PresentationParameters.BackBufferFormat, DepthFormat.Depth24);
+                _outputImageSize = new Size((int)MathHelper.Clamp((float)(num1 * (rectangle.Width << 4)), 1f, 4096f), (int)MathHelper.Clamp((float)(num1 * (rectangle.Height << 4)), 1f, 4096f));
+                _outputData = new byte[4 * _outputImageSize.Width * _outputImageSize.Height];
+                int num2 = (int)Math.Floor(num1 * 2048.0);
+                _scaledFrameData = new byte[4 * num2 * num2];
+                _scaledFrameBuffer = new RenderTarget2D(_graphics, num2, num2, false, _graphics.PresentationParameters.BackBufferFormat, DepthFormat.Depth24);
             }
             else
-                this._outputData = new byte[16777216];
-            this._tilesProcessed = 0.0f;
-            this._totalTiles = (float)(rectangle.Width * rectangle.Height);
+                _outputData = new byte[16777216];
+
+            _tilesProcessed = 0.0f;
+            _totalTiles = (float)(rectangle.Width * rectangle.Height);
             int x1 = rectangle.X;
             while (x1 < rectangle.X + rectangle.Width)
             {
@@ -111,53 +115,50 @@ namespace Terraria.Graphics.Capture
                 {
                     int width1 = Math.Min(128, rectangle.X + rectangle.Width - x1);
                     int height1 = Math.Min(128, rectangle.Y + rectangle.Height - y1);
-                    int width2 = (int)Math.Floor((double)num1 * (double)(width1 << 4));
-                    int height2 = (int)Math.Floor((double)num1 * (double)(height1 << 4));
-                    int x2 = (int)Math.Floor((double)num1 * (double)(x1 - rectangle.X << 4));
-                    int y2 = (int)Math.Floor((double)num1 * (double)(y1 - rectangle.Y << 4));
-                    this._renderQueue.Enqueue(new CaptureCamera.CaptureChunk(new Microsoft.Xna.Framework.Rectangle(x1, y1, width1, height1), new Microsoft.Xna.Framework.Rectangle(x2, y2, width2, height2)));
+                    int width2 = (int)Math.Floor(num1 * (width1 << 4));
+                    int height2 = (int)Math.Floor(num1 * (height1 << 4));
+                    int x2 = (int)Math.Floor(num1 * (x1 - rectangle.X << 4));
+                    int y2 = (int)Math.Floor(num1 * (y1 - rectangle.Y << 4));
+                    _renderQueue.Enqueue(new CaptureChunk(new Microsoft.Xna.Framework.Rectangle(x1, y1, width1, height1), new Microsoft.Xna.Framework.Rectangle(x2, y2, width2, height2)));
                     y1 += 126;
                 }
                 x1 += 126;
             }
-            Monitor.Exit(this._captureLock);
+            Monitor.Exit(_captureLock);
         }
 
         public void DrawTick()
         {
-            Monitor.Enter(this._captureLock);
-            if (this._activeSettings == null)
+            Monitor.Enter(_captureLock);
+            if (_activeSettings == null)
                 return;
-            CaptureCamera.CaptureChunk captureChunk = this._renderQueue.Dequeue();
-            this._graphics.SetRenderTarget(this._frameBuffer);
-            this._graphics.Clear(Microsoft.Xna.Framework.Color.Transparent);
-            Main.instance.DrawCapture(captureChunk.Area, this._activeSettings);
-            if (this._activeSettings.UseScaling)
+
+            CaptureCamera.CaptureChunk captureChunk = _renderQueue.Dequeue();
+            _graphics.SetRenderTarget(_frameBuffer);
+            _graphics.Clear(Microsoft.Xna.Framework.Color.Transparent);
+            Main.instance.DrawCapture(captureChunk.Area, _activeSettings);
+            if (_activeSettings.UseScaling)
             {
-                this._graphics.SetRenderTarget(this._scaledFrameBuffer);
-                this._graphics.Clear(Microsoft.Xna.Framework.Color.Transparent);
-                this._spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, this._downscaleSampleState, DepthStencilState.Default, RasterizerState.CullNone);
-                this._spriteBatch.Draw((Texture2D)this._frameBuffer, new Microsoft.Xna.Framework.Rectangle(0, 0, this._scaledFrameBuffer.Width, this._scaledFrameBuffer.Height), Microsoft.Xna.Framework.Color.White);
-                this._spriteBatch.End();
-                this._graphics.SetRenderTarget((RenderTarget2D)null);
-                this._scaledFrameBuffer.GetData<byte>(this._scaledFrameData, 0, this._scaledFrameBuffer.Width * this._scaledFrameBuffer.Height * 4);
-                this.DrawBytesToBuffer(this._scaledFrameData, this._outputData, this._scaledFrameBuffer.Width, this._outputImageSize.Width, captureChunk.ScaledArea);
+                _graphics.SetRenderTarget(_scaledFrameBuffer);
+                _graphics.Clear(Microsoft.Xna.Framework.Color.Transparent);
+                _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, _downscaleSampleState, DepthStencilState.Default, RasterizerState.CullNone);
+                _spriteBatch.Draw((Texture2D)_frameBuffer, new Microsoft.Xna.Framework.Rectangle(0, 0, _scaledFrameBuffer.Width, _scaledFrameBuffer.Height), Microsoft.Xna.Framework.Color.White);
+                _spriteBatch.End();
+                _graphics.SetRenderTarget((RenderTarget2D)null);
+                _scaledFrameBuffer.GetData<byte>(_scaledFrameData, 0, _scaledFrameBuffer.Width * _scaledFrameBuffer.Height * 4);
+                DrawBytesToBuffer(_scaledFrameData, _outputData, _scaledFrameBuffer.Width, _outputImageSize.Width, captureChunk.ScaledArea);
             }
             else
             {
-                this._graphics.SetRenderTarget((RenderTarget2D)null);
-                this.SaveImage((Texture2D)this._frameBuffer, captureChunk.ScaledArea.Width, captureChunk.ScaledArea.Height, ImageFormat.Png, this._activeSettings.OutputName, string.Concat(new object[4]
-        {
-          (object) captureChunk.Area.X,
-          (object) "-",
-          (object) captureChunk.Area.Y,
-          (object) ".png"
-        }));
+                _graphics.SetRenderTarget((RenderTarget2D)null);
+                SaveImage((Texture2D)_frameBuffer, captureChunk.ScaledArea.Width, captureChunk.ScaledArea.Height, ImageFormat.Png, _activeSettings.OutputName,
+                    string.Concat(new object[4] { captureChunk.Area.X, "-", captureChunk.Area.Y, ".png" }));
             }
-            this._tilesProcessed += (float)(captureChunk.Area.Width * captureChunk.Area.Height);
-            if (this._renderQueue.Count == 0)
-                this.FinishCapture();
-            Monitor.Exit(this._captureLock);
+
+            _tilesProcessed += (float)(captureChunk.Area.Width * captureChunk.Area.Height);
+            if (_renderQueue.Count == 0)
+                FinishCapture();
+            Monitor.Exit(_captureLock);
         }
 
         private unsafe void DrawBytesToBuffer(byte[] sourceBuffer, byte[] destinationBuffer, int sourceBufferWidth, int destinationBufferWidth, Microsoft.Xna.Framework.Rectangle area)
@@ -180,6 +181,7 @@ namespace Terraria.Graphics.Capture
                             ptr4 += 4;
                             ptr2 += 4;
                         }
+
                         ptr4 += (sourceBufferWidth - area.Width << 2) / 1;
                         ptr2 += (destinationBufferWidth - area.Width << 2) / 1;
                     }
@@ -189,29 +191,24 @@ namespace Terraria.Graphics.Capture
 
         public float GetProgress()
         {
-            return this._tilesProcessed / this._totalTiles;
+            return _tilesProcessed / _totalTiles;
         }
 
         private bool SaveImage(int width, int height, ImageFormat imageFormat, string filename)
         {
             try
             {
-                Directory.CreateDirectory(string.Concat(new object[4]
-        {
-          (object) Main.SavePath,
-          (object) Path.DirectorySeparatorChar,
-          (object) "Captures",
-          (object) Path.DirectorySeparatorChar
-        }));
+                Directory.CreateDirectory(string.Concat(new object[4] { Main.SavePath, Path.DirectorySeparatorChar, "Captures", Path.DirectorySeparatorChar }));
                 using (Bitmap bitmap = new Bitmap(width, height))
                 {
                     System.Drawing.Rectangle rect = new System.Drawing.Rectangle(0, 0, width, height);
                     BitmapData bitmapdata = bitmap.LockBits(rect, ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
-                    Marshal.Copy(this._outputData, 0, bitmapdata.Scan0, width * height * 4);
+                    Marshal.Copy(_outputData, 0, bitmapdata.Scan0, width * height * 4);
                     bitmap.UnlockBits(bitmapdata);
                     bitmap.Save(filename, imageFormat);
                     bitmap.Dispose();
                 }
+
                 return true;
             }
             catch
@@ -222,82 +219,83 @@ namespace Terraria.Graphics.Capture
 
         private void SaveImage(Texture2D texture, int width, int height, ImageFormat imageFormat, string foldername, string filename)
         {
-            Directory.CreateDirectory(Main.SavePath + (object)Path.DirectorySeparatorChar + "Captures" + (string)(object)Path.DirectorySeparatorChar + foldername);
+            Directory.CreateDirectory(Main.SavePath + Path.DirectorySeparatorChar + "Captures" + Path.DirectorySeparatorChar + foldername);
             using (Bitmap bitmap = new Bitmap(width, height))
             {
                 System.Drawing.Rectangle rect = new System.Drawing.Rectangle(0, 0, width, height);
                 int elementCount = texture.Width * texture.Height * 4;
-                texture.GetData<byte>(this._outputData, 0, elementCount);
+                texture.GetData<byte>(_outputData, 0, elementCount);
                 int index1 = 0;
                 int index2 = 0;
                 for (int index3 = 0; index3 < height; ++index3)
                 {
                     for (int index4 = 0; index4 < width; ++index4)
                     {
-                        byte num = this._outputData[index1 + 2];
-                        this._outputData[index2 + 2] = this._outputData[index1];
-                        this._outputData[index2] = num;
-                        this._outputData[index2 + 1] = this._outputData[index1 + 1];
-                        this._outputData[index2 + 3] = this._outputData[index1 + 3];
+                        byte num = _outputData[index1 + 2];
+                        _outputData[index2 + 2] = _outputData[index1];
+                        _outputData[index2] = num;
+                        _outputData[index2 + 1] = _outputData[index1 + 1];
+                        _outputData[index2 + 3] = _outputData[index1 + 3];
                         index1 += 4;
                         index2 += 4;
                     }
                     index1 += texture.Width - width << 2;
                 }
+
                 BitmapData bitmapdata = bitmap.LockBits(rect, ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
-                Marshal.Copy(this._outputData, 0, bitmapdata.Scan0, width * height * 4);
+                Marshal.Copy(_outputData, 0, bitmapdata.Scan0, width * height * 4);
                 bitmap.UnlockBits(bitmapdata);
-                bitmap.Save(Main.SavePath + (object)Path.DirectorySeparatorChar + "Captures" + (string)(object)Path.DirectorySeparatorChar + foldername + (string)(object)Path.DirectorySeparatorChar + filename, imageFormat);
+                bitmap.Save(Main.SavePath + Path.DirectorySeparatorChar + "Captures" + Path.DirectorySeparatorChar + foldername + Path.DirectorySeparatorChar + filename, imageFormat);
             }
         }
 
         private void FinishCapture()
         {
-            if (this._activeSettings.UseScaling)
+            if (_activeSettings.UseScaling)
             {
                 int num = 0;
                 do
                 {
-                    if (!this.SaveImage(this._outputImageSize.Width, this._outputImageSize.Height, ImageFormat.Png, Main.SavePath + (object)Path.DirectorySeparatorChar + "Captures" + (string)(object)Path.DirectorySeparatorChar + this._activeSettings.OutputName + ".png"))
+                    if (!SaveImage(_outputImageSize.Width, _outputImageSize.Height, ImageFormat.Png, Main.SavePath + Path.DirectorySeparatorChar + "Captures" + Path.DirectorySeparatorChar +
+                        _activeSettings.OutputName + ".png"))
                     {
                         GC.Collect();
                         Thread.Sleep(5);
                         ++num;
                         Console.WriteLine("An error occured while saving the capture. Attempting again...");
                     }
-                    else
-                        goto label_5;
-                }
-                while (num <= 5);
+                } while (num <= 5);
+
                 Console.WriteLine("Unable to capture.");
+                _outputData = null;
+                _scaledFrameData = null;
+                Main.GlobalTimerPaused = false;
+                CaptureInterface.EndCamera();
+                if (_scaledFrameBuffer != null)
+                {
+                    _scaledFrameBuffer.Dispose();
+                    _scaledFrameBuffer = null;
+                }
+                _activeSettings = null;
             }
-        label_5:
-            this._outputData = (byte[])null;
-            this._scaledFrameData = (byte[])null;
-            Main.GlobalTimerPaused = false;
-            CaptureInterface.EndCamera();
-            if (this._scaledFrameBuffer != null)
-            {
-                this._scaledFrameBuffer.Dispose();
-                this._scaledFrameBuffer = (RenderTarget2D)null;
-            }
-            this._activeSettings = (CaptureSettings)null;
         }
 
         public void Dispose()
         {
-            Monitor.Enter(this._captureLock);
-            if (this._isDisposed)
+            Monitor.Enter(_captureLock);
+            if (_isDisposed)
                 return;
-            this._frameBuffer.Dispose();
-            if (this._scaledFrameBuffer != null)
+
+            _frameBuffer.Dispose();
+            if (_scaledFrameBuffer != null)
             {
-                this._scaledFrameBuffer.Dispose();
-                this._scaledFrameBuffer = (RenderTarget2D)null;
+                _scaledFrameBuffer.Dispose();
+                _scaledFrameBuffer = null;
             }
-            CaptureCamera.CameraExists = false;
-            this._isDisposed = true;
-            Monitor.Exit(this._captureLock);
+
+            CameraExists = false;
+            _isDisposed = true;
+            Monitor.Exit(_captureLock);
         }
 
         private class CaptureChunk
@@ -307,8 +305,8 @@ namespace Terraria.Graphics.Capture
 
             public CaptureChunk(Microsoft.Xna.Framework.Rectangle area, Microsoft.Xna.Framework.Rectangle scaledArea)
             {
-                this.Area = area;
-                this.ScaledArea = scaledArea;
+                Area = area;
+                ScaledArea = scaledArea;
             }
         }
     }

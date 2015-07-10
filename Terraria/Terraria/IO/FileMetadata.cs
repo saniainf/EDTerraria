@@ -22,21 +22,19 @@ namespace Terraria.IO
         public uint Revision;
         public bool IsFavorite;
 
-        private FileMetadata()
-        {
-        }
+        private FileMetadata() { }
 
         public void Write(BinaryWriter writer)
         {
-            writer.Write((ulong)(27981915666277746L | (long)this.Type << 56));
-            writer.Write(this.Revision);
-            writer.Write((ulong)(Utils.ToInt(this.IsFavorite) & 1));
+            writer.Write((ulong)(27981915666277746L | (long)Type << 56));
+            writer.Write(Revision);
+            writer.Write((ulong)(Utils.ToInt(IsFavorite) & 1));
         }
 
         public void IncrementAndWrite(BinaryWriter writer)
         {
-            ++this.Revision;
-            this.Write(writer);
+            ++Revision;
+            Write(writer);
         }
 
         public static FileMetadata FromCurrentSettings(FileType type)
@@ -54,16 +52,18 @@ namespace Terraria.IO
             FileMetadata fileMetadata = new FileMetadata();
             fileMetadata.Read(reader);
             if (fileMetadata.Type != expectedType)
-                throw new Exception("Expected type \"" + Enum.GetName(typeof(FileType), (object)expectedType) + "\" but found \"" + Enum.GetName(typeof(FileType), (object)fileMetadata.Type) + "\".");
+                throw new Exception("Expected type \"" + Enum.GetName(typeof(FileType), expectedType) + "\" but found \"" + Enum.GetName(typeof(FileType), fileMetadata.Type) + "\".");
+
             return fileMetadata;
         }
 
         private void Read(BinaryReader reader)
         {
             ulong num1 = reader.ReadUInt64();
-            if (((long)num1 & 72057594037927935L) != 27981915666277746L)
+            if ((num1 & 72057594037927935L) != 27981915666277746L)
                 throw new Exception("Expected Re-Logic file format.");
-            byte num2 = (byte)(num1 >> 56 & (ulong)byte.MaxValue);
+
+            byte num2 = (byte)(num1 >> 56 & 255);
             FileType fileType = FileType.None;
             FileType[] fileTypeArray = (FileType[])Enum.GetValues(typeof(FileType));
             for (int index = 0; index < fileTypeArray.Length; ++index)
@@ -74,11 +74,12 @@ namespace Terraria.IO
                     break;
                 }
             }
+
             if (fileType == FileType.None)
                 throw new Exception("Found invalid file type.");
-            this.Type = fileType;
-            this.Revision = reader.ReadUInt32();
-            this.IsFavorite = ((long)reader.ReadUInt64() & 1L) == 1L;
+            Type = fileType;
+            Revision = reader.ReadUInt32();
+            IsFavorite = (reader.ReadUInt64() & 1L) == 1L;
         }
     }
 }

@@ -277,6 +277,6 @@ namespace Terraria.ID
         public const int GigaZapperHead = 904;
         public const int GigaZapperHand = 905;
         public const int GigaZapperLeg = 906;
-        public const short Count = (short)907;
+        public const short Count = 907;
     }
 }

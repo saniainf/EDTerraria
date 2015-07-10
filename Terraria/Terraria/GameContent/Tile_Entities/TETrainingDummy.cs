@@ -30,13 +30,13 @@ namespace Terraria.GameContent.Tile_Entities
 
         public static void Initialize()
         {
-            TileEntity._UpdateStart += new Action(TETrainingDummy.ClearBoxes);
+            TileEntity._UpdateStart += new Action(ClearBoxes);
         }
 
         public static void ClearBoxes()
         {
-            TETrainingDummy.playerBox.Clear();
-            TETrainingDummy.playerBoxFilled = false;
+            playerBox.Clear();
+            playerBoxFilled = false;
         }
 
         public override void Update()
@@ -47,17 +47,18 @@ namespace Terraria.GameContent.Tile_Entities
             int num2 = rectangle.Y;
             if (this.npc != -1)
             {
-                if (Main.npc[this.npc].active && Main.npc[this.npc].type == 488 && ((double)Main.npc[this.npc].ai[0] == (double)this.Position.X && (double)Main.npc[this.npc].ai[1] == (double)this.Position.Y))
+                if (Main.npc[npc].active && Main.npc[npc].type == 488 && (Main.npc[npc].ai[0] == Position.X && Main.npc[npc].ai[1] == Position.Y))
                     return;
-                this.Deactivate();
+
+                Deactivate();
             }
             else
             {
-                TETrainingDummy.FillPlayerHitboxes();
-                rectangle.X = (int)this.Position.X * 16 + num1;
-                rectangle.Y = (int)this.Position.Y * 16 + num2;
+                FillPlayerHitboxes();
+                rectangle.X = (int)Position.X * 16 + num1;
+                rectangle.Y = (int)Position.Y * 16 + num2;
                 bool flag = false;
-                foreach (KeyValuePair<int, Rectangle> keyValuePair in TETrainingDummy.playerBox)
+                foreach (KeyValuePair<int, Rectangle> keyValuePair in playerBox)
                 {
                     if (keyValuePair.Value.Intersects(rectangle))
                     {
@@ -65,27 +66,30 @@ namespace Terraria.GameContent.Tile_Entities
                         break;
                     }
                 }
+
                 if (!flag)
                     return;
-                this.Activate();
+
+                Activate();
             }
         }
 
         private static void FillPlayerHitboxes()
         {
-            if (TETrainingDummy.playerBoxFilled)
+            if (playerBoxFilled)
                 return;
-            for (int index = 0; index < (int)byte.MaxValue; ++index)
+
+            for (int index = 0; index < 255; ++index)
             {
                 if (Main.player[index].active)
-                    TETrainingDummy.playerBox[index] = Main.player[index].getRect();
+                    playerBox[index] = Main.player[index].getRect();
             }
-            TETrainingDummy.playerBoxFilled = true;
+            playerBoxFilled = true;
         }
 
         public static bool ValidTile(int x, int y)
         {
-            return Main.tile[x, y].active() && (int)Main.tile[x, y].type == 378 && ((int)Main.tile[x, y].frameY == 0 && (int)Main.tile[x, y].frameX % 36 == 0);
+            return Main.tile[x, y].active() && Main.tile[x, y].type == 378 && (Main.tile[x, y].frameY == 0 && Main.tile[x, y].frameX % 36 == 0);
         }
 
         public static int Place(int x, int y)
@@ -94,15 +98,16 @@ namespace Terraria.GameContent.Tile_Entities
             teTrainingDummy.Position = new Point16(x, y);
             teTrainingDummy.ID = TileEntity.AssignNewID();
             teTrainingDummy.type = (byte)0;
-            TileEntity.ByID[teTrainingDummy.ID] = (TileEntity)teTrainingDummy;
-            TileEntity.ByPosition[teTrainingDummy.Position] = (TileEntity)teTrainingDummy;
+            TileEntity.ByID[teTrainingDummy.ID] = teTrainingDummy;
+            TileEntity.ByPosition[teTrainingDummy.Position] = teTrainingDummy;
             return teTrainingDummy.ID;
         }
 
         public static int Hook_AfterPlacement(int x, int y, int type = 21, int style = 0, int direction = 1)
         {
             if (Main.netMode != 1)
-                return TETrainingDummy.Place(x - 1, y - 2);
+                return Place(x - 1, y - 2);
+
             NetMessage.SendTileSquare(Main.myPlayer, x - 1, y - 1, 3);
             NetMessage.SendData(87, -1, -1, "", x - 1, (float)(y - 2), 0.0f, 0.0f, 0, 0, 0);
             return -1;
@@ -111,8 +116,9 @@ namespace Terraria.GameContent.Tile_Entities
         public static void Kill(int x, int y)
         {
             TileEntity tileEntity;
-            if (!TileEntity.ByPosition.TryGetValue(new Point16(x, y), out tileEntity) || (int)tileEntity.type != 0)
+            if (!TileEntity.ByPosition.TryGetValue(new Point16(x, y), out tileEntity) || tileEntity.type != 0)
                 return;
+
             TileEntity.ByID.Remove(tileEntity.ID);
             TileEntity.ByPosition.Remove(new Point16(x, y));
         }
@@ -120,8 +126,9 @@ namespace Terraria.GameContent.Tile_Entities
         public static int Find(int x, int y)
         {
             TileEntity tileEntity;
-            if (TileEntity.ByPosition.TryGetValue(new Point16(x, y), out tileEntity) && (int)tileEntity.type == 0)
+            if (TileEntity.ByPosition.TryGetValue(new Point16(x, y), out tileEntity) && tileEntity.type == 0)
                 return tileEntity.ID;
+
             return -1;
         }
 
@@ -132,34 +139,37 @@ namespace Terraria.GameContent.Tile_Entities
 
         public override void ReadExtraData(BinaryReader reader)
         {
-            this.npc = (int)reader.ReadInt16();
+            npc = (int)reader.ReadInt16();
         }
 
         public void Activate()
         {
-            int index = NPC.NewNPC((int)this.Position.X * 16 + 16, (int)this.Position.Y * 16 + 48, 488, 100, 0.0f, 0.0f, 0.0f, 0.0f, (int)byte.MaxValue);
-            Main.npc[index].ai[0] = (float)this.Position.X;
-            Main.npc[index].ai[1] = (float)this.Position.Y;
+            int index = NPC.NewNPC((int)Position.X * 16 + 16, (int)Position.Y * 16 + 48, 488, 100, 0.0f, 0.0f, 0.0f, 0.0f, 255);
+            Main.npc[index].ai[0] = (float)Position.X;
+            Main.npc[index].ai[1] = (float)Position.Y;
             Main.npc[index].netUpdate = true;
-            this.npc = index;
+            npc = index;
             if (Main.netMode == 1)
                 return;
-            NetMessage.SendData(86, -1, -1, "", this.ID, (float)this.Position.X, (float)this.Position.Y, 0.0f, 0, 0, 0);
+
+            NetMessage.SendData(86, -1, -1, "", ID, (float)Position.X, (float)Position.Y, 0.0f, 0, 0, 0);
         }
 
         public void Deactivate()
         {
-            if (this.npc != -1)
-                Main.npc[this.npc].active = false;
-            this.npc = -1;
+            if (npc != -1)
+                Main.npc[npc].active = false;
+
+            npc = -1;
             if (Main.netMode == 1)
                 return;
-            NetMessage.SendData(86, -1, -1, "", this.ID, (float)this.Position.X, (float)this.Position.Y, 0.0f, 0, 0, 0);
+
+            NetMessage.SendData(86, -1, -1, "", ID, (float)Position.X, (float)Position.Y, 0.0f, 0, 0, 0);
         }
 
         public override string ToString()
         {
-            return (string)(object)this.Position.X + (object)"x  " + (string)(object)this.Position.Y + "y npc: " + (string)(object)this.npc;
+            return Position.X + "x  " + Position.Y + "y npc: " + npc;
         }
     }
 }

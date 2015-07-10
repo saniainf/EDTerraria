@@ -24,19 +24,19 @@ namespace Terraria.Modules
         {
             if (copyFrom == null)
             {
-                this.top = new AnchorData();
-                this.bottom = new AnchorData();
-                this.left = new AnchorData();
-                this.right = new AnchorData();
-                this.wall = false;
+                top = new AnchorData();
+                bottom = new AnchorData();
+                left = new AnchorData();
+                right = new AnchorData();
+                wall = false;
             }
             else
             {
-                this.top = copyFrom.top;
-                this.bottom = copyFrom.bottom;
-                this.left = copyFrom.left;
-                this.right = copyFrom.right;
-                this.wall = copyFrom.wall;
+                top = copyFrom.top;
+                bottom = copyFrom.bottom;
+                left = copyFrom.left;
+                right = copyFrom.right;
+                wall = copyFrom.wall;
             }
         }
     }

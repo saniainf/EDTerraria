@@ -20,10 +20,7 @@ namespace Terraria.Graphics.Effects
 
         public bool IsLoaded
         {
-            get
-            {
-                return this._isLoaded;
-            }
+            get { return _isLoaded; }
         }
 
         public T this[string key]
@@ -31,58 +28,56 @@ namespace Terraria.Graphics.Effects
             get
             {
                 T obj;
-                if (this._effects.TryGetValue(key, out obj))
+                if (_effects.TryGetValue(key, out obj))
                     return obj;
+
                 return default(T);
             }
-            set
-            {
-                this.Bind(key, value);
-            }
+            set { Bind(key, value); }
         }
 
         public void Bind(string name, T effect)
         {
-            this._effects[name] = effect;
-            if (!this._isLoaded)
+            _effects[name] = effect;
+            if (!_isLoaded)
                 return;
+
             effect.Load();
         }
 
         public void Load()
         {
-            if (this._isLoaded)
+            if (_isLoaded)
                 return;
-            this._isLoaded = true;
-            foreach (T obj in this._effects.Values)
+
+            _isLoaded = true;
+            foreach (T obj in _effects.Values)
                 obj.Load();
         }
 
         public T Activate(string name, Vector2 position = default(Vector2), params object[] args)
         {
-            if (!this._effects.ContainsKey(name))
-                throw new MissingEffectException("Unable to find effect named: " + (object)name + ". Type: " + (string)(object)typeof(T) + ".");
-            T effect = this._effects[name];
-            this.OnActivate(effect, position);
+            if (!_effects.ContainsKey(name))
+                throw new MissingEffectException("Unable to find effect named: " + name + ". Type: " + typeof(T) + ".");
+            
+            T effect = _effects[name];
+            OnActivate(effect, position);
             effect.Activate(position, args);
             return effect;
         }
 
         public void Deactivate(string name, params object[] args)
         {
-            if (!this._effects.ContainsKey(name))
-                throw new MissingEffectException("Unable to find effect named: " + (object)name + ". Type: " + (string)(object)typeof(T) + ".");
-            T effect = this._effects[name];
-            this.OnDeactivate(effect);
+            if (!_effects.ContainsKey(name))
+                throw new MissingEffectException("Unable to find effect named: " + name + ". Type: " + typeof(T) + ".");
+            
+            T effect = _effects[name];
+            OnDeactivate(effect);
             effect.Deactivate(args);
         }
 
-        public virtual void OnActivate(T effect, Vector2 position)
-        {
-        }
+        public virtual void OnActivate(T effect, Vector2 position) { }
 
-        public virtual void OnDeactivate(T effect)
-        {
-        }
+        public virtual void OnDeactivate(T effect) { }
     }
 }

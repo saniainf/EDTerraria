@@ -20,7 +20,7 @@ namespace Terraria.GameContent.Tile_Entities
 
         public TEItemFrame()
         {
-            this.item = new Item();
+            item = new Item();
         }
 
         public static int Place(int x, int y)
@@ -29,67 +29,69 @@ namespace Terraria.GameContent.Tile_Entities
             teItemFrame.Position = new Point16(x, y);
             teItemFrame.ID = TileEntity.AssignNewID();
             teItemFrame.type = (byte)1;
-            TileEntity.ByID[teItemFrame.ID] = (TileEntity)teItemFrame;
-            TileEntity.ByPosition[teItemFrame.Position] = (TileEntity)teItemFrame;
+            TileEntity.ByID[teItemFrame.ID] = teItemFrame;
+            TileEntity.ByPosition[teItemFrame.Position] = teItemFrame;
             return teItemFrame.ID;
         }
 
         public static int Hook_AfterPlacement(int x, int y, int type = 21, int style = 0, int direction = 1)
         {
             if (Main.netMode != 1)
-                return TEItemFrame.Place(x, y);
+                return Place(x, y);
             NetMessage.SendTileSquare(Main.myPlayer, x, y, 2);
-            NetMessage.SendData(87, -1, -1, "", x, (float)y, 1f, 0.0f, 0, 0, 0);
+            NetMessage.SendData(87, -1, -1, "", x, (float)y, 1f);
             return -1;
         }
 
         public static void Kill(int x, int y)
         {
             TileEntity tileEntity;
-            if (!TileEntity.ByPosition.TryGetValue(new Point16(x, y), out tileEntity) || (int)tileEntity.type != 1)
+            if (!ByPosition.TryGetValue(new Point16(x, y), out tileEntity) || tileEntity.type != 1)
                 return;
-            TileEntity.ByID.Remove(tileEntity.ID);
-            TileEntity.ByPosition.Remove(new Point16(x, y));
+
+            ByID.Remove(tileEntity.ID);
+            ByPosition.Remove(new Point16(x, y));
         }
 
         public static int Find(int x, int y)
         {
             TileEntity tileEntity;
-            if (TileEntity.ByPosition.TryGetValue(new Point16(x, y), out tileEntity) && (int)tileEntity.type == 1)
+            if (ByPosition.TryGetValue(new Point16(x, y), out tileEntity) && tileEntity.type == 1)
                 return tileEntity.ID;
+
             return -1;
         }
 
         public static bool ValidTile(int x, int y)
         {
-            return Main.tile[x, y].active() && (int)Main.tile[x, y].type == 395 && ((int)Main.tile[x, y].frameY == 0 && (int)Main.tile[x, y].frameX % 36 == 0);
+            return Main.tile[x, y].active() && Main.tile[x, y].type == 395 && (Main.tile[x, y].frameY == 0 && Main.tile[x, y].frameX % 36 == 0);
         }
 
         public override void WriteExtraData(BinaryWriter writer)
         {
-            writer.Write((short)this.item.netID);
-            writer.Write(this.item.prefix);
-            writer.Write((short)this.item.stack);
+            writer.Write((short)item.netID);
+            writer.Write(item.prefix);
+            writer.Write((short)item.stack);
         }
 
         public override void ReadExtraData(BinaryReader reader)
         {
-            this.item = new Item();
-            this.item.netDefaults((int)reader.ReadInt16());
-            this.item.Prefix((int)reader.ReadByte());
-            this.item.stack = (int)reader.ReadInt16();
+            item = new Item();
+            item.netDefaults((int)reader.ReadInt16());
+            item.Prefix((int)reader.ReadByte());
+            item.stack = (int)reader.ReadInt16();
         }
 
         public override string ToString()
         {
-            return (string)(object)this.Position.X + (object)"x  " + (string)(object)this.Position.Y + "y item: " + this.item.ToString();
+            return Position.X + "x  " + Position.Y + "y item: " + item.ToString();
         }
 
         public void DropItem()
         {
             if (Main.netMode != 1)
-                Item.NewItem((int)this.Position.X * 16, (int)this.Position.Y * 16, 32, 32, this.item.netID, 1, false, (int)this.item.prefix, false);
-            this.item = new Item();
+                Item.NewItem((int)Position.X * 16, (int)Position.Y * 16, 32, 32, item.netID, 1, false, (int)item.prefix, false);
+            item = new Item();
         }
 
         public static void TryPlacing(int x, int y, int netid, int prefix, int stack)
@@ -108,6 +110,7 @@ namespace Terraria.GameContent.Tile_Entities
                 TEItemFrame teItemFrame = (TEItemFrame)TileEntity.ByID[index];
                 if (teItemFrame.item.stack > 0)
                     teItemFrame.DropItem();
+
                 teItemFrame.item = new Item();
                 teItemFrame.item.netDefaults(netid);
                 teItemFrame.item.Prefix(prefix);

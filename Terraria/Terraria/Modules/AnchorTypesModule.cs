@@ -23,48 +23,43 @@ namespace Terraria.Modules
         {
             if (copyFrom == null)
             {
-                this.tileValid = (int[])null;
-                this.tileInvalid = (int[])null;
-                this.tileAlternates = (int[])null;
-                this.wallValid = (int[])null;
+                tileValid = null;
+                tileInvalid = null;
+                tileAlternates = null;
+                wallValid = null;
             }
             else
             {
                 if (copyFrom.tileValid == null)
-                {
-                    this.tileValid = (int[])null;
-                }
+                    tileValid = null;
                 else
                 {
-                    this.tileValid = new int[copyFrom.tileValid.Length];
-                    Array.Copy((Array)copyFrom.tileValid, (Array)this.tileValid, this.tileValid.Length);
+                    tileValid = new int[copyFrom.tileValid.Length];
+                    Array.Copy(copyFrom.tileValid, tileValid, tileValid.Length);
                 }
+
                 if (copyFrom.tileInvalid == null)
-                {
-                    this.tileInvalid = (int[])null;
-                }
+                    tileInvalid = null;
                 else
                 {
-                    this.tileInvalid = new int[copyFrom.tileInvalid.Length];
-                    Array.Copy((Array)copyFrom.tileInvalid, (Array)this.tileInvalid, this.tileInvalid.Length);
+                    tileInvalid = new int[copyFrom.tileInvalid.Length];
+                    Array.Copy(copyFrom.tileInvalid, tileInvalid, tileInvalid.Length);
                 }
+
                 if (copyFrom.tileAlternates == null)
-                {
-                    this.tileAlternates = (int[])null;
-                }
+                    tileAlternates = null;
                 else
                 {
                     this.tileAlternates = new int[copyFrom.tileAlternates.Length];
-                    Array.Copy((Array)copyFrom.tileAlternates, (Array)this.tileAlternates, this.tileAlternates.Length);
+                    Array.Copy(copyFrom.tileAlternates, tileAlternates, tileAlternates.Length);
                 }
+
                 if (copyFrom.wallValid == null)
-                {
-                    this.wallValid = (int[])null;
-                }
+                    wallValid = null;
                 else
                 {
-                    this.wallValid = new int[copyFrom.wallValid.Length];
-                    Array.Copy((Array)copyFrom.wallValid, (Array)this.wallValid, this.wallValid.Length);
+                    wallValid = new int[copyFrom.wallValid.Length];
+                    Array.Copy(copyFrom.wallValid, wallValid, wallValid.Length);
                 }
             }
         }

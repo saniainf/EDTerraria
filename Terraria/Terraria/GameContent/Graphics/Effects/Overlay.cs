@@ -18,7 +18,7 @@ namespace Terraria.Graphics.Effects
 
         public Overlay(EffectPriority priority)
         {
-            this._priority = priority;
+            _priority = priority;
         }
 
         public abstract void Draw(SpriteBatch spriteBatch);

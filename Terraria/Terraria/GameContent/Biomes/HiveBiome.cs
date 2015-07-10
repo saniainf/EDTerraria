@@ -23,16 +23,11 @@ namespace Terraria.GameContent.Biomes
             Ref<int> count2 = new Ref<int>(0);
             Ref<int> count3 = new Ref<int>(0);
             Ref<int> count4 = new Ref<int>(0);
-            WorldUtils.Gen(origin, (GenShape)new Shapes.Circle(15), Actions.Chain((GenAction)new Actions.Scanner(count3), (GenAction)new Modifiers.IsSolid(), (GenAction)new Actions.Scanner(count1), (GenAction)new Modifiers.OnlyTiles(new ushort[2]
-      {
-        (ushort) 60,
-        (ushort) 59
-      }), (GenAction)new Actions.Scanner(count2), (GenAction)new Modifiers.OnlyTiles(new ushort[1]
-      {
-        (ushort) 60
-      }), (GenAction)new Actions.Scanner(count4)));
-            if ((double)count2.Value / (double)count1.Value < 0.75 || count4.Value < 2 || !structures.CanPlace(new Microsoft.Xna.Framework.Rectangle(origin.X - 50, origin.Y - 50, 100, 100), 0))
+            WorldUtils.Gen(origin, new Shapes.Circle(15), Actions.Chain(new Actions.Scanner(count3), new Modifiers.IsSolid(),
+                new Actions.Scanner(count1), new Modifiers.OnlyTiles(new ushort[2] { 60, 59 }), new Actions.Scanner(count2), new Modifiers.OnlyTiles(new ushort[1] { 60 }), new Actions.Scanner(count4)));
+            if (count2.Value / count1.Value < 0.75 || count4.Value < 2 || !structures.CanPlace(new Microsoft.Xna.Framework.Rectangle(origin.X - 50, origin.Y - 50, 100, 100), 0))
                 return false;
+
             int num1 = origin.X;
             int num2 = origin.Y;
             int num3 = 150;
@@ -44,13 +39,15 @@ namespace Terraria.GameContent.Biomes
                     int index2 = num2 - num3;
                     while (index2 < num2 + num3)
                     {
-                        if (index2 > 0 && index2 <= Main.maxTilesY - 1 && (Main.tile[index1, index2].active() && (int)Main.tile[index1, index2].type == 226 || ((int)Main.tile[index1, index2].wall == 87 || (int)Main.tile[index1, index2].wall == 3) || (int)Main.tile[index1, index2].wall == 83))
+                        if (index2 > 0 && index2 <= Main.maxTilesY - 1 && (Main.tile[index1, index2].active() && Main.tile[index1, index2].type == 226 ||
+                            (Main.tile[index1, index2].wall == 87 || Main.tile[index1, index2].wall == 3) || Main.tile[index1, index2].wall == 83))
                             return false;
                         index2 += 10;
                     }
                 }
                 index1 += 10;
             }
+
             int num4 = origin.X;
             int num5 = origin.Y;
             int index3 = 0;
@@ -69,6 +66,7 @@ namespace Terraria.GameContent.Biomes
                 numArray2[index3] = (int)vector2_1.Y;
                 ++index3;
             }
+
             for (int index2 = 0; index2 < index3; ++index2)
             {
                 int index4 = numArray1[index2];
@@ -77,7 +75,8 @@ namespace Terraria.GameContent.Biomes
                 int num7 = 1;
                 if (WorldGen.genRand.Next(2) == 0)
                     num7 = -1;
-                while (index4 > 10 && index4 < Main.maxTilesX - 10 && (index5 > 10 && index5 < Main.maxTilesY - 10) && (!Main.tile[index4, index5].active() || !Main.tile[index4, index5 + 1].active() || (!Main.tile[index4 + 1, index5].active() || !Main.tile[index4 + 1, index5 + 1].active())))
+                while (index4 > 10 && index4 < Main.maxTilesX - 10 && (index5 > 10 && index5 < Main.maxTilesY - 10) && (!Main.tile[index4, index5].active() ||
+                    !Main.tile[index4, index5 + 1].active() || (!Main.tile[index4 + 1, index5].active() || !Main.tile[index4 + 1, index5 + 1].active())))
                 {
                     index4 += num7;
                     if (Math.Abs(index4 - numArray1[index2]) > 50)
@@ -86,6 +85,7 @@ namespace Terraria.GameContent.Biomes
                         break;
                     }
                 }
+
                 if (!flag)
                 {
                     int i = index4 + num7;
@@ -102,6 +102,7 @@ namespace Terraria.GameContent.Biomes
                             }
                         }
                     }
+
                     if (!flag)
                     {
                         for (int index6 = i - 1; index6 <= i + 2; ++index6)
@@ -121,6 +122,7 @@ namespace Terraria.GameContent.Biomes
                                 }
                             }
                         }
+
                         int num8 = num7 * -1;
                         int j = index5 + 1;
                         int num9 = 0;
@@ -141,6 +143,7 @@ namespace Terraria.GameContent.Biomes
                     }
                 }
             }
+
             WorldGen.larvaX[WorldGen.numLarva] = Utils.Clamp<int>((int)vector2_1.X, 5, Main.maxTilesX - 5);
             WorldGen.larvaY[WorldGen.numLarva] = Utils.Clamp<int>((int)vector2_1.Y, 5, Main.maxTilesY - 5);
             ++WorldGen.numLarva;
@@ -151,9 +154,7 @@ namespace Terraria.GameContent.Biomes
                 for (int index4 = num11 - 2; index4 <= num11 + 1 && (index4 > 0 && index4 < Main.maxTilesY); ++index4)
                 {
                     if (index4 != num11 + 1)
-                    {
                         Main.tile[index2, index4].active(false);
-                    }
                     else
                     {
                         Main.tile[index2, index4].active(true);
@@ -163,6 +164,7 @@ namespace Terraria.GameContent.Biomes
                     }
                 }
             }
+
             structures.AddStructure(new Microsoft.Xna.Framework.Rectangle(origin.X - 50, origin.Y - 50, 100, 100), 5);
             return true;
         }

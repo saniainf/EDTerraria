@@ -12,7 +12,7 @@ namespace Terraria.ID
 {
     public class TileEntityID
     {
-        public const byte TrainingDummy = (byte)0;
-        public const byte ItemFrame = (byte)1;
+        public const byte TrainingDummy = 0;
+        public const byte ItemFrame = 1;
     }
 }

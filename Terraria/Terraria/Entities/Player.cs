@@ -20691,7 +20691,6 @@ namespace Terraria
 
         public void KillMeForGood()
         {
-            bool isCloudSave = Main.ActivePlayerFileData.IsCloudSave;
             if (FileUtilities.Exists(Main.playerPathName))
                 FileUtilities.Delete(Main.playerPathName);
             if (FileUtilities.Exists(Main.playerPathName + ".bak"))
@@ -27492,21 +27491,13 @@ namespace Terraria
             Main.Achievements.Save();
             string path = playerFile.Path;
             Player player = playerFile.Player;
-            bool isCloudSave = playerFile.IsCloudSave;
             if (!skipMapSave)
             {
                 try
                 {
                     if (Main.mapEnabled)
                         Main.Map.Save();
-                }
-                catch
-                {
-                }
-                try
-                {
-                    if (!isCloudSave)
-                        Directory.CreateDirectory(Main.PlayerPath);
+                    Directory.CreateDirectory(Main.PlayerPath);
                 }
                 catch
                 {
@@ -27517,11 +27508,11 @@ namespace Terraria
             if (FileUtilities.Exists(path))
                 FileUtilities.Copy(path, path + ".bak");
             RijndaelManaged rijndaelManaged = new RijndaelManaged();
-            using (Stream stream = isCloudSave ? (Stream)new MemoryStream(2000) : (Stream)new FileStream(path, FileMode.Create))
+            using (Stream stream = new FileStream(path, FileMode.Create))
             {
                 using (CryptoStream cryptoStream = new CryptoStream(stream, rijndaelManaged.CreateEncryptor(Player.ENCRYPTION_KEY, Player.ENCRYPTION_KEY), CryptoStreamMode.Write))
                 {
-                    using (BinaryWriter writer = new BinaryWriter((Stream)cryptoStream))
+                    using (BinaryWriter writer = new BinaryWriter(cryptoStream))
                     {
                         writer.Write(Main.curRelease);
                         playerFile.Metadata.Write(writer);
@@ -27650,7 +27641,7 @@ namespace Terraria
 
         public static PlayerFileData LoadPlayer(string playerPath, bool cloudSave)
         {
-            PlayerFileData playerFileData = new PlayerFileData(playerPath, cloudSave);
+            PlayerFileData playerFileData = new PlayerFileData(playerPath);
             if (Main.rand == null)
                 Main.rand = new Random((int)DateTime.Now.Ticks);
             Player player1 = new Player();

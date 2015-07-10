@@ -22,19 +22,21 @@ namespace Terraria.Graphics.Effects
 
         public OverlayManager()
         {
-            for (int index = 0; index < this._activeOverlays.Length; ++index)
-                this._activeOverlays[index] = new LinkedList<Overlay>();
+            for (int index = 0; index < _activeOverlays.Length; ++index)
+                _activeOverlays[index] = new LinkedList<Overlay>();
         }
 
         public override void OnActivate(Overlay overlay, Vector2 position)
         {
-            LinkedList<Overlay> linkedList = this._activeOverlays[(int)overlay.Priority];
+            LinkedList<Overlay> linkedList = _activeOverlays[(int)overlay.Priority];
             if (overlay.Mode == OverlayMode.FadeIn || overlay.Mode == OverlayMode.Active)
                 return;
+
             if (overlay.Mode == OverlayMode.FadeOut)
                 linkedList.Remove(overlay);
             else
                 overlay.Opacity = 0.0f;
+
             if (linkedList.Count != 0)
             {
                 foreach (Overlay overlay1 in linkedList)
@@ -45,19 +47,20 @@ namespace Terraria.Graphics.Effects
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Overlay overlay1 = (Overlay)null;
-            for (int index = 0; index < this._activeOverlays.Length; ++index)
+            Overlay overlay1 = null;
+            for (int index = 0; index < _activeOverlays.Length; ++index)
             {
-                foreach (Overlay overlay2 in this._activeOverlays[index])
+                foreach (Overlay overlay2 in _activeOverlays[index])
                 {
                     if (overlay2.Mode == OverlayMode.Active)
                         overlay1 = overlay2;
                 }
             }
+
             LinkedListNode<Overlay> next;
-            for (int index = 0; index < this._activeOverlays.Length; ++index)
+            for (int index = 0; index < _activeOverlays.Length; ++index)
             {
-                for (LinkedListNode<Overlay> node = this._activeOverlays[index].First; node != null; node = next)
+                for (LinkedListNode<Overlay> node = _activeOverlays[index].First; node != null; node = next)
                 {
                     Overlay overlay2 = node.Value;
                     overlay2.Draw(spriteBatch);
@@ -66,7 +69,7 @@ namespace Terraria.Graphics.Effects
                     {
                         case OverlayMode.FadeIn:
                             overlay2.Opacity += 0.05f;
-                            if ((double)overlay2.Opacity >= 1.0)
+                            if (overlay2.Opacity >= 1.0)
                             {
                                 overlay2.Opacity = 1f;
                                 overlay2.Mode = OverlayMode.Active;
@@ -83,11 +86,11 @@ namespace Terraria.Graphics.Effects
                             break;
                         case OverlayMode.FadeOut:
                             overlay2.Opacity -= 0.05f;
-                            if ((double)overlay2.Opacity <= 0.0)
+                            if (overlay2.Opacity <= 0.0)
                             {
                                 overlay2.Opacity = 0.0f;
                                 overlay2.Mode = OverlayMode.Inactive;
-                                this._activeOverlays[index].Remove(node);
+                                _activeOverlays[index].Remove(node);
                                 break;
                             }
                             break;

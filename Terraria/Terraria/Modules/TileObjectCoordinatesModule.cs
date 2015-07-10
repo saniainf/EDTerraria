@@ -27,36 +27,34 @@ namespace Terraria.Modules
         {
             if (copyFrom == null)
             {
-                this.width = 0;
-                this.padding = 0;
-                this.paddingFix = Point16.Zero;
-                this.styleWidth = 0;
-                this.styleHeight = 0;
-                this.calculated = false;
-                this.heights = drawHeight;
+                width = 0;
+                padding = 0;
+                paddingFix = Point16.Zero;
+                styleWidth = 0;
+                styleHeight = 0;
+                calculated = false;
+                heights = drawHeight;
             }
             else
             {
-                this.width = copyFrom.width;
-                this.padding = copyFrom.padding;
-                this.paddingFix = copyFrom.paddingFix;
-                this.styleWidth = copyFrom.styleWidth;
-                this.styleHeight = copyFrom.styleHeight;
-                this.calculated = copyFrom.calculated;
+                width = copyFrom.width;
+                padding = copyFrom.padding;
+                paddingFix = copyFrom.paddingFix;
+                styleWidth = copyFrom.styleWidth;
+                styleHeight = copyFrom.styleHeight;
+                calculated = copyFrom.calculated;
                 if (drawHeight == null)
                 {
                     if (copyFrom.heights == null)
-                    {
-                        this.heights = (int[])null;
-                    }
+                        heights = null;
                     else
                     {
-                        this.heights = new int[copyFrom.heights.Length];
-                        Array.Copy((Array)copyFrom.heights, (Array)this.heights, this.heights.Length);
+                        heights = new int[copyFrom.heights.Length];
+                        Array.Copy(copyFrom.heights, heights, heights.Length);
                     }
                 }
                 else
-                    this.heights = drawHeight;
+                    heights = drawHeight;
             }
         }
     }

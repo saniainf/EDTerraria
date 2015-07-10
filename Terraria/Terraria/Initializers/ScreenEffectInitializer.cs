@@ -38,17 +38,17 @@ namespace Terraria.Initializers
 
         private static void LoadSkies()
         {
-            SkyManager.Instance["Martian"] = (CustomSky)new MartianSky();
-            SkyManager.Instance["Nebula"] = (CustomSky)new NebulaSky();
-            SkyManager.Instance["Stardust"] = (CustomSky)new StardustSky();
-            SkyManager.Instance["Vortex"] = (CustomSky)new VortexSky();
-            SkyManager.Instance["Solar"] = (CustomSky)new SolarSky();
-            SkyManager.Instance["Slime"] = (CustomSky)new SlimeSky();
-            SkyManager.Instance["MoonLord"] = (CustomSky)new MoonLordSky();
-            SkyManager.Instance["MonolithNebula"] = (CustomSky)new NebulaSky();
-            SkyManager.Instance["MonolithStardust"] = (CustomSky)new StardustSky();
-            SkyManager.Instance["MonolithVortex"] = (CustomSky)new VortexSky();
-            SkyManager.Instance["MonolithSolar"] = (CustomSky)new SolarSky();
+            SkyManager.Instance["Martian"] = new MartianSky();
+            SkyManager.Instance["Nebula"] = new NebulaSky();
+            SkyManager.Instance["Stardust"] = new StardustSky();
+            SkyManager.Instance["Vortex"] = new VortexSky();
+            SkyManager.Instance["Solar"] = new SolarSky();
+            SkyManager.Instance["Slime"] = new SlimeSky();
+            SkyManager.Instance["MoonLord"] = new MoonLordSky();
+            SkyManager.Instance["MonolithNebula"] = new NebulaSky();
+            SkyManager.Instance["MonolithStardust"] = new StardustSky();
+            SkyManager.Instance["MonolithVortex"] = new VortexSky();
+            SkyManager.Instance["MonolithSolar"] = new SolarSky();
             SkyManager.Instance.Load();
         }
     }

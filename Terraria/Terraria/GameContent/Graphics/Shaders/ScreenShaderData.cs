@@ -25,90 +25,86 @@ namespace Terraria.Graphics.Shaders
         private float _uProgress;
 
         public ScreenShaderData(string passName)
-            : base(Main.screenShader, passName)
-        {
-        }
+            : base(Main.screenShader, passName) { }
 
         public ScreenShaderData(Effect shader, string passName)
-            : base(shader, passName)
-        {
-        }
+            : base(shader, passName) { }
 
         public override void Apply()
         {
             Vector2 vector2_1 = new Vector2((float)Main.offScreenRange, (float)Main.offScreenRange);
             Vector2 vector2_2 = new Vector2((float)Main.screenWidth, (float)Main.screenHeight);
-            this._shader.Parameters["uColor"].SetValue(this._uColor);
-            this._shader.Parameters["uOpacity"].SetValue(this._uOpacity * this._globalOpacity);
-            this._shader.Parameters["uSecondaryColor"].SetValue(this._uSecondaryColor);
-            this._shader.Parameters["uTime"].SetValue(Main.GlobalTime);
-            this._shader.Parameters["uScreenResolution"].SetValue(vector2_2);
-            this._shader.Parameters["uScreenPosition"].SetValue(Main.screenPosition - vector2_1);
-            this._shader.Parameters["uTargetPosition"].SetValue(this._uTargetPosition - vector2_1);
-            this._shader.Parameters["uIntensity"].SetValue(this._uIntensity);
-            this._shader.Parameters["uProgress"].SetValue(this._uProgress);
+            _shader.Parameters["uColor"].SetValue(_uColor);
+            _shader.Parameters["uOpacity"].SetValue(_uOpacity * _globalOpacity);
+            _shader.Parameters["uSecondaryColor"].SetValue(_uSecondaryColor);
+            _shader.Parameters["uTime"].SetValue(Main.GlobalTime);
+            _shader.Parameters["uScreenResolution"].SetValue(vector2_2);
+            _shader.Parameters["uScreenPosition"].SetValue(Main.screenPosition - vector2_1);
+            _shader.Parameters["uTargetPosition"].SetValue(_uTargetPosition - vector2_1);
+            _shader.Parameters["uIntensity"].SetValue(_uIntensity);
+            _shader.Parameters["uProgress"].SetValue(_uProgress);
             base.Apply();
         }
 
         public ScreenShaderData UseIntensity(float intensity)
         {
-            this._uIntensity = intensity;
+            _uIntensity = intensity;
             return this;
         }
 
         public ScreenShaderData UseColor(float r, float g, float b)
         {
-            return this.UseColor(new Vector3(r, g, b));
+            return UseColor(new Vector3(r, g, b));
         }
 
         public ScreenShaderData UseProgress(float progress)
         {
-            this._uProgress = progress;
+            _uProgress = progress;
             return this;
         }
 
         public ScreenShaderData UseColor(Color color)
         {
-            return this.UseColor(color.ToVector3());
+            return UseColor(color.ToVector3());
         }
 
         public ScreenShaderData UseColor(Vector3 color)
         {
-            this._uColor = color;
+            _uColor = color;
             return this;
         }
 
         public ScreenShaderData UseGlobalOpacity(float opacity)
         {
-            this._globalOpacity = opacity;
+            _globalOpacity = opacity;
             return this;
         }
 
         public ScreenShaderData UseTargetPosition(Vector2 position)
         {
-            this._uTargetPosition = position;
+            _uTargetPosition = position;
             return this;
         }
 
         public ScreenShaderData UseSecondaryColor(float r, float g, float b)
         {
-            return this.UseSecondaryColor(new Vector3(r, g, b));
+            return UseSecondaryColor(new Vector3(r, g, b));
         }
 
         public ScreenShaderData UseSecondaryColor(Color color)
         {
-            return this.UseSecondaryColor(color.ToVector3());
+            return UseSecondaryColor(color.ToVector3());
         }
 
         public ScreenShaderData UseSecondaryColor(Vector3 color)
         {
-            this._uSecondaryColor = color;
+            _uSecondaryColor = color;
             return this;
         }
 
         public ScreenShaderData UseOpacity(float opacity)
         {
-            this._uOpacity = opacity;
+            _uOpacity = opacity;
             return this;
         }
 
