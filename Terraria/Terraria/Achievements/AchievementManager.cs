@@ -36,7 +36,7 @@ namespace Terraria.Achievements
 
         public AchievementManager()
         {
-            _savePath = Main.SavePath + Path.DirectorySeparatorChar + "achievements.dat";
+            _savePath = "Data\\achievements.dat";
             byte[] numArray = Encoding.ASCII.GetBytes("RELOGIC-TERRARIA");
             RijndaelManaged rijndaelManaged = new RijndaelManaged();
             _encryptor = rijndaelManaged.CreateEncryptor(numArray, numArray);

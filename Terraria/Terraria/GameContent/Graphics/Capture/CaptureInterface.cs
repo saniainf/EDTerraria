@@ -204,7 +204,7 @@ namespace Terraria.Graphics.Capture
                     int num33 = 1;
                     int num34 = num32 + num33;
                     if (num31 == num32 && flag2 && flag1)
-                        Process.Start(string.Concat(new object[4] { Main.SavePath, Path.DirectorySeparatorChar, "Captures", Path.DirectorySeparatorChar }));
+                        Process.Start(string.Concat(new object[4] { "Data", Path.DirectorySeparatorChar, "Captures", Path.DirectorySeparatorChar }));
 
                     int num35 = index;
                     int num36 = num34;

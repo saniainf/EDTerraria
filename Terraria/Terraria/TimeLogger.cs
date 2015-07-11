@@ -125,7 +125,7 @@ namespace Terraria
             {
                 TimeLogger.startLoggingNextFrame = false;
                 DateTime now = DateTime.Now;
-                string path = Main.SavePath + (object)Path.DirectorySeparatorChar + "TerrariaDrawLog.7z";
+                string path = "Data\\TerrariaDrawLog.7z";
                 try
                 {
                     TimeLogger.logWriter = new StreamWriter((Stream)new GZipStream((Stream)new FileStream(path, FileMode.Create), CompressionMode.Compress));

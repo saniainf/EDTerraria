@@ -123,9 +123,7 @@ namespace Terraria
         public static string versionNumber = "v1.3.0.3";
         public static string versionNumber2 = "v1.3.0.3";
         public static Vector2 destroyerHB = new Vector2(0f, 0f);
-        private static string favSavePath = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\My Games\\Terraria\\favorites.json";
-        public static FavoritesFile LocalFavoriteData = new FavoritesFile(favSavePath);
-        public static FavoritesFile CloudFavoritesData = new FavoritesFile("/favorites.json");
+        public static FavoritesFile LocalFavoriteData = new FavoritesFile("Data\\favorites.json");
         public static FileMetadata WorldFileMetadata;
         public static FileMetadata MapFileMetadata;
         private AchievementManager _achievements;
@@ -1239,12 +1237,9 @@ namespace Terraria
         public static Player PendingPlayer = null;
         public static List<WorldFileData> WorldList = new List<WorldFileData>();
         public static WorldFileData ActiveWorldFileData = new WorldFileData();
-        public static string SavePath = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\My Games\\Terraria";
-        public static string WorldPath = Main.SavePath + Path.DirectorySeparatorChar + "Worlds";
-        public static string CloudWorldPath = "worlds";
-        public static string PlayerPath = Main.SavePath + Path.DirectorySeparatorChar + "Players";
-        public static string CloudPlayerPath = "players";
-        public static Preferences Configuration = new Preferences(SavePath + Path.DirectorySeparatorChar + "config.json", false, false);
+        public static string WorldPath = "Data\\Worlds";
+        public static string PlayerPath = "Data\\Players";
+        public static Preferences Configuration = new Preferences("Data\\config.json", false, false);
         public static string[] itemName = new string[3601];
         public static string[] npcName = new string[540];
         private static KeyboardState inputText;
@@ -2191,9 +2186,9 @@ namespace Terraria
         {
             try
             {
-                if (File.Exists(Main.SavePath + Path.DirectorySeparatorChar + "servers.dat"))
+                if (File.Exists("Data\\servers.dat"))
                 {
-                    using (FileStream fileStream = new FileStream(Main.SavePath + Path.DirectorySeparatorChar + "servers.dat", FileMode.Open))
+                    using (FileStream fileStream = new FileStream("Data\\servers.dat", FileMode.Open))
                     {
                         using (BinaryReader binaryReader = new BinaryReader(fileStream))
                         {
@@ -2214,17 +2209,11 @@ namespace Terraria
         }
         public static void SaveRecent()
         {
-            Directory.CreateDirectory(Main.SavePath);
+            Directory.CreateDirectory("Data");
             try
             {
-                File.SetAttributes(Main.SavePath + Path.DirectorySeparatorChar + "servers.dat", FileAttributes.Normal);
-            }
-            catch
-            {
-            }
-            try
-            {
-                using (FileStream fileStream = new FileStream(Main.SavePath + Path.DirectorySeparatorChar + "servers.dat", FileMode.Create))
+                File.SetAttributes("Data\\servers.dat", FileAttributes.Normal);
+                using (FileStream fileStream = new FileStream("Data\\servers.dat", FileMode.Create))
                 {
                     using (BinaryWriter binaryWriter = new BinaryWriter(fileStream))
                     {
@@ -2317,16 +2306,15 @@ namespace Terraria
         }
         protected void OpenSettings()
         {
-            if (File.Exists(Main.SavePath + Path.DirectorySeparatorChar + "config.dat"))
+            if (File.Exists("Data\\config.dat"))
             {
                 this.OpenLegacySettings();
                 if (Main.SaveSettings())
-                {
-                    File.Delete(Main.SavePath + Path.DirectorySeparatorChar + "config.dat");
-                }
+                    File.Delete("Data\\config.dat");
                 Lighting.LightingThreads = 0;
                 return;
             }
+
             Main.Configuration.Load();
             Main.Configuration.Get<bool>("SmartCursorToggle", ref Main.cSmartToggle);
             Main.Configuration.Get<bool>("MapEnabled", ref Main.mapEnabled);
@@ -2410,9 +2398,9 @@ namespace Terraria
         {
             try
             {
-                if (File.Exists(Main.SavePath + Path.DirectorySeparatorChar + "config.dat"))
+                if (File.Exists("Data\\config.dat"))
                 {
-                    using (FileStream fileStream = new FileStream(Main.SavePath + Path.DirectorySeparatorChar + "config.dat", FileMode.Open))
+                    using (FileStream fileStream = new FileStream("Data\\config.dat", FileMode.Open))
                     {
                         using (BinaryReader binaryReader = new BinaryReader(fileStream))
                         {
@@ -2586,7 +2574,7 @@ namespace Terraria
                 }
                 text += str;
             }
-            string text3 = cloudSave ? Main.CloudPlayerPath : Main.PlayerPath;
+            string text3 = Main.PlayerPath;
             string path = string.Concat(new object[]
 			{
 				text3,
@@ -3877,7 +3865,6 @@ namespace Terraria
         protected override void Initialize()
         {
             Main.LocalFavoriteData.Load();
-            Main.CloudFavoritesData.Load();
             TileObjectData.Initialize();
             Animation.Initialize();
             Chest.Initialize();

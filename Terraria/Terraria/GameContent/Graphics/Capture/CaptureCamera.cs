@@ -198,7 +198,7 @@ namespace Terraria.Graphics.Capture
         {
             try
             {
-                Directory.CreateDirectory(string.Concat(new object[4] { Main.SavePath, Path.DirectorySeparatorChar, "Captures", Path.DirectorySeparatorChar }));
+                Directory.CreateDirectory(string.Concat(new object[4] { "Data", Path.DirectorySeparatorChar, "Captures", Path.DirectorySeparatorChar }));
                 using (Bitmap bitmap = new Bitmap(width, height))
                 {
                     System.Drawing.Rectangle rect = new System.Drawing.Rectangle(0, 0, width, height);
@@ -219,7 +219,7 @@ namespace Terraria.Graphics.Capture
 
         private void SaveImage(Texture2D texture, int width, int height, ImageFormat imageFormat, string foldername, string filename)
         {
-            Directory.CreateDirectory(Main.SavePath + Path.DirectorySeparatorChar + "Captures" + Path.DirectorySeparatorChar + foldername);
+            Directory.CreateDirectory("Data\\Captures" + Path.DirectorySeparatorChar + foldername);
             using (Bitmap bitmap = new Bitmap(width, height))
             {
                 System.Drawing.Rectangle rect = new System.Drawing.Rectangle(0, 0, width, height);
@@ -245,7 +245,7 @@ namespace Terraria.Graphics.Capture
                 BitmapData bitmapdata = bitmap.LockBits(rect, ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
                 Marshal.Copy(_outputData, 0, bitmapdata.Scan0, width * height * 4);
                 bitmap.UnlockBits(bitmapdata);
-                bitmap.Save(Main.SavePath + Path.DirectorySeparatorChar + "Captures" + Path.DirectorySeparatorChar + foldername + Path.DirectorySeparatorChar + filename, imageFormat);
+                bitmap.Save("Data\\Captures" + Path.DirectorySeparatorChar + foldername + Path.DirectorySeparatorChar + filename, imageFormat);
             }
         }
 
@@ -256,7 +256,7 @@ namespace Terraria.Graphics.Capture
                 int num = 0;
                 do
                 {
-                    if (!SaveImage(_outputImageSize.Width, _outputImageSize.Height, ImageFormat.Png, Main.SavePath + Path.DirectorySeparatorChar + "Captures" + Path.DirectorySeparatorChar +
+                    if (!SaveImage(_outputImageSize.Width, _outputImageSize.Height, ImageFormat.Png, "Data\\Captures" + Path.DirectorySeparatorChar +
                         _activeSettings.OutputName + ".png"))
                     {
                         GC.Collect();
