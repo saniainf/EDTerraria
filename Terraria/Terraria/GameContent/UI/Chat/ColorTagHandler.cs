@@ -23,7 +23,8 @@ namespace Terraria.GameContent.UI.Chat
             int result;
             if (!int.TryParse(options, NumberStyles.AllowHexSpecifier, (IFormatProvider)CultureInfo.InvariantCulture, out result))
                 return textSnippet;
-            textSnippet.Color = new Color(result >> 16 & (int)byte.MaxValue, result >> 8 & (int)byte.MaxValue, result & (int)byte.MaxValue);
+
+            textSnippet.Color = new Color(result >> 16 & 255, result >> 8 & 255, result & 255);
             return textSnippet;
         }
     }

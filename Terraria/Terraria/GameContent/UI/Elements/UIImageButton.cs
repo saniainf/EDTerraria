@@ -23,22 +23,22 @@ namespace Terraria.GameContent.UI.Elements
 
         public UIImageButton(Texture2D texture)
         {
-            this._texture = texture;
-            this.Width.Set((float)this._texture.Width, 0.0f);
-            this.Height.Set((float)this._texture.Height, 0.0f);
+            _texture = texture;
+            Width.Set((float)_texture.Width, 0.0f);
+            Height.Set((float)_texture.Height, 0.0f);
         }
 
         public void SetImage(Texture2D texture)
         {
-            this._texture = texture;
-            this.Width.Set((float)this._texture.Width, 0.0f);
-            this.Height.Set((float)this._texture.Height, 0.0f);
+            _texture = texture;
+            Width.Set((float)_texture.Width, 0.0f);
+            Height.Set((float)_texture.Height, 0.0f);
         }
 
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
-            CalculatedStyle dimensions = this.GetDimensions();
-            spriteBatch.Draw(this._texture, dimensions.Position(), Color.White * (this.IsMouseHovering ? this._visibilityActive : this._visibilityInactive));
+            CalculatedStyle dimensions = GetDimensions();
+            spriteBatch.Draw(_texture, dimensions.Position(), Color.White * (IsMouseHovering ? _visibilityActive : _visibilityInactive));
         }
 
         public override void MouseOver(UIMouseEvent evt)
@@ -49,8 +49,8 @@ namespace Terraria.GameContent.UI.Elements
 
         public void SetVisibility(float whenActive, float whenInactive)
         {
-            this._visibilityActive = MathHelper.Clamp(whenActive, 0.0f, 1f);
-            this._visibilityInactive = MathHelper.Clamp(whenInactive, 0.0f, 1f);
+            _visibilityActive = MathHelper.Clamp(whenActive, 0.0f, 1f);
+            _visibilityInactive = MathHelper.Clamp(whenInactive, 0.0f, 1f);
         }
     }
 }

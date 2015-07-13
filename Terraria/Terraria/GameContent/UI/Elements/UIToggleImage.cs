@@ -26,57 +26,55 @@ namespace Terraria.GameContent.UI.Elements
 
         public bool IsOn
         {
-            get
-            {
-                return this._isOn;
-            }
+            get { return _isOn; }
         }
 
         public UIToggleImage(Texture2D texture, int width, int height, Point onTextureOffset, Point offTextureOffset)
         {
-            this._onTexture = texture;
-            this._offTexture = texture;
-            this._offTextureOffset = offTextureOffset;
-            this._onTextureOffset = onTextureOffset;
-            this._drawWidth = width;
-            this._drawHeight = height;
-            this.Width.Set((float)width, 0.0f);
-            this.Height.Set((float)height, 0.0f);
+            _onTexture = texture;
+            _offTexture = texture;
+            _offTextureOffset = offTextureOffset;
+            _onTextureOffset = onTextureOffset;
+            _drawWidth = width;
+            _drawHeight = height;
+            Width.Set((float)width, 0.0f);
+            Height.Set((float)height, 0.0f);
         }
 
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
-            CalculatedStyle dimensions = this.GetDimensions();
+            CalculatedStyle dimensions = GetDimensions();
             Texture2D texture;
             Point point;
-            if (this._isOn)
+            if (_isOn)
             {
-                texture = this._onTexture;
-                point = this._onTextureOffset;
+                texture = _onTexture;
+                point = _onTextureOffset;
             }
             else
             {
-                texture = this._offTexture;
-                point = this._offTextureOffset;
+                texture = _offTexture;
+                point = _offTextureOffset;
             }
-            Color color = this.IsMouseHovering ? Color.White : Color.Silver;
-            spriteBatch.Draw(texture, new Rectangle((int)dimensions.X, (int)dimensions.Y, this._drawWidth, this._drawHeight), new Rectangle?(new Rectangle(point.X, point.Y, this._drawWidth, this._drawHeight)), color);
+
+            Color color = IsMouseHovering ? Color.White : Color.Silver;
+            spriteBatch.Draw(texture, new Rectangle((int)dimensions.X, (int)dimensions.Y, _drawWidth, _drawHeight), new Rectangle?(new Rectangle(point.X, point.Y, _drawWidth, _drawHeight)), color);
         }
 
         public override void Click(UIMouseEvent evt)
         {
-            this.Toggle();
+            Toggle();
             base.Click(evt);
         }
 
         public void SetState(bool value)
         {
-            this._isOn = value;
+            _isOn = value;
         }
 
         public void Toggle()
         {
-            this._isOn = !this._isOn;
+            _isOn = !_isOn;
         }
     }
 }

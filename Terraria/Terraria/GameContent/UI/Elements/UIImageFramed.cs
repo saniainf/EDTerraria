@@ -21,31 +21,31 @@ namespace Terraria.GameContent.UI.Elements
 
         public UIImageFramed(Texture2D texture, Rectangle frame)
         {
-            this._texture = texture;
-            this._frame = frame;
-            this.Width.Set((float)this._frame.Width, 0.0f);
-            this.Height.Set((float)this._frame.Height, 0.0f);
+            _texture = texture;
+            _frame = frame;
+            Width.Set((float)_frame.Width, 0.0f);
+            Height.Set((float)_frame.Height, 0.0f);
         }
 
         public void SetImage(Texture2D texture, Rectangle frame)
         {
-            this._texture = texture;
-            this._frame = frame;
-            this.Width.Set((float)this._frame.Width, 0.0f);
-            this.Height.Set((float)this._frame.Height, 0.0f);
+            _texture = texture;
+            _frame = frame;
+            Width.Set((float)_frame.Width, 0.0f);
+            Height.Set((float)_frame.Height, 0.0f);
         }
 
         public void SetFrame(Rectangle frame)
         {
-            this._frame = frame;
-            this.Width.Set((float)this._frame.Width, 0.0f);
-            this.Height.Set((float)this._frame.Height, 0.0f);
+            _frame = frame;
+            Width.Set((float)frame.Width, 0.0f);
+            Height.Set((float)_frame.Height, 0.0f);
         }
 
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
-            CalculatedStyle dimensions = this.GetDimensions();
-            spriteBatch.Draw(this._texture, dimensions.Position(), new Rectangle?(this._frame), Color.White);
+            CalculatedStyle dimensions = GetDimensions();
+            spriteBatch.Draw(_texture, dimensions.Position(), new Rectangle?(_frame), Color.White);
         }
     }
 }

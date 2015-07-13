@@ -28,7 +28,7 @@ namespace Terraria.GameContent.Tile_Entities
             TEItemFrame teItemFrame = new TEItemFrame();
             teItemFrame.Position = new Point16(x, y);
             teItemFrame.ID = TileEntity.AssignNewID();
-            teItemFrame.type = (byte)1;
+            teItemFrame.type = 1;
             TileEntity.ByID[teItemFrame.ID] = teItemFrame;
             TileEntity.ByPosition[teItemFrame.Position] = teItemFrame;
             return teItemFrame.ID;

@@ -35,34 +35,35 @@ namespace Terraria.GameContent.UI
 
         public EmoteBubble(int emotion, WorldUIAnchor bubbleAnchor, int time = 180)
         {
-            this.anchor = bubbleAnchor;
-            this.emote = emotion;
-            this.lifeTime = time;
-            this.lifeTimeStart = time;
+            anchor = bubbleAnchor;
+            emote = emotion;
+            lifeTime = time;
+            lifeTimeStart = time;
         }
 
         public static void UpdateAll()
         {
             lock (EmoteBubble.byID)
             {
-                EmoteBubble.toClean.Clear();
-                foreach (KeyValuePair<int, EmoteBubble> item_0 in EmoteBubble.byID)
+                toClean.Clear();
+                foreach (KeyValuePair<int, EmoteBubble> item_0 in byID)
                 {
                     item_0.Value.Update();
                     if (item_0.Value.lifeTime <= 0)
-                        EmoteBubble.toClean.Add(item_0.Key);
+                        toClean.Add(item_0.Key);
                 }
+
                 foreach (int item_1 in EmoteBubble.toClean)
-                    EmoteBubble.byID.Remove(item_1);
-                EmoteBubble.toClean.Clear();
+                    byID.Remove(item_1);
+                toClean.Clear();
             }
         }
 
         public static void DrawAll(SpriteBatch sb)
         {
-            lock (EmoteBubble.byID)
+            lock (byID)
             {
-                foreach (KeyValuePair<int, EmoteBubble> item_0 in EmoteBubble.byID)
+                foreach (KeyValuePair<int, EmoteBubble> item_0 in byID)
                     item_0.Value.Draw(sb);
             }
         }
@@ -84,27 +85,27 @@ namespace Terraria.GameContent.UI
         public static WorldUIAnchor DeserializeNetAnchor(int type, int meta)
         {
             if (type == 0)
-                return new WorldUIAnchor((Entity)Main.npc[meta]);
+                return new WorldUIAnchor(Main.npc[meta]);
             if (type == 1)
-                return new WorldUIAnchor((Entity)Main.player[meta]);
+                return new WorldUIAnchor(Main.player[meta]);
             if (type == 2)
-                return new WorldUIAnchor((Entity)Main.projectile[meta]);
+                return new WorldUIAnchor(Main.projectile[meta]);
             throw new Exception("How did you end up getting this?");
         }
 
         public static int AssignNewID()
         {
-            return EmoteBubble.NextID++;
+            return NextID++;
         }
 
         public static int NewBubble(int emoticon, WorldUIAnchor bubbleAnchor, int time)
         {
             EmoteBubble emoteBubble = new EmoteBubble(emoticon, bubbleAnchor, time);
-            emoteBubble.ID = EmoteBubble.AssignNewID();
-            EmoteBubble.byID[emoteBubble.ID] = emoteBubble;
+            emoteBubble.ID = AssignNewID();
+            byID[emoteBubble.ID] = emoteBubble;
             if (Main.netMode == 2)
             {
-                Tuple<int, int> tuple = EmoteBubble.SerializeNetAnchor(bubbleAnchor);
+                Tuple<int, int> tuple = SerializeNetAnchor(bubbleAnchor);
                 NetMessage.SendData(91, -1, -1, "", emoteBubble.ID, (float)tuple.Item1, (float)tuple.Item2, (float)time, emoticon, 0, 0);
             }
             return emoteBubble.ID;
@@ -113,12 +114,12 @@ namespace Terraria.GameContent.UI
         public static int NewBubbleNPC(WorldUIAnchor bubbleAnchor, int time, WorldUIAnchor other = null)
         {
             EmoteBubble emoteBubble = new EmoteBubble(0, bubbleAnchor, time);
-            emoteBubble.ID = EmoteBubble.AssignNewID();
-            EmoteBubble.byID[emoteBubble.ID] = emoteBubble;
+            emoteBubble.ID = AssignNewID();
+            byID[emoteBubble.ID] = emoteBubble;
             emoteBubble.PickNPCEmote(other);
             if (Main.netMode == 2)
             {
-                Tuple<int, int> tuple = EmoteBubble.SerializeNetAnchor(bubbleAnchor);
+                Tuple<int, int> tuple = SerializeNetAnchor(bubbleAnchor);
                 NetMessage.SendData(91, -1, -1, "", emoteBubble.ID, (float)tuple.Item1, (float)tuple.Item2, (float)time, emoteBubble.emote, emoteBubble.metadata, 0);
             }
             return emoteBubble.ID;
@@ -126,48 +127,51 @@ namespace Terraria.GameContent.UI
 
         private void Update()
         {
-            if (--this.lifeTime <= 0 || ++this.frameCounter < 8)
+            if (--lifeTime <= 0 || ++frameCounter < 8)
                 return;
             this.frameCounter = 0;
-            if (++this.frame < 2)
+            if (++frame < 2)
                 return;
-            this.frame = 0;
+            frame = 0;
         }
 
         private void Draw(SpriteBatch sb)
         {
             Texture2D texture2D = Main.extraTexture[48];
             SpriteEffects effect = SpriteEffects.None;
-            Vector2 vector2 = this.GetPosition(out effect);
-            bool flag = this.lifeTime < 6 || this.lifeTimeStart - this.lifeTime < 6;
+            Vector2 vector2 = GetPosition(out effect);
+            bool flag = lifeTime < 6 || lifeTimeStart - lifeTime < 6;
             Rectangle rectangle = Utils.Frame(texture2D, 8, 33, flag ? 0 : 1, 0);
             Vector2 origin = new Vector2((float)(rectangle.Width / 2), (float)rectangle.Height);
-            if ((double)Main.player[Main.myPlayer].gravDir == -1.0)
+            if (Main.player[Main.myPlayer].gravDir == -1.0)
             {
                 origin.Y = 0.0f;
                 effect |= SpriteEffects.FlipVertically;
                 vector2 = Main.ReverseGravitySupport(vector2, 0.0f);
             }
+
             sb.Draw(texture2D, vector2, new Rectangle?(rectangle), Color.White, 0.0f, origin, 1f, effect, 0.0f);
             if (flag)
                 return;
-            if (this.emote >= 0)
+
+            if (emote >= 0)
             {
-                if (this.emote == 87)
+                if (emote == 87)
                     effect = SpriteEffects.None;
-                sb.Draw(texture2D, vector2, new Rectangle?(Utils.Frame(texture2D, 8, 33, this.emote * 2 % 8 + this.frame, 1 + this.emote / 4)), Color.White, 0.0f, origin, 1f, effect, 0.0f);
+                sb.Draw(texture2D, vector2, new Rectangle?(Utils.Frame(texture2D, 8, 33, emote * 2 % 8 + frame, 1 + emote / 4)), Color.White, 0.0f, origin, 1f, effect, 0.0f);
             }
             else
             {
                 if (this.emote != -1)
                     return;
-                Texture2D texture = Main.npcHeadTexture[this.metadata];
+                Texture2D texture = Main.npcHeadTexture[metadata];
                 float scale = 1f;
-                if ((double)texture.Width / 22.0 > 1.0)
+                if (texture.Width / 22.0 > 1.0)
                     scale = 22f / (float)texture.Width;
-                if ((double)texture.Height / 16.0 > 1.0 / (double)scale)
+                if (texture.Height / 16.0 > 1.0 / scale)
                     scale = 16f / (float)texture.Height;
-                sb.Draw(texture, vector2 + new Vector2(effect.HasFlag((Enum)SpriteEffects.FlipHorizontally) ? 1f : -1f, (float)(-rectangle.Height + 3)), new Rectangle?(), Color.White, 0.0f, new Vector2((float)(texture.Width / 2), 0.0f), scale, effect, 0.0f);
+                sb.Draw(texture, vector2 + new Vector2(effect.HasFlag(SpriteEffects.FlipHorizontally) ? 1f : -1f, (float)(-rectangle.Height + 3)),
+                    new Rectangle?(), Color.White, 0.0f, new Vector2((float)(texture.Width / 2), 0.0f), scale, effect, 0.0f);
             }
         }
 
@@ -176,14 +180,14 @@ namespace Terraria.GameContent.UI
             switch (this.anchor.type)
             {
                 case WorldUIAnchor.AnchorType.Entity:
-                    effect = this.anchor.entity.direction == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
-                    return this.anchor.entity.Top + new Vector2((float)(-this.anchor.entity.direction * this.anchor.entity.width) * 0.75f, 2f) - Main.screenPosition;
+                    effect = anchor.entity.direction == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+                    return anchor.entity.Top + new Vector2((float)(-anchor.entity.direction * anchor.entity.width) * 0.75f, 2f) - Main.screenPosition;
                 case WorldUIAnchor.AnchorType.Tile:
                     effect = SpriteEffects.None;
-                    return this.anchor.pos - Main.screenPosition + new Vector2(0.0f, (float)(-(double)this.anchor.size.Y / 2.0));
+                    return anchor.pos - Main.screenPosition + new Vector2(0.0f, (float)(-anchor.size.Y / 2.0));
                 case WorldUIAnchor.AnchorType.Pos:
                     effect = SpriteEffects.None;
-                    return this.anchor.pos - Main.screenPosition;
+                    return anchor.pos - Main.screenPosition;
                 default:
                     effect = SpriteEffects.None;
                     return new Vector2((float)Main.screenWidth, (float)Main.screenHeight) / 2f;
@@ -192,7 +196,7 @@ namespace Terraria.GameContent.UI
 
         public void PickNPCEmote(WorldUIAnchor other = null)
         {
-            Player plr = Main.player[(int)Player.FindClosest(this.anchor.entity.Center, 0, 0)];
+            Player plr = Main.player[(int)Player.FindClosest(anchor.entity.Center, 0, 0)];
             List<int> list = new List<int>();
             bool flag = false;
             for (int index = 0; index < 200; ++index)
@@ -200,33 +204,35 @@ namespace Terraria.GameContent.UI
                 if (Main.npc[index].active && Main.npc[index].boss)
                     flag = true;
             }
+
             if (!flag)
             {
                 if (Main.rand.Next(3) == 0)
-                    this.ProbeTownNPCs(list);
+                    ProbeTownNPCs(list);
                 if (Main.rand.Next(3) == 0)
-                    this.ProbeEmotions(list);
+                    ProbeEmotions(list);
                 if (Main.rand.Next(3) == 0)
-                    this.ProbeBiomes(list, plr);
+                    ProbeBiomes(list, plr);
                 if (Main.rand.Next(2) == 0)
-                    this.ProbeCritters(list);
+                    ProbeCritters(list);
                 if (Main.rand.Next(2) == 0)
-                    this.ProbeItems(list, plr);
+                    ProbeItems(list, plr);
                 if (Main.rand.Next(5) == 0)
-                    this.ProbeBosses(list);
+                    ProbeBosses(list);
                 if (Main.rand.Next(2) == 0)
-                    this.ProbeDebuffs(list, plr);
+                    ProbeDebuffs(list, plr);
                 if (Main.rand.Next(2) == 0)
-                    this.ProbeEvents(list);
+                    ProbeEvents(list);
                 if (Main.rand.Next(2) == 0)
-                    this.ProbeWeather(list, plr);
-                this.ProbeExceptions(list, plr, other);
+                    ProbeWeather(list, plr);
+                ProbeExceptions(list, plr, other);
             }
             else
-                this.ProbeCombat(list);
+                ProbeCombat(list);
+
             if (list.Count <= 0)
                 return;
-            this.emote = list[Main.rand.Next(list.Count)];
+            emote = list[Main.rand.Next(list.Count)];
         }
 
         private void ProbeCombat(List<int> list)
@@ -242,20 +248,21 @@ namespace Terraria.GameContent.UI
 
         private void ProbeWeather(List<int> list, Player plr)
         {
-            if ((double)Main.cloudBGActive > 0.0)
+            if (Main.cloudBGActive > 0.0)
                 list.Add(96);
-            if ((double)Main.cloudAlpha > 0.0)
+            if (Main.cloudAlpha > 0.0)
             {
                 if (!Main.dayTime)
                     list.Add(5);
                 list.Add(4);
                 if (plr.ZoneSnow)
                     list.Add(98);
-                if ((double)plr.position.X < 4000.0 || (double)plr.position.X > (double)(Main.maxTilesX * 16 - 4000) && (double)plr.position.Y < Main.worldSurface / 16.0)
+                if (plr.position.X < 4000.0 || plr.position.X > (Main.maxTilesX * 16 - 4000) && plr.position.Y < Main.worldSurface / 16.0)
                     list.Add(97);
             }
             else
                 list.Add(95);
+
             if (!plr.ZoneHoly)
                 return;
             list.Add(6);
@@ -278,11 +285,11 @@ namespace Terraria.GameContent.UI
 
         private void ProbeDebuffs(List<int> list, Player plr)
         {
-            if ((double)plr.Center.Y > (double)(Main.maxTilesY * 16 - 3200) || plr.onFire || (((NPC)this.anchor.entity).onFire || plr.onFire2))
+            if (plr.Center.Y > (Main.maxTilesY * 16 - 3200) || plr.onFire || (((NPC)anchor.entity).onFire || plr.onFire2))
                 list.Add(9);
             if (Main.rand.Next(2) == 0)
                 list.Add(11);
-            if (plr.poisoned || ((NPC)this.anchor.entity).poisoned || plr.ZoneJungle)
+            if (plr.poisoned || ((NPC)anchor.entity).poisoned || plr.ZoneJungle)
                 list.Add(8);
             if (plr.inventory[plr.selectedItem].type != 215 && Main.rand.Next(3) != 0)
                 return;
@@ -311,7 +318,8 @@ namespace Terraria.GameContent.UI
                 if (Main.npc[index].active)
                     ++EmoteBubble.CountNPCs[Main.npc[index].type];
             }
-            int num = ((NPC)this.anchor.entity).type;
+
+            int num = ((NPC)anchor.entity).type;
             for (int index = 0; index < 540; ++index)
             {
                 if (NPCID.Sets.FaceEmote[index] > 0 && EmoteBubble.CountNPCs[index] > 0 && index != num)
@@ -321,11 +329,11 @@ namespace Terraria.GameContent.UI
 
         private void ProbeBiomes(List<int> list, Player plr)
         {
-            if ((double)plr.position.Y / 16.0 < Main.worldSurface * 0.45)
+            if (plr.position.Y / 16.0 < Main.worldSurface * 0.45)
                 list.Add(22);
-            else if ((double)plr.position.Y / 16.0 > Main.rockLayer + (double)(Main.maxTilesY / 2) - 100.0)
+            else if (plr.position.Y / 16.0 > Main.rockLayer + (Main.maxTilesY / 2) - 100.0)
                 list.Add(31);
-            else if ((double)plr.position.Y / 16.0 > Main.rockLayer)
+            else if (plr.position.Y / 16.0 > Main.rockLayer)
                 list.Add(30);
             else if (plr.ZoneHoly)
                 list.Add(27);
@@ -337,7 +345,7 @@ namespace Terraria.GameContent.UI
                 list.Add(24);
             else if (plr.ZoneSnow)
                 list.Add(32);
-            else if ((double)plr.position.Y / 16.0 < Main.worldSurface && ((double)plr.position.X < 4000.0 || (double)plr.position.X > (double)(16 * (Main.maxTilesX - 250))))
+            else if (plr.position.Y / 16.0 < Main.worldSurface && (plr.position.X < 4000.0 || plr.position.X > (16 * (Main.maxTilesX - 250))))
                 list.Add(29);
             else if (plr.ZoneDesert)
                 list.Add(28);
@@ -350,11 +358,12 @@ namespace Terraria.GameContent.UI
             Vector2 center = this.anchor.entity.Center;
             float num1 = 1f;
             float num2 = 1f;
-            if ((double)center.Y < Main.rockLayer * 16.0)
+            if (center.Y < Main.rockLayer * 16.0)
                 num2 = 0.2f;
             else
                 num1 = 0.2f;
-            if ((double)Utils.NextFloat(Main.rand) <= (double)num1)
+
+            if (Utils.NextFloat(Main.rand) <= num1)
             {
                 if (Main.dayTime)
                 {
@@ -366,6 +375,7 @@ namespace Terraria.GameContent.UI
                     list.Add(69);
                     list.Add(70);
                 }
+
                 if (!Main.dayTime || Main.dayTime && (Main.time < 5400.0 || Main.time > 48600.0))
                     list.Add(61);
                 if (NPC.downedGoblins)
@@ -379,7 +389,8 @@ namespace Terraria.GameContent.UI
                 if (WorldGen.crimson)
                     list.Add(67);
             }
-            if ((double)Utils.NextFloat(Main.rand) > (double)num2)
+
+            if (Utils.NextFloat(Main.rand) > num2)
                 return;
             list.Add(72);
             list.Add(69);
@@ -435,11 +446,13 @@ namespace Terraria.GameContent.UI
                     list.Add(40);
                 list.Add(51);
             }
+
             if (num >= 2 && num <= 3 || num >= 2 && Main.rand.Next(maxValue) == 0)
             {
                 list.Add(43);
                 list.Add(42);
             }
+
             if (num >= 4 && num <= 5 || num >= 4 && Main.rand.Next(maxValue) == 0)
             {
                 list.Add(44);
@@ -447,6 +460,7 @@ namespace Terraria.GameContent.UI
                 list.Add(45);
                 list.Add(46);
             }
+
             if (num >= 5 && num <= 6 || num >= 5 && Main.rand.Next(maxValue) == 0)
             {
                 if (!NPC.downedMechBoss1)
@@ -457,23 +471,27 @@ namespace Terraria.GameContent.UI
                     list.Add(46);
                 list.Add(48);
             }
+
             if (num == 6 || num >= 6 && Main.rand.Next(maxValue) == 0)
             {
                 list.Add(48);
                 list.Add(49);
                 list.Add(50);
             }
+
             if (num == 7 || num >= 7 && Main.rand.Next(maxValue) == 0)
             {
                 list.Add(49);
                 list.Add(50);
                 list.Add(52);
             }
+
             if (num == 8 || num >= 8 && Main.rand.Next(maxValue) == 0)
             {
                 list.Add(52);
                 list.Add(53);
             }
+
             if (NPC.downedPirates && Main.expertMode)
                 list.Add(59);
             if (NPC.downedMartians)
@@ -493,7 +511,7 @@ namespace Terraria.GameContent.UI
 
         private void ProbeExceptions(List<int> list, Player plr, WorldUIAnchor other)
         {
-            NPC npc = (NPC)this.anchor.entity;
+            NPC npc = (NPC)anchor.entity;
             if (npc.type == 17)
             {
                 list.Add(80);
@@ -643,6 +661,7 @@ namespace Terraria.GameContent.UI
                 list.Add(89);
                 list.Add(11);
             }
+
             if (npc.type == 124)
             {
                 if (other != null && ((NPC)other.entity).type == 107)
@@ -772,7 +791,7 @@ namespace Terraria.GameContent.UI
                 list.Add(76);
                 list.Add(79);
                 list.Add(79);
-                if ((double)npc.position.Y >= Main.worldSurface)
+                if (npc.position.Y >= Main.worldSurface)
                     return;
                 list.Add(29);
             }

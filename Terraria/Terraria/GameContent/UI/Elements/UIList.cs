@@ -20,35 +20,32 @@ namespace Terraria.GameContent.UI.Elements
     internal class UIList : UIElement
     {
         protected List<UIElement> _items = new List<UIElement>();
-        private UIElement _innerList = (UIElement)new UIList.UIInnerList();
+        private UIElement _innerList = new UIInnerList();
         public float ListPadding = 5f;
         protected UIScrollbar _scrollbar;
         private float _innerListHeight;
 
         public int Count
         {
-            get
-            {
-                return this._items.Count;
-            }
+            get { return _items.Count; }
         }
 
         public UIList()
         {
-            this._innerList.OverflowHidden = false;
-            this._innerList.Width.Set(0.0f, 1f);
-            this._innerList.Height.Set(0.0f, 1f);
-            this.OverflowHidden = true;
-            this.Append(this._innerList);
+            _innerList.OverflowHidden = false;
+            _innerList.Width.Set(0.0f, 1f);
+            _innerList.Height.Set(0.0f, 1f);
+            OverflowHidden = true;
+            Append(_innerList);
         }
 
-        public void Goto(UIList.ElementSearchMethod searchMethod)
+        public void Goto(ElementSearchMethod searchMethod)
         {
-            for (int index = 0; index < this._items.Count; ++index)
+            for (int index = 0; index < _items.Count; ++index)
             {
-                if (searchMethod(this._items[index]))
+                if (searchMethod(_items[index]))
                 {
-                    this._scrollbar.ViewPosition = this._items[index].Top.Pixels;
+                    _scrollbar.ViewPosition = _items[index].Top.Pixels;
                     break;
                 }
             }
@@ -56,82 +53,82 @@ namespace Terraria.GameContent.UI.Elements
 
         public virtual void Add(UIElement item)
         {
-            this._items.Add(item);
-            this._innerList.Append(item);
-            this.UpdateOrder();
-            this._innerList.Recalculate();
+            _items.Add(item);
+            _innerList.Append(item);
+            UpdateOrder();
+            _innerList.Recalculate();
         }
 
         public virtual bool Remove(UIElement item)
         {
-            this._innerList.RemoveChild(item);
-            this.UpdateOrder();
-            return this._items.Remove(item);
+            _innerList.RemoveChild(item);
+            UpdateOrder();
+            return _items.Remove(item);
         }
 
         public virtual void Clear()
         {
-            this._innerList.RemoveAllChildren();
-            this._items.Clear();
+            _innerList.RemoveAllChildren();
+            _items.Clear();
         }
 
         public override void Recalculate()
         {
             base.Recalculate();
-            this.UpdateScrollbar();
+            UpdateScrollbar();
         }
 
         public override void ScrollWheel(UIScrollWheelEvent evt)
         {
             base.ScrollWheel(evt);
-            if (this._scrollbar == null)
+            if (_scrollbar == null)
                 return;
-            this._scrollbar.ViewPosition -= (float)evt.ScrollWheelValue;
+            _scrollbar.ViewPosition -= (float)evt.ScrollWheelValue;
         }
 
         public override void RecalculateChildren()
         {
             base.RecalculateChildren();
             float pixels = 0.0f;
-            for (int index = 0; index < this._items.Count; ++index)
+            for (int index = 0; index < _items.Count; ++index)
             {
                 this._items[index].Top.Set(pixels, 0.0f);
                 this._items[index].Recalculate();
-                CalculatedStyle dimensions = this._items[index].GetDimensions();
-                pixels += dimensions.Height + this.ListPadding;
+                CalculatedStyle dimensions = _items[index].GetDimensions();
+                pixels += dimensions.Height + ListPadding;
             }
-            this._innerListHeight = pixels;
+            _innerListHeight = pixels;
         }
 
         private void UpdateScrollbar()
         {
-            if (this._scrollbar == null)
+            if (_scrollbar == null)
                 return;
-            this._scrollbar.SetView(this.GetInnerDimensions().Height, this._innerListHeight);
+            _scrollbar.SetView(GetInnerDimensions().Height, _innerListHeight);
         }
 
         public void SetScrollbar(UIScrollbar scrollbar)
         {
-            this._scrollbar = scrollbar;
-            this.UpdateScrollbar();
+            _scrollbar = scrollbar;
+            UpdateScrollbar();
         }
 
         public void UpdateOrder()
         {
-            this._items.Sort(new Comparison<UIElement>(this.SortMethod));
-            this.UpdateScrollbar();
+            _items.Sort(new Comparison<UIElement>(SortMethod));
+            UpdateScrollbar();
         }
 
         public int SortMethod(UIElement item1, UIElement item2)
         {
-            return item1.CompareTo((object)item2);
+            return item1.CompareTo(item2);
         }
 
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
-            if (this._scrollbar != null)
-                this._innerList.Top.Set(-this._scrollbar.GetValue(), 0.0f);
-            this.Recalculate();
+            if (_scrollbar != null)
+                _innerList.Top.Set(-_scrollbar.GetValue(), 0.0f);
+            Recalculate();
         }
 
         public delegate bool ElementSearchMethod(UIElement element);
@@ -145,8 +142,8 @@ namespace Terraria.GameContent.UI.Elements
 
             protected override void DrawChildren(SpriteBatch spriteBatch)
             {
-                Vector2 position1 = this.Parent.GetDimensions().Position();
-                Vector2 dimensions1 = new Vector2(this.Parent.GetDimensions().Width, this.Parent.GetDimensions().Height);
+                Vector2 position1 = Parent.GetDimensions().Position();
+                Vector2 dimensions1 = new Vector2(Parent.GetDimensions().Width, Parent.GetDimensions().Height);
                 foreach (UIElement uiElement in this.Elements)
                 {
                     Vector2 position2 = uiElement.GetDimensions().Position();

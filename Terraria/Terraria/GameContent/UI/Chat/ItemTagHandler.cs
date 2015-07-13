@@ -27,8 +27,10 @@ namespace Terraria.GameContent.UI.Chat
                 obj.netDefaults(result1);
             else
                 obj.SetDefaults(text);
+
             if (obj.type <= 0)
                 return new TextSnippet(text);
+
             obj.stack = 1;
             if (options != null)
             {
@@ -43,7 +45,7 @@ namespace Terraria.GameContent.UI.Chat
                                 int result2;
                                 if (int.TryParse(strArray[index].Substring(1), out result2))
                                 {
-                                    obj.Prefix((int)(byte)Utils.Clamp<int>(result2, 0, 84));
+                                    obj.Prefix(Utils.Clamp<int>(result2, 0, 84));
                                     continue;
                                 }
                                 continue;
@@ -62,30 +64,27 @@ namespace Terraria.GameContent.UI.Chat
                     }
                 }
             }
+
             string str = "";
             if (obj.stack > 1)
-                str = " (" + (object)obj.stack + ")";
-            ItemTagHandler.ItemSnippet itemSnippet = new ItemTagHandler.ItemSnippet(obj);
+                str = " (" + obj.stack + ")";
+
+            ItemSnippet itemSnippet = new ItemSnippet(obj);
             itemSnippet.Text = "[" + obj.AffixName() + str + "]";
             itemSnippet.CheckForHover = true;
             itemSnippet.DeleteWhole = true;
-            return (TextSnippet)itemSnippet;
+            return itemSnippet;
         }
 
         public static string GenerateTag(Item I)
         {
             string str = "[i";
-            if ((int)I.prefix != 0)
-                str = str + (object)"/p" + (string)(object)I.prefix;
+            if (I.prefix != 0)
+                str = str + "/p" + I.prefix;
             if (I.stack != 1)
-                str = str + (object)"/s" + (string)(object)I.stack;
-            return string.Concat(new object[4]
-      {
-        (object) str,
-        (object) ":",
-        (object) I.netID,
-        (object) "]"
-      });
+                str = str + "/s" + I.stack;
+
+            return str + ":" + I.netID + "]";
         }
 
         private class ItemSnippet : TextSnippet
@@ -95,14 +94,14 @@ namespace Terraria.GameContent.UI.Chat
             public ItemSnippet(Item item)
                 : base("")
             {
-                this._item = item;
-                this.Color = ItemRarity.GetColor(item.rare);
+                _item = item;
+                Color = ItemRarity.GetColor(item.rare);
             }
 
             public override void OnHover()
             {
-                Main.toolTip = this._item.Clone();
-                Main.instance.MouseText(this._item.name, this._item.rare, (byte)0);
+                Main.toolTip = _item.Clone();
+                Main.instance.MouseText(_item.name, _item.rare, 0);
             }
 
             public override bool UniqueDraw(bool justCheckingString, out Vector2 size, SpriteBatch spriteBatch, Vector2 position = default(Vector2), Color color = default(Color), float scale = 1f)
@@ -111,22 +110,24 @@ namespace Terraria.GameContent.UI.Chat
                 float num2 = 1f;
                 if (Main.netMode != 2 && !Main.dedServ)
                 {
-                    Texture2D texture2D = Main.itemTexture[this._item.type];
-                    Rectangle rectangle = Main.itemAnimations[this._item.type] == null ? Utils.Frame(texture2D, 1, 1, 0, 0) : Main.itemAnimations[this._item.type].GetFrame(texture2D);
+                    Texture2D texture2D = Main.itemTexture[_item.type];
+                    Rectangle rectangle = Main.itemAnimations[_item.type] == null ? Utils.Frame(texture2D, 1, 1, 0, 0) : Main.itemAnimations[_item.type].GetFrame(texture2D);
                     if (rectangle.Height > 32)
                         num2 = 32f / (float)rectangle.Height;
                 }
+
                 float num3 = num2 * scale;
                 float num4 = num1 * num3;
-                if ((double)num4 > 0.75)
+                if (num4 > 0.75)
                     num4 = 0.75f;
                 if (!justCheckingString && color != Color.Black)
                 {
                     float num5 = Main.inventoryScale;
                     Main.inventoryScale = scale * num4;
-                    ItemSlot.Draw(spriteBatch, ref this._item, 14, position - new Vector2(10f) * scale * num4, Color.White);
+                    ItemSlot.Draw(spriteBatch, ref _item, 14, position - new Vector2(10f) * scale * num4, Color.White);
                     Main.inventoryScale = num5;
                 }
+
                 size = new Vector2(32f) * scale * num4;
                 return true;
             }

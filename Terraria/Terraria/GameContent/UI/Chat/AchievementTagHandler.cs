@@ -23,7 +23,8 @@ namespace Terraria.GameContent.UI.Chat
             Achievement achievement = Main.Achievements.GetAchievement(text);
             if (achievement == null)
                 return new TextSnippet(text);
-            return (TextSnippet)new AchievementTagHandler.AchievementSnippet(achievement);
+
+            return new AchievementTagHandler.AchievementSnippet(achievement);
         }
 
         public static string GenerateTag(Achievement achievement)
@@ -38,14 +39,14 @@ namespace Terraria.GameContent.UI.Chat
             public AchievementSnippet(Achievement achievement)
                 : base(achievement.FriendlyName, Color.LightBlue, 1f)
             {
-                this.CheckForHover = true;
-                this._achievement = achievement;
+                CheckForHover = true;
+                _achievement = achievement;
             }
 
             public override void OnClick()
             {
                 IngameOptions.Close();
-                AchievementsUI.OpenAndGoto(this._achievement);
+                AchievementsUI.OpenAndGoto(_achievement);
             }
         }
     }

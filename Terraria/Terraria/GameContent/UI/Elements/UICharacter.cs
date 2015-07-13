@@ -24,22 +24,22 @@ namespace Terraria.GameContent.UI.Elements
 
         public UICharacter(Player player)
         {
-            this._player = player;
-            this.Width.Set(59f, 0.0f);
-            this.Height.Set(58f, 0.0f);
-            this._texture = TextureManager.Load("Images/UI/PlayerBackground");
-            this._useImmediateMode = true;
+            _player = player;
+            Width.Set(59f, 0.0f);
+            Height.Set(58f, 0.0f);
+            _texture = TextureManager.Load("Images/UI/PlayerBackground");
+            _useImmediateMode = true;
         }
 
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
-            CalculatedStyle dimensions = this.GetDimensions();
-            spriteBatch.Draw(this._texture, dimensions.Position(), Color.White);
-            Vector2 vector2 = dimensions.Position() + new Vector2(dimensions.Width * 0.5f - (float)(this._player.width >> 1), dimensions.Height * 0.5f - (float)(this._player.height >> 1));
-            Item obj = this._player.inventory[this._player.selectedItem];
-            this._player.inventory[this._player.selectedItem] = UICharacter._blankItem;
-            Main.instance.DrawPlayer(this._player, vector2 + Main.screenPosition, 0.0f, Vector2.Zero, 0.0f);
-            this._player.inventory[this._player.selectedItem] = obj;
+            CalculatedStyle dimensions = GetDimensions();
+            spriteBatch.Draw(_texture, dimensions.Position(), Color.White);
+            Vector2 vector2 = dimensions.Position() + new Vector2(dimensions.Width * 0.5f - (float)(_player.width >> 1), dimensions.Height * 0.5f - (float)(_player.height >> 1));
+            Item obj = _player.inventory[_player.selectedItem];
+            _player.inventory[_player.selectedItem] = UICharacter._blankItem;
+            Main.instance.DrawPlayer(_player, vector2 + Main.screenPosition, 0.0f, Vector2.Zero, 0.0f);
+            _player.inventory[_player.selectedItem] = obj;
         }
     }
 }

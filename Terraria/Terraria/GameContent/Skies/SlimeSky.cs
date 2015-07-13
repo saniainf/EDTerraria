@@ -28,151 +28,159 @@ namespace Terraria.GameContent.Skies
 
         public override void OnLoad()
         {
-            this._textures = new Texture2D[4];
+            _textures = new Texture2D[4];
             for (int index = 0; index < 4; ++index)
-                this._textures[index] = TextureManager.Load("Images/Misc/Sky_Slime_" + (object)(index + 1));
-            this.GenerateSlimes();
+                _textures[index] = TextureManager.Load("Images/Misc/Sky_Slime_" + (index + 1));
+            GenerateSlimes();
         }
 
         private void GenerateSlimes()
         {
-            this._slimes = new SlimeSky.Slime[Main.maxTilesY / 6];
-            for (int index = 0; index < this._slimes.Length; ++index)
+            _slimes = new Slime[Main.maxTilesY / 6];
+            for (int index = 0; index < _slimes.Length; ++index)
             {
-                int maxValue = (int)((double)Main.screenPosition.Y * 0.7 - (double)Main.screenHeight);
-                int minValue = (int)((double)maxValue - Main.worldSurface * 16.0);
-                this._slimes[index].Position = new Vector2((float)(this._random.Next(0, Main.maxTilesX) * 16), (float)this._random.Next(minValue, maxValue));
-                this._slimes[index].Speed = (float)(5.0 + 3.0 * this._random.NextDouble());
-                this._slimes[index].Depth = (float)((double)index / (double)this._slimes.Length * 1.75 + 1.60000002384186);
-                this._slimes[index].Texture = this._textures[this._random.Next(2)];
-                if (this._random.Next(60) == 0)
+                int maxValue = (int)(Main.screenPosition.Y * 0.7 - Main.screenHeight);
+                int minValue = (int)(maxValue - Main.worldSurface * 16.0);
+                _slimes[index].Position = new Vector2((float)(_random.Next(0, Main.maxTilesX) * 16), (float)_random.Next(minValue, maxValue));
+                _slimes[index].Speed = (float)(5.0 + 3.0 * _random.NextDouble());
+                _slimes[index].Depth = (float)(index / _slimes.Length * 1.75 + 1.60000002384186);
+                _slimes[index].Texture = _textures[_random.Next(2)];
+
+                if (_random.Next(60) == 0)
                 {
-                    this._slimes[index].Texture = this._textures[3];
-                    this._slimes[index].Speed = (float)(6.0 + 3.0 * this._random.NextDouble());
-                    this._slimes[index].Depth += 0.5f;
+                    _slimes[index].Texture = _textures[3];
+                    _slimes[index].Speed = (float)(6.0 + 3.0 * _random.NextDouble());
+                    _slimes[index].Depth += 0.5f;
                 }
-                else if (this._random.Next(30) == 0)
+                else if (_random.Next(30) == 0)
                 {
-                    this._slimes[index].Texture = this._textures[2];
-                    this._slimes[index].Speed = (float)(6.0 + 2.0 * this._random.NextDouble());
+                    _slimes[index].Texture = _textures[2];
+                    _slimes[index].Speed = (float)(6.0 + 2.0 * _random.NextDouble());
                 }
-                this._slimes[index].Active = true;
+                _slimes[index].Active = true;
             }
-            this._slimesRemaining = this._slimes.Length;
+            _slimesRemaining = _slimes.Length;
         }
 
         public override void Update()
         {
             if (Main.gamePaused || !Main.hasFocus)
                 return;
-            for (int index = 0; index < this._slimes.Length; ++index)
+
+            for (int index = 0; index < _slimes.Length; ++index)
             {
-                if (this._slimes[index].Active)
+                if (_slimes[index].Active)
                 {
-                    ++this._slimes[index].Frame;
-                    this._slimes[index].Position.Y += this._slimes[index].Speed;
-                    if ((double)this._slimes[index].Position.Y > Main.worldSurface * 16.0)
+                    ++_slimes[index].Frame;
+                    _slimes[index].Position.Y += _slimes[index].Speed;
+                    if (_slimes[index].Position.Y > Main.worldSurface * 16.0)
                     {
-                        if (!this._isLeaving)
+                        if (!_isLeaving)
                         {
-                            this._slimes[index].Depth = (float)((double)index / (double)this._slimes.Length * 1.75 + 1.60000002384186);
-                            this._slimes[index].Position = new Vector2((float)(this._random.Next(0, Main.maxTilesX) * 16), -100f);
-                            this._slimes[index].Texture = this._textures[this._random.Next(2)];
-                            this._slimes[index].Speed = (float)(5.0 + 3.0 * this._random.NextDouble());
-                            if (this._random.Next(60) == 0)
+                            _slimes[index].Depth = (float)(index / _slimes.Length * 1.75 + 1.60000002384186);
+                            _slimes[index].Position = new Vector2((float)(_random.Next(0, Main.maxTilesX) * 16), -100f);
+                            _slimes[index].Texture = _textures[_random.Next(2)];
+                            _slimes[index].Speed = (float)(5.0 + 3.0 * _random.NextDouble());
+                            if (_random.Next(60) == 0)
                             {
-                                this._slimes[index].Texture = this._textures[3];
-                                this._slimes[index].Speed = (float)(6.0 + 3.0 * this._random.NextDouble());
-                                this._slimes[index].Depth += 0.5f;
+                                _slimes[index].Texture = _textures[3];
+                                _slimes[index].Speed = (float)(6.0 + 3.0 * _random.NextDouble());
+                                _slimes[index].Depth += 0.5f;
                             }
-                            else if (this._random.Next(30) == 0)
+                            else if (_random.Next(30) == 0)
                             {
-                                this._slimes[index].Texture = this._textures[2];
-                                this._slimes[index].Speed = (float)(6.0 + 2.0 * this._random.NextDouble());
+                                _slimes[index].Texture = _textures[2];
+                                _slimes[index].Speed = (float)(6.0 + 2.0 * _random.NextDouble());
                             }
                         }
                         else
                         {
-                            this._slimes[index].Active = false;
-                            --this._slimesRemaining;
+                            _slimes[index].Active = false;
+                            --_slimesRemaining;
                         }
                     }
                 }
             }
-            if (this._slimesRemaining != 0)
+
+            if (_slimesRemaining != 0)
                 return;
-            this._isActive = false;
+
+            _isActive = false;
         }
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
-            if ((double)Main.screenPosition.Y > 10000.0 || Main.gameMenu)
+            if (Main.screenPosition.Y > 10000.0 || Main.gameMenu)
                 return;
+
             int num1 = -1;
             int num2 = 0;
-            for (int index = 0; index < this._slimes.Length; ++index)
+            for (int index = 0; index < _slimes.Length; ++index)
             {
-                float num3 = this._slimes[index].Depth;
-                if (num1 == -1 && (double)num3 < (double)maxDepth)
+                float num3 = _slimes[index].Depth;
+                if (num1 == -1 && num3 < maxDepth)
                     num1 = index;
-                if ((double)num3 > (double)minDepth)
+                if (num3 > minDepth)
                     num2 = index;
                 else
                     break;
             }
+
             if (num1 == -1)
                 return;
+
             Vector2 vector2_1 = Main.screenPosition + new Vector2((float)(Main.screenWidth >> 1), (float)(Main.screenHeight >> 1));
             Rectangle rectangle = new Rectangle(-1000, -1000, 4000, 4000);
             for (int index = num1; index < num2; ++index)
             {
-                if (this._slimes[index].Active)
+                if (_slimes[index].Active)
                 {
                     Color color = new Color(Main.bgColor.ToVector4() * 0.9f + new Vector4(0.1f)) * 0.8f;
                     float num3 = 1f;
-                    if ((double)this._slimes[index].Depth > 3.0)
+                    if (_slimes[index].Depth > 3.0)
                         num3 = 0.6f;
-                    else if ((double)this._slimes[index].Depth > 2.5)
+                    else if (_slimes[index].Depth > 2.5)
                         num3 = 0.7f;
-                    else if ((double)this._slimes[index].Depth > 2.0)
+                    else if (_slimes[index].Depth > 2.0)
                         num3 = 0.8f;
-                    else if ((double)this._slimes[index].Depth > 1.5)
+                    else if (_slimes[index].Depth > 1.5)
                         num3 = 0.9f;
+
                     float num4 = num3 * 0.8f;
-                    color = new Color((int)((double)color.R * (double)num4), (int)((double)color.G * (double)num4), (int)((double)color.B * (double)num4), (int)((double)color.A * (double)num4));
-                    Vector2 vector2_2 = new Vector2(1f / this._slimes[index].Depth, 0.9f / this._slimes[index].Depth);
-                    Vector2 position = this._slimes[index].Position;
+                    color = new Color((int)(color.R * num4), (int)(color.G * num4), (int)(color.B * num4), (int)(color.A * num4));
+                    Vector2 vector2_2 = new Vector2(1f / _slimes[index].Depth, 0.9f / _slimes[index].Depth);
+                    Vector2 position = _slimes[index].Position;
                     position = (position - vector2_1) * vector2_2 + vector2_1 - Main.screenPosition;
-                    position.X = (float)(((double)position.X + 500.0) % 4000.0);
-                    if ((double)position.X < 0.0)
+                    position.X = (float)((position.X + 500.0) % 4000.0);
+                    if (position.X < 0.0)
                         position.X += 4000f;
                     position.X -= 500f;
                     if (rectangle.Contains((int)position.X, (int)position.Y))
-                        spriteBatch.Draw(this._slimes[index].Texture, position, new Rectangle?(this._slimes[index].GetSourceRectangle()), color, 0.0f, Vector2.Zero, vector2_2.X * 2f, SpriteEffects.None, 0.0f);
+                        spriteBatch.Draw(_slimes[index].Texture, position, new Rectangle?(_slimes[index].GetSourceRectangle()), color, 0.0f, Vector2.Zero, vector2_2.X * 2f, SpriteEffects.None, 0.0f);
                 }
             }
         }
 
         internal override void Activate(Vector2 position, params object[] args)
         {
-            this.GenerateSlimes();
-            this._isActive = true;
-            this._isLeaving = false;
+            GenerateSlimes();
+            _isActive = true;
+            _isLeaving = false;
         }
 
         internal override void Deactivate(params object[] args)
         {
-            this._isLeaving = true;
+            _isLeaving = true;
         }
 
         public override void Reset()
         {
-            this._isActive = false;
+            _isActive = false;
         }
 
         public override bool IsActive()
         {
-            return this._isActive;
+            return _isActive;
         }
 
         private struct Slime
@@ -190,33 +198,24 @@ namespace Terraria.GameContent.Skies
 
             public Texture2D Texture
             {
-                get
-                {
-                    return this._texture;
-                }
+                get { return _texture; }
                 set
                 {
-                    this._texture = value;
-                    this.FrameWidth = value.Width;
-                    this.FrameHeight = value.Height / 4;
+                    _texture = value;
+                    FrameWidth = value.Width;
+                    FrameHeight = value.Height / 4;
                 }
             }
 
             public int Frame
             {
-                get
-                {
-                    return this._frame;
-                }
-                set
-                {
-                    this._frame = value % 24;
-                }
+                get { return _frame; }
+                set { _frame = value % 24; }
             }
 
             public Rectangle GetSourceRectangle()
             {
-                return new Rectangle(0, this._frame / 6 * this.FrameHeight, this.FrameWidth, this.FrameHeight);
+                return new Rectangle(0, _frame / 6 * FrameHeight, FrameWidth, FrameHeight);
             }
         }
     }

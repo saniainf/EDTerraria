@@ -32,41 +32,41 @@ namespace Terraria.GameContent.UI.States
             uiPanel.Width.Set(0.0f, 1f);
             uiPanel.Height.Set(-110f, 1f);
             uiPanel.BackgroundColor = new Color(33, 43, 79) * 0.8f;
-            element.Append((UIElement)uiPanel);
-            this._worldList = new UIList();
-            this._worldList.Width.Set(-25f, 1f);
-            this._worldList.Height.Set(0.0f, 1f);
-            this._worldList.ListPadding = 5f;
-            uiPanel.Append((UIElement)this._worldList);
+            element.Append(uiPanel);
+            _worldList = new UIList();
+            _worldList.Width.Set(-25f, 1f);
+            _worldList.Height.Set(0.0f, 1f);
+            _worldList.ListPadding = 5f;
+            uiPanel.Append(_worldList);
             UIScrollbar scrollbar = new UIScrollbar();
             scrollbar.SetView(100f, 1000f);
             scrollbar.Height.Set(0.0f, 1f);
             scrollbar.HAlign = 1f;
-            uiPanel.Append((UIElement)scrollbar);
-            this._worldList.SetScrollbar(scrollbar);
+            uiPanel.Append(scrollbar);
+            _worldList.SetScrollbar(scrollbar);
             UITextPanel uiTextPanel1 = new UITextPanel("Select World", 0.8f, true);
             uiTextPanel1.HAlign = 0.5f;
             uiTextPanel1.Top.Set(-35f, 0.0f);
             uiTextPanel1.SetPadding(15f);
             uiTextPanel1.BackgroundColor = new Color(73, 94, 171);
-            element.Append((UIElement)uiTextPanel1);
+            element.Append(uiTextPanel1);
             UITextPanel uiTextPanel2 = new UITextPanel("Back", 0.7f, true);
             uiTextPanel2.Width.Set(-10f, 0.5f);
             uiTextPanel2.Height.Set(50f, 0.0f);
             uiTextPanel2.VAlign = 1f;
             uiTextPanel2.Top.Set(-45f, 0.0f);
-            uiTextPanel2.OnMouseOver += new UIElement.MouseEvent(this.FadedMouseOver);
-            uiTextPanel2.OnMouseOut += new UIElement.MouseEvent(this.FadedMouseOut);
-            uiTextPanel2.OnClick += new UIElement.MouseEvent(this.GoBackClick);
-            element.Append((UIElement)uiTextPanel2);
+            uiTextPanel2.OnMouseOver += new UIElement.MouseEvent(FadedMouseOver);
+            uiTextPanel2.OnMouseOut += new UIElement.MouseEvent(FadedMouseOut);
+            uiTextPanel2.OnClick += new UIElement.MouseEvent(GoBackClick);
+            element.Append(uiTextPanel2);
             UITextPanel uiTextPanel3 = new UITextPanel("New", 0.7f, true);
-            uiTextPanel3.CopyStyle((UIElement)uiTextPanel2);
+            uiTextPanel3.CopyStyle(uiTextPanel2);
             uiTextPanel3.HAlign = 1f;
-            uiTextPanel3.OnMouseOver += new UIElement.MouseEvent(this.FadedMouseOver);
-            uiTextPanel3.OnMouseOut += new UIElement.MouseEvent(this.FadedMouseOut);
-            uiTextPanel3.OnClick += new UIElement.MouseEvent(this.NewWorldClick);
-            element.Append((UIElement)uiTextPanel3);
-            this.Append(element);
+            uiTextPanel3.OnMouseOver += new UIElement.MouseEvent(FadedMouseOver);
+            uiTextPanel3.OnMouseOut += new UIElement.MouseEvent(FadedMouseOut);
+            uiTextPanel3.OnClick += new UIElement.MouseEvent(NewWorldClick);
+            element.Append(uiTextPanel3);
+            Append(element);
         }
 
         private void NewWorldClick(UIMouseEvent evt, UIElement listeningElement)
@@ -96,9 +96,9 @@ namespace Terraria.GameContent.UI.States
         public override void OnActivate()
         {
             Main.LoadWorlds();
-            this._worldList.Clear();
+            _worldList.Clear();
             foreach (WorldFileData data in Main.WorldList)
-                this._worldList.Add((UIElement)new UIWorldListItem(data));
+                _worldList.Add(new UIWorldListItem(data));
         }
     }
 }

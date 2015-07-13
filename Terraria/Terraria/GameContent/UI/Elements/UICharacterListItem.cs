@@ -41,87 +41,87 @@ namespace Terraria.GameContent.UI.Elements
 
         public UICharacterListItem(PlayerFileData data)
         {
-            this.BorderColor = new Color(89, 116, 213) * 0.7f;
-            this._dividerTexture = TextureManager.Load("Images/UI/Divider");
-            this._innerPanelTexture = TextureManager.Load("Images/UI/InnerPanelBackground");
-            this._buttonCloudActiveTexture = TextureManager.Load("Images/UI/ButtonCloudActive");
-            this._buttonCloudInactiveTexture = TextureManager.Load("Images/UI/ButtonCloudInactive");
-            this._buttonFavoriteActiveTexture = TextureManager.Load("Images/UI/ButtonFavoriteActive");
-            this._buttonFavoriteInactiveTexture = TextureManager.Load("Images/UI/ButtonFavoriteInactive");
-            this._buttonPlayTexture = TextureManager.Load("Images/UI/ButtonPlay");
-            this._buttonDeleteTexture = TextureManager.Load("Images/UI/ButtonDelete");
-            this.Height.Set(96f, 0.0f);
-            this.Width.Set(0.0f, 1f);
-            this.SetPadding(6f);
+            BorderColor = new Color(89, 116, 213) * 0.7f;
+            _dividerTexture = TextureManager.Load("Images/UI/Divider");
+            _innerPanelTexture = TextureManager.Load("Images/UI/InnerPanelBackground");
+            _buttonCloudActiveTexture = TextureManager.Load("Images/UI/ButtonCloudActive");
+            _buttonCloudInactiveTexture = TextureManager.Load("Images/UI/ButtonCloudInactive");
+            _buttonFavoriteActiveTexture = TextureManager.Load("Images/UI/ButtonFavoriteActive");
+            _buttonFavoriteInactiveTexture = TextureManager.Load("Images/UI/ButtonFavoriteInactive");
+            _buttonPlayTexture = TextureManager.Load("Images/UI/ButtonPlay");
+            _buttonDeleteTexture = TextureManager.Load("Images/UI/ButtonDelete");
+            Height.Set(96f, 0.0f);
+            Width.Set(0.0f, 1f);
+            SetPadding(6f);
             playerFileData = data;
-            this._playerPanel = new UICharacter(data.Player);
-            this._playerPanel.Left.Set(4f, 0.0f);
-            this._playerPanel.OnDoubleClick += new UIElement.MouseEvent(this.PlayGame);
-            this.OnDoubleClick += new UIElement.MouseEvent(this.PlayGame);
-            this.Append((UIElement)this._playerPanel);
-            UIImageButton uiImageButton1 = new UIImageButton(this._buttonPlayTexture);
+            _playerPanel = new UICharacter(data.Player);
+            _playerPanel.Left.Set(4f, 0.0f);
+            _playerPanel.OnDoubleClick += new UIElement.MouseEvent(PlayGame);
+            OnDoubleClick += new UIElement.MouseEvent(PlayGame);
+            Append(_playerPanel);
+            UIImageButton uiImageButton1 = new UIImageButton(_buttonPlayTexture);
             uiImageButton1.VAlign = 1f;
             uiImageButton1.Left.Set(4f, 0.0f);
-            uiImageButton1.OnClick += new UIElement.MouseEvent(this.PlayGame);
-            uiImageButton1.OnMouseOver += new UIElement.MouseEvent(this.PlayMouseOver);
-            uiImageButton1.OnMouseOut += new UIElement.MouseEvent(this.ButtonMouseOut);
-            this.Append((UIElement)uiImageButton1);
-            UIImageButton uiImageButton2 = new UIImageButton(playerFileData.IsFavorite ? this._buttonFavoriteActiveTexture : this._buttonFavoriteInactiveTexture);
+            uiImageButton1.OnClick += new UIElement.MouseEvent(PlayGame);
+            uiImageButton1.OnMouseOver += new UIElement.MouseEvent(PlayMouseOver);
+            uiImageButton1.OnMouseOut += new UIElement.MouseEvent(ButtonMouseOut);
+            Append(uiImageButton1);
+            UIImageButton uiImageButton2 = new UIImageButton(playerFileData.IsFavorite ? _buttonFavoriteActiveTexture : _buttonFavoriteInactiveTexture);
             uiImageButton2.VAlign = 1f;
             uiImageButton2.Left.Set(28f, 0.0f);
-            uiImageButton2.OnClick += new UIElement.MouseEvent(this.FavoriteButtonClick);
-            uiImageButton2.OnMouseOver += new UIElement.MouseEvent(this.FavoriteMouseOver);
-            uiImageButton2.OnMouseOut += new UIElement.MouseEvent(this.ButtonMouseOut);
+            uiImageButton2.OnClick += new UIElement.MouseEvent(FavoriteButtonClick);
+            uiImageButton2.OnMouseOver += new UIElement.MouseEvent(FavoriteMouseOver);
+            uiImageButton2.OnMouseOut += new UIElement.MouseEvent(ButtonMouseOut);
             uiImageButton2.SetVisibility(1f, playerFileData.IsFavorite ? 0.8f : 0.4f);
-            this.Append((UIElement)uiImageButton2);
-            UIImageButton uiImageButton4 = new UIImageButton(this._buttonDeleteTexture);
+            Append(uiImageButton2);
+            UIImageButton uiImageButton4 = new UIImageButton(_buttonDeleteTexture);
             uiImageButton4.VAlign = 1f;
             uiImageButton4.HAlign = 1f;
-            uiImageButton4.OnClick += new UIElement.MouseEvent(this.DeleteButtonClick);
-            uiImageButton4.OnMouseOver += new UIElement.MouseEvent(this.DeleteMouseOver);
-            uiImageButton4.OnMouseOut += new UIElement.MouseEvent(this.DeleteMouseOut);
-            this._deleteButton = uiImageButton4;
+            uiImageButton4.OnClick += new UIElement.MouseEvent(DeleteButtonClick);
+            uiImageButton4.OnMouseOver += new UIElement.MouseEvent(DeleteMouseOver);
+            uiImageButton4.OnMouseOut += new UIElement.MouseEvent(DeleteMouseOut);
+            _deleteButton = uiImageButton4;
             if (!playerFileData.IsFavorite)
-                this.Append((UIElement)uiImageButton4);
-            this._buttonLabel = new UIText("", 1f, false);
-            this._buttonLabel.VAlign = 1f;
-            this._buttonLabel.Left.Set(80f, 0.0f);
-            this._buttonLabel.Top.Set(-3f, 0.0f);
-            this.Append((UIElement)this._buttonLabel);
-            this._deleteButtonLabel = new UIText("", 1f, false);
-            this._deleteButtonLabel.VAlign = 1f;
-            this._deleteButtonLabel.HAlign = 1f;
-            this._deleteButtonLabel.Left.Set(-30f, 0.0f);
-            this._deleteButtonLabel.Top.Set(-3f, 0.0f);
-            this.Append((UIElement)this._deleteButtonLabel);
+                Append(uiImageButton4);
+            _buttonLabel = new UIText("", 1f, false);
+            _buttonLabel.VAlign = 1f;
+            _buttonLabel.Left.Set(80f, 0.0f);
+            _buttonLabel.Top.Set(-3f, 0.0f);
+            Append(_buttonLabel);
+            _deleteButtonLabel = new UIText("", 1f, false);
+            _deleteButtonLabel.VAlign = 1f;
+            _deleteButtonLabel.HAlign = 1f;
+            _deleteButtonLabel.Left.Set(-30f, 0.0f);
+            _deleteButtonLabel.Top.Set(-3f, 0.0f);
+            Append(_deleteButtonLabel);
         }
 
         private void FavoriteMouseOver(UIMouseEvent evt, UIElement listeningElement)
         {
             if (playerFileData.IsFavorite)
-                this._buttonLabel.SetText("Unfavorite");
+                _buttonLabel.SetText("Unfavorite");
             else
-                this._buttonLabel.SetText("Favorite");
+                _buttonLabel.SetText("Favorite");
         }
 
         private void PlayMouseOver(UIMouseEvent evt, UIElement listeningElement)
         {
-            this._buttonLabel.SetText("Play");
+            _buttonLabel.SetText("Play");
         }
 
         private void DeleteMouseOver(UIMouseEvent evt, UIElement listeningElement)
         {
-            this._deleteButtonLabel.SetText("Delete");
+            _deleteButtonLabel.SetText("Delete");
         }
 
         private void DeleteMouseOut(UIMouseEvent evt, UIElement listeningElement)
         {
-            this._deleteButtonLabel.SetText("");
+            _deleteButtonLabel.SetText("");
         }
 
         private void ButtonMouseOut(UIMouseEvent evt, UIElement listeningElement)
         {
-            this._buttonLabel.SetText("");
+            _buttonLabel.SetText("");
         }
 
         private void DeleteButtonClick(UIMouseEvent evt, UIElement listeningElement)
@@ -142,25 +142,27 @@ namespace Terraria.GameContent.UI.Elements
         {
             if (listeningElement != evt.Target || playerFileData.Player.loadStatus != 0)
                 return;
+
             Main.SelectPlayer(playerFileData);
         }
 
         private void FavoriteButtonClick(UIMouseEvent evt, UIElement listeningElement)
         {
             playerFileData.ToggleFavorite();
-            ((UIImageButton)evt.Target).SetImage(playerFileData.IsFavorite ? this._buttonFavoriteActiveTexture : this._buttonFavoriteInactiveTexture);
+            ((UIImageButton)evt.Target).SetImage(playerFileData.IsFavorite ? _buttonFavoriteActiveTexture : _buttonFavoriteInactiveTexture);
             ((UIImageButton)evt.Target).SetVisibility(1f, playerFileData.IsFavorite ? 0.8f : 0.4f);
             if (playerFileData.IsFavorite)
             {
-                this._buttonLabel.SetText("Unfavorite");
-                this.RemoveChild((UIElement)this._deleteButton);
+                _buttonLabel.SetText("Unfavorite");
+                RemoveChild(_deleteButton);
             }
             else
             {
-                this._buttonLabel.SetText("Favorite");
-                this.Append((UIElement)this._deleteButton);
+                _buttonLabel.SetText("Favorite");
+                Append(_deleteButton);
             }
-            UIList uiList = this.Parent.Parent as UIList;
+
+            UIList uiList = Parent.Parent as UIList;
             if (uiList == null)
                 return;
             uiList.UpdateOrder();
@@ -171,9 +173,9 @@ namespace Terraria.GameContent.UI.Elements
             UICharacterListItem characterListItem = obj as UICharacterListItem;
             if (characterListItem == null)
                 return base.CompareTo(obj);
-            if (this.IsFavorite && !characterListItem.IsFavorite)
+            if (IsFavorite && !characterListItem.IsFavorite)
                 return -1;
-            if (!this.IsFavorite && characterListItem.IsFavorite)
+            if (!IsFavorite && characterListItem.IsFavorite)
                 return 1;
             return playerFileData.Name.CompareTo(characterListItem.playerFileData.Name);
         }
@@ -181,32 +183,34 @@ namespace Terraria.GameContent.UI.Elements
         public override void MouseOver(UIMouseEvent evt)
         {
             base.MouseOver(evt);
-            this.BackgroundColor = new Color(73, 94, 171);
-            this.BorderColor = new Color(89, 116, 213);
+            BackgroundColor = new Color(73, 94, 171);
+            BorderColor = new Color(89, 116, 213);
         }
 
         public override void MouseOut(UIMouseEvent evt)
         {
             base.MouseOut(evt);
-            this.BackgroundColor = new Color(63, 82, 151) * 0.7f;
-            this.BorderColor = new Color(89, 116, 213) * 0.7f;
+            BackgroundColor = new Color(63, 82, 151) * 0.7f;
+            BorderColor = new Color(89, 116, 213) * 0.7f;
         }
 
         private void DrawPanel(SpriteBatch spriteBatch, Vector2 position, float width)
         {
-            spriteBatch.Draw(this._innerPanelTexture, position, new Rectangle?(new Rectangle(0, 0, 8, this._innerPanelTexture.Height)), Color.White);
-            spriteBatch.Draw(this._innerPanelTexture, new Vector2(position.X + 8f, position.Y), new Rectangle?(new Rectangle(8, 0, 8, this._innerPanelTexture.Height)), Color.White, 0.0f, Vector2.Zero, new Vector2((float)(((double)width - 16.0) / 8.0), 1f), SpriteEffects.None, 0.0f);
-            spriteBatch.Draw(this._innerPanelTexture, new Vector2((float)((double)position.X + (double)width - 8.0), position.Y), new Rectangle?(new Rectangle(16, 0, 8, this._innerPanelTexture.Height)), Color.White);
+            spriteBatch.Draw(_innerPanelTexture, position, new Rectangle?(new Rectangle(0, 0, 8, _innerPanelTexture.Height)), Color.White);
+            spriteBatch.Draw(_innerPanelTexture, new Vector2(position.X + 8f, position.Y), new Rectangle?(new Rectangle(8, 0, 8, _innerPanelTexture.Height)),
+                Color.White, 0.0f, Vector2.Zero, new Vector2((float)((width - 16.0) / 8.0), 1f), SpriteEffects.None, 0.0f);
+            spriteBatch.Draw(_innerPanelTexture, new Vector2((float)(position.X + width - 8.0), position.Y), new Rectangle?(new Rectangle(16, 0, 8, _innerPanelTexture.Height)), Color.White);
         }
 
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
             base.DrawSelf(spriteBatch);
-            CalculatedStyle innerDimensions = this.GetInnerDimensions();
-            CalculatedStyle dimensions = this._playerPanel.GetDimensions();
+            CalculatedStyle innerDimensions = GetInnerDimensions();
+            CalculatedStyle dimensions = _playerPanel.GetDimensions();
             float x = dimensions.X + dimensions.Width;
             Utils.DrawBorderString(spriteBatch, playerFileData.Name, new Vector2(x + 6f, dimensions.Y - 2f), Color.White, 1f, 0.0f, 0.0f, -1);
-            spriteBatch.Draw(this._dividerTexture, new Vector2(x, innerDimensions.Y + 21f), new Rectangle?(), Color.White, 0.0f, Vector2.Zero, new Vector2((float)(((double)this.GetDimensions().X + (double)this.GetDimensions().Width - (double)x) / 8.0), 1f), SpriteEffects.None, 0.0f);
+            spriteBatch.Draw(_dividerTexture, new Vector2(x, innerDimensions.Y + 21f), new Rectangle?(), Color.White, 0.0f, Vector2.Zero,
+                new Vector2((float)((GetDimensions().X + GetDimensions().Width - x) / 8.0), 1f), SpriteEffects.None, 0.0f);
             Vector2 vector2 = new Vector2(x + 6f, innerDimensions.Y + 29f);
             float width1 = 200f;
             Vector2 position1 = vector2;
@@ -221,33 +225,33 @@ namespace Terraria.GameContent.UI.Elements
             vector2.X += width1 + 5f;
             Vector2 position2 = vector2;
             float width2 = 110f;
-            this.DrawPanel(spriteBatch, position2, width2);
+            DrawPanel(spriteBatch, position2, width2);
             string text1 = "";
             Color color = Color.White;
             switch (playerFileData.Player.difficulty)
             {
-                case (byte)0:
+                case 0:
                     text1 = "Softcore";
                     break;
-                case (byte)1:
+                case 1:
                     text1 = "Mediumcore";
                     color = Main.mcColor;
                     break;
-                case (byte)2:
+                case 2:
                     text1 = "Hardcore";
                     color = Main.hcColor;
                     break;
             }
-            Vector2 pos1 = position2 + new Vector2((float)((double)width2 * 0.5 - (double)Main.fontMouseText.MeasureString(text1).X * 0.5), 3f);
+            Vector2 pos1 = position2 + new Vector2((float)(width2 * 0.5 - Main.fontMouseText.MeasureString(text1).X * 0.5), 3f);
             Utils.DrawBorderString(spriteBatch, text1, pos1, color, 1f, 0.0f, 0.0f, -1);
             vector2.X += width2 + 5f;
             Vector2 position3 = vector2;
             float width3 = innerDimensions.X + innerDimensions.Width - position3.X;
-            this.DrawPanel(spriteBatch, position3, width3);
+            DrawPanel(spriteBatch, position3, width3);
             TimeSpan playTime = playerFileData.GetPlayTime();
             int num = playTime.Days * 24 + playTime.Hours;
-            string text2 = (num < 10 ? "0" : "") + (object)num + playTime.ToString("\\:mm\\:ss");
-            Vector2 pos2 = position3 + new Vector2((float)((double)width3 * 0.5 - (double)Main.fontMouseText.MeasureString(text2).X * 0.5), 3f);
+            string text2 = (num < 10 ? "0" : "") + num + playTime.ToString("\\:mm\\:ss");
+            Vector2 pos2 = position3 + new Vector2((float)(width3 * 0.5 - Main.fontMouseText.MeasureString(text2).X * 0.5), 3f);
             Utils.DrawBorderString(spriteBatch, text2, pos2, Color.White, 1f, 0.0f, 0.0f, -1);
         }
     }

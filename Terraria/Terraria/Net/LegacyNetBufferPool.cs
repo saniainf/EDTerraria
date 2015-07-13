@@ -25,62 +25,62 @@ namespace Terraria.Net
 
         public static byte[] RequestBuffer(int size)
         {
-            lock (LegacyNetBufferPool.bufferLock)
+            lock (bufferLock)
             {
                 if (size <= 32)
                 {
-                    if (LegacyNetBufferPool.SmallBufferQueue.Count == 0)
+                    if (SmallBufferQueue.Count == 0)
                         return new byte[32];
-                    return LegacyNetBufferPool.SmallBufferQueue.Dequeue();
+                    return SmallBufferQueue.Dequeue();
                 }
                 if (size <= 256)
                 {
-                    if (LegacyNetBufferPool.MediumBufferQueue.Count == 0)
+                    if (MediumBufferQueue.Count == 0)
                         return new byte[256];
-                    return LegacyNetBufferPool.MediumBufferQueue.Dequeue();
+                    return MediumBufferQueue.Dequeue();
                 }
                 if (size > 16384)
                     return new byte[size];
-                if (LegacyNetBufferPool.LargeBufferQueue.Count == 0)
+                if (LargeBufferQueue.Count == 0)
                     return new byte[16384];
-                return LegacyNetBufferPool.LargeBufferQueue.Dequeue();
+                return LargeBufferQueue.Dequeue();
             }
         }
 
         public static byte[] RequestBuffer(byte[] data, int offset, int size)
         {
-            byte[] numArray = LegacyNetBufferPool.RequestBuffer(size);
-            Buffer.BlockCopy((Array)data, offset, (Array)numArray, 0, size);
+            byte[] numArray = RequestBuffer(size);
+            Buffer.BlockCopy(data, offset, numArray, 0, size);
             return numArray;
         }
 
         public static void ReturnBuffer(byte[] buffer)
         {
             int length = buffer.Length;
-            lock (LegacyNetBufferPool.bufferLock)
+            lock (bufferLock)
             {
                 if (length <= 32)
-                    LegacyNetBufferPool.SmallBufferQueue.Enqueue(buffer);
+                    SmallBufferQueue.Enqueue(buffer);
                 else if (length <= 256)
                 {
-                    LegacyNetBufferPool.MediumBufferQueue.Enqueue(buffer);
+                    MediumBufferQueue.Enqueue(buffer);
                 }
                 else
                 {
                     if (length > 16384)
                         return;
-                    LegacyNetBufferPool.LargeBufferQueue.Enqueue(buffer);
+                    LargeBufferQueue.Enqueue(buffer);
                 }
             }
         }
 
         public static void PrintBufferSizes()
         {
-            lock (LegacyNetBufferPool.bufferLock)
+            lock (bufferLock)
             {
-                Console.WriteLine("SmallBufferQueue.Count: " + (object)LegacyNetBufferPool.SmallBufferQueue.Count);
-                Console.WriteLine("MediumBufferQueue.Count: " + (object)LegacyNetBufferPool.MediumBufferQueue.Count);
-                Console.WriteLine("LargeBufferQueue.Count: " + (object)LegacyNetBufferPool.LargeBufferQueue.Count);
+                Console.WriteLine("SmallBufferQueue.Count: " + SmallBufferQueue.Count);
+                Console.WriteLine("MediumBufferQueue.Count: " + MediumBufferQueue.Count);
+                Console.WriteLine("LargeBufferQueue.Count: " + LargeBufferQueue.Count);
                 Console.WriteLine("");
             }
         }

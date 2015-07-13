@@ -20,22 +20,22 @@ namespace Terraria.GameContent.UI.Elements
 
         public UIImage(Texture2D texture)
         {
-            this._texture = texture;
-            this.Width.Set((float)this._texture.Width, 0.0f);
-            this.Height.Set((float)this._texture.Height, 0.0f);
+            _texture = texture;
+            Width.Set((float)_texture.Width, 0.0f);
+            Height.Set((float)_texture.Height, 0.0f);
         }
 
         public void SetImage(Texture2D texture)
         {
-            this._texture = texture;
-            this.Width.Set((float)this._texture.Width, 0.0f);
-            this.Height.Set((float)this._texture.Height, 0.0f);
+            _texture = texture;
+            Width.Set((float)_texture.Width, 0.0f);
+            Height.Set((float)_texture.Height, 0.0f);
         }
 
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
-            CalculatedStyle dimensions = this.GetDimensions();
-            spriteBatch.Draw(this._texture, dimensions.Position(), Color.White);
+            CalculatedStyle dimensions = GetDimensions();
+            spriteBatch.Draw(_texture, dimensions.Position(), Color.White);
         }
     }
 }

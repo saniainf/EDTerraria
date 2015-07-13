@@ -29,48 +29,44 @@ namespace Terraria.GameContent.UI.Elements
 
         public float ViewPosition
         {
-            get
-            {
-                return this._viewPosition;
-            }
-            set
-            {
-                this._viewPosition = MathHelper.Clamp(value, 0.0f, this._maxViewSize - this._viewSize);
-            }
+            get { return _viewPosition; }
+            set { _viewPosition = MathHelper.Clamp(value, 0.0f, _maxViewSize - _viewSize); }
         }
 
         public UIScrollbar()
         {
-            this.Width.Set(20f, 0.0f);
-            this.MaxWidth.Set(20f, 0.0f);
-            this._texture = TextureManager.Load("Images/UI/Scrollbar");
-            this._innerTexture = TextureManager.Load("Images/UI/ScrollbarInner");
-            this.PaddingTop = 5f;
-            this.PaddingBottom = 5f;
+            Width.Set(20f, 0.0f);
+            MaxWidth.Set(20f, 0.0f);
+            _texture = TextureManager.Load("Images/UI/Scrollbar");
+            _innerTexture = TextureManager.Load("Images/UI/ScrollbarInner");
+            PaddingTop = 5f;
+            PaddingBottom = 5f;
         }
 
         public void SetView(float viewSize, float maxViewSize)
         {
             viewSize = MathHelper.Clamp(viewSize, 0.0f, maxViewSize);
-            this._viewPosition = MathHelper.Clamp(this._viewPosition, 0.0f, maxViewSize - viewSize);
-            this._viewSize = viewSize;
-            this._maxViewSize = maxViewSize;
+            _viewPosition = MathHelper.Clamp(_viewPosition, 0.0f, maxViewSize - viewSize);
+            _viewSize = viewSize;
+            _maxViewSize = maxViewSize;
         }
 
         public float GetValue()
         {
-            return this._viewPosition;
+            return _viewPosition;
         }
 
         private Rectangle GetHandleRectangle()
         {
-            CalculatedStyle innerDimensions = this.GetInnerDimensions();
-            if ((double)this._maxViewSize == 0.0 && (double)this._viewSize == 0.0)
+            CalculatedStyle innerDimensions = GetInnerDimensions();
+            if (_maxViewSize == 0.0 && _viewSize == 0.0)
             {
-                this._viewSize = 1f;
-                this._maxViewSize = 1f;
+                _viewSize = 1f;
+                _maxViewSize = 1f;
             }
-            return new Rectangle((int)innerDimensions.X, (int)((double)innerDimensions.Y + (double)innerDimensions.Height * ((double)this._viewPosition / (double)this._maxViewSize)) - 3, 20, (int)((double)innerDimensions.Height * ((double)this._viewSize / (double)this._maxViewSize)) + 7);
+
+            return new Rectangle((int)innerDimensions.X, (int)(innerDimensions.Y + innerDimensions.Height * (_viewPosition / _maxViewSize)) - 3, 20,
+                (int)(innerDimensions.Height * (_viewSize / _maxViewSize)) + 7);
         }
 
         private void DrawBar(SpriteBatch spriteBatch, Texture2D texture, Rectangle dimensions, Color color)
@@ -82,18 +78,19 @@ namespace Terraria.GameContent.UI.Elements
 
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
-            CalculatedStyle dimensions = this.GetDimensions();
-            CalculatedStyle innerDimensions = this.GetInnerDimensions();
-            if (this._isDragging)
-                this._viewPosition = MathHelper.Clamp((UserInterface.ActiveInstance.MousePosition.Y - innerDimensions.Y - this._dragYOffset) / innerDimensions.Height * this._maxViewSize, 0.0f, this._maxViewSize - this._viewSize);
-            Rectangle handleRectangle = this.GetHandleRectangle();
+            CalculatedStyle dimensions = GetDimensions();
+            CalculatedStyle innerDimensions = GetInnerDimensions();
+            if (_isDragging)
+                _viewPosition = MathHelper.Clamp((UserInterface.ActiveInstance.MousePosition.Y - innerDimensions.Y - _dragYOffset) / innerDimensions.Height * _maxViewSize, 0.0f,
+                    _maxViewSize - _viewSize);
+            Rectangle handleRectangle = GetHandleRectangle();
             Vector2 vector2 = UserInterface.ActiveInstance.MousePosition;
-            bool flag = this._isHoveringOverHandle;
-            this._isHoveringOverHandle = handleRectangle.Contains(new Point((int)vector2.X, (int)vector2.Y));
-            if (!flag && this._isHoveringOverHandle && Main.hasFocus)
+            bool flag = _isHoveringOverHandle;
+            _isHoveringOverHandle = handleRectangle.Contains(new Point((int)vector2.X, (int)vector2.Y));
+            if (!flag && _isHoveringOverHandle && Main.hasFocus)
                 Main.PlaySound(12, -1, -1, 1);
-            this.DrawBar(spriteBatch, this._texture, dimensions.ToRectangle(), Color.White);
-            this.DrawBar(spriteBatch, this._innerTexture, handleRectangle, Color.White * (this._isDragging || this._isHoveringOverHandle ? 1f : 0.85f));
+            DrawBar(spriteBatch, _texture, dimensions.ToRectangle(), Color.White);
+            DrawBar(spriteBatch, _innerTexture, handleRectangle, Color.White * (_isDragging || _isHoveringOverHandle ? 1f : 0.85f));
         }
 
         public override void MouseDown(UIMouseEvent evt)
@@ -101,23 +98,24 @@ namespace Terraria.GameContent.UI.Elements
             base.MouseDown(evt);
             if (evt.Target != this)
                 return;
-            Rectangle handleRectangle = this.GetHandleRectangle();
+            Rectangle handleRectangle = GetHandleRectangle();
             if (handleRectangle.Contains(new Point((int)evt.MousePosition.X, (int)evt.MousePosition.Y)))
             {
-                this._isDragging = true;
-                this._dragYOffset = evt.MousePosition.Y - (float)handleRectangle.Y;
+                _isDragging = true;
+                _dragYOffset = evt.MousePosition.Y - (float)handleRectangle.Y;
             }
             else
             {
-                CalculatedStyle innerDimensions = this.GetInnerDimensions();
-                this._viewPosition = MathHelper.Clamp((UserInterface.ActiveInstance.MousePosition.Y - innerDimensions.Y - (float)(handleRectangle.Height >> 1)) / innerDimensions.Height * this._maxViewSize, 0.0f, this._maxViewSize - this._viewSize);
+                CalculatedStyle innerDimensions = GetInnerDimensions();
+                _viewPosition = MathHelper.Clamp((UserInterface.ActiveInstance.MousePosition.Y - innerDimensions.Y - (float)(handleRectangle.Height >> 1)) / innerDimensions.Height * _maxViewSize, 0.0f,
+                    _maxViewSize - _viewSize);
             }
         }
 
         public override void MouseUp(UIMouseEvent evt)
         {
             base.MouseUp(evt);
-            this._isDragging = false;
+            _isDragging = false;
         }
     }
 }

@@ -21,38 +21,35 @@ namespace Terraria.GameContent.UI.Elements
 
         public string Text
         {
-            get
-            {
-                return this._text;
-            }
+            get { return _text; }
             set
             {
-                if (!(this._text != value))
+                if (!(_text != value))
                     return;
-                this._text = value;
-                Vector2 vector2 = Main.fontDeathText.MeasureString(this.Text);
-                this.Width.Pixels = vector2.X;
-                this.Height.Pixels = vector2.Y;
-                this.Width.Precent = 0.0f;
-                this.Height.Precent = 0.0f;
-                this.Recalculate();
+                _text = value;
+                Vector2 vector2 = Main.fontDeathText.MeasureString(Text);
+                Width.Pixels = vector2.X;
+                Height.Pixels = vector2.Y;
+                Width.Precent = 0.0f;
+                Height.Precent = 0.0f;
+                Recalculate();
             }
         }
 
         public UIHeader()
         {
-            this.Text = "";
+            Text = "";
         }
 
         public UIHeader(string text)
         {
-            this.Text = text;
+            Text = text;
         }
 
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
-            CalculatedStyle dimensions = this.GetDimensions();
-            spriteBatch.DrawString(Main.fontDeathText, this.Text, new Vector2(dimensions.X, dimensions.Y), Color.White);
+            CalculatedStyle dimensions = GetDimensions();
+            spriteBatch.DrawString(Main.fontDeathText, Text, new Vector2(dimensions.X, dimensions.Y), Color.White);
         }
     }
 }

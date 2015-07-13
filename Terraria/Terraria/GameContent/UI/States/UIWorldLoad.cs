@@ -23,27 +23,27 @@ namespace Terraria.GameContent.UI.States
 
         public UIWorldLoad(GenerationProgress progress)
         {
-            this._progressBar.Top.Pixels = 370f;
-            this._progressBar.HAlign = 0.5f;
-            this._progressBar.VAlign = 0.0f;
-            this._progressBar.Recalculate();
-            this._progressMessage.CopyStyle((UIElement)this._progressBar);
-            this._progressMessage.Top.Pixels -= 70f;
-            this._progressMessage.Recalculate();
-            this._progress = progress;
-            this.Append((UIElement)this._progressBar);
-            this.Append((UIElement)this._progressMessage);
+            _progressBar.Top.Pixels = 370f;
+            _progressBar.HAlign = 0.5f;
+            _progressBar.VAlign = 0.0f;
+            _progressBar.Recalculate();
+            _progressMessage.CopyStyle(_progressBar);
+            _progressMessage.Top.Pixels -= 70f;
+            _progressMessage.Recalculate();
+            _progress = progress;
+            Append(_progressBar);
+            Append(_progressMessage);
         }
 
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
-            this._progressBar.SetProgress(this._progress.TotalProgress, this._progress.Value);
-            this._progressMessage.Text = this._progress.Message;
+            _progressBar.SetProgress(_progress.TotalProgress, _progress.Value);
+            _progressMessage.Text = _progress.Message;
         }
 
         public string GetStatusText()
         {
-            return string.Format("{0:0.0%} - " + this._progress.Message + " - {1:0.0%}", (object)this._progress.TotalProgress, (object)this._progress.Value);
+            return string.Format("{0:0.0%} - " + _progress.Message + " - {1:0.0%}", _progress.TotalProgress, _progress.Value);
         }
     }
 }

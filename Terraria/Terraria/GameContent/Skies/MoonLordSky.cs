@@ -22,34 +22,33 @@ namespace Terraria.GameContent.Skies
         private int _moonLordIndex = -1;
         private bool _isActive;
 
-        public override void OnLoad()
-        {
-        }
+        public override void OnLoad() { }
 
-        public override void Update()
-        {
-        }
+        public override void Update() { }
 
         private float GetIntensity()
         {
-            if (!this.UpdateMoonLordIndex())
+            if (!UpdateMoonLordIndex())
                 return 0.0f;
+
             float x = 0.0f;
-            if (this._moonLordIndex != -1)
-                x = Vector2.Distance(Main.player[Main.myPlayer].Center, Main.npc[this._moonLordIndex].Center);
+            if (_moonLordIndex != -1)
+                x = Vector2.Distance(Main.player[Main.myPlayer].Center, Main.npc[_moonLordIndex].Center);
+
             return 1f - Utils.SmoothStep(3000f, 6000f, x);
         }
 
         public override Color OnTileColor(Color inColor)
         {
-            float intensity = this.GetIntensity();
+            float intensity = GetIntensity();
             return new Color(Vector4.Lerp(new Vector4(0.5f, 0.8f, 1f, 1f), inColor.ToVector4(), 1f - intensity));
         }
 
         private bool UpdateMoonLordIndex()
         {
-            if (this._moonLordIndex >= 0 && Main.npc[this._moonLordIndex].active && Main.npc[this._moonLordIndex].type == 398)
+            if (_moonLordIndex >= 0 && Main.npc[_moonLordIndex].active && Main.npc[_moonLordIndex].type == 398)
                 return true;
+
             int num = -1;
             for (int index = 0; index < Main.npc.Length; ++index)
             {
@@ -59,15 +58,17 @@ namespace Terraria.GameContent.Skies
                     break;
                 }
             }
-            this._moonLordIndex = num;
+
+            _moonLordIndex = num;
             return num != -1;
         }
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
-            if ((double)maxDepth < 0.0 || (double)minDepth >= 0.0)
+            if (maxDepth < 0.0 || minDepth >= 0.0)
                 return;
-            float intensity = this.GetIntensity();
+
+            float intensity = GetIntensity();
             spriteBatch.Draw(Main.blackTileTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * intensity);
         }
 
@@ -78,22 +79,22 @@ namespace Terraria.GameContent.Skies
 
         internal override void Activate(Vector2 position, params object[] args)
         {
-            this._isActive = true;
+            _isActive = true;
         }
 
         internal override void Deactivate(params object[] args)
         {
-            this._isActive = false;
+            _isActive = false;
         }
 
         public override void Reset()
         {
-            this._isActive = false;
+            _isActive = false;
         }
 
         public override bool IsActive()
         {
-            return this._isActive;
+            return _isActive;
         }
     }
 }

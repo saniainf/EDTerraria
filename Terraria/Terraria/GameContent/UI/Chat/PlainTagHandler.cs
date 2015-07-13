@@ -17,24 +17,20 @@ namespace Terraria.GameContent.UI.Chat
     {
         TextSnippet ITagHandler.Parse(string text, Color baseColor, string options)
         {
-            return (TextSnippet)new PlainTagHandler.PlainSnippet(text);
+            return new PlainSnippet(text);
         }
 
         public class PlainSnippet : TextSnippet
         {
             public PlainSnippet(string text = "")
-                : base(text)
-            {
-            }
+                : base(text) { }
 
             public PlainSnippet(string text, Color color, float scale = 1f)
-                : base(text, color, scale)
-            {
-            }
+                : base(text, color, scale) { }
 
             public override Color GetVisibleColor()
             {
-                return this.Color;
+                return Color;
             }
         }
     }
