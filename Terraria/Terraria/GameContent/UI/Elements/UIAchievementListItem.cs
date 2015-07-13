@@ -189,7 +189,7 @@ namespace Terraria.GameContent.UI.Elements
             if (BlipColor == Color.Transparent)
                 BlipColor = new Color(255, 165, 0, 127);
             if (FillingColor == Color.Transparent)
-                FillingColor = new Color((255, 241, 51);
+                FillingColor = new Color(255, 241, 51);
             if (BackColor == Color.Transparent)
                 FillingColor = new Color(255, 255, 255);
 
