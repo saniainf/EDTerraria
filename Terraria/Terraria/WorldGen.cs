@@ -11660,7 +11660,7 @@ namespace Terraria
 
         public static void CreateNewWorld(GenerationProgress progress = null)
         {
-            ThreadPool.QueueUserWorkItem(new WaitCallback(WorldGen.worldGenCallBack), progress);
+            ThreadPool.QueueUserWorkItem(new WaitCallback(worldGenCallBack), progress);
         }
 
         public static void CrimEnt(Vector2 position, int crimDir)

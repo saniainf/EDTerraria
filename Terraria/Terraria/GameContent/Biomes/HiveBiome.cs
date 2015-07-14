@@ -25,7 +25,7 @@ namespace Terraria.GameContent.Biomes
             Ref<int> count4 = new Ref<int>(0);
             WorldUtils.Gen(origin, new Shapes.Circle(15), Actions.Chain(new Actions.Scanner(count3), new Modifiers.IsSolid(),
                 new Actions.Scanner(count1), new Modifiers.OnlyTiles(new ushort[2] { 60, 59 }), new Actions.Scanner(count2), new Modifiers.OnlyTiles(new ushort[1] { 60 }), new Actions.Scanner(count4)));
-            if (count2.Value / count1.Value < 0.75 || count4.Value < 2 || !structures.CanPlace(new Microsoft.Xna.Framework.Rectangle(origin.X - 50, origin.Y - 50, 100, 100), 0))
+            if (((((float)count2.Value) / ((float)count1.Value)) < 0.75) || count4.Value < 2 || !structures.CanPlace(new Microsoft.Xna.Framework.Rectangle(origin.X - 50, origin.Y - 50, 100, 100), 0))
                 return false;
 
             int num1 = origin.X;

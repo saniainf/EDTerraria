@@ -17,8 +17,8 @@ namespace Terraria.World.Generation
 
         public GenPass(string name, float loadWeight)
         {
-            this.Name = name;
-            this.Weight = loadWeight;
+            Name = name;
+            Weight = loadWeight;
         }
 
         public abstract void Apply(GenerationProgress progress);
