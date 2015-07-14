@@ -21735,92 +21735,92 @@ namespace Terraria
                         int j = (int)(position.Y + (width / 2)) / 16;
                         int type = 0;
                         int Type = 2;
-                        if (type == 109)
+                        if (this.type == 109)
                         {
                             type = 147;
                             Type = 0;
                         }
-                        if (type == 31)
+                        if (this.type == 31)
                         {
                             type = 53;
                             Type = 0;
                         }
-                        if (type == 42)
+                        if (this.type == 42)
                         {
                             type = 53;
                             Type = 0;
                         }
-                        if (type == 56)
+                        if (this.type == 56)
                         {
                             type = 112;
                             Type = 0;
                         }
-                        if (type == 65)
+                        if (this.type == 65)
                         {
                             type = 112;
                             Type = 0;
                         }
-                        if (type == 67)
+                        if (this.type == 67)
                         {
                             type = 116;
                             Type = 0;
                         }
-                        if (type == 68)
+                        if (this.type == 68)
                         {
                             type = 116;
                             Type = 0;
                         }
-                        if (type == 71)
+                        if (this.type == 71)
                         {
                             type = 123;
                             Type = 0;
                         }
-                        if (type == 39)
+                        if (this.type == 39)
                         {
                             type = 59;
                             Type = 176;
                         }
-                        if (type == 40)
+                        if (this.type == 40)
                         {
                             type = 57;
                             Type = 172;
                         }
-                        if (type == 179)
+                        if (this.type == 179)
                         {
                             type = 224;
                             Type = 0;
                         }
-                        if (type == 241)
+                        if (this.type == 241)
                         {
                             type = 234;
                             Type = 0;
                         }
-                        if (type == 354)
+                        if (this.type == 354)
                         {
                             type = 234;
                             Type = 0;
                         }
-                        if (type == 411)
+                        if (this.type == 411)
                         {
                             type = 330;
                             Type = 71;
                         }
-                        if (type == 412)
+                        if (this.type == 412)
                         {
                             type = 331;
                             Type = 72;
                         }
-                        if (type == 413)
+                        if (this.type == 413)
                         {
                             type = 332;
                             Type = 73;
                         }
-                        if (type == 414)
+                        if (this.type == 414)
                         {
                             type = 333;
                             Type = 74;
                         }
-                        if (type == 109)
+                        if (this.type == 109)
                         {
                             int index = Player.FindClosest(position, width, height);
                             if ((Center - Main.player[index].Center).Length() > Main.maxScreenW * 0.75)
@@ -21855,17 +21855,17 @@ namespace Terraria
                         else if (Type > 0)
                             number = Item.NewItem((int)position.X, (int)position.Y, width, height, Type, 1, false, 0, false);
                     }
-                    if (type == 1 && Main.rand.Next(3) == 0)
-                        number = Item.NewItem((int)position.X, (int)position.Y, width, height, 40, 1, false, 0, false);
-                    if (type == 474 && Main.rand.Next(3) == 0)
-                        number = Item.NewItem((int)position.X, (int)position.Y, width, height, 3003, 1, false, 0, false);
-                    if (type == 103 && Main.rand.Next(6) == 0)
+                    if (this.type == 1 && Main.rand.Next(3) == 0)
+                        number = Item.NewItem((int)this.position.X, (int)position.Y, width, height, 40, 1, false, 0, false);
+                    if (this.type == 474 && Main.rand.Next(3) == 0)
+                        number = Item.NewItem((int)this.position.X, (int)position.Y, width, height, 3003, 1, false, 0, false);
+                    if (this.type == 103 && Main.rand.Next(6) == 0)
                         number = Main.rand.Next(3) != 0 ? Item.NewItem((int)position.X, (int)position.Y, width, height, 40, 1, false, 0, false) : Item.NewItem((int)position.X, (int)position.Y, width, height, 545, 1, false, 0, false);
-                    if (type == 2 && Main.rand.Next(3) == 0)
+                    if (this.type == 2 && Main.rand.Next(3) == 0)
                         number = Main.rand.Next(3) != 0 ? Item.NewItem((int)position.X, (int)position.Y, width, height, 40, 1, false, 0, false) : Item.NewItem((int)position.X, (int)position.Y, width, height, 41, 1, false, 0, false);
-                    if (type == 172 && Main.rand.Next(3) == 0)
+                    if (this.type == 172 && Main.rand.Next(3) == 0)
                         number = Main.rand.Next(3) != 0 ? Item.NewItem((int)position.X, (int)position.Y, width, height, 40, 1, false, 0, false) : Item.NewItem((int)position.X, (int)position.Y, width, height, 988, 1, false, 0, false);
-                    if (type == 171)
+                    if (this.type == 171)
                     {
                         if (ai[1] == 0.0)
                         {
@@ -21878,7 +21878,7 @@ namespace Terraria
                             Main.item[number].noGrabDelay = 0;
                         }
                     }
-                    if (type == 475)
+                    if (this.type == 475)
                     {
                         if (ai[1] == 0.0)
                         {
@@ -21891,7 +21891,7 @@ namespace Terraria
                             Main.item[number].noGrabDelay = 0;
                         }
                     }
-                    if (type == 505)
+                    if (this.type == 505)
                     {
                         if (ai[1] == 0.0)
                         {
@@ -21904,7 +21904,7 @@ namespace Terraria
                             Main.item[number].noGrabDelay = 0;
                         }
                     }
-                    if (type == 506)
+                    if (this.type == 506)
                     {
                         if (ai[1] == 0.0)
                         {
@@ -21917,31 +21917,31 @@ namespace Terraria
                             Main.item[number].noGrabDelay = 0;
                         }
                     }
-                    if (type == 91 && Main.rand.Next(6) == 0)
+                    if (this.type == 91 && Main.rand.Next(6) == 0)
                         number = Item.NewItem((int)position.X, (int)position.Y, width, height, 516, 1, false, 0, false);
-                    if (type == 50 && Main.rand.Next(3) == 0)
+                    if (this.type == 50 && Main.rand.Next(3) == 0)
                         number = Item.NewItem((int)position.X, (int)position.Y, width, height, 282, 1, false, 0, false);
-                    if (type == 515 && Main.rand.Next(3) == 0)
+                    if (this.type == 515 && Main.rand.Next(3) == 0)
                         number = Item.NewItem((int)position.X, (int)position.Y, width, height, 3112, 1, false, 0, false);
-                    if (type == 53 && Main.rand.Next(3) == 0)
+                    if (this.type == 53 && Main.rand.Next(3) == 0)
                         number = Item.NewItem((int)position.X, (int)position.Y, width, height, 286, 1, false, 0, false);
-                    if (type == 48 && Main.rand.Next(2) == 0)
+                    if (this.type == 48 && Main.rand.Next(2) == 0)
                         number = Item.NewItem((int)position.X, (int)position.Y, width, height, 279, 1, false, 0, false);
-                    if (type == 54 && Main.rand.Next(2) == 0)
+                    if (this.type == 54 && Main.rand.Next(2) == 0)
                         number = Item.NewItem((int)position.X, (int)position.Y, width, height, 287, 1, false, 0, false);
-                    if (type == 3 && Main.rand.Next(2) == 0)
+                    if (this.type == 3 && Main.rand.Next(2) == 0)
                         number = Item.NewItem((int)position.X, (int)position.Y, width, height, 42, 1, false, 0, false);
-                    if (type == 4 && Main.rand.Next(4) == 0)
+                    if (this.type == 4 && Main.rand.Next(4) == 0)
                         number = Item.NewItem((int)position.X, (int)position.Y, width, height, 47, 1, false, 0, false);
-                    if (type == 12 && damage > 500)
+                    if (this.type == 12 && damage > 500)
                         number = Item.NewItem((int)position.X, (int)position.Y, width, height, 75, 1, false, 0, false);
-                    if (type == 155)
+                    if (this.type == 155)
                         number = Item.NewItem((int)position.X, (int)position.Y, width, height, 859, 1, false, 0, false);
-                    if (type == 598 && Main.rand.Next(4) == 0)
+                    if (this.type == 598 && Main.rand.Next(4) == 0)
                         number = Item.NewItem((int)position.X, (int)position.Y, width, height, 3378, 1, false, 0, false);
-                    if (type == 599 && Main.rand.Next(4) == 0)
+                    if (this.type == 599 && Main.rand.Next(4) == 0)
                         number = Item.NewItem((int)position.X, (int)position.Y, width, height, 3379, 1, false, 0, false);
-                    if (type == 21 && Main.rand.Next(2) == 0)
+                    if (this.type == 21 && Main.rand.Next(2) == 0)
                         number = Item.NewItem((int)position.X, (int)position.Y, width, height, 154, 1, false, 0, false);
                     if (Main.netMode == 1 && number >= 0)
                         NetMessage.SendData(21, -1, -1, "", number, 1f, 0.0f, 0.0f, 0, 0, 0);
@@ -21957,11 +21957,11 @@ namespace Terraria
                     if (type == 621)
                         WorldGen.Convert(i, j, 4, 4);
                 }
-                if (type == 370 || type == 371)
+                if (this.type == 370 || this.type == 371)
                 {
                     float num2 = 80f;
                     int type = 119;
-                    if (type == 371)
+                    if (this.type == 371)
                         type = 120;
                     for (int index = 0; index < 255; ++index)
                     {
