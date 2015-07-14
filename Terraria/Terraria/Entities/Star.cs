@@ -29,16 +29,16 @@ namespace Terraria
             for (int index = 0; index < Main.numStars; ++index)
             {
                 Main.star[index] = new Star();
-                Main.star[index].position.X = (float)Main.rand.Next(-12, Main.screenWidth + 1);
-                Main.star[index].position.Y = (float)Main.rand.Next(-12, Main.screenHeight);
-                Main.star[index].rotation = (float)Main.rand.Next(628) * 0.01f;
-                Main.star[index].scale = (float)Main.rand.Next(50, 120) * 0.01f;
+                Main.star[index].position.X = Main.rand.Next(-12, Main.screenWidth + 1);
+                Main.star[index].position.Y = Main.rand.Next(-12, Main.screenHeight);
+                Main.star[index].rotation = Main.rand.Next(628) * 0.01f;
+                Main.star[index].scale = Main.rand.Next(50, 120) * 0.01f;
                 Main.star[index].type = Main.rand.Next(0, 5);
-                Main.star[index].twinkle = (float)Main.rand.Next(101) * 0.01f;
-                Main.star[index].twinkleSpeed = (float)Main.rand.Next(40, 100) * 0.0001f;
+                Main.star[index].twinkle = Main.rand.Next(101) * 0.01f;
+                Main.star[index].twinkleSpeed = Main.rand.Next(40, 100) * 0.0001f;
                 if (Main.rand.Next(2) == 0)
                     Main.star[index].twinkleSpeed *= -1f;
-                Main.star[index].rotationSpeed = (float)Main.rand.Next(10, 40) * 0.0001f;
+                Main.star[index].rotationSpeed = Main.rand.Next(10, 40) * 0.0001f;
                 if (Main.rand.Next(2) == 0)
                     Main.star[index].rotationSpeed *= -1f;
             }
@@ -49,20 +49,20 @@ namespace Terraria
             for (int index = 0; index < Main.numStars; ++index)
             {
                 Main.star[index].twinkle += Main.star[index].twinkleSpeed;
-                if ((double)Main.star[index].twinkle > 1.0)
+                if (Main.star[index].twinkle > 1.0)
                 {
                     Main.star[index].twinkle = 1f;
                     Main.star[index].twinkleSpeed *= -1f;
                 }
-                else if ((double)Main.star[index].twinkle < 0.5)
+                else if (Main.star[index].twinkle < 0.5)
                 {
                     Main.star[index].twinkle = 0.5f;
                     Main.star[index].twinkleSpeed *= -1f;
                 }
                 Main.star[index].rotation += Main.star[index].rotationSpeed;
-                if ((double)Main.star[index].rotation > 6.28)
+                if (Main.star[index].rotation > 6.28)
                     Main.star[index].rotation -= 6.28f;
-                if ((double)Main.star[index].rotation < 0.0)
+                if (Main.star[index].rotation < 0.0)
                     Main.star[index].rotation += 6.28f;
             }
         }
