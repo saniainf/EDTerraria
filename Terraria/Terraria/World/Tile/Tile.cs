@@ -12,8 +12,138 @@ using Microsoft.Xna.Framework;
 
 namespace Terraria
 {
+	public class k_TileBlock
+	{
+		public ushort protoID;
+		public byte variant;
+		public byte parentOffset;
+		public byte slope;
+		public byte animFrame;
+		public byte flags;
+		public byte colourID;
+
+		public k_TileBlock() { }
+
+		public void SetParentOffset(byte x, byte y)
+		{
+			y <<= 4;
+			parentOffset = (byte)(x + y);
+		}
+		public Point GetParentOffset()
+		{
+			return new Point(parentOffset & 15, parentOffset & 240);
+		}
+
+		public k_TileBlock Copy()
+		{
+			return new k_TileBlock();
+		}
+	}
+
+	public class k_TileEntity : k_TileBlock
+	{
+		public NBT nbt;
+
+		public k_TileEntity() { }
+	}
+
+	public enum k_WireFlags : byte
+	{
+		WIRE_RED		= 0x1,
+		WIRE_GREEN		= 0x2,
+		WIRE_BLUE		= 0x4,
+
+		WIRE_ACTUATOR	= 0x8,
+		/*
+		WIRE_BRIDGE_RG	= 0x10,
+		WIRE_BRIDGE_RB	= 0x20,
+		WIRE_BRIDGE_GB	= 0x40,
+		WIRE_BRIDGE_RGB	= 0x80,
+		//*/
+	}
+
     public class Tile
     {
+		//*
+		public k_TileBlock k_block;
+
+		public ushort k_wall_protoID;
+		public byte k_wall_variant;
+		public byte k_wall_colourID;
+
+		public byte k_liquid_protoID;
+		public byte k_liquid_amount;
+
+		public k_WireFlags k_wireFlags;
+		
+		public void k_Constructor(Tile copy)
+		{
+			if (copy == null)
+			{
+				k_block = null;
+				k_wall_protoID = 0;
+				k_wall_variant = 0;
+				k_wall_colourID = 0;
+				k_liquid_protoID = 0;
+				k_liquid_amount = 0;
+				k_wireFlags = 0;
+			}
+			else
+			{
+				k_block = copy.k_block.Copy();
+				k_wall_protoID = copy.k_wall_protoID;
+				k_wall_variant = copy.k_wall_variant;
+				k_wall_colourID = copy.k_wall_colourID;
+				k_liquid_protoID = copy.k_liquid_protoID;
+				k_liquid_amount = copy.k_liquid_amount;
+				k_wireFlags = copy.k_wireFlags;
+			}
+		}
+
+		public void k_SetBlock(ushort proto, byte variant = 0, byte flags = 0)
+		{
+			k_block = new k_TileBlock();
+			k_block.protoID = proto;
+			k_block.variant = variant;
+			k_block.flags = flags;
+		}
+		public void k_KillBlock() { k_SetBlock(0); }
+
+		public void k_SetWall(ushort proto, byte variant = 0)
+		{
+			k_wall_protoID = proto;
+			k_wall_variant = variant;
+			k_wall_colourID = 0;
+		}
+		public void k_KillWall() { k_SetWall(0); }
+
+		public void k_AddLiquid(ushort proto, byte amount){ }
+		public byte k_RemoveLiquid(byte amount)
+		{
+			byte amt = amount;
+			if (amt > k_liquid_amount)
+				amt = k_liquid_amount;
+
+			k_liquid_amount -= amt;
+			if (k_liquid_amount <= 0)
+				k_liquid_protoID = 0;
+
+			return amt;
+		}
+
+		public void k_AddWireFlag(k_WireFlags flags)
+		{
+			k_wireFlags |= flags;
+		}
+		public void k_RemoveWireFlag(k_WireFlags flags)
+		{
+			k_wireFlags &= ~flags;
+		}
+		public bool k_HasWireFlag(k_WireFlags flags)
+		{
+			return (k_wireFlags & flags) == flags;
+		}
+		//*/
         public const int Type_Solid = 0;
         public const int Type_Halfbrick = 1;
         public const int Type_SlopeDownRight = 2;
