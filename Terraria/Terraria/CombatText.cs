@@ -19,7 +19,7 @@ namespace Terraria
         public static readonly Color DamagedHostile = new Color((int)byte.MaxValue, 160, 80, (int)byte.MaxValue);
         public static readonly Color DamagedHostileCrit = new Color((int)byte.MaxValue, 100, 30, (int)byte.MaxValue);
         public static readonly Color OthersDamagedHostile = CombatText.DamagedHostile * 0.4f;
-        public static readonly Color OthersDamagedHostileCrit = CombatText.DamagedHostileCrit * 0.4f;
+        public static readonly Color OthersDamagedHostileCrit = DamagedHostileCrit * 0.4f;
         public static readonly Color HealLife = new Color(100, (int)byte.MaxValue, 100, (int)byte.MaxValue);
         public static readonly Color HealMana = new Color(100, 100, (int)byte.MaxValue, (int)byte.MaxValue);
         public static readonly Color LifeRegen = new Color((int)byte.MaxValue, 60, 70, (int)byte.MaxValue);
