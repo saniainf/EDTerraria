@@ -14,16 +14,16 @@ namespace Terraria
 {
     public class CombatText
     {
-        public static readonly Color DamagedFriendly = new Color((int)byte.MaxValue, 80, 90, (int)byte.MaxValue);
-        public static readonly Color DamagedFriendlyCrit = new Color((int)byte.MaxValue, 100, 30, (int)byte.MaxValue);
-        public static readonly Color DamagedHostile = new Color((int)byte.MaxValue, 160, 80, (int)byte.MaxValue);
-        public static readonly Color DamagedHostileCrit = new Color((int)byte.MaxValue, 100, 30, (int)byte.MaxValue);
-        public static readonly Color OthersDamagedHostile = CombatText.DamagedHostile * 0.4f;
+        public static readonly Color DamagedFriendly = new Color(255, 80, 90, 255);
+        public static readonly Color DamagedFriendlyCrit = new Color(255, 100, 30, 255);
+        public static readonly Color DamagedHostile = new Color(255, 160, 80, 255);
+        public static readonly Color DamagedHostileCrit = new Color(255, 100, 30, 255);
+        public static readonly Color OthersDamagedHostile = DamagedHostile * 0.4f;
         public static readonly Color OthersDamagedHostileCrit = DamagedHostileCrit * 0.4f;
-        public static readonly Color HealLife = new Color(100, (int)byte.MaxValue, 100, (int)byte.MaxValue);
-        public static readonly Color HealMana = new Color(100, 100, (int)byte.MaxValue, (int)byte.MaxValue);
-        public static readonly Color LifeRegen = new Color((int)byte.MaxValue, 60, 70, (int)byte.MaxValue);
-        public static readonly Color LifeRegenNegative = new Color((int)byte.MaxValue, 140, 40, (int)byte.MaxValue);
+        public static readonly Color HealLife = new Color(100, 255, 100, 255);
+        public static readonly Color HealMana = new Color(100, 100, 255, 255);
+        public static readonly Color LifeRegen = new Color(255, 60, 70, 255);
+        public static readonly Color LifeRegenNegative = new Color(255, 140, 40, 255);
         public int alphaDir = 1;
         public float scale = 1f;
         public Vector2 position;
@@ -54,17 +54,17 @@ namespace Terraria
                     Main.combatText[index1].active = true;
                     Main.combatText[index1].scale = 0.0f;
                     Main.combatText[index1].rotation = 0.0f;
-                    Main.combatText[index1].position.X = (float)((double)location.X + (double)location.Width * 0.5 - (double)vector2.X * 0.5);
-                    Main.combatText[index1].position.Y = (float)((double)location.Y + (double)location.Height * 0.25 - (double)vector2.Y * 0.5);
-                    Main.combatText[index1].position.X += (float)Main.rand.Next(-(int)((double)location.Width * 0.5), (int)((double)location.Width * 0.5) + 1);
-                    Main.combatText[index1].position.Y += (float)Main.rand.Next(-(int)((double)location.Height * 0.5), (int)((double)location.Height * 0.5) + 1);
+                    Main.combatText[index1].position.X = (float)(location.X + location.Width * 0.5 - vector2.X * 0.5);
+                    Main.combatText[index1].position.Y = (float)(location.Y + location.Height * 0.25 - vector2.Y * 0.5);
+                    Main.combatText[index1].position.X += Main.rand.Next(-(int)(location.Width * 0.5), (int)(location.Width * 0.5) + 1);
+                    Main.combatText[index1].position.Y += Main.rand.Next(-(int)(location.Height * 0.5), (int)(location.Height * 0.5) + 1);
                     Main.combatText[index1].color = color;
                     Main.combatText[index1].text = text;
                     Main.combatText[index1].velocity.Y = -7f;
-                    if ((double)Main.player[Main.myPlayer].gravDir == -1.0)
+                    if (Main.player[Main.myPlayer].gravDir == -1.0)
                     {
                         Main.combatText[index1].velocity.Y *= -1f;
-                        Main.combatText[index1].position.Y = (float)((double)location.Y + (double)location.Height * 0.75 + (double)vector2.Y * 0.5);
+                        Main.combatText[index1].position.Y = (float)(location.Y + location.Height * 0.75 + vector2.Y * 0.5);
                     }
                     Main.combatText[index1].lifeTime = 60;
                     Main.combatText[index1].crit = dramatic;
@@ -74,9 +74,9 @@ namespace Terraria
                         Main.combatText[index1].text = text;
                         Main.combatText[index1].lifeTime *= 2;
                         Main.combatText[index1].velocity.Y *= 2f;
-                        Main.combatText[index1].velocity.X = (float)Main.rand.Next(-25, 26) * 0.05f;
-                        Main.combatText[index1].rotation = (float)(Main.combatText[index1].lifeTime / 2) * (1.0f / 500.0f);
-                        if ((double)Main.combatText[index1].velocity.X < 0.0)
+                        Main.combatText[index1].velocity.X = Main.rand.Next(-25, 26) * 0.05f;
+                        Main.combatText[index1].rotation = Main.combatText[index1].lifeTime / 2 * (1.0f / 500.0f);
+                        if (Main.combatText[index1].velocity.X < 0.0)
                             Main.combatText[index1].rotation *= -1f;
                     }
                     if (dot)
@@ -98,63 +98,63 @@ namespace Terraria
 
         public void Update()
         {
-            if (!this.active)
+            if (!active)
                 return;
-            this.alpha += (float)this.alphaDir * 0.05f;
-            if ((double)this.alpha <= 0.6)
-                this.alphaDir = 1;
-            if ((double)this.alpha >= 1.0)
+            alpha += alphaDir * 0.05f;
+            if (alpha <= 0.6)
+                alphaDir = 1;
+            if (alpha >= 1.0)
             {
-                this.alpha = 1f;
-                this.alphaDir = -1;
+                alpha = 1f;
+                alphaDir = -1;
             }
-            if (this.dot)
+            if (dot)
             {
-                this.velocity.Y += 0.15f;
+                velocity.Y += 0.15f;
             }
             else
             {
-                this.velocity.Y *= 0.92f;
-                if (this.crit)
-                    this.velocity.Y *= 0.92f;
+                velocity.Y *= 0.92f;
+                if (crit)
+                    velocity.Y *= 0.92f;
             }
-            this.velocity.X *= 0.93f;
-            this.position += this.velocity;
-            --this.lifeTime;
-            if (this.lifeTime <= 0)
+            velocity.X *= 0.93f;
+            position += velocity;
+            --lifeTime;
+            if (lifeTime <= 0)
             {
-                this.scale -= 0.1f;
-                if ((double)this.scale < 0.1)
-                    this.active = false;
-                this.lifeTime = 0;
-                if (!this.crit)
+                scale -= 0.1f;
+                if (scale < 0.1)
+                    active = false;
+                lifeTime = 0;
+                if (!crit)
                     return;
-                this.alphaDir = -1;
-                this.scale += 0.07f;
+                alphaDir = -1;
+                scale += 0.07f;
             }
             else
             {
-                if (this.crit)
+                if (crit)
                 {
-                    if ((double)this.velocity.X < 0.0)
-                        this.rotation += 1.0f / 1000.0f;
+                    if (velocity.X < 0.0)
+                        rotation += 1.0f / 1000.0f;
                     else
-                        this.rotation -= 1.0f / 1000.0f;
+                        rotation -= 1.0f / 1000.0f;
                 }
-                if (this.dot)
+                if (dot)
                 {
-                    this.scale += 0.5f;
-                    if ((double)this.scale <= 0.8)
+                    scale += 0.5f;
+                    if (scale <= 0.8)
                         return;
-                    this.scale = 0.8f;
+                    scale = 0.8f;
                 }
                 else
                 {
-                    if ((double)this.scale < 1.0)
-                        this.scale += 0.1f;
-                    if ((double)this.scale <= 1.0)
+                    if (scale < 1.0)
+                        scale += 0.1f;
+                    if (scale <= 1.0)
                         return;
-                    this.scale = 1f;
+                    scale = 1f;
                 }
             }
         }
