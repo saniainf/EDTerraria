@@ -161,7 +161,7 @@ namespace Terraria
 
         public static void ServerPlaceItem(int plr, int slot)
         {
-            Main.player[plr].inventory[slot] = Chest.PutItemInNearbyChest(Main.player[plr].inventory[slot], Main.player[plr].Center);
+            Main.player[plr].inventory[slot] = PutItemInNearbyChest(Main.player[plr].inventory[slot], Main.player[plr].Center);
             NetMessage.SendData(5, -1, -1, "", plr, slot, Main.player[plr].inventory[slot].prefix, 0.0f, 0, 0, 0);
         }
 

@@ -33,124 +33,88 @@ namespace Terraria
 
         public Vector2 Center
         {
-            get
-            {
-                return new Vector2(this.position.X + (float)(this.width / 2), this.position.Y + (float)(this.height / 2));
-            }
-            set
-            {
-                this.position = new Vector2(value.X - (float)(this.width / 2), value.Y - (float)(this.height / 2));
-            }
+            get {return new Vector2(this.position.X + (width / 2), position.Y + (height / 2));}
+            set {position = new Vector2(value.X - (width / 2), value.Y - (height / 2));}
         }
 
         public Vector2 Left
         {
-            get
-            {
-                return new Vector2(this.position.X, this.position.Y + (float)(this.height / 2));
-            }
-            set
-            {
-                this.position = new Vector2(value.X, value.Y - (float)(this.height / 2));
-            }
+            get {return new Vector2(position.X, position.Y + (height / 2));}
+            set {position = new Vector2(value.X, value.Y - (height / 2));}
         }
 
         public Vector2 Right
         {
-            get
-            {
-                return new Vector2(this.position.X + (float)this.width, this.position.Y + (float)(this.height / 2));
-            }
-            set
-            {
-                this.position = new Vector2(value.X - (float)this.width, value.Y - (float)(this.height / 2));
-            }
+            get {return new Vector2(position.X + width, position.Y + (height / 2));}
+            set {position = new Vector2(value.X - width, value.Y - (height / 2));}
         }
 
         public Vector2 Top
         {
-            get
-            {
-                return new Vector2(this.position.X + (float)(this.width / 2), this.position.Y);
-            }
-            set
-            {
-                this.position = new Vector2(value.X - (float)(this.width / 2), value.Y);
-            }
+            get {return new Vector2(position.X + (width / 2), position.Y);}
+            set {position = new Vector2(value.X - (width / 2), value.Y);}
         }
 
         public Vector2 Bottom
         {
-            get
-            {
-                return new Vector2(this.position.X + (float)(this.width / 2), this.position.Y + (float)this.height);
-            }
-            set
-            {
-                this.position = new Vector2(value.X - (float)(this.width / 2), value.Y - (float)this.height);
-            }
+            get {return new Vector2(position.X + (width / 2), position.Y + height);}
+            set {position = new Vector2(value.X - (width / 2), value.Y - height);}
         }
 
         public Vector2 Size
         {
-            get
-            {
-                return new Vector2((float)this.width, (float)this.height);
-            }
+            get {return new Vector2(width, height);}
             set
             {
-                this.width = (int)value.X;
-                this.height = (int)value.Y;
+                width = (int)value.X;
+                height = (int)value.Y;
             }
         }
 
         public Rectangle Hitbox
         {
-            get
-            {
-                return new Rectangle((int)this.position.X, (int)this.position.Y, this.width, this.height);
-            }
+            get {return new Rectangle((int)position.X, (int)position.Y, width, height);}
             set
             {
-                this.position = new Vector2((float)value.X, (float)value.Y);
-                this.width = value.Width;
-                this.height = value.Height;
+                position = new Vector2(value.X, value.Y);
+                width = value.Width;
+                height = value.Height;
             }
         }
 
         public float AngleTo(Vector2 Destination)
         {
-            return (float)Math.Atan2((double)Destination.Y - (double)this.Center.Y, (double)Destination.X - (double)this.Center.X);
+            return (float)Math.Atan2(Destination.Y - (double)Center.Y, Destination.X - (double)Center.X);
         }
 
         public float AngleFrom(Vector2 Source)
         {
-            return (float)Math.Atan2((double)this.Center.Y - (double)Source.Y, (double)this.Center.X - (double)Source.X);
+            return (float)Math.Atan2(Center.Y - (double)Source.Y, Center.X - (double)Source.X);
         }
 
         public float Distance(Vector2 Other)
         {
-            return Vector2.Distance(this.Center, Other);
+            return Vector2.Distance(Center, Other);
         }
 
         public float DistanceSQ(Vector2 Other)
         {
-            return Vector2.DistanceSquared(this.Center, Other);
+            return Vector2.DistanceSquared(Center, Other);
         }
 
         public Vector2 DirectionTo(Vector2 Destination)
         {
-            return Vector2.Normalize(Destination - this.Center);
+            return Vector2.Normalize(Destination - Center);
         }
 
         public Vector2 DirectionFrom(Vector2 Source)
         {
-            return Vector2.Normalize(this.Center - Source);
+            return Vector2.Normalize(Center - Source);
         }
 
         public bool WithinRange(Vector2 Target, float MaxRange)
         {
-            return (double)Vector2.DistanceSquared(this.Center, Target) <= (double)MaxRange * (double)MaxRange;
+            return Vector2.DistanceSquared(Center, Target) <= MaxRange * (double)MaxRange;
         }
     }
 }
