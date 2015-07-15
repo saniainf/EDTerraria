@@ -21856,9 +21856,9 @@ namespace Terraria
                             number = Item.NewItem((int)position.X, (int)position.Y, width, height, Type, 1, false, 0, false);
                     }
                     if (this.type == 1 && Main.rand.Next(3) == 0)
-                        number = Item.NewItem((int)this.position.X, (int)position.Y, width, height, 40, 1, false, 0, false);
+                        number = Item.NewItem((int)position.X, (int)position.Y, width, height, 40, 1, false, 0, false);
                     if (this.type == 474 && Main.rand.Next(3) == 0)
-                        number = Item.NewItem((int)this.position.X, (int)position.Y, width, height, 3003, 1, false, 0, false);
+                        number = Item.NewItem((int)position.X, (int)position.Y, width, height, 3003, 1, false, 0, false);
                     if (this.type == 103 && Main.rand.Next(6) == 0)
                         number = Main.rand.Next(3) != 0 ? Item.NewItem((int)position.X, (int)position.Y, width, height, 40, 1, false, 0, false) : Item.NewItem((int)position.X, (int)position.Y, width, height, 545, 1, false, 0, false);
                     if (this.type == 2 && Main.rand.Next(3) == 0)
