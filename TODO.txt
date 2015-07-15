@@ -5,6 +5,7 @@
 * Try to rename variables to be human readable.
 * Fix crashes that anyone reports or you come across. Crash log should be pasted.
 * Fix blending once tile code is cleaned up.
+* Fix commented out code in Projectile.cs. Current line: 23290
 
 [TODO: Implement better systems]
 * Implement database system to remove hardcoded npcs, items, etc.

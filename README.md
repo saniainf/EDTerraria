@@ -15,3 +15,4 @@ EmuDevs Team worked hard to get it to this stage and we're working hard to clean
 * [Tommy (Easelm)](https://github.com/Easelm)
 * [Foereaper](https://github.com/Foereaper)
 * [Faded](https://github.com/Faded)
+* [Kyromyr] (https://github.com/Kyromyr)
