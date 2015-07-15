@@ -45751,321 +45751,50 @@ namespace Terraria
             {
                 for (int j = num; j < num2; j++)
                 {
-                    if (Main.tile[j, i].wire() && Lighting.Brightness(j, i) > 0f)
+                    if (Lighting.Brightness(j, i) > 0f)
                     {
-                        Microsoft.Xna.Framework.Rectangle value = new Microsoft.Xna.Framework.Rectangle(0, 0, 16, 16);
-                        bool flag = Main.tile[j, i - 1].wire();
-                        bool flag2 = Main.tile[j, i + 1].wire();
-                        bool flag3 = Main.tile[j - 1, i].wire();
-                        bool flag4 = Main.tile[j + 1, i].wire();
-                        if (flag)
+                        int[][] directions = new int[][] {new int[]{0,-1},new int[]{0,1},new int[]{-1,0},new int[]{1,0}};
+                        int[] connections = new int[3];
+                        
+                        var tile = Main.tile[j, i];
+                        bool[] hasWire = new bool[3] {tile.wire(),tile.wire2(),tile.wire3()};
+                        
+                        for (int k = 0; k < 4; ++k)
                         {
-                            if (flag2)
-                            {
-                                if (flag3)
-                                {
-                                    if (flag4)
-                                    {
-                                        value = new Microsoft.Xna.Framework.Rectangle(18, 18, 16, 16);
-                                    }
-                                    else
-                                    {
-                                        value = new Microsoft.Xna.Framework.Rectangle(54, 0, 16, 16);
-                                    }
-                                }
-                                else if (flag4)
-                                {
-                                    value = new Microsoft.Xna.Framework.Rectangle(36, 0, 16, 16);
-                                }
-                                else
-                                {
-                                    value = new Microsoft.Xna.Framework.Rectangle(0, 0, 16, 16);
-                                }
-                            }
-                            else if (flag3)
-                            {
-                                if (flag4)
-                                {
-                                    value = new Microsoft.Xna.Framework.Rectangle(0, 18, 16, 16);
-                                }
-                                else
-                                {
-                                    value = new Microsoft.Xna.Framework.Rectangle(54, 18, 16, 16);
-                                }
-                            }
-                            else if (flag4)
-                            {
-                                value = new Microsoft.Xna.Framework.Rectangle(36, 18, 16, 16);
-                            }
-                            else
-                            {
-                                value = new Microsoft.Xna.Framework.Rectangle(36, 36, 16, 16);
-                            }
+                            tile = Main.tile[j + directions[k][0], i + directions[k][1]];
+                            if (tile.wire())
+                                connections[0] += (1 << k);
+                            if (tile.wire2())
+                                connections[1] += (1 << k);
+                            if (tile.wire3())
+                                connections[2] += (1 << k);
                         }
-                        else if (flag2)
+                        
+                        var wireTex = new int[][] {new int[]{0,54},new int[]{36,36},new int[]{18,36},new int[]{0,0},new int[]{54,36},new int[]{54,18},new int[]{72,18},new int[]{54,0},new int[]{72,36},new int[]{36,18},new int[]{0,36},new int[]{36,0},new int[]{18,0},new int[]{0,18},new int[]{72,0},new int[]{18,18}};
+                        var wireTex2D = new Texture2D[] {Main.wireTexture, Main.wire2Texture, Main.wire3Texture};
+                        
+                        byte n = 0;
+                        for (int k = 0; k < 3; ++k)
                         {
-                            if (flag3)
-                            {
-                                if (flag4)
-                                {
-                                    value = new Microsoft.Xna.Framework.Rectangle(72, 0, 16, 16);
-                                }
-                                else
-                                {
-                                    value = new Microsoft.Xna.Framework.Rectangle(72, 18, 16, 16);
-                                }
-                            }
-                            else if (flag4)
-                            {
-                                value = new Microsoft.Xna.Framework.Rectangle(0, 36, 16, 16);
-                            }
-                            else
-                            {
-                                value = new Microsoft.Xna.Framework.Rectangle(18, 36, 16, 16);
-                            }
+                            if (!hasWire[k])
+                                continue;
+                            ++n;
+                            int tex = connections[k];
+                            var colour = Lighting.GetColor(j, i);
+                            colour.R /= n;
+                            colour.G /= n;
+                            colour.B /= n;
+                            colour.A /= n;
+                            var rect = new Microsoft.Xna.Framework.Rectangle(wireTex[tex][0], wireTex[tex][1], 16, 16);
+                        
+                            Main.spriteBatch.Draw(wireTex2D[k], new Vector2((float)(j * 16 - (int)Main.screenPosition.X), (float)(i * 16 - (int)Main.screenPosition.Y)) + zero, new Microsoft.Xna.Framework.Rectangle?(rect), colour, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
                         }
-                        else if (flag3)
+                        
+                        if (Main.tile[j, i].actuator())
                         {
-                            if (flag4)
-                            {
-                                value = new Microsoft.Xna.Framework.Rectangle(18, 0, 16, 16);
-                            }
-                            else
-                            {
-                                value = new Microsoft.Xna.Framework.Rectangle(54, 36, 16, 16);
-                            }
+                            var colour = Lighting.GetColor(j, i);
+                            Main.spriteBatch.Draw(Main.actuatorTexture, new Vector2((float)(j * 16 - (int)Main.screenPosition.X), (float)(i * 16 - (int)Main.screenPosition.Y)) + zero, new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.actuatorTexture.Width, Main.actuatorTexture.Height)), colour, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
                         }
-                        else if (flag4)
-                        {
-                            value = new Microsoft.Xna.Framework.Rectangle(72, 36, 16, 16);
-                        }
-                        else
-                        {
-                            value = new Microsoft.Xna.Framework.Rectangle(0, 54, 16, 16);
-                        }
-                        Microsoft.Xna.Framework.Color color = Lighting.GetColor(j, i);
-                        Main.spriteBatch.Draw(Main.wireTexture, new Vector2((float)(j * 16 - (int)Main.screenPosition.X), (float)(i * 16 - (int)Main.screenPosition.Y)) + zero, new Microsoft.Xna.Framework.Rectangle?(value), color, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
-                    }
-                    if (Main.tile[j, i].wire2() && Lighting.Brightness(j, i) > 0f)
-                    {
-                        Microsoft.Xna.Framework.Rectangle value2 = new Microsoft.Xna.Framework.Rectangle(0, 0, 16, 16);
-                        bool flag5 = Main.tile[j, i - 1].wire2();
-                        bool flag6 = Main.tile[j, i + 1].wire2();
-                        bool flag7 = Main.tile[j - 1, i].wire2();
-                        bool flag8 = Main.tile[j + 1, i].wire2();
-                        if (flag5)
-                        {
-                            if (flag6)
-                            {
-                                if (flag7)
-                                {
-                                    if (flag8)
-                                    {
-                                        value2 = new Microsoft.Xna.Framework.Rectangle(18, 18, 16, 16);
-                                    }
-                                    else
-                                    {
-                                        value2 = new Microsoft.Xna.Framework.Rectangle(54, 0, 16, 16);
-                                    }
-                                }
-                                else if (flag8)
-                                {
-                                    value2 = new Microsoft.Xna.Framework.Rectangle(36, 0, 16, 16);
-                                }
-                                else
-                                {
-                                    value2 = new Microsoft.Xna.Framework.Rectangle(0, 0, 16, 16);
-                                }
-                            }
-                            else if (flag7)
-                            {
-                                if (flag8)
-                                {
-                                    value2 = new Microsoft.Xna.Framework.Rectangle(0, 18, 16, 16);
-                                }
-                                else
-                                {
-                                    value2 = new Microsoft.Xna.Framework.Rectangle(54, 18, 16, 16);
-                                }
-                            }
-                            else if (flag8)
-                            {
-                                value2 = new Microsoft.Xna.Framework.Rectangle(36, 18, 16, 16);
-                            }
-                            else
-                            {
-                                value2 = new Microsoft.Xna.Framework.Rectangle(36, 36, 16, 16);
-                            }
-                        }
-                        else if (flag6)
-                        {
-                            if (flag7)
-                            {
-                                if (flag8)
-                                {
-                                    value2 = new Microsoft.Xna.Framework.Rectangle(72, 0, 16, 16);
-                                }
-                                else
-                                {
-                                    value2 = new Microsoft.Xna.Framework.Rectangle(72, 18, 16, 16);
-                                }
-                            }
-                            else if (flag8)
-                            {
-                                value2 = new Microsoft.Xna.Framework.Rectangle(0, 36, 16, 16);
-                            }
-                            else
-                            {
-                                value2 = new Microsoft.Xna.Framework.Rectangle(18, 36, 16, 16);
-                            }
-                        }
-                        else if (flag7)
-                        {
-                            if (flag8)
-                            {
-                                value2 = new Microsoft.Xna.Framework.Rectangle(18, 0, 16, 16);
-                            }
-                            else
-                            {
-                                value2 = new Microsoft.Xna.Framework.Rectangle(54, 36, 16, 16);
-                            }
-                        }
-                        else if (flag8)
-                        {
-                            value2 = new Microsoft.Xna.Framework.Rectangle(72, 36, 16, 16);
-                        }
-                        else
-                        {
-                            value2 = new Microsoft.Xna.Framework.Rectangle(0, 54, 16, 16);
-                        }
-                        Microsoft.Xna.Framework.Color color2 = Lighting.GetColor(j, i);
-                        int num5 = 1;
-                        if (Main.tile[j, i].wire())
-                        {
-                            num5++;
-                        }
-                        float num6 = 1f / (float)num5;
-                        byte r = (byte)((float)color2.R * num6);
-                        byte g = (byte)((float)color2.G * num6);
-                        byte b = (byte)((float)color2.B * num6);
-                        byte a = (byte)((float)color2.A * num6);
-                        color2 = new Microsoft.Xna.Framework.Color((int)r, (int)g, (int)b, (int)a);
-                        Main.spriteBatch.Draw(Main.wire2Texture, new Vector2((float)(j * 16 - (int)Main.screenPosition.X), (float)(i * 16 - (int)Main.screenPosition.Y)) + zero, new Microsoft.Xna.Framework.Rectangle?(value2), color2, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
-                    }
-                    if (Main.tile[j, i].wire3() && Lighting.Brightness(j, i) > 0f)
-                    {
-                        Microsoft.Xna.Framework.Rectangle value3 = new Microsoft.Xna.Framework.Rectangle(0, 0, 16, 16);
-                        bool flag9 = Main.tile[j, i - 1].wire3();
-                        bool flag10 = Main.tile[j, i + 1].wire3();
-                        bool flag11 = Main.tile[j - 1, i].wire3();
-                        bool flag12 = Main.tile[j + 1, i].wire3();
-                        if (flag9)
-                        {
-                            if (flag10)
-                            {
-                                if (flag11)
-                                {
-                                    if (flag12)
-                                    {
-                                        value3 = new Microsoft.Xna.Framework.Rectangle(18, 18, 16, 16);
-                                    }
-                                    else
-                                    {
-                                        value3 = new Microsoft.Xna.Framework.Rectangle(54, 0, 16, 16);
-                                    }
-                                }
-                                else if (flag12)
-                                {
-                                    value3 = new Microsoft.Xna.Framework.Rectangle(36, 0, 16, 16);
-                                }
-                                else
-                                {
-                                    value3 = new Microsoft.Xna.Framework.Rectangle(0, 0, 16, 16);
-                                }
-                            }
-                            else if (flag11)
-                            {
-                                if (flag12)
-                                {
-                                    value3 = new Microsoft.Xna.Framework.Rectangle(0, 18, 16, 16);
-                                }
-                                else
-                                {
-                                    value3 = new Microsoft.Xna.Framework.Rectangle(54, 18, 16, 16);
-                                }
-                            }
-                            else if (flag12)
-                            {
-                                value3 = new Microsoft.Xna.Framework.Rectangle(36, 18, 16, 16);
-                            }
-                            else
-                            {
-                                value3 = new Microsoft.Xna.Framework.Rectangle(36, 36, 16, 16);
-                            }
-                        }
-                        else if (flag10)
-                        {
-                            if (flag11)
-                            {
-                                if (flag12)
-                                {
-                                    value3 = new Microsoft.Xna.Framework.Rectangle(72, 0, 16, 16);
-                                }
-                                else
-                                {
-                                    value3 = new Microsoft.Xna.Framework.Rectangle(72, 18, 16, 16);
-                                }
-                            }
-                            else if (flag12)
-                            {
-                                value3 = new Microsoft.Xna.Framework.Rectangle(0, 36, 16, 16);
-                            }
-                            else
-                            {
-                                value3 = new Microsoft.Xna.Framework.Rectangle(18, 36, 16, 16);
-                            }
-                        }
-                        else if (flag11)
-                        {
-                            if (flag12)
-                            {
-                                value3 = new Microsoft.Xna.Framework.Rectangle(18, 0, 16, 16);
-                            }
-                            else
-                            {
-                                value3 = new Microsoft.Xna.Framework.Rectangle(54, 36, 16, 16);
-                            }
-                        }
-                        else if (flag12)
-                        {
-                            value3 = new Microsoft.Xna.Framework.Rectangle(72, 36, 16, 16);
-                        }
-                        else
-                        {
-                            value3 = new Microsoft.Xna.Framework.Rectangle(0, 54, 16, 16);
-                        }
-                        Microsoft.Xna.Framework.Color color3 = Lighting.GetColor(j, i);
-                        int num7 = 1;
-                        if (Main.tile[j, i].wire())
-                        {
-                            num7++;
-                        }
-                        if (Main.tile[j, i].wire2())
-                        {
-                            num7++;
-                        }
-                        float num8 = 1f / (float)num7;
-                        byte r2 = (byte)((float)color3.R * num8);
-                        byte g2 = (byte)((float)color3.G * num8);
-                        byte b2 = (byte)((float)color3.B * num8);
-                        byte a2 = (byte)((float)color3.A * num8);
-                        color3 = new Microsoft.Xna.Framework.Color((int)r2, (int)g2, (int)b2, (int)a2);
-                        Main.spriteBatch.Draw(Main.wire3Texture, new Vector2((float)(j * 16 - (int)Main.screenPosition.X), (float)(i * 16 - (int)Main.screenPosition.Y)) + zero, new Microsoft.Xna.Framework.Rectangle?(value3), color3, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
-                    }
-                    if (Main.tile[j, i].actuator() && Lighting.Brightness(j, i) > 0f)
-                    {
-                        Microsoft.Xna.Framework.Color color4 = Lighting.GetColor(j, i);
-                        Main.spriteBatch.Draw(Main.actuatorTexture, new Vector2((float)(j * 16 - (int)Main.screenPosition.X), (float)(i * 16 - (int)Main.screenPosition.Y)) + zero, new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.actuatorTexture.Width, Main.actuatorTexture.Height)), color4, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
                     }
                 }
             }
