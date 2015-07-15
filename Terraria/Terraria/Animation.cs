@@ -30,35 +30,35 @@ namespace Terraria
 
         public static void Initialize()
         {
-            Animation._animations = new List<Animation>();
-            Animation._temporaryAnimations = new Dictionary<Point16, Animation>();
-            Animation._awaitingRemoval = new List<Point16>();
-            Animation._awaitingAddition = new List<Animation>();
+            _animations = new List<Animation>();
+            _temporaryAnimations = new Dictionary<Point16, Animation>();
+            _awaitingRemoval = new List<Point16>();
+            _awaitingAddition = new List<Animation>();
         }
 
         private void SetDefaults(int type)
         {
-            this._tileType = (ushort)0;
-            this._frame = 0;
-            this._frameMax = 0;
-            this._frameCounter = 0;
-            this._frameCounterMax = 0;
-            this._temporary = false;
+            _tileType = 0;
+            _frame = 0;
+            _frameMax = 0;
+            _frameCounter = 0;
+            _frameCounterMax = 0;
+            _temporary = false;
             switch (type)
             {
                 case 0:
-                    this._frameMax = 5;
-                    this._frameCounterMax = 12;
-                    this._frameData = new int[this._frameMax];
-                    for (int index = 0; index < this._frameMax; ++index)
-                        this._frameData[index] = index + 1;
+                    _frameMax = 5;
+                    _frameCounterMax = 12;
+                    _frameData = new int[_frameMax];
+                    for (int index = 0; index < _frameMax; ++index)
+                        _frameData[index] = index + 1;
                     break;
                 case 1:
-                    this._frameMax = 5;
-                    this._frameCounterMax = 12;
-                    this._frameData = new int[this._frameMax];
-                    for (int index = 0; index < this._frameMax; ++index)
-                        this._frameData[index] = 5 - index;
+                    _frameMax = 5;
+                    _frameCounterMax = 12;
+                    _frameData = new int[_frameMax];
+                    for (int index = 0; index < _frameMax; ++index)
+                        _frameData[index] = 5 - index;
                     break;
             }
         }
@@ -73,71 +73,71 @@ namespace Terraria
             animation._tileType = tileType;
             animation._coordinates = point16;
             animation._temporary = true;
-            Animation._awaitingAddition.Add(animation);
+            _awaitingAddition.Add(animation);
             if (Main.netMode != 2)
                 return;
-            NetMessage.SendTemporaryAnimation(-1, type, (int)tileType, x, y);
+            NetMessage.SendTemporaryAnimation(-1, type, tileType, x, y);
         }
 
         private static void RemoveTemporaryAnimation(short x, short y)
         {
             Point16 key = new Point16(x, y);
-            if (!Animation._temporaryAnimations.ContainsKey(key))
+            if (!_temporaryAnimations.ContainsKey(key))
                 return;
-            Animation._awaitingRemoval.Add(key);
+            _awaitingRemoval.Add(key);
         }
 
         public static void UpdateAll()
         {
-            for (int index = 0; index < Animation._animations.Count; ++index)
-                Animation._animations[index].Update();
-            if (Animation._awaitingAddition.Count > 0)
+            for (int index = 0; index < _animations.Count; ++index)
+                _animations[index].Update();
+            if (_awaitingAddition.Count > 0)
             {
-                for (int index = 0; index < Animation._awaitingAddition.Count; ++index)
+                for (int index = 0; index < _awaitingAddition.Count; ++index)
                 {
-                    Animation animation = Animation._awaitingAddition[index];
-                    Animation._temporaryAnimations[animation._coordinates] = animation;
+                    Animation animation = _awaitingAddition[index];
+                    _temporaryAnimations[animation._coordinates] = animation;
                 }
-                Animation._awaitingAddition.Clear();
+                _awaitingAddition.Clear();
             }
-            foreach (KeyValuePair<Point16, Animation> keyValuePair in Animation._temporaryAnimations)
+            foreach (KeyValuePair<Point16, Animation> keyValuePair in _temporaryAnimations)
                 keyValuePair.Value.Update();
-            if (Animation._awaitingRemoval.Count <= 0)
+            if (_awaitingRemoval.Count <= 0)
                 return;
-            for (int index = 0; index < Animation._awaitingRemoval.Count; ++index)
-                Animation._temporaryAnimations.Remove(Animation._awaitingRemoval[index]);
-            Animation._awaitingRemoval.Clear();
+            for (int index = 0; index < _awaitingRemoval.Count; ++index)
+                _temporaryAnimations.Remove(_awaitingRemoval[index]);
+            _awaitingRemoval.Clear();
         }
 
         public void Update()
         {
-            if (this._temporary)
+            if (_temporary)
             {
-                Tile tile = Main.tile[(int)this._coordinates.X, (int)this._coordinates.Y];
-                if (tile != null && (int)tile.type != (int)this._tileType)
+                Tile tile = Main.tile[_coordinates.X, _coordinates.Y];
+                if (tile != null && tile.type != _tileType)
                 {
-                    Animation.RemoveTemporaryAnimation(this._coordinates.X, this._coordinates.Y);
+                    RemoveTemporaryAnimation(_coordinates.X, _coordinates.Y);
                     return;
                 }
             }
-            ++this._frameCounter;
-            if (this._frameCounter < this._frameCounterMax)
+            ++_frameCounter;
+            if (_frameCounter < _frameCounterMax)
                 return;
-            this._frameCounter = 0;
-            ++this._frame;
-            if (this._frame < this._frameMax)
+            _frameCounter = 0;
+            ++_frame;
+            if (_frame < _frameMax)
                 return;
-            this._frame = 0;
-            if (!this._temporary)
+            _frame = 0;
+            if (!_temporary)
                 return;
-            Animation.RemoveTemporaryAnimation(this._coordinates.X, this._coordinates.Y);
+            RemoveTemporaryAnimation(_coordinates.X, _coordinates.Y);
         }
 
         public static bool GetTemporaryFrame(int x, int y, out int frameData)
         {
             Point16 key = new Point16(x, y);
             Animation animation;
-            if (!Animation._temporaryAnimations.TryGetValue(key, out animation))
+            if (!_temporaryAnimations.TryGetValue(key, out animation))
             {
                 frameData = 0;
                 return false;
