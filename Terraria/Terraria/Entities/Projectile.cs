@@ -21733,91 +21733,91 @@ namespace Terraria
                     {
                         int i = (int)(position.X + (width / 2)) / 16;
                         int j = (int)(position.Y + (width / 2)) / 16;
-                        int type = 0;
+                        int tempType = 0;
                         int Type = 2;
                         if (this.type == 109)
                         {
-                            type = 147;
+                            tempType = 147;
                             Type = 0;
                         }
                         if (this.type == 31)
                         {
-                            type = 53;
+                            tempType = 53;
                             Type = 0;
                         }
                         if (this.type == 42)
                         {
-                            type = 53;
+                            tempType = 53;
                             Type = 0;
                         }
                         if (this.type == 56)
                         {
-                            type = 112;
+                            tempType = 112;
                             Type = 0;
                         }
                         if (this.type == 65)
                         {
-                            type = 112;
+                            tempType = 112;
                             Type = 0;
                         }
                         if (this.type == 67)
                         {
-                            type = 116;
+                            tempType = 116;
                             Type = 0;
                         }
                         if (this.type == 68)
                         {
-                            type = 116;
+                            tempType = 116;
                             Type = 0;
                         }
                         if (this.type == 71)
                         {
-                            type = 123;
+                            tempType = 123;
                             Type = 0;
                         }
                         if (this.type == 39)
                         {
-                            type = 59;
+                            tempType = 59;
                             Type = 176;
                         }
                         if (this.type == 40)
                         {
-                            type = 57;
+                            tempType = 57;
                             Type = 172;
                         }
                         if (this.type == 179)
                         {
-                            type = 224;
+                            tempType = 224;
                             Type = 0;
                         }
                         if (this.type == 241)
                         {
-                            type = 234;
+                            tempType = 234;
                             Type = 0;
                         }
                         if (this.type == 354)
                         {
-                            type = 234;
+                            tempType = 234;
                             Type = 0;
                         }
                         if (this.type == 411)
                         {
-                            type = 330;
+                            tempType = 330;
                             Type = 71;
                         }
                         if (this.type == 412)
                         {
-                            type = 331;
+                            tempType = 331;
                             Type = 72;
                         }
                         if (this.type == 413)
                         {
-                            type = 332;
+                            tempType = 332;
                             Type = 73;
                         }
                         if (this.type == 414)
                         {
-                            type = 333;
+                            tempType = 333;
                             Type = 74;
                         }
                         if (this.type == 109)
@@ -21825,20 +21825,20 @@ namespace Terraria
                             int index = Player.FindClosest(position, width, height);
                             if ((Center - Main.player[index].Center).Length() > Main.maxScreenW * 0.75)
                             {
-                                type = -1;
+                                tempType = -1;
                                 Type = 593;
                             }
                         }
                         if (Main.tile[i, j].halfBrick() && velocity.Y > 0.0 && Math.Abs(velocity.Y) > Math.Abs(velocity.X))
                             --j;
-                        if (!Main.tile[i, j].active() && type >= 0)
+                        if (!Main.tile[i, j].active() && tempType >= 0)
                         {
                             bool flag = false;
                             if (j < Main.maxTilesY - 2 && Main.tile[i, j + 1] != null && (Main.tile[i, j + 1].active() && Main.tile[i, j + 1].type == 314))
                                 flag = true;
                             if (!flag)
-                                WorldGen.PlaceTile(i, j, type, false, true, -1, 0);
-                            if (!flag && Main.tile[i, j].active() && Main.tile[i, j].type == type)
+                                WorldGen.PlaceTile(i, j, tempType, false, true, -1, 0);
+                            if (!flag && Main.tile[i, j].active() && Main.tile[i, j].type == tempType)
                             {
                                 if (Main.tile[i, j + 1].halfBrick() || Main.tile[i, j + 1].slope() != 0)
                                 {
@@ -21847,7 +21847,7 @@ namespace Terraria
                                         NetMessage.SendData(17, -1, -1, "", 14, i, (j + 1), 0.0f, 0, 0, 0);
                                 }
                                 if (Main.netMode != 0)
-                                    NetMessage.SendData(17, -1, -1, "", 1, i, j, type, 0, 0, 0);
+                                    NetMessage.SendData(17, -1, -1, "", 1, i, j, tempType, 0, 0, 0);
                             }
                             else if (Type > 0)
                                 number = Item.NewItem((int)position.X, (int)position.Y, width, height, Type, 1, false, 0, false);
@@ -21960,20 +21960,20 @@ namespace Terraria
                 if (this.type == 370 || this.type == 371)
                 {
                     float num2 = 80f;
-                    int type = 119;
+                    int tempType = 119;
                     if (this.type == 371)
-                        type = 120;
+                        tempType = 120;
                     for (int index = 0; index < 255; ++index)
                     {
                         Player player = Main.player[index];
                         if (player.active && !player.dead && Vector2.Distance(Center, player.Center) < num2)
-                            player.AddBuff(type, 1800, true);
+                            player.AddBuff(tempType, 1800, true);
                     }
                     for (int index = 0; index < 200; ++index)
                     {
                         NPC npc = Main.npc[index];
                         if (npc.active && npc.life > 0 && Vector2.Distance(Center, npc.Center) < num2)
-                            npc.AddBuff(type, 1800, false);
+                            npc.AddBuff(tempType, 1800, false);
                     }
                 }
                 if (type == 378)

@@ -4,6 +4,7 @@
 * Update nasty code that was generated badly.
 * Try to rename variables to be human readable.
 * Fix crashes that anyone reports or you come across. Crash log should be pasted.
+* Fix blending once tile code is cleaned up.
 
 [TODO: Implement better systems]
 * Implement database system to remove hardcoded npcs, items, etc.
