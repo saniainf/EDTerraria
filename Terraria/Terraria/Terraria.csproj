@@ -96,6 +96,7 @@
     <Compile Include="Achievements\TrackerType.cs" />
     <Compile Include="Animation.cs" />
     <Compile Include="BitsByte.cs" />
+    <Compile Include="DataStructures\WeightedList.cs" />
     <Compile Include="Entities\Chest.cs" />
     <Compile Include="Entities\Cloud.cs" />
     <Compile Include="Collision.cs" />
