@@ -3799,8 +3799,7 @@ namespace Terraria
                 Main.dayRate = 60;
                 return;
             }
-            Main.dayRate = 1;
-        }
+		}
         public Main()
         {
             instance = this;
@@ -45751,51 +45750,53 @@ namespace Terraria
             {
                 for (int j = num; j < num2; j++)
                 {
-                    if (Lighting.Brightness(j, i) > 0f)
-                    {
-                        int[][] directions = new int[][] {new int[]{0,-1},new int[]{0,1},new int[]{-1,0},new int[]{1,0}};
-                        int[] connections = new int[3];
-                        
-                        var tile = Main.tile[j, i];
-                        bool[] hasWire = new bool[3] {tile.wire(),tile.wire2(),tile.wire3()};
-                        
-                        for (int k = 0; k < 4; ++k)
-                        {
-                            tile = Main.tile[j + directions[k][0], i + directions[k][1]];
-                            if (tile.wire())
-                                connections[0] += (1 << k);
-                            if (tile.wire2())
-                                connections[1] += (1 << k);
-                            if (tile.wire3())
-                                connections[2] += (1 << k);
-                        }
-                        
-                        var wireTex = new int[][] {new int[]{0,54},new int[]{36,36},new int[]{18,36},new int[]{0,0},new int[]{54,36},new int[]{54,18},new int[]{72,18},new int[]{54,0},new int[]{72,36},new int[]{36,18},new int[]{0,36},new int[]{36,0},new int[]{18,0},new int[]{0,18},new int[]{72,0},new int[]{18,18}};
-                        var wireTex2D = new Texture2D[] {Main.wireTexture, Main.wire2Texture, Main.wire3Texture};
-                        
-                        byte n = 0;
-                        for (int k = 0; k < 3; ++k)
-                        {
-                            if (!hasWire[k])
-                                continue;
-                            ++n;
-                            int tex = connections[k];
-                            var colour = Lighting.GetColor(j, i);
-                            colour.R /= n;
-                            colour.G /= n;
-                            colour.B /= n;
-                            colour.A /= n;
-                            var rect = new Microsoft.Xna.Framework.Rectangle(wireTex[tex][0], wireTex[tex][1], 16, 16);
-                        
-                            Main.spriteBatch.Draw(wireTex2D[k], new Vector2((float)(j * 16 - (int)Main.screenPosition.X), (float)(i * 16 - (int)Main.screenPosition.Y)) + zero, new Microsoft.Xna.Framework.Rectangle?(rect), colour, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
-                        }
-                        
-                        if (Main.tile[j, i].actuator())
-                        {
-                            var colour = Lighting.GetColor(j, i);
-                            Main.spriteBatch.Draw(Main.actuatorTexture, new Vector2((float)(j * 16 - (int)Main.screenPosition.X), (float)(i * 16 - (int)Main.screenPosition.Y)) + zero, new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.actuatorTexture.Width, Main.actuatorTexture.Height)), colour, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
-                        }
-                    }
+					if (Lighting.Brightness(j, i) > 0f)
+					{
+						var tile = Main.tile[j, i];
+						if (tile.k_HasWireFlagsAny(k_WireFlags.WIRE_RGB))
+						{
+							int[][] directions = new int[][] { new int[] { 0, -1 }, new int[] { 0, 1 }, new int[] { -1, 0 }, new int[] { 1, 0 } };
+							int[] connections = new int[3];
+
+							bool[] hasWire = new bool[3];
+							hasWire[0] = tile.k_HasWireFlags(k_WireFlags.WIRE_RED);
+							hasWire[1] = tile.k_HasWireFlags(k_WireFlags.WIRE_GREEN);
+							hasWire[2] = tile.k_HasWireFlags(k_WireFlags.WIRE_BLUE);
+
+							for (int k = 0; k < 4; ++k)
+							{
+								var ctile = Main.tile[j + directions[k][0], i + directions[k][1]];
+								if (ctile.k_HasWireFlags(k_WireFlags.WIRE_RED))
+									connections[0] += (1 << k);
+								if (ctile.k_HasWireFlags(k_WireFlags.WIRE_GREEN))
+									connections[1] += (1 << k);
+								if (ctile.k_HasWireFlags(k_WireFlags.WIRE_BLUE))
+									connections[2] += (1 << k);
+							}
+
+							var wireTex = new int[][] { new int[] { 0, 54 }, new int[] { 36, 36 }, new int[] { 18, 36 }, new int[] { 0, 0 }, new int[] { 54, 36 }, new int[] { 54, 18 }, new int[] { 72, 18 }, new int[] { 54, 0 }, new int[] { 72, 36 }, new int[] { 36, 18 }, new int[] { 0, 36 }, new int[] { 36, 0 }, new int[] { 18, 0 }, new int[] { 0, 18 }, new int[] { 72, 0 }, new int[] { 18, 18 } };
+							var wireTex2D = new Texture2D[] { Main.wireTexture, Main.wire2Texture, Main.wire3Texture };
+
+							byte n = 0;
+							for (int k = 0; k < 3; ++k)
+							{
+								if (!hasWire[k])
+									continue;
+								++n;
+								int tex = connections[k];
+								var colour = Lighting.GetColor(j, i) * (1f / n);
+								var rect = new Microsoft.Xna.Framework.Rectangle(wireTex[tex][0], wireTex[tex][1], 16, 16);
+
+								Main.spriteBatch.Draw(wireTex2D[k], new Vector2((float)(j * 16 - (int)Main.screenPosition.X), (float)(i * 16 - (int)Main.screenPosition.Y)) + zero, new Microsoft.Xna.Framework.Rectangle?(rect), colour, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
+							}
+						}
+
+						if (tile.k_HasWireFlags(k_WireFlags.WIRE_ACTUATOR))
+						{
+							var colour = Lighting.GetColor(j, i);
+							Main.spriteBatch.Draw(Main.actuatorTexture, new Vector2((float)(j * 16 - (int)Main.screenPosition.X), (float)(i * 16 - (int)Main.screenPosition.Y)) + zero, new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.actuatorTexture.Width, Main.actuatorTexture.Height)), colour, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
+						}
+					}
                 }
             }
             TimeLogger.DetailedDrawTime(34);

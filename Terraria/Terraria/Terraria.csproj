@@ -383,7 +383,6 @@
     <Compile Include="World\Generation\StructureMap.cs" />
     <Compile Include="World\Generation\WorldGenerator.cs" />
     <Compile Include="World\Generation\WorldUtils.cs" />
-    <Compile Include="World\Tile\TileProto.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

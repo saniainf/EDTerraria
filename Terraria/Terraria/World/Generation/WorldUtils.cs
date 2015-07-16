@@ -76,9 +76,9 @@ namespace Terraria.World.Generation
             if (end.Y < start.Y)
                 Utils.Swap<int>(ref end.Y, ref start.Y);
             for (int i = start.X; i <= end.X; ++i)
-                WorldGen.PlaceWire(i, point1.Y);
+                WorldGen.PlaceWire(i, point1.Y, k_WireFlags.WIRE_RED);
             for (int j = start.Y; j <= end.Y; ++j)
-                WorldGen.PlaceWire(point2.X, j);
+                WorldGen.PlaceWire(point2.X, j, k_WireFlags.WIRE_RED);
         }
 
         public static void DebugRegen()

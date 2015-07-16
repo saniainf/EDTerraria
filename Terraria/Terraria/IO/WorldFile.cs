@@ -1195,13 +1195,13 @@ namespace Terraria.IO
                     }
                     if (versionNumber >= 0x21)
                     {
-                        tile.wire(fileIO.ReadBoolean());
-                    }
+						tile.k_SetWireFlags(k_WireFlags.WIRE_RED, fileIO.ReadBoolean());
+					}
                     if (versionNumber >= 0x2b)
                     {
-                        tile.wire2(fileIO.ReadBoolean());
-                        tile.wire3(fileIO.ReadBoolean());
-                    }
+						tile.k_SetWireFlags(k_WireFlags.WIRE_GREEN, fileIO.ReadBoolean());
+						tile.k_SetWireFlags(k_WireFlags.WIRE_BLUE, fileIO.ReadBoolean());
+					}
                     if (versionNumber >= 0x29)
                     {
                         tile.halfBrick(fileIO.ReadBoolean());
@@ -1220,10 +1220,10 @@ namespace Terraria.IO
                     }
                     if (versionNumber >= 0x2a)
                     {
-                        tile.actuator(fileIO.ReadBoolean());
+						tile.k_SetWireFlags(k_WireFlags.WIRE_ACTUATOR, fileIO.ReadBoolean());
                         tile.inActive(fileIO.ReadBoolean());
                     }
-                    int num14 = 0;
+					int num14 = 0;
                     if (versionNumber >= 0x19)
                     {
                         num14 = fileIO.ReadInt16();
@@ -1541,20 +1541,15 @@ namespace Terraria.IO
                             }
                         }
                     }
+					var wireFlag = k_WireFlags.WIRE_NONE;
                     if (num2 > 1)
                     {
-                        if ((num2 & 2) == 2)
-                        {
-                            from.wire(true);
-                        }
-                        if ((num2 & 4) == 4)
-                        {
-                            from.wire2(true);
-                        }
-                        if ((num2 & 8) == 8)
-                        {
-                            from.wire3(true);
-                        }
+						if ((num2 & 2) == 2)
+							wireFlag |= k_WireFlags.WIRE_RED;
+						if ((num2 & 4) == 4)
+							wireFlag |= k_WireFlags.WIRE_GREEN;
+						if ((num2 & 8) == 8)
+							wireFlag |= k_WireFlags.WIRE_BLUE;
                         num4 = (byte)((num2 & 0x70) >> 4);
                         if ((num4 != 0) && Main.tileSolid[from.type])
                         {
@@ -1570,15 +1565,14 @@ namespace Terraria.IO
                     }
                     if (num3 > 0)
                     {
-                        if ((num3 & 2) == 2)
-                        {
-                            from.actuator(true);
-                        }
+						if ((num3 & 2) == 2)
+							wireFlag |= k_WireFlags.WIRE_ACTUATOR;
                         if ((num3 & 4) == 4)
                         {
                             from.inActive(true);
                         }
                     }
+					from.k_SetWireFlags(wireFlag, true);
                     switch (((byte)((num & 0xc0) >> 6)))
                     {
                         case 0:
@@ -2228,15 +2222,15 @@ namespace Terraria.IO
                         buffer[index] = tile.liquid;
                         index++;
                     }
-                    if (tile.wire())
+                    if (tile.k_HasWireFlags(k_WireFlags.WIRE_RED))
                     {
                         num9 = (byte)(num9 | 2);
                     }
-                    if (tile.wire2())
+                    if (tile.k_HasWireFlags(k_WireFlags.WIRE_GREEN))
                     {
                         num9 = (byte)(num9 | 4);
                     }
-                    if (tile.wire3())
+                    if (tile.k_HasWireFlags(k_WireFlags.WIRE_BLUE))
                     {
                         num9 = (byte)(num9 | 8);
                     }
@@ -2253,7 +2247,7 @@ namespace Terraria.IO
                         num11 = 0;
                     }
                     num9 = (byte)(num9 | ((byte)num11));
-                    if (tile.actuator())
+                    if (tile.k_HasWireFlags(k_WireFlags.WIRE_ACTUATOR))
                     {
                         num10 = (byte)(num10 | 2);
                     }

@@ -49,9 +49,16 @@ namespace Terraria
 
 	public enum k_WireFlags : byte
 	{
+		WIRE_NONE		= 0x0,
+
 		WIRE_RED		= 0x1,
 		WIRE_GREEN		= 0x2,
 		WIRE_BLUE		= 0x4,
+
+		WIRE_RG			= WIRE_RED | WIRE_GREEN,
+		WIRE_RB			= WIRE_RED | WIRE_BLUE,
+		WIRE_GB			= WIRE_GREEN | WIRE_BLUE,
+		WIRE_RGB		= WIRE_RED | WIRE_GREEN | WIRE_BLUE,
 
 		WIRE_ACTUATOR	= 0x8,
 		/*
@@ -131,17 +138,75 @@ namespace Terraria
 			return amt;
 		}
 
-		public void k_AddWireFlag(k_WireFlags flags)
+		public void k_SetWireFlags(k_WireFlags flags, bool state)
 		{
-			k_wireFlags |= flags;
+			if (state)
+				k_wireFlags |= flags;
+			else
+				k_wireFlags &= ~flags;
 		}
-		public void k_RemoveWireFlag(k_WireFlags flags)
-		{
-			k_wireFlags &= ~flags;
-		}
-		public bool k_HasWireFlag(k_WireFlags flags)
+		public bool k_HasWireFlags(k_WireFlags flags)
 		{
 			return (k_wireFlags & flags) == flags;
+		}
+		public bool k_HasWireFlagsAny(k_WireFlags flags)
+		{
+			return (k_wireFlags & flags) != 0;
+		}
+		public void k_KillWireFlags()
+		{
+			k_wireFlags = k_WireFlags.WIRE_NONE;
+		}
+
+		public static k_WireFlags k_HACK_GetNetworkWireType(int type)
+		{
+			switch (type)
+			{
+				case 5:
+				case 6:
+					return k_WireFlags.WIRE_RED;
+				case 8:
+				case 9:
+					return k_WireFlags.WIRE_ACTUATOR;
+				case 10:
+				case 11:
+					return k_WireFlags.WIRE_GREEN;
+				case 12:
+				case 13:
+					return k_WireFlags.WIRE_BLUE;
+			}
+
+			return k_WireFlags.WIRE_NONE;
+		}
+		public static int k_HACK_GetNetworkWirePlaceType(k_WireFlags flag)
+		{
+			switch (flag)
+			{
+				case k_WireFlags.WIRE_RED:
+					return 5;
+				case k_WireFlags.WIRE_ACTUATOR:
+					return 8;
+				case k_WireFlags.WIRE_GREEN:
+					return 10;
+				case k_WireFlags.WIRE_BLUE:
+					return 12;
+			}
+			return -1;
+		}
+		public static int k_HACK_GetNetworkWireKillType(k_WireFlags flag)
+		{
+			switch (flag)
+			{
+				case k_WireFlags.WIRE_RED:
+					return 6;
+				case k_WireFlags.WIRE_ACTUATOR:
+					return 9;
+				case k_WireFlags.WIRE_GREEN:
+					return 11;
+				case k_WireFlags.WIRE_BLUE:
+					return 13;
+			}
+			return -1;
 		}
 		//*/
         public const int Type_Solid = 0;
@@ -177,63 +242,54 @@ namespace Terraria
             }
         }
 
+		private void Constructor(Tile copy = null)
+		{
+			if (copy == null)
+			{
+				type = (ushort)0;
+				wall = (byte)0;
+				liquid = (byte)0;
+				sTileHeader = (short)0;
+				bTileHeader = (byte)0;
+				bTileHeader2 = (byte)0;
+				bTileHeader3 = (byte)0;
+				frameX = (short)0;
+				frameY = (short)0;
+				k_wireFlags = k_WireFlags.WIRE_NONE;
+			}
+			else
+			{
+				type = copy.type;
+				wall = copy.wall;
+				liquid = copy.liquid;
+				sTileHeader = copy.sTileHeader;
+				bTileHeader = copy.bTileHeader;
+				bTileHeader2 = copy.bTileHeader2;
+				bTileHeader3 = copy.bTileHeader3;
+				frameX = copy.frameX;
+				frameY = copy.frameY;
+				k_wireFlags = copy.k_wireFlags;
+			}
+		}
+
         public Tile()
         {
-            this.type = (ushort)0;
-            this.wall = (byte)0;
-            this.liquid = (byte)0;
-            this.sTileHeader = (short)0;
-            this.bTileHeader = (byte)0;
-            this.bTileHeader2 = (byte)0;
-            this.bTileHeader3 = (byte)0;
-            this.frameX = (short)0;
-            this.frameY = (short)0;
-        }
+			Constructor();
+		}
 
         public Tile(Tile copy)
         {
-            if (copy == null)
-            {
-                this.type = (ushort)0;
-                this.wall = (byte)0;
-                this.liquid = (byte)0;
-                this.sTileHeader = (short)0;
-                this.bTileHeader = (byte)0;
-                this.bTileHeader2 = (byte)0;
-                this.bTileHeader3 = (byte)0;
-                this.frameX = (short)0;
-                this.frameY = (short)0;
-            }
-            else
-            {
-                this.type = copy.type;
-                this.wall = copy.wall;
-                this.liquid = copy.liquid;
-                this.sTileHeader = copy.sTileHeader;
-                this.bTileHeader = copy.bTileHeader;
-                this.bTileHeader2 = copy.bTileHeader2;
-                this.bTileHeader3 = copy.bTileHeader3;
-                this.frameX = copy.frameX;
-                this.frameY = copy.frameY;
-            }
+			Constructor(copy);
         }
 
         public object Clone()
         {
-            return this.MemberwiseClone();
+			return new Tile(this);
         }
 
         public void ClearEverything()
         {
-            this.type = (ushort)0;
-            this.wall = (byte)0;
-            this.liquid = (byte)0;
-            this.sTileHeader = (short)0;
-            this.bTileHeader = (byte)0;
-            this.bTileHeader2 = (byte)0;
-            this.bTileHeader3 = (byte)0;
-            this.frameX = (short)0;
-            this.frameY = (short)0;
+			Constructor();
         }
 
         public void ClearTile()
@@ -245,22 +301,16 @@ namespace Terraria
 
         public void CopyFrom(Tile from)
         {
-            this.type = from.type;
-            this.wall = from.wall;
-            this.liquid = from.liquid;
-            this.sTileHeader = from.sTileHeader;
-            this.bTileHeader = from.bTileHeader;
-            this.bTileHeader2 = from.bTileHeader2;
-            this.bTileHeader3 = from.bTileHeader3;
-            this.frameX = from.frameX;
-            this.frameY = from.frameY;
+			Constructor(from);
         }
 
         public bool isTheSameAs(Tile compTile)
         {
             if (compTile == null || (int)this.sTileHeader != (int)compTile.sTileHeader || this.active() && ((int)this.type != (int)compTile.type || Main.tileFrameImportant[(int)this.type] && ((int)this.frameX != (int)compTile.frameX || (int)this.frameY != (int)compTile.frameY)) || ((int)this.wall != (int)compTile.wall || (int)this.liquid != (int)compTile.liquid))
                 return false;
-            if ((int)compTile.liquid == 0)
+			if (k_wireFlags != compTile.k_wireFlags)
+				return false;
+			if ((int)compTile.liquid == 0)
             {
                 if ((int)this.wallColor() != (int)compTile.wallColor())
                     return false;
@@ -464,45 +514,6 @@ namespace Terraria
                 this.bTileHeader3 = (byte)((uint)this.bTileHeader3 & 239U);
         }
 
-        public bool wire()
-        {
-            return ((int)this.sTileHeader & 128) == 128;
-        }
-
-        public void wire(bool wire)
-        {
-            if (wire)
-                this.sTileHeader |= (short)128;
-            else
-                this.sTileHeader = (short)((int)this.sTileHeader & 65407);
-        }
-
-        public bool wire2()
-        {
-            return ((int)this.sTileHeader & 256) == 256;
-        }
-
-        public void wire2(bool wire2)
-        {
-            if (wire2)
-                this.sTileHeader |= (short)256;
-            else
-                this.sTileHeader = (short)((int)this.sTileHeader & 65279);
-        }
-
-        public bool wire3()
-        {
-            return ((int)this.sTileHeader & 512) == 512;
-        }
-
-        public void wire3(bool wire3)
-        {
-            if (wire3)
-                this.sTileHeader |= (short)512;
-            else
-                this.sTileHeader = (short)((int)this.sTileHeader & 65023);
-        }
-
         public bool halfBrick()
         {
             return ((int)this.sTileHeader & 1024) == 1024;
@@ -514,19 +525,6 @@ namespace Terraria
                 this.sTileHeader |= (short)1024;
             else
                 this.sTileHeader = (short)((int)this.sTileHeader & 64511);
-        }
-
-        public bool actuator()
-        {
-            return ((int)this.sTileHeader & 2048) == 2048;
-        }
-
-        public void actuator(bool actuator)
-        {
-            if (actuator)
-                this.sTileHeader |= (short)2048;
-            else
-                this.sTileHeader = (short)((int)this.sTileHeader & 63487);
         }
 
         public bool nactive()
@@ -562,14 +560,9 @@ namespace Terraria
 
         public void ResetToType(ushort type)
         {
-            this.liquid = (byte)0;
-            this.sTileHeader = (short)32;
-            this.bTileHeader = (byte)0;
-            this.bTileHeader2 = (byte)0;
-            this.bTileHeader3 = (byte)0;
-            this.frameX = (short)0;
-            this.frameY = (short)0;
-            this.type = type;
+			Constructor();
+			this.type = type;
+			sTileHeader = 32;
         }
 
         public Color actColor(Color oldColor)
@@ -632,13 +625,11 @@ namespace Terraria
 
         internal void ClearMetadata()
         {
-            this.liquid = (byte)0;
-            this.sTileHeader = (short)0;
-            this.bTileHeader = (byte)0;
-            this.bTileHeader2 = (byte)0;
-            this.bTileHeader3 = (byte)0;
-            this.frameX = (short)0;
-            this.frameY = (short)0;
+			var type = this.type;
+			var wall = this.wall;
+			Constructor();
+			this.type = type;
+			this.wall = wall;
         }
     }
 }

@@ -267,7 +267,7 @@ namespace Terraria
                 {
                     back = new Point16(X, Y);
                     Tile tile = Main.tile[X, Y];
-                    if (tile != null && tile.wire())
+                    if (tile != null && tile.k_HasWireFlags(k_WireFlags.WIRE_RED))
                         Wiring._wireList.PushBack(back);
                 }
             }
@@ -290,7 +290,7 @@ namespace Terraria
                 {
                     back = new Point16(X, Y);
                     Tile tile = Main.tile[X, Y];
-                    if (tile != null && tile.wire2())
+                    if (tile != null && tile.k_HasWireFlags(k_WireFlags.WIRE_GREEN))
                         Wiring._wireList.PushBack(back);
                 }
             }
@@ -320,7 +320,7 @@ namespace Terraria
                 {
                     back = new Point16(X, Y);
                     Tile tile = Main.tile[X, Y];
-                    if (tile != null && tile.wire3())
+                    if (tile != null && tile.k_HasWireFlags(k_WireFlags.WIRE_BLUE))
                         Wiring._wireList.PushBack(back);
                 }
             }
@@ -397,13 +397,13 @@ namespace Terraria
                             switch (wireType)
                             {
                                 case 1:
-                                    flag = tile.wire();
+                                    flag = tile.k_HasWireFlags(k_WireFlags.WIRE_RED);
                                     break;
                                 case 2:
-                                    flag = tile.wire2();
+                                    flag = tile.k_HasWireFlags(k_WireFlags.WIRE_GREEN);
                                     break;
                                 case 3:
-                                    flag = tile.wire3();
+                                    flag = tile.k_HasWireFlags(k_WireFlags.WIRE_BLUE);
                                     break;
                                 default:
                                     flag = false;
@@ -448,7 +448,7 @@ namespace Terraria
                     tile1.type += (ushort)7;
                 NetMessage.SendTileSquare(-1, i, j, 1);
             }
-            if (tile1.actuator() && (num1 != 226 || (double)j <= Main.worldSurface || NPC.downedPlantBoss))
+            if (tile1.k_HasWireFlags(k_WireFlags.WIRE_ACTUATOR) && (num1 != 226 || (double)j <= Main.worldSurface || NPC.downedPlantBoss))
             {
                 if (tile1.inActive())
                     Wiring.ReActive(i, j);

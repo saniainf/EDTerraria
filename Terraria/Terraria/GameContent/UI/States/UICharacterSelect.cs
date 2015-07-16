@@ -73,13 +73,8 @@ namespace Terraria.GameContent.UI.States
         {
             Main.PlaySound(10, -1, -1, 1);
             Player player = new Player();
-            player.inventory[0].SetDefaults("Copper Shortsword");
-            player.inventory[0].Prefix(-1);
-            player.inventory[1].SetDefaults("Copper Pickaxe");
-            player.inventory[1].Prefix(-1);
-            player.inventory[2].SetDefaults("Copper Axe");
-            player.inventory[2].Prefix(-1);
-            Main.PendingPlayer = player;
+			player.GiveStartEquipment();
+			Main.PendingPlayer = player;
             Main.menuMode = 2;
         }
 

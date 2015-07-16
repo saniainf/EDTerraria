@@ -34,7 +34,9 @@ namespace Terraria
 {
     public class Player : Entity
     {
-        private static byte[] ENCRYPTION_KEY = new UnicodeEncoding().GetBytes("h3y_gUyZ");
+		public const bool useCustomStarterEquipment = true;
+
+		private static byte[] ENCRYPTION_KEY = new UnicodeEncoding().GetBytes("h3y_gUyZ");
         public static int taxRate = 3600;
         public static int crystalLeafDamage = 100;
         public static int crystalLeafKB = 10;
@@ -1018,9 +1020,7 @@ namespace Terraria
                 this.miscDyes[index] = new Item();
             this.trashItem = new Item();
             this.grappling[0] = -1;
-            this.inventory[0].SetDefaults("Copper Shortsword");
-            this.inventory[1].SetDefaults("Copper Pickaxe");
-            this.inventory[2].SetDefaults("Copper Axe");
+			GiveStartEquipment();
             this.statManaMax = 20;
             if (Main.cEd)
                 this.inventory[3].SetDefaults(603, false);
@@ -1031,9 +1031,45 @@ namespace Terraria
             }
             this.hitTile = new HitTile();
             this.mount = new Mount();
-        }
+		}
 
-        public void RotateRelativePoint(ref float x, ref float y)
+		public void GiveStartEquipment()
+		{
+#pragma warning disable CS0162 // Unreachable code detected
+			if (useCustomStarterEquipment)
+			{
+				inventory[0].SetDefaults(ItemID.StardustDragonStaff);
+				inventory[1].SetDefaults(ItemID.SolarFlarePickaxe);
+				inventory[2].SetDefaults(ItemID.TheAxe);
+
+				inventory[4].SetDefaults(ItemID.Wrench);
+				inventory[5].SetDefaults(ItemID.GreenWrench);
+				inventory[6].SetDefaults(ItemID.BlueWrench);
+				inventory[7].SetDefaults(ItemID.WireCutter);
+				inventory[8].SetDefaults(ItemID.Wire);
+				inventory[8].stack = 999;
+				inventory[9].SetDefaults(ItemID.Actuator);
+				inventory[9].stack = 999;
+
+				armor[0].SetDefaults(ItemID.SolarFlareHelmet);
+				armor[1].SetDefaults(ItemID.SolarFlareBreastplate);
+				armor[2].SetDefaults(ItemID.SolarFlareLeggings);
+				armor[3].SetDefaults(ItemID.WingsSolar);
+				armor[4].SetDefaults(ItemID.FrostsparkBoots);
+			}
+			else
+			{
+				inventory[0].SetDefaults("Copper Shortsword");
+				inventory[0].Prefix(-1);
+				inventory[1].SetDefaults("Copper Pickaxe");
+				inventory[1].Prefix(-1);
+				inventory[2].SetDefaults("Copper Axe");
+				inventory[2].Prefix(-1);
+			}
+#pragma warning restore CS0162 // Unreachable code detected
+		}
+
+		public void RotateRelativePoint(ref float x, ref float y)
         {
             Vector2 vector2 = this.RotatedRelativePoint(new Vector2(x, y), true);
             x = vector2.X;
@@ -8192,62 +8228,31 @@ namespace Terraria
             if ((obj.type == 509 || obj.type == 850 || obj.type == 851) && (num5 == -1 && num6 == -1))
             {
                 List<Tuple<int, int>> list = new List<Tuple<int, int>>();
-                int num3 = 0;
-                if (obj.type == 509)
-                    num3 = 1;
-                if (obj.type == 850)
-                    num3 = 2;
-                if (obj.type == 851)
-                    num3 = 3;
-                bool flag2 = false;
-                if (Main.tile[x1, y1].wire() && num3 == 1)
-                    flag2 = true;
-                if (Main.tile[x1, y1].wire2() && num3 == 2)
-                    flag2 = true;
-                if (Main.tile[x1, y1].wire3() && num3 == 3)
-                    flag2 = true;
-                if (!flag2)
+				var flag = k_WireFlags.WIRE_NONE;
+				if (obj.type == 509)
+					flag = k_WireFlags.WIRE_RED;
+				if (obj.type == 850)
+					flag = k_WireFlags.WIRE_GREEN;
+				if (obj.type == 851)
+					flag = k_WireFlags.WIRE_BLUE;
+
+				if (flag != k_WireFlags.WIRE_NONE && !Main.tile[x1, y1].k_HasWireFlags(flag))
                 {
-                    for (int index1 = lx; index1 <= hx; ++index1)
+					var directions = new int[][] { new int[] { 0, -1 }, new int[] { 0, 1 }, new int[] { -1, 0 }, new int[] { 1, 0 } };
+					for (int index1 = lx; index1 <= hx; ++index1)
                     {
                         for (int index2 = ly; index2 <= hy; ++index2)
                         {
                             Tile tile = Main.tile[index1, index2];
-                            if (tile.wire() && num3 == 1 || tile.wire2() && num3 == 2 || tile.wire3() && num3 == 3)
-                            {
-                                if (num3 == 1)
-                                {
-                                    if (!Main.tile[index1 - 1, index2].wire())
-                                        list.Add(new Tuple<int, int>(index1 - 1, index2));
-                                    if (!Main.tile[index1 + 1, index2].wire())
-                                        list.Add(new Tuple<int, int>(index1 + 1, index2));
-                                    if (!Main.tile[index1, index2 - 1].wire())
-                                        list.Add(new Tuple<int, int>(index1, index2 - 1));
-                                    if (!Main.tile[index1, index2 + 1].wire())
-                                        list.Add(new Tuple<int, int>(index1, index2 + 1));
-                                }
-                                if (num3 == 2)
-                                {
-                                    if (!Main.tile[index1 - 1, index2].wire2())
-                                        list.Add(new Tuple<int, int>(index1 - 1, index2));
-                                    if (!Main.tile[index1 + 1, index2].wire2())
-                                        list.Add(new Tuple<int, int>(index1 + 1, index2));
-                                    if (!Main.tile[index1, index2 - 1].wire2())
-                                        list.Add(new Tuple<int, int>(index1, index2 - 1));
-                                    if (!Main.tile[index1, index2 + 1].wire2())
-                                        list.Add(new Tuple<int, int>(index1, index2 + 1));
-                                }
-                                if (num3 == 3)
-                                {
-                                    if (!Main.tile[index1 - 1, index2].wire3())
-                                        list.Add(new Tuple<int, int>(index1 - 1, index2));
-                                    if (!Main.tile[index1 + 1, index2].wire3())
-                                        list.Add(new Tuple<int, int>(index1 + 1, index2));
-                                    if (!Main.tile[index1, index2 - 1].wire3())
-                                        list.Add(new Tuple<int, int>(index1, index2 - 1));
-                                    if (!Main.tile[index1, index2 + 1].wire3())
-                                        list.Add(new Tuple<int, int>(index1, index2 + 1));
-                                }
+							if (tile.k_HasWireFlags(flag))
+							{
+								for (int index3 = 0; index3 < 4; ++index3)
+								{
+									int i3x = index1 + directions[index3][0];
+									int i3y = index2 + directions[index3][1];
+									if (!Main.tile[i3x, i3y].k_HasWireFlags(flag))
+										list.Add(new Tuple<int, int>(i3x, i3y));
+								}
                             }
                         }
                     }
@@ -8436,7 +8441,7 @@ namespace Terraria
                     for (int index2 = ly; index2 <= hy; ++index2)
                     {
                         Tile tile = Main.tile[index1, index2];
-                        if (tile.wire() || tile.wire2() || tile.wire3())
+                        if (tile.k_wireFlags != k_WireFlags.WIRE_NONE)
                             list.Add(new Tuple<int, int>(index1, index2));
                     }
                 }
@@ -9006,7 +9011,7 @@ namespace Terraria
                     for (int index2 = ly; index2 <= hy; ++index2)
                     {
                         Tile tile = Main.tile[index1, index2];
-                        if ((tile.wire() || tile.wire2() || tile.wire3()) && (!tile.actuator() && tile.active()))
+                        if (tile.k_HasWireFlagsAny(k_WireFlags.WIRE_RGB) && !tile.k_HasWireFlags(k_WireFlags.WIRE_ACTUATOR) && tile.active())
                             list.Add(new Tuple<int, int>(index1, index2));
                     }
                 }
@@ -24945,7 +24950,16 @@ namespace Terraria
                     {
                         int i1 = Player.tileTargetX;
                         int j = Player.tileTargetY;
-                        if (sItem.type == 509)
+
+						var wireType = k_WireFlags.WIRE_NONE;
+						if (sItem.type == 509)
+							wireType = k_WireFlags.WIRE_RED;
+						else if (sItem.type == 850)
+							wireType = k_WireFlags.WIRE_GREEN;
+						else if (sItem.type == 851)
+							wireType = k_WireFlags.WIRE_BLUE;
+
+                        if (wireType != k_WireFlags.WIRE_NONE)
                         {
                             int index1 = -1;
                             for (int index2 = 0; index2 < 58; ++index2)
@@ -24956,79 +24970,29 @@ namespace Terraria
                                     break;
                                 }
                             }
-                            if (index1 >= 0 && WorldGen.PlaceWire(i1, j))
+                            if (index1 >= 0 && WorldGen.PlaceWire(i1, j, wireType))
                             {
                                 --this.inventory[index1].stack;
                                 if (this.inventory[index1].stack <= 0)
                                     this.inventory[index1].SetDefaults(0, false);
                                 this.itemTime = sItem.useTime;
-                                NetMessage.SendData(17, -1, -1, "", 5, (float)Player.tileTargetX, (float)Player.tileTargetY, 0.0f, 0, 0, 0);
-                            }
-                        }
-                        else if (sItem.type == 850)
-                        {
-                            int index1 = -1;
-                            for (int index2 = 0; index2 < 58; ++index2)
-                            {
-                                if (this.inventory[index2].stack > 0 && this.inventory[index2].type == 530)
-                                {
-                                    index1 = index2;
-                                    break;
-                                }
-                            }
-                            if (index1 >= 0 && WorldGen.PlaceWire2(i1, j))
-                            {
-                                --this.inventory[index1].stack;
-                                if (this.inventory[index1].stack <= 0)
-                                    this.inventory[index1].SetDefaults(0, false);
-                                this.itemTime = sItem.useTime;
-                                NetMessage.SendData(17, -1, -1, "", 10, (float)Player.tileTargetX, (float)Player.tileTargetY, 0.0f, 0, 0, 0);
-                            }
-                        }
-                        if (sItem.type == 851)
-                        {
-                            int index1 = -1;
-                            for (int index2 = 0; index2 < 58; ++index2)
-                            {
-                                if (this.inventory[index2].stack > 0 && this.inventory[index2].type == 530)
-                                {
-                                    index1 = index2;
-                                    break;
-                                }
-                            }
-                            if (index1 >= 0 && WorldGen.PlaceWire3(i1, j))
-                            {
-                                --this.inventory[index1].stack;
-                                if (this.inventory[index1].stack <= 0)
-                                    this.inventory[index1].SetDefaults(0, false);
-                                this.itemTime = sItem.useTime;
-                                NetMessage.SendData(17, -1, -1, "", 12, (float)Player.tileTargetX, (float)Player.tileTargetY, 0.0f, 0, 0, 0);
+                                NetMessage.SendData(17, -1, -1, "", Tile.k_HACK_GetNetworkWirePlaceType(wireType), (float)Player.tileTargetX, (float)Player.tileTargetY, 0.0f, 0, 0, 0);
                             }
                         }
                         else if (sItem.type == 510)
                         {
-                            if (WorldGen.KillActuator(i1, j))
-                            {
-                                this.itemTime = sItem.useTime;
-                                NetMessage.SendData(17, -1, -1, "", 9, (float)Player.tileTargetX, (float)Player.tileTargetY, 0.0f, 0, 0, 0);
-                            }
-                            else if (WorldGen.KillWire3(i1, j))
-                            {
-                                this.itemTime = sItem.useTime;
-                                NetMessage.SendData(17, -1, -1, "", 13, (float)Player.tileTargetX, (float)Player.tileTargetY, 0.0f, 0, 0, 0);
-                            }
-                            else if (WorldGen.KillWire2(i1, j))
-                            {
-                                this.itemTime = sItem.useTime;
-                                NetMessage.SendData(17, -1, -1, "", 11, (float)Player.tileTargetX, (float)Player.tileTargetY, 0.0f, 0, 0, 0);
-                            }
-                            else if (WorldGen.KillWire(i1, j))
-                            {
-                                this.itemTime = sItem.useTime;
-                                NetMessage.SendData(17, -1, -1, "", 6, (float)Player.tileTargetX, (float)Player.tileTargetY, 0.0f, 0, 0, 0);
-                            }
+							var flags = new k_WireFlags[] { k_WireFlags.WIRE_ACTUATOR, k_WireFlags.WIRE_BLUE, k_WireFlags.WIRE_GREEN, k_WireFlags.WIRE_RED };
+							for (int flag = 0; flag < 4; ++flag)
+							{
+								if (WorldGen.KillWire(i1, j, flags[flag]))
+								{
+									this.itemTime = sItem.useTime;
+									NetMessage.SendData(17, -1, -1, "", Tile.k_HACK_GetNetworkWireKillType(flags[flag]), (float)Player.tileTargetX, (float)Player.tileTargetY, 0.0f, 0, 0, 0);
+									break;
+								}
+							}
                         }
-                        else if (sItem.type == 849 && sItem.stack > 0 && WorldGen.PlaceActuator(i1, j))
+                        else if (sItem.type == 849 && sItem.stack > 0 && WorldGen.PlaceWire(i1, j, k_WireFlags.WIRE_ACTUATOR))
                         {
                             this.itemTime = sItem.useTime;
                             NetMessage.SendData(17, -1, -1, "", 8, (float)Player.tileTargetX, (float)Player.tileTargetY, 0.0f, 0, 0, 0);
@@ -27325,13 +27289,8 @@ namespace Terraria
                     this.miscDyes[index] = new Item();
                 }
             }
-            this.inventory[0].SetDefaults("Copper Shortsword");
-            this.inventory[0].Prefix(-1);
-            this.inventory[1].SetDefaults("Copper Pickaxe");
-            this.inventory[1].Prefix(-1);
-            this.inventory[2].SetDefaults("Copper Axe");
-            this.inventory[2].Prefix(-1);
-            Main.mouseItem = new Item();
+			GiveStartEquipment();
+			Main.mouseItem = new Item();
         }
 
         public object Clone()

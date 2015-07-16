@@ -688,24 +688,12 @@ namespace Terraria
                             WorldGen.PlaceWall(index3, index4, (int)num11, false);
                         if ((int)num10 == 4)
                             WorldGen.KillTile(index3, index4, fail, false, true);
-                        if ((int)num10 == 5)
-                            WorldGen.PlaceWire(index3, index4);
-                        if ((int)num10 == 6)
-                            WorldGen.KillWire(index3, index4);
+                        if (num10 == 5 || num10 == 8 || num10 == 10 || num10 == 12)
+                            WorldGen.PlaceWire(index3, index4, Tile.k_HACK_GetNetworkWireType(num10));
+                        if (num10 == 6 || num10 == 9 || num10 == 11 || num10 == 13)
+                            WorldGen.KillWire(index3, index4, Tile.k_HACK_GetNetworkWireType(num10));
                         if ((int)num10 == 7)
                             WorldGen.PoundTile(index3, index4);
-                        if ((int)num10 == 8)
-                            WorldGen.PlaceActuator(index3, index4);
-                        if ((int)num10 == 9)
-                            WorldGen.KillActuator(index3, index4);
-                        if ((int)num10 == 10)
-                            WorldGen.PlaceWire2(index3, index4);
-                        if ((int)num10 == 11)
-                            WorldGen.KillWire2(index3, index4);
-                        if ((int)num10 == 12)
-                            WorldGen.PlaceWire3(index3, index4);
-                        if ((int)num10 == 13)
-                            WorldGen.KillWire3(index3, index4);
                         if ((int)num10 == 14)
                             WorldGen.SlopeTile(index3, index4, (int)num11);
                         if ((int)num10 == 15)
@@ -771,12 +759,12 @@ namespace Terraria
                                 bool flag5 = bitsByte12[3];
                                 if (Main.netMode != 2)
                                     tile.liquid = flag5 ? (byte)1 : (byte)0;
-                                tile.wire(bitsByte12[4]);
+								tile.k_SetWireFlags(k_WireFlags.WIRE_RED, bitsByte12[4]);
                                 tile.halfBrick(bitsByte12[5]);
-                                tile.actuator(bitsByte12[6]);
-                                tile.inActive(bitsByte12[7]);
-                                tile.wire2(bitsByte13[0]);
-                                tile.wire3(bitsByte13[1]);
+								tile.k_SetWireFlags(k_WireFlags.WIRE_ACTUATOR, bitsByte12[6]);
+								tile.inActive(bitsByte12[7]);
+								tile.k_SetWireFlags(k_WireFlags.WIRE_GREEN, bitsByte13[0]);
+								tile.k_SetWireFlags(k_WireFlags.WIRE_BLUE, bitsByte13[1]);
                                 if (bitsByte13[2])
                                     tile.color(this.reader.ReadByte());
                                 if (bitsByte13[3])

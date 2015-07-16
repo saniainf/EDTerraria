@@ -293,12 +293,12 @@ namespace Terraria
                                 local_30[0] = local_34.active();
                                 local_30[2] = (int)local_34.wall > 0;
                                 local_30[3] = (int)local_34.liquid > 0 && Main.netMode == 2;
-                                local_30[4] = local_34.wire();
+                                local_30[4] = local_34.k_HasWireFlags(k_WireFlags.WIRE_RED);
                                 local_30[5] = local_34.halfBrick();
-                                local_30[6] = local_34.actuator();
+                                local_30[6] = local_34.k_HasWireFlags(k_WireFlags.WIRE_ACTUATOR);
                                 local_30[7] = local_34.inActive();
-                                local_31[0] = local_34.wire2();
-                                local_31[1] = local_34.wire3();
+                                local_31[0] = local_34.k_HasWireFlags(k_WireFlags.WIRE_GREEN);
+                                local_31[1] = local_34.k_HasWireFlags(k_WireFlags.WIRE_BLUE);
                                 if (local_34.active() && (int)local_34.color() > 0)
                                 {
                                     local_31[2] = true;
@@ -1352,15 +1352,15 @@ namespace Terraria
                             buffer[index1] = tile.liquid;
                             ++index1;
                         }
-                        if (tile.wire())
+                        if (tile.k_HasWireFlags(k_WireFlags.WIRE_RED))
                             num8 |= (byte)2;
-                        if (tile.wire2())
+                        if (tile.k_HasWireFlags(k_WireFlags.WIRE_GREEN))
                             num8 |= (byte)4;
-                        if (tile.wire3())
+                        if (tile.k_HasWireFlags(k_WireFlags.WIRE_BLUE))
                             num8 |= (byte)8;
                         int num10 = !tile.halfBrick() ? ((int)tile.slope() == 0 ? 0 : (int)tile.slope() + 1 << 4) : 16;
                         byte num11 = (byte)((uint)num8 | (uint)(byte)num10);
-                        if (tile.actuator())
+                        if (tile.k_HasWireFlags(k_WireFlags.WIRE_ACTUATOR))
                             num7 |= (byte)2;
                         if (tile.inActive())
                             num7 |= (byte)4;
@@ -1533,14 +1533,15 @@ namespace Terraria
                                     tile.honey(true);
                             }
                         }
+						var wireFlag = k_WireFlags.WIRE_NONE;
                         if ((int)num3 > 1)
                         {
-                            if (((int)num3 & 2) == 2)
-                                tile.wire(true);
-                            if (((int)num3 & 4) == 4)
-                                tile.wire2(true);
-                            if (((int)num3 & 8) == 8)
-                                tile.wire3(true);
+							if (((int)num3 & 2) == 2)
+								wireFlag |= k_WireFlags.WIRE_RED;
+							if (((int)num3 & 4) == 4)
+								wireFlag |= k_WireFlags.WIRE_GREEN;
+							if (((int)num3 & 8) == 8)
+								wireFlag |= k_WireFlags.WIRE_BLUE;
                             byte num5 = (byte)(((int)num3 & 112) >> 4);
                             if ((int)num5 != 0 && Main.tileSolid[(int)tile.type])
                             {
@@ -1552,12 +1553,13 @@ namespace Terraria
                         }
                         if ((int)num2 > 0)
                         {
-                            if (((int)num2 & 2) == 2)
-                                tile.actuator(true);
+							if (((int)num2 & 2) == 2)
+								wireFlag |= k_WireFlags.WIRE_ACTUATOR;
                             if (((int)num2 & 4) == 4)
                                 tile.inActive(true);
                         }
-                        switch ((byte)(((int)num4 & 192) >> 6))
+						tile.k_wireFlags = wireFlag;
+						switch ((byte)(((int)num4 & 192) >> 6))
                         {
                             case (byte)0:
                                 num1 = 0;

@@ -24492,26 +24492,6 @@ namespace Terraria
             }
         }
 
-        public static bool KillActuator(int i, int j)
-        {
-            if (!Main.tile[i, j].actuator())
-            {
-                return false;
-            }
-            Main.PlaySound(0, i * 0x10, j * 0x10, 1);
-            Main.tile[i, j].actuator(false);
-            if (Main.netMode != 1)
-            {
-                Item.NewItem(i * 0x10, j * 0x10, 0x10, 0x10, 0x351, 1, false, 0, false);
-            }
-            for (int k = 0; k < 5; k++)
-            {
-                Color newColor = new Color();
-                Dust.NewDust(new Vector2((float)(i * 0x10), (float)(j * 0x10)), 0x10, 0x10, 50, 0f, 0f, 0, newColor, 1f);
-            }
-            return true;
-        }
-
         public static void KillTile(int i, int j, bool fail = false, bool effectOnly = false, bool noItem = false)
         {
             if (((i >= 0) && (j >= 0)) && ((i < Main.maxTilesX) && (j < Main.maxTilesY)))
@@ -29523,67 +29503,42 @@ namespace Terraria
             }
         }
 
-        public static bool KillWire(int i, int j)
-        {
-            if (!Main.tile[i, j].wire())
-            {
-                return false;
-            }
-            Main.PlaySound(0, i * 0x10, j * 0x10, 1);
-            Main.tile[i, j].wire(false);
-            if (Main.netMode != 1)
-            {
-                Item.NewItem(i * 0x10, j * 0x10, 0x10, 0x10, 530, 1, false, 0, false);
-            }
-            for (int k = 0; k < 5; k++)
-            {
-                Color newColor = new Color();
-                Dust.NewDust(new Vector2((float)(i * 0x10), (float)(j * 0x10)), 0x10, 0x10, 50, 0f, 0f, 0, newColor, 1f);
-            }
-            return true;
-        }
+		public static bool PlaceWire(int i, int j, k_WireFlags type)
+		{
+			var tile = Main.tile[i, j];
+			if (!tile.k_HasWireFlags(type))
+			{
+				Main.PlaySound(0, i * 0x10, j * 0x10, 1);
+				tile.k_SetWireFlags(type, true);
+				return true;
+			}
+			return false;
+		}
 
-        public static bool KillWire2(int i, int j)
-        {
-            if (!Main.tile[i, j].wire2())
-            {
-                return false;
-            }
-            Main.PlaySound(0, i * 0x10, j * 0x10, 1);
-            Main.tile[i, j].wire2(false);
-            if (Main.netMode != 1)
-            {
-                Item.NewItem(i * 0x10, j * 0x10, 0x10, 0x10, 530, 1, false, 0, false);
-            }
-            for (int k = 0; k < 5; k++)
-            {
-                Color newColor = new Color();
-                Dust.NewDust(new Vector2((float)(i * 0x10), (float)(j * 0x10)), 0x10, 0x10, 50, 0f, 0f, 0, newColor, 1f);
-            }
-            return true;
-        }
+		public static bool KillWire(int i, int j, k_WireFlags type)
+		{
+			var tile = Main.tile[i, j];
+			if (!tile.k_HasWireFlags(type))
+				return false;
 
-        public static bool KillWire3(int i, int j)
-        {
-            if (!Main.tile[i, j].wire3())
-            {
-                return false;
-            }
-            Main.PlaySound(0, i * 0x10, j * 0x10, 1);
-            Main.tile[i, j].wire3(false);
-            if (Main.netMode != 1)
-            {
-                Item.NewItem(i * 0x10, j * 0x10, 0x10, 0x10, 530, 1, false, 0, false);
-            }
-            for (int k = 0; k < 5; k++)
-            {
-                Color newColor = new Color();
-                Dust.NewDust(new Vector2((float)(i * 0x10), (float)(j * 0x10)), 0x10, 0x10, 50, 0f, 0f, 0, newColor, 1f);
-            }
-            return true;
-        }
+			Main.PlaySound(0, i * 0x10, j * 0x10, 1);
+			tile.k_SetWireFlags(type, false);
+			if (Main.netMode != 1)
+			{
+				int item = ItemID.Wire;
+				if (type == k_WireFlags.WIRE_ACTUATOR)
+					item = ItemID.Actuator;
+				Item.NewItem(i * 0x10, j * 0x10, 0x10, 0x10, item, 1, false, 0, false);
+			}
+			for (int k = 0; k < 5; k++)
+			{
+				Color newColor = new Color();
+				Dust.NewDust(new Vector2((float)(i * 0x10), (float)(j * 0x10)), 0x10, 0x10, 50, 0f, 0f, 0, newColor, 1f);
+			}
+			return true;
+		}
 
-        public static void Lakinater(int i, int j)
+		public static void Lakinater(int i, int j)
         {
             Vector2 vector;
             Vector2 vector2;
@@ -30666,7 +30621,7 @@ namespace Terraria
                                             {
                                                 while ((num114 != num107) || (num115 != num109))
                                                 {
-                                                    Main.tile[num114, num115].wire(true);
+                                                    Main.tile[num114, num115].k_SetWireFlags(k_WireFlags.WIRE_RED, true);
                                                     if (num114 > num107)
                                                     {
                                                         num114--;
@@ -30675,8 +30630,8 @@ namespace Terraria
                                                     {
                                                         num114++;
                                                     }
-                                                    Main.tile[num114, num115].wire(true);
-                                                    if (num115 > num109)
+                                                    Main.tile[num114, num115].k_SetWireFlags(k_WireFlags.WIRE_RED, true);
+													if (num115 > num109)
                                                     {
                                                         num115--;
                                                     }
@@ -30684,8 +30639,8 @@ namespace Terraria
                                                     {
                                                         num115++;
                                                     }
-                                                    Main.tile[num114, num115].wire(true);
-                                                }
+                                                    Main.tile[num114, num115].k_SetWireFlags(k_WireFlags.WIRE_RED, true);
+												}
                                                 if (genRand.Next(3) > 0)
                                                 {
                                                     Main.tile[num107, num109].frameX = 0x12;
@@ -32289,19 +32244,13 @@ namespace Terraria
                 {
                     return false;
                 }
-                int num21 = genRand.Next(3);
-                if (Main.tile[i, j].wire())
-                {
-                    num21 = 0;
-                }
-                if (Main.tile[i, j].wire2())
-                {
-                    num21 = 1;
-                }
-                if (Main.tile[i, j].wire3())
-                {
-                    num21 = 2;
-                }
+                var num21 = (k_WireFlags)(1 << genRand.Next(3));
+                if (Main.tile[i, j].k_HasWireFlags(k_WireFlags.WIRE_BLUE))
+                    num21 = k_WireFlags.WIRE_BLUE;
+                else if (Main.tile[i, j].k_HasWireFlags(k_WireFlags.WIRE_GREEN))
+					num21 = k_WireFlags.WIRE_GREEN;
+                else if (Main.tile[i, j].k_HasWireFlags(k_WireFlags.WIRE_RED))
+					num21 = k_WireFlags.WIRE_RED;
                 int num22 = 3;
                 if ((num20 < 0x10) && (genRand.Next(3) != 0))
                 {
@@ -32343,42 +32292,14 @@ namespace Terraria
                             break;
                         }
                         PlaceTile(num25, num19, 0x89, true, true, -1, num22);
-                        if (num21 == 0)
-                        {
-                            Main.tile[num25, num19].wire(true);
-                        }
-                        else
-                        {
-                            if (num21 == 1)
-                            {
-                                Main.tile[num25, num19].wire2(true);
-                                continue;
-                            }
-                            if (num21 == 2)
-                            {
-                                Main.tile[num25, num19].wire3(true);
-                            }
-                        }
+						Main.tile[num25, num19].k_SetWireFlags(num21, true);
                     }
                 }
                 int num27 = i;
                 int num28 = j;
                 while ((num27 != num18) || (num28 != num19))
                 {
-                    switch (num21)
-                    {
-                        case 0:
-                            Main.tile[num27, num28].wire(true);
-                            break;
-
-                        case 1:
-                            Main.tile[num27, num28].wire2(true);
-                            break;
-
-                        case 2:
-                            Main.tile[num27, num28].wire3(true);
-                            break;
-                    }
+					Main.tile[num27, num28].k_SetWireFlags(num21, true);
                     if (num27 > num18)
                     {
                         num27--;
@@ -32387,21 +32308,8 @@ namespace Terraria
                     {
                         num27++;
                     }
-                    switch (num21)
-                    {
-                        case 0:
-                            Main.tile[num27, num28].wire(true);
-                            break;
-
-                        case 1:
-                            Main.tile[num27, num28].wire2(true);
-                            break;
-
-                        case 2:
-                            Main.tile[num27, num28].wire3(true);
-                            break;
-                    }
-                    if (num28 > num19)
+					Main.tile[num27, num28].k_SetWireFlags(num21, true);
+					if (num28 > num19)
                     {
                         num28--;
                     }
@@ -32409,23 +32317,8 @@ namespace Terraria
                     {
                         num28++;
                     }
-                    switch (num21)
-                    {
-                        case 0:
-                            {
-                                Main.tile[num27, num28].wire(true);
-                                continue;
-                            }
-                        case 1:
-                            {
-                                Main.tile[num27, num28].wire2(true);
-                                continue;
-                            }
-                        case 2:
-                            Main.tile[num27, num28].wire3(true);
-                            break;
-                    }
-                }
+					Main.tile[num27, num28].k_SetWireFlags(num21, true);
+				}
                 return true;
             }
             int num4 = i;
@@ -32517,20 +32410,14 @@ namespace Terraria
             }
             PlaceTile(i, j, 0x87, true, true, -1, 6);
             KillTile(num4, num5, false, false, false);
-            int num11 = genRand.Next(3);
-            if (Main.tile[i, j].wire())
-            {
-                num11 = 0;
-            }
-            if (Main.tile[i, j].wire2())
-            {
-                num11 = 1;
-            }
-            if (Main.tile[i, j].wire3())
-            {
-                num11 = 2;
-            }
-            int num12 = Math.Abs((int)(num4 - i));
+			var num11 = (k_WireFlags)(1 << genRand.Next(3));
+			if (Main.tile[i, j].k_HasWireFlags(k_WireFlags.WIRE_BLUE))
+				num11 = k_WireFlags.WIRE_BLUE;
+			else if (Main.tile[i, j].k_HasWireFlags(k_WireFlags.WIRE_GREEN))
+				num11 = k_WireFlags.WIRE_GREEN;
+			else if (Main.tile[i, j].k_HasWireFlags(k_WireFlags.WIRE_RED))
+				num11 = k_WireFlags.WIRE_RED;
+			int num12 = Math.Abs((int)(num4 - i));
             int style = 1;
             if ((num12 < 10) && (genRand.Next(3) != 0))
             {
@@ -32558,42 +32445,14 @@ namespace Terraria
                     Tile tile2 = Main.tile[num4, num15];
                     tile2.frameX = (short)(tile2.frameX + 0x12);
                 }
-                if (num11 == 0)
-                {
-                    Main.tile[num4, num15].wire(true);
-                }
-                else
-                {
-                    if (num11 == 1)
-                    {
-                        Main.tile[num4, num15].wire2(true);
-                        continue;
-                    }
-                    if (num11 == 2)
-                    {
-                        Main.tile[num4, num15].wire3(true);
-                    }
-                }
+				Main.tile[num4, num15].k_SetWireFlags(num11, true);
             }
             int num16 = i;
             int num17 = j;
             while ((num16 != num4) || (num17 != num5))
             {
-                switch (num11)
-                {
-                    case 0:
-                        Main.tile[num16, num17].wire(true);
-                        break;
-
-                    case 1:
-                        Main.tile[num16, num17].wire2(true);
-                        break;
-
-                    case 2:
-                        Main.tile[num16, num17].wire3(true);
-                        break;
-                }
-                if (num16 > num4)
+				Main.tile[num16, num17].k_SetWireFlags(num11, true);
+				if (num16 > num4)
                 {
                     num16--;
                 }
@@ -32601,21 +32460,8 @@ namespace Terraria
                 {
                     num16++;
                 }
-                switch (num11)
-                {
-                    case 0:
-                        Main.tile[num16, num17].wire(true);
-                        break;
-
-                    case 1:
-                        Main.tile[num16, num17].wire2(true);
-                        break;
-
-                    case 2:
-                        Main.tile[num16, num17].wire3(true);
-                        break;
-                }
-                if (num17 > num5)
+				Main.tile[num16, num17].k_SetWireFlags(num11, true);
+				if (num17 > num5)
                 {
                     num17--;
                 }
@@ -32623,23 +32469,8 @@ namespace Terraria
                 {
                     num17++;
                 }
-                switch (num11)
-                {
-                    case 0:
-                        {
-                            Main.tile[num16, num17].wire(true);
-                            continue;
-                        }
-                    case 1:
-                        {
-                            Main.tile[num16, num17].wire2(true);
-                            continue;
-                        }
-                    case 2:
-                        Main.tile[num16, num17].wire3(true);
-                        break;
-                }
-            }
+				Main.tile[num16, num17].k_SetWireFlags(num11, true);
+			}
             return true;
         }
 
@@ -35404,17 +35235,6 @@ namespace Terraria
             }
         }
 
-        public static bool PlaceActuator(int i, int j)
-        {
-            if (!Main.tile[i, j].actuator())
-            {
-                Main.PlaySound(0, i * 0x10, j * 0x10, 1);
-                Main.tile[i, j].actuator(true);
-                return true;
-            }
-            return false;
-        }
-
         public static bool PlaceAlch(int x, int y, int style)
         {
             if (Main.tile[x, y] == null)
@@ -37552,7 +37372,7 @@ namespace Terraria
                     int num13 = j;
                     while ((num12 != num5) || (num13 != num6))
                     {
-                        Main.tile[num12, num13].wire(true);
+                        Main.tile[num12, num13].k_SetWireFlags(k_WireFlags.WIRE_RED, true);
                         if (num12 > num5)
                         {
                             num12--;
@@ -37561,8 +37381,8 @@ namespace Terraria
                         {
                             num12++;
                         }
-                        Main.tile[num12, num13].wire(true);
-                        if (num13 > num6)
+						Main.tile[num12, num13].k_SetWireFlags(k_WireFlags.WIRE_RED, true);
+						if (num13 > num6)
                         {
                             num13--;
                         }
@@ -37570,8 +37390,8 @@ namespace Terraria
                         {
                             num13++;
                         }
-                        Main.tile[num12, num13].wire(true);
-                    }
+						Main.tile[num12, num13].k_SetWireFlags(k_WireFlags.WIRE_RED, true);
+					}
                     return true;
                 }
                 if (type == 1)
@@ -37637,23 +37457,23 @@ namespace Terraria
                     PlaceTile(num14 + 1, num15 + 2, 130, true, false, -1, 0);
                     PlaceTile(num14 + 1, num15 + 1, 0x8a, true, false, -1, 0);
                     num15 += 2;
-                    Main.tile[num14, num15].wire(true);
-                    Main.tile[num14 + 1, num15].wire(true);
-                    num15++;
+                    Main.tile[num14, num15].k_SetWireFlags(k_WireFlags.WIRE_RED, true);
+					Main.tile[num14 + 1, num15].k_SetWireFlags(k_WireFlags.WIRE_RED, true);
+					num15++;
                     PlaceTile(num14, num15, 130, true, false, -1, 0);
                     PlaceTile(num14 + 1, num15, 130, true, false, -1, 0);
-                    Main.tile[num14, num15].wire(true);
-                    Main.tile[num14 + 1, num15].wire(true);
-                    PlaceTile(num14, num15 + 1, 130, true, false, -1, 0);
+                    Main.tile[num14, num15].k_SetWireFlags(k_WireFlags.WIRE_RED, true);
+					Main.tile[num14 + 1, num15].k_SetWireFlags(k_WireFlags.WIRE_RED, true);
+					PlaceTile(num14, num15 + 1, 130, true, false, -1, 0);
                     PlaceTile(num14 + 1, num15 + 1, 130, true, false, -1, 0);
-                    Main.tile[num14, num15 + 1].wire(true);
-                    Main.tile[num14 + 1, num15 + 1].wire(true);
-                    int num23 = i;
+                    Main.tile[num14, num15 + 1].k_SetWireFlags(k_WireFlags.WIRE_RED, true);
+					Main.tile[num14 + 1, num15 + 1].k_SetWireFlags(k_WireFlags.WIRE_RED, true);
+					int num23 = i;
                     int num24 = j;
                     while ((num23 != num14) || (num24 != num15))
                     {
-                        Main.tile[num23, num24].wire(true);
-                        if (num23 > num14)
+                        Main.tile[num23, num24].k_SetWireFlags(k_WireFlags.WIRE_RED, true);
+						if (num23 > num14)
                         {
                             num23--;
                         }
@@ -37661,8 +37481,8 @@ namespace Terraria
                         {
                             num23++;
                         }
-                        Main.tile[num23, num24].wire(true);
-                        if (num24 > num15)
+                        Main.tile[num23, num24].k_SetWireFlags(k_WireFlags.WIRE_RED, true);
+						if (num24 > num15)
                         {
                             num24--;
                         }
@@ -37670,8 +37490,8 @@ namespace Terraria
                         {
                             num24++;
                         }
-                        Main.tile[num23, num24].wire(true);
-                    }
+                        Main.tile[num23, num24].k_SetWireFlags(k_WireFlags.WIRE_RED, true);
+					}
                     return true;
                 }
                 if (type == 2)
@@ -37708,8 +37528,8 @@ namespace Terraria
                     int num32 = j;
                     while ((num31 != num26) || (num32 != num27))
                     {
-                        Main.tile[num31, num32].wire(true);
-                        if (num31 > num26)
+                        Main.tile[num31, num32].k_SetWireFlags(k_WireFlags.WIRE_RED, true);
+						if (num31 > num26)
                         {
                             num31--;
                         }
@@ -37717,8 +37537,8 @@ namespace Terraria
                         {
                             num31++;
                         }
-                        Main.tile[num31, num32].wire(true);
-                        if (num32 > num27)
+                        Main.tile[num31, num32].k_SetWireFlags(k_WireFlags.WIRE_RED, true);
+						if (num32 > num27)
                         {
                             num32--;
                         }
@@ -37726,8 +37546,8 @@ namespace Terraria
                         {
                             num32++;
                         }
-                        Main.tile[num31, num32].wire(true);
-                    }
+                        Main.tile[num31, num32].k_SetWireFlags(k_WireFlags.WIRE_RED, true);
+					}
                 }
             }
             return false;
@@ -37751,39 +37571,6 @@ namespace Terraria
                     }
                 }
             }
-        }
-
-        public static bool PlaceWire(int i, int j)
-        {
-            if (!Main.tile[i, j].wire())
-            {
-                Main.PlaySound(0, i * 0x10, j * 0x10, 1);
-                Main.tile[i, j].wire(true);
-                return true;
-            }
-            return false;
-        }
-
-        public static bool PlaceWire2(int i, int j)
-        {
-            if (!Main.tile[i, j].wire2())
-            {
-                Main.PlaySound(0, i * 0x10, j * 0x10, 1);
-                Main.tile[i, j].wire2(true);
-                return true;
-            }
-            return false;
-        }
-
-        public static bool PlaceWire3(int i, int j)
-        {
-            if (!Main.tile[i, j].wire3())
-            {
-                Main.PlaySound(0, i * 0x10, j * 0x10, 1);
-                Main.tile[i, j].wire3(true);
-                return true;
-            }
-            return false;
         }
 
         public static void PlaceWoman(int i, int j, int dir)
