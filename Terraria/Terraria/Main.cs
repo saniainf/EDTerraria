@@ -1948,6 +1948,8 @@ namespace Terraria
         private float scAdj;
         private float cTop;
         public static event Action OnEngineLoad;
+        public static DB db;
+
         public static bool expertMode
         {
             get
@@ -6290,6 +6292,7 @@ namespace Terraria
         protected override void LoadContent()
         {
             TextureManager.Initialize();
+            db = new DB();
             try
             {
                 this.mapSectionTexture = new RenderTarget2D(base.GraphicsDevice, 200, 150);
