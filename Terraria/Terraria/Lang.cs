@@ -32958,6 +32958,7 @@ namespace Terraria
                 Lang.dresserType[25] = "Meteorite Dresser";
                 Lang.dresserType[26] = "Granite Dresser";
                 Lang.dresserType[27] = "Marble Dresser";
+                // TODO: Remove below prefix stuff with database handled values
                 Lang.prefix[1] = "Large";
                 Lang.prefix[2] = "Massive";
                 Lang.prefix[3] = "Dangerous";
