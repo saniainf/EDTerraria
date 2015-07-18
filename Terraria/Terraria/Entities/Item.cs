@@ -18,6 +18,15 @@ namespace Terraria
 {
     public class Item : Entity
     {
+        public enum weaponType
+        {
+            WEAPON_TYPE_MELEE = 1,
+            WEAPON_TYPE_MAGIC,
+            WEAPON_TYPE_RANGED,
+            WEAPON_TYPE_SUMMON,
+            WEAPON_TYPE_END
+        };
+
         public static int potionDelay = 3600;
         public static int restorationDelay = 3000;
         public static int[] headType = new int[194];
@@ -40546,10 +40555,12 @@ namespace Terraria
             mech = false;
             flame = false;
             reuseDelay = 0;
+            //TODO: Replace with weaponType enum
             melee = false;
             magic = false;
             ranged = false;
             summon = false;
+            //END
             placeStyle = 0;
             buffTime = 0;
             buffType = 0;
