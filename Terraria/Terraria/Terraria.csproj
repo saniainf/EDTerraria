@@ -432,7 +432,7 @@
     </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(ProjectDir)..\..\Refs\SQLite.Interop.dll" "$(ProjectDir)..\..\x86"</PostBuildEvent>
+    <PostBuildEvent>xcopy "$(ProjectDir)..\..\Refs\SQLite.Interop.dll" "$(ProjectDir)..\..\x86" /Y</PostBuildEvent>
   </PropertyGroup>
   <!--
       To modify your build process, add your task inside one of the targets below and uncomment it. 

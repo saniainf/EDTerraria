@@ -6,3 +6,4 @@ obj*/
 x86*/
 *.suo
 *.sdf
+*.csproj.user
