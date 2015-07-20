@@ -27,15 +27,6 @@ namespace Terraria
             WEAPON_TYPE_END
         };
 
-        public enum Languages
-        {
-            EN,
-            DE,
-            IT,
-            FR,
-            ES
-        }
-
         public static int potionDelay = 3600;
         public static int restorationDelay = 3000;
         public static int[] headType = new int[194];
@@ -327,52 +318,6 @@ namespace Terraria
             if (Lang.prefix[prefix] != "")
                 return name + " (" + Lang.prefix[prefix] + ")";
             return name;
-        }
-
-        public string AffixName_Old()
-        {
-            // TODO: Remove all the below prefix names with database handled values
-            string prefixStr = "";
-            ItemPrefix itemPrefix;
-            if (Lang.lang <= (int)Languages.EN + 1)
-            {
-                if (DB.ItemPrefixes.TryGetValue(prefix, out itemPrefix))
-                    prefixStr = itemPrefix.name[(int)Languages.EN];
-            }
-            else if (Lang.lang == (int)Languages.DE + 1)
-            {
-                if (DB.ItemPrefixes.TryGetValue(prefix, out itemPrefix))
-                    prefixStr = itemPrefix.name[(int)Languages.DE];
-            }
-            else if (Lang.lang == (int)Languages.IT + 1)
-            {
-                if (DB.ItemPrefixes.TryGetValue(prefix, out itemPrefix))
-                    prefixStr = itemPrefix.name[(int)Languages.IT];
-            }
-            else if (Lang.lang == (int)Languages.FR + 1)
-            {
-                if (DB.ItemPrefixes.TryGetValue(prefix, out itemPrefix))
-                    prefixStr = itemPrefix.name[(int)Languages.FR];
-            }
-            else if (Lang.lang == (int)Languages.ES + 1)
-            {
-                if (DB.ItemPrefixes.TryGetValue(prefix, out itemPrefix))
-                    prefixStr = itemPrefix.name[(int)Languages.ES];
-            }
-
-            string fullName = string.Empty;
-            if (Lang.lang <= (int)Languages.EN + 1)
-            {
-                fullName = name;
-                if (prefixStr != "")
-                    fullName = prefixStr + " " + name;
-                return fullName;
-            }
-
-            fullName = name;
-            if (prefixStr != "")
-                fullName = name + " (" + prefixStr + ")";
-            return fullName;
         }
 
         public void CheckTip()
