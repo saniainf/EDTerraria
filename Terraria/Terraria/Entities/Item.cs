@@ -10,6 +10,7 @@
 
 using Microsoft.Xna.Framework;
 using System;
+using System.Linq;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.UI;
@@ -193,44 +194,43 @@ namespace Terraria
                     prefix = -1;
                 if (prefix == -1 || prefix == -2 || prefix == -3)
                 {
-                    if (type == 1 || type == 4 || (type == 6 || type == 7) || (type == 10 || type == 24 || (type == 45 || type == 46)) || (type == 65 || type == 103 || (type == 104 || type == 121) || (type == 122 || type == 155 || (type == 190 || type == 196))) || (type == 198 || type == 199 || (type == 200 || type == 201) || (type == 202 || type == 203 || (type == 204 || type == 213)) || (type == 217 || type == 273 || (type == 367 || type == 368) || (type == 426 || type == 482 || (type == 483 || type == 484)))) || (type == 653 || type == 654 || (type == 656 || type == 657) || (type == 659 || type == 660 || (type == 671 || type == 672)) || (type == 674 || type == 675 || (type == 676 || type == 723) || (type == 724 || type == 757 || (type == 776 || type == 777))) || (type == 778 || type == 787 || (type == 795 || type == 797) || (type == 798 || type == 799 || (type == 881 || type == 882)) || (type == 921 || type == 922 || (type == 989 || type == 990) || (type == 991 || type == 992 || (type == 993 || type == 1123))))) || (type == 1166 || type == 1185 || (type == 1188 || type == 1192) || (type == 1195 || type == 1199 || (type == 1202 || type == 1222)) || (type == 1223 || type == 1224 || (type == 1226 || type == 1227) || (type == 1230 || type == 1233 || (type == 1234 || type == 1294))) || (type == 1304 || type == 1305 || (type == 1306 || type == 1320) || (type == 1327 || type == 1506 || (type == 1507 || type == 1786)) || (type == 1826 || type == 1827 || (type == 1909 || type == 1917) || (type == 1928 || type == 2176 || (type == 2273 || type == 2608)))) || (type == 2341 || type == 2330 || (type == 2320 || type == 2516) || (type == 2517 || type == 2746 || (type == 2745 || type == 3063)) || (type == 3018 || type == 3211 || (type == 3013 || type == 3258) || (type == 3106 || type == 3065 || (type == 2880 || type == 3481))) || (type == 3482 || type == 3483 || (type == 3484 || type == 3485) || (type == 3487 || type == 3488 || (type == 3489 || type == 3490)) || (type == 3491 || type == 3493 || (type == 3494 || type == 3495) || (type == 3496 || type == 3497 || (type == 3498 || type == 3500)))))) || (type == 3501 || type == 3502 || (type == 3503 || type == 3504) || (type == 3505 || type == 3506 || (type == 3507 || type == 3508)) || (type == 3509 || type == 3511 || (type == 3512 || type == 3513) || (type == 3514 || type == 3515 || (type == 3517 || type == 3518))) || (type == 3519 || type == 3520 || (type == 3521 || type == 3522) || (type == 3523 || type == 3524 || type == 3525) || (type >= 3462 && type <= 3466 || type >= 2772 && type <= 2786 || (type == 3349 || type == 3352 || type == 3351)))))
-                    {
-                        int[] available_prefixes = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 53, 54, 55, 56, 57, 59, 60, 61, 81 };
-                        int random = Main.rand.Next(available_prefixes.Length);
+                    // TODO: What exactly are the specific item ID groups? Melee, ranged etc. Document these.
+                    int[][] itemIdGroups = {
+                        new int[] { 1, 4, 6, 7, 10, 24, 45, 46, 65, 103, 104, 121, 122, 155, 190, 196, 198, 199, 200, 201, 202, 203, 204, 213, 217, 273, 367, 368, 426, 482, 483, 484, 653, 654, 656, 657, 659, 660, 671, 672, 674, 675, 676, 723, 724, 757, 776, 777, 778, 787, 795, 797, 798, 799, 881, 882, 921, 922, 989, 990, 991, 992, 993, 1123, 1166, 1185, 1188, 1192, 1195, 1199, 1202, 1222, 1223, 1224, 1226, 1227, 1230, 1233, 1234, 1294, 1304, 1305, 1306, 1320, 1327, 1506, 1507, 1786, 1826, 1827, 1909, 1917, 1928, 2176, 2273, 2320, 2330, 2341, 2516, 2517, 2608, 2745, 2746, 2772, 2773, 2774, 2775, 2776, 2777, 2778, 2779, 2780, 2781, 2782, 2783, 2784, 2785, 2786, 2880, 3013, 3018, 3063, 3065, 3106, 3211, 3258, 3349, 3351, 3352, 3462, 3463, 3464, 3465, 3466, 3481, 3482, 3483, 3484, 3485, 3487, 3488, 3489, 3490, 3491, 3493, 3494, 3495, 3496, 3497, 3498, 3500, 3501, 3502, 3503, 3504, 3505, 3506, 3507, 3508, 3509, 3511, 3512, 3513, 3514, 3515, 3517, 3518, 3519, 3520, 3521, 3522, 3523, 3524, 3525 },
+                        new int[] { 160, 162, 163, 220, 274, 277, 280, 383, 384, 385, 386, 387, 388, 389, 390, 406, 537, 550, 579, 756, 759, 801, 802, 1186, 1189, 1190, 1193, 1196, 1197, 1200, 1203, 1204, 1228, 1231, 1232, 1259, 1262, 1297, 1314, 1325, 1947, 2331, 2332, 2342, 2424, 2611, 2798, 3012, 3098, 3368, 3473 },
+                        new int[] { 39, 44, 95, 96, 98, 99, 120, 164, 197, 219, 266, 281, 434, 435, 436, 481, 506, 533, 534, 578, 655, 658, 661, 679, 682, 725, 758, 759, 760, 796, 800, 905, 923, 964, 986, 1156, 1187, 1194, 1201, 1229, 1254, 1255, 1258, 1265, 1319, 1553, 1782, 1784, 1835, 1870, 1910, 1929, 1946, 2223, 2269, 2270, 2515, 2624, 2747, 2796, 2797, 2888, 3007, 3008, 3019, 3029, 3052, 3107, 3210, 3245, 3350, 3475, 3480, 3486, 3492, 3498, 3504, 3510, 3516, 3540, 3546 },
+                        new int[] { 64, 112, 113, 127, 157, 165, 218, 272, 494, 495, 496, 514, 517, 518, 519, 683, 726, 739, 740, 741, 742, 743, 744, 788, 1121, 1155, 1157, 1178, 1244, 1256, 1260, 1264, 1266, 1295, 1296, 1308, 1309, 1313, 1336, 1444, 1445, 1446, 1572, 1801, 1802, 1930, 1931, 2188, 2622, 2621, 2584, 2551, 2366, 2535, 2365, 2364, 2623, 2750, 2795, 3053, 3051, 3209, 3014, 3105, 2882, 3269, 3006, 3377, 3069, 2749, 3249, 3476, 3474, 3531, 3541, 3542, 3569, 3570, 3571, 3531 },
+                        new int[] { 55, 119, 191, 284, 670, 1122, 1513, 1569, 1571, 1825, 1918, 3030, 3054, 3262, 3278, 3279, 3280, 3281, 3282, 3283, 3284, 3285, 3286, 3287, 3288, 3289, 3290, 3291, 3292, 3315, 3316, 3317, 3389, 3543 }
+                    };
 
-                        prefix = available_prefixes[random];
-                    }
-                    else if (type == 162 || type == 160 || (type == 163 || type == 220) || (type == 274 || type == 277 || (type == 280 || type == 383)) || (type == 384 || type == 385 || (type == 386 || type == 387) || (type == 388 || type == 389 || (type == 390 || type == 406))) || (type == 537 || type == 550 || (type == 579 || type == 756) || (type == 759 || type == 801 || (type == 802 || type == 1186)) || (type == 1189 || type == 1190 || (type == 1193 || type == 1196) || (type == 1197 || type == 1200 || (type == 1203 || type == 1204)))) || (type == 1228 || type == 1231 || (type == 1232 || type == 1259) || (type == 1262 || type == 1297 || (type == 1314 || type == 1325)) || (type == 1947 || type == 2332 || (type == 2331 || type == 2342) || (type == 2424 || type == 2611 || (type == 2798 || type == 3012))) || (type == 3473 || type == 3098 || type == 3368)))
-                    {
-                        int[] available_prefixes = { 36, 37, 38, 39, 40, 41, 53, 54, 55, 56, 57, 59, 60, 61 };
-                        int random = Main.rand.Next(available_prefixes.Length);
+                    // TODO: What exactly are the specific prefix groups? Melee, ranged etc. Document these.
+                    int[][] prefixGroups = {
+                        new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 53, 54, 55, 56, 57, 59, 60, 61, 81 },
+                        new int[] { 36, 37, 38, 39, 40, 41, 53, 54, 55, 56, 57, 59, 60, 61 },
+                        new int[] { 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 53, 54, 55, 56, 57, 58, 59, 60, 61, 82 },
+                        new int[] { 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 59, 60, 61, 83 },
+                        new int[] { 36, 37, 38, 39, 40, 41, 53, 54, 55, 56, 57, 59, 60, 61 },
+                    };
 
-                        prefix = available_prefixes[random];
-                    }
-                    else if (type == 39 || type == 44 || (type == 95 || type == 96) || (type == 98 || type == 99 || (type == 120 || type == 164)) || (type == 197 || type == 219 || (type == 266 || type == 281) || (type == 434 || type == 435 || (type == 436 || type == 481))) || (type == 506 || type == 533 || (type == 534 || type == 578) || (type == 655 || type == 658 || (type == 661 || type == 679)) || (type == 682 || type == 725 || (type == 758 || type == 759) || (type == 760 || type == 796 || (type == 800 || type == 905)))) || (type == 923 || type == 964 || (type == 986 || type == 1156) || (type == 1187 || type == 1194 || (type == 1201 || type == 1229)) || (type == 1254 || type == 1255 || (type == 1258 || type == 1265) || (type == 1319 || type == 1553 || (type == 1782 || type == 1784))) || (type == 1835 || type == 1870 || (type == 1910 || type == 1929) || (type == 1946 || type == 2223 || (type == 2269 || type == 2270)) || (type == 2624 || type == 2515 || (type == 2747 || type == 2796) || (type == 2797 || type == 3052 || (type == 2888 || type == 3019))))) || (type == 3029 || type == 3007 || (type == 3008 || type == 3210) || (type == 3107 || type == 3245 || (type == 3475 || type == 3540)) || (type == 3480 || type == 3486 || (type == 3492 || type == 3498) || (type == 3504 || type == 3510 || (type == 3516 || type == 3350))) || type == 3546))
-                    {
-                        int[] available_prefixes = { 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 53, 54, 55, 56, 57, 58, 59, 60, 61, 82 };
-                        int random = Main.rand.Next(available_prefixes.Length);
+                    // Set bool to true when a prefix has been assigned accordingly. If not, validate below specific check.
+                    bool prefixAssigned = false;
 
-                        prefix = available_prefixes[random];
-                    }
-                    else if (type == 64 || type == 112 || (type == 113 || type == 127) || (type == 157 || type == 165 || (type == 218 || type == 272)) || (type == 494 || type == 495 || (type == 496 || type == 514) || (type == 517 || type == 518 || (type == 519 || type == 683))) || (type == 726 || type == 739 || (type == 740 || type == 741) || (type == 742 || type == 743 || (type == 744 || type == 788)) || (type == 1121 || type == 1155 || (type == 1157 || type == 1178) || (type == 1244 || type == 1256 || (type == 1260 || type == 1264)))) || (type == 1266 || type == 1295 || (type == 1296 || type == 1308) || (type == 1309 || type == 1313 || (type == 1336 || type == 1444)) || (type == 1445 || type == 1446 || (type == 1572 || type == 1801) || (type == 1802 || type == 1930 || (type == 1931 || type == 2188))) || (type == 2622 || type == 2621 || (type == 2584 || type == 2551) || (type == 2366 || type == 2535 || (type == 2365 || type == 2364)) || (type == 2623 || type == 2750 || (type == 2795 || type == 3053) || (type == 3051 || type == 3209 || (type == 3014 || type == 3105))))) || (type == 2882 || type == 3269 || (type == 3006 || type == 3377) || (type == 3069 || type == 2749 || (type == 3249 || type == 3476)) || (type == 3474 || type == 3531 || (type == 3541 || type == 3542) || (type == 3569 || type == 3570 || (type == 3571 || type == 3531)))))
+                    for (int i = 1; i <= itemIdGroups.Length; ++i)
                     {
-                        int[] available_prefixes = { 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 59, 60, 61, 83 };
-                        int random = Main.rand.Next(available_prefixes.Length);
+                        if (itemIdGroups[i].Contains(type))
+                        {
+                            int random = Main.rand.Next(prefixGroups[i].Length);
+                            prefix = prefixGroups[i][random];
+                            prefixAssigned = true;
+                            break;
+                        }
+                    }
 
-                        prefix = available_prefixes[random];
-                    }
-                    else if (type == 55 || type == 119 || (type == 191 || type == 284) || (type == 670 || type == 1122 || (type == 1513 || type == 1569)) || (type == 1571 || type == 1825 || (type == 1918 || type == 3054) || (type == 3262 || type >= 3278 && type <= 3292)) || (type >= 3315 && type <= 3317 || (type == 3389 || type == 3030) || type == 3543))
+                    // If an item is not assigned a prefix above, enter case
+                    if(!prefixAssigned)
                     {
-                        int[] available_prefixes = { 36, 37, 38, 39, 40, 41, 53, 54, 55, 56, 57, 59, 60, 61 };
-                        int random = Main.rand.Next(available_prefixes.Length);
-
-                        prefix = available_prefixes[random];
-                    }
-                    else
-                    {
-                        if (!accessory || type == 267 || (type == 562 || type == 563) || (type == 564 || type == 565 || (type == 566 || type == 567)) || (type == 568 || type == 569 || (type == 570 || type == 571) || (type == 572 || type == 573 || (type == 574 || type == 576))) || (type == 1307 || type >= 1596 && type < 1610 || vanity))
+                        int[] excludedItemIds = { 267, 562, 563, 564, 565, 566, 567, 568, 569, 570, 571, 572, 573, 574, 576, 1307, 1596, 1597, 1598, 1599, 1600, 1601, 1602, 1603, 1604, 1605, 1606, 1607, 1608, 1609, 1610 };
+                        if (excludedItemIds.Contains(type) || !accessory || vanity)
                             return false;
                         prefix = Main.rand.Next(62, 81);
                     }
@@ -274,8 +274,8 @@ namespace Terraria
                 }
                 if (prefixId == -2 && prefix == 0)
                 {
-                    prefix = -1;
                     flag = true;
+                    prefix = -1;
                 }
             }
             damage = (int)Math.Round(damage * (double)damageMod);
