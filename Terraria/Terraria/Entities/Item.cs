@@ -206,7 +206,7 @@ namespace Terraria
                     // Set bool to true when a prefix has been assigned accordingly. If not, validate below specific check.
                     bool prefixAssigned = false;
 
-                    for (int i = 1; i <= itemIdGroups.Length; ++i)
+                    for (int i = 0; i < itemIdGroups.Length; ++i)
                     {
                         if (itemIdGroups[i].Contains(type))
                         {
