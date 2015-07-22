@@ -1661,9 +1661,9 @@ namespace Terraria
             }
         }
 
-        public void SetDefaults1(int type)
+        public void SetDefaults1(int itemId)
         {
-            if (type == 1)
+            if (itemId == 1)
             {
                 name = "Iron Pickaxe";
                 useStyle = 1;
@@ -1680,7 +1680,7 @@ namespace Terraria
                 value = 2000;
                 melee = true;
             }
-            else if (type == 2)
+            else if (itemId == 2)
             {
                 name = "Dirt Block";
                 useStyle = 1;
@@ -1694,7 +1694,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3)
+            else if (itemId == 3)
             {
                 name = "Stone Block";
                 useStyle = 1;
@@ -1708,7 +1708,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 4)
+            else if (itemId == 4)
             {
                 name = "Iron Broadsword";
                 useStyle = 1;
@@ -1724,7 +1724,7 @@ namespace Terraria
                 value = 1800;
                 melee = true;
             }
-            else if (type == 5)
+            else if (itemId == 5)
             {
                 name = "Mushroom";
                 useStyle = 2;
@@ -1740,7 +1740,7 @@ namespace Terraria
                 potion = true;
                 value = sellPrice(0, 0, 2, 50);
             }
-            else if (type == 6)
+            else if (itemId == 6)
             {
                 name = "Iron Shortsword";
                 useStyle = 3;
@@ -1757,7 +1757,7 @@ namespace Terraria
                 value = 1400;
                 melee = true;
             }
-            else if (type == 7)
+            else if (itemId == 7)
             {
                 name = "Iron Hammer";
                 autoReuse = true;
@@ -1775,7 +1775,7 @@ namespace Terraria
                 value = 1600;
                 melee = true;
             }
-            else if (type == 8)
+            else if (itemId == 8)
             {
                 flame = true;
                 noWet = true;
@@ -1794,7 +1794,7 @@ namespace Terraria
                 toolTip = "Provides light";
                 value = 50;
             }
-            else if (type == 9)
+            else if (itemId == 9)
             {
                 name = "Wood";
                 useStyle = 1;
@@ -1808,7 +1808,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 10)
+            else if (itemId == 10)
             {
                 name = "Iron Axe";
                 useStyle = 1;
@@ -1826,7 +1826,7 @@ namespace Terraria
                 value = 1600;
                 melee = true;
             }
-            else if (type == 11)
+            else if (itemId == 11)
             {
                 name = "Iron Ore";
                 useStyle = 1;
@@ -1841,7 +1841,7 @@ namespace Terraria
                 height = 12;
                 value = 500;
             }
-            else if (type == 12)
+            else if (itemId == 12)
             {
                 name = "Copper Ore";
                 useStyle = 1;
@@ -1856,7 +1856,7 @@ namespace Terraria
                 height = 12;
                 value = 250;
             }
-            else if (type == 13)
+            else if (itemId == 13)
             {
                 name = "Gold Ore";
                 useStyle = 1;
@@ -1871,7 +1871,7 @@ namespace Terraria
                 height = 12;
                 value = 2000;
             }
-            else if (type == 14)
+            else if (itemId == 14)
             {
                 name = "Silver Ore";
                 useStyle = 1;
@@ -1886,7 +1886,7 @@ namespace Terraria
                 height = 12;
                 value = 1000;
             }
-            else if (type == 15)
+            else if (itemId == 15)
             {
                 name = "Copper Watch";
                 width = 24;
@@ -1896,7 +1896,7 @@ namespace Terraria
                 value = 1000;
                 waistSlot = 2;
             }
-            else if (type == 16)
+            else if (itemId == 16)
             {
                 name = "Silver Watch";
                 width = 24;
@@ -1906,7 +1906,7 @@ namespace Terraria
                 value = 5000;
                 waistSlot = 7;
             }
-            else if (type == 17)
+            else if (itemId == 17)
             {
                 name = "Gold Watch";
                 width = 24;
@@ -1917,7 +1917,7 @@ namespace Terraria
                 value = 10000;
                 waistSlot = 3;
             }
-            else if (type == 18)
+            else if (itemId == 18)
             {
                 name = "Depth Meter";
                 width = 24;
@@ -1927,7 +1927,7 @@ namespace Terraria
                 toolTip = "Shows depth";
                 value = sellPrice(0, 0, 25, 0);
             }
-            else if (type == 19)
+            else if (itemId == 19)
             {
                 name = "Gold Bar";
                 width = 20;
@@ -1943,7 +1943,7 @@ namespace Terraria
                 createTile = 239;
                 placeStyle = 6;
             }
-            else if (type == 20)
+            else if (itemId == 20)
             {
                 name = "Copper Bar";
                 width = 20;
@@ -1959,7 +1959,7 @@ namespace Terraria
                 createTile = 239;
                 placeStyle = 0;
             }
-            else if (type == 21)
+            else if (itemId == 21)
             {
                 name = "Silver Bar";
                 width = 20;
@@ -1975,7 +1975,7 @@ namespace Terraria
                 createTile = 239;
                 placeStyle = 4;
             }
-            else if (type == 22)
+            else if (itemId == 22)
             {
                 name = "Iron Bar";
                 color = new Color(160, 145, 130, 110);
@@ -1992,7 +1992,7 @@ namespace Terraria
                 createTile = 239;
                 placeStyle = 2;
             }
-            else if (type == 23)
+            else if (itemId == 23)
             {
                 name = "Gel";
                 width = 10;
@@ -2005,7 +2005,7 @@ namespace Terraria
                 value = 5;
                 consumable = true;
             }
-            else if (type == 24)
+            else if (itemId == 24)
             {
                 name = "Wooden Sword";
                 useStyle = 1;
@@ -2020,7 +2020,7 @@ namespace Terraria
                 value = 100;
                 melee = true;
             }
-            else if (type == 25)
+            else if (itemId == 25)
             {
                 name = "Wooden Door";
                 useStyle = 1;
@@ -2034,7 +2034,7 @@ namespace Terraria
                 height = 28;
                 value = 200;
             }
-            else if (type == 26)
+            else if (itemId == 26)
             {
                 name = "Stone Wall";
                 useStyle = 1;
@@ -2048,7 +2048,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 27)
+            else if (itemId == 27)
             {
                 name = "Acorn";
                 useTurn = true;
@@ -2062,7 +2062,7 @@ namespace Terraria
                 height = 18;
                 value = 10;
             }
-            else if (type == 28)
+            else if (itemId == 28)
             {
                 name = "Lesser Healing Potion";
                 useSound = 3;
@@ -2078,7 +2078,7 @@ namespace Terraria
                 potion = true;
                 value = 300;
             }
-            else if (type == 29)
+            else if (itemId == 29)
             {
                 name = "Life Crystal";
                 maxStack = 99;
@@ -2093,7 +2093,7 @@ namespace Terraria
                 rare = 2;
                 value = 75000;
             }
-            else if (type == 30)
+            else if (itemId == 30)
             {
                 name = "Dirt Wall";
                 useStyle = 1;
@@ -2107,7 +2107,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 31)
+            else if (itemId == 31)
             {
                 name = "Bottle";
                 useStyle = 1;
@@ -2122,7 +2122,7 @@ namespace Terraria
                 height = 24;
                 value = 20;
             }
-            else if (type == 32)
+            else if (itemId == 32)
             {
                 name = "Wooden Table";
                 useStyle = 1;
@@ -2137,7 +2137,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 33)
+            else if (itemId == 33)
             {
                 name = "Furnace";
                 useStyle = 1;
@@ -2153,7 +2153,7 @@ namespace Terraria
                 value = 300;
                 toolTip = "Used for smelting ore";
             }
-            else if (type == 34)
+            else if (itemId == 34)
             {
                 name = "Wooden Chair";
                 useStyle = 1;
@@ -2168,7 +2168,7 @@ namespace Terraria
                 height = 30;
                 value = 150;
             }
-            else if (type == 35)
+            else if (itemId == 35)
             {
                 name = "Iron Anvil";
                 useStyle = 1;
@@ -2184,7 +2184,7 @@ namespace Terraria
                 value = 5000;
                 toolTip = "Used to craft items from metal bars";
             }
-            else if (type == 36)
+            else if (itemId == 36)
             {
                 name = "Work Bench";
                 useStyle = 1;
@@ -2200,7 +2200,7 @@ namespace Terraria
                 value = 150;
                 toolTip = "Used for basic crafting";
             }
-            else if (type == 37)
+            else if (itemId == 37)
             {
                 name = "Goggles";
                 width = 28;
@@ -2209,7 +2209,7 @@ namespace Terraria
                 headSlot = 10;
                 value = 1000;
             }
-            else if (type == 38)
+            else if (itemId == 38)
             {
                 name = "Lens";
                 width = 12;
@@ -2217,7 +2217,7 @@ namespace Terraria
                 maxStack = 99;
                 value = 500;
             }
-            else if (type == 39)
+            else if (itemId == 39)
             {
                 useStyle = 5;
                 useAnimation = 30;
@@ -2234,7 +2234,7 @@ namespace Terraria
                 value = 100;
                 ranged = true;
             }
-            else if (type == 40)
+            else if (itemId == 40)
             {
                 name = "Wooden Arrow";
                 shootSpeed = 3f;
@@ -2249,7 +2249,7 @@ namespace Terraria
                 value = 5;
                 ranged = true;
             }
-            else if (type == 41)
+            else if (itemId == 41)
             {
                 name = "Flaming Arrow";
                 shootSpeed = 3.5f;
@@ -2264,7 +2264,7 @@ namespace Terraria
                 value = 10;
                 ranged = true;
             }
-            else if (type == 42)
+            else if (itemId == 42)
             {
                 useStyle = 1;
                 name = "Shuriken";
@@ -2283,7 +2283,7 @@ namespace Terraria
                 value = 15;
                 thrown = true;
             }
-            else if (type == 43)
+            else if (itemId == 43)
             {
                 useStyle = 4;
                 name = "Suspicious Looking Eye";
@@ -2295,7 +2295,7 @@ namespace Terraria
                 maxStack = 20;
                 toolTip = "Summons the Eye of Cthulhu";
             }
-            else if (type == 44)
+            else if (itemId == 44)
             {
                 useStyle = 5;
                 useAnimation = 25;
@@ -2315,7 +2315,7 @@ namespace Terraria
                 value = 18000;
                 ranged = true;
             }
-            else if (type == 45)
+            else if (itemId == 45)
             {
                 name = "War Axe of the Night";
                 autoReuse = true;
@@ -2333,7 +2333,7 @@ namespace Terraria
                 value = 13500;
                 melee = true;
             }
-            else if (type == 46)
+            else if (itemId == 46)
             {
                 name = "Light's Bane";
                 useStyle = 1;
@@ -2348,7 +2348,7 @@ namespace Terraria
                 value = 13500;
                 melee = true;
             }
-            else if (type == 47)
+            else if (itemId == 47)
             {
                 name = "Unholy Arrow";
                 shootSpeed = 3.4f;
@@ -2365,7 +2365,7 @@ namespace Terraria
                 value = 40;
                 ranged = true;
             }
-            else if (type == 48)
+            else if (itemId == 48)
             {
                 name = "Chest";
                 useStyle = 1;
@@ -2380,7 +2380,7 @@ namespace Terraria
                 height = 22;
                 value = 500;
             }
-            else if (type == 49)
+            else if (itemId == 49)
             {
                 name = "Band of Regeneration";
                 width = 22;
@@ -2392,7 +2392,7 @@ namespace Terraria
                 value = 50000;
                 handOnSlot = 2;
             }
-            else if (type == 50)
+            else if (itemId == 50)
             {
                 name = "Magic Mirror";
                 useTurn = true;
@@ -2406,7 +2406,7 @@ namespace Terraria
                 rare = 1;
                 value = 50000;
             }
-            else if (type == 51)
+            else if (itemId == 51)
             {
                 name = "Jester's Arrow";
                 shootSpeed = 0.5f;
@@ -2422,9 +2422,9 @@ namespace Terraria
                 value = 100;
                 ranged = true;
             }
-            else if (type == 52)
+            else if (itemId == 52)
             {
-                type = 52;
+                itemId = 52;
                 name = "Angel Statue";
                 useStyle = 1;
                 useTurn = true;
@@ -2439,7 +2439,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 1;
             }
-            else if (type == 53)
+            else if (itemId == 53)
             {
                 name = "Cloud in a Bottle";
                 width = 16;
@@ -2450,7 +2450,7 @@ namespace Terraria
                 value = 50000;
                 waistSlot = 1;
             }
-            else if (type == 54)
+            else if (itemId == 54)
             {
                 name = "Hermes Boots";
                 width = 28;
@@ -2461,7 +2461,7 @@ namespace Terraria
                 value = 50000;
                 shoeSlot = 6;
             }
-            else if (type == 55)
+            else if (itemId == 55)
             {
                 noMelee = true;
                 useStyle = 1;
@@ -2480,7 +2480,7 @@ namespace Terraria
                 value = 50000;
                 melee = true;
             }
-            else if (type == 56)
+            else if (itemId == 56)
             {
                 name = "Demonite Ore";
                 useStyle = 1;
@@ -2497,7 +2497,7 @@ namespace Terraria
                 toolTip = "'Pulsing with dark energy'";
                 value = 4000;
             }
-            else if (type == 57)
+            else if (itemId == 57)
             {
                 name = "Demonite Bar";
                 width = 20;
@@ -2515,13 +2515,13 @@ namespace Terraria
                 createTile = 239;
                 placeStyle = 8;
             }
-            else if (type == 58)
+            else if (itemId == 58)
             {
                 name = "Heart";
                 width = 12;
                 height = 12;
             }
-            else if (type == 59)
+            else if (itemId == 59)
             {
                 name = "Corrupt Seeds";
                 useTurn = true;
@@ -2536,7 +2536,7 @@ namespace Terraria
                 value = 500;
                 autoReuse = true;
             }
-            else if (type == 60)
+            else if (itemId == 60)
             {
                 name = "Vile Mushroom";
                 width = 16;
@@ -2544,7 +2544,7 @@ namespace Terraria
                 maxStack = 99;
                 value = 50;
             }
-            else if (type == 61)
+            else if (itemId == 61)
             {
                 name = "Ebonstone Block";
                 useStyle = 1;
@@ -2558,7 +2558,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 62)
+            else if (itemId == 62)
             {
                 name = "Grass Seeds";
                 useTurn = true;
@@ -2573,7 +2573,7 @@ namespace Terraria
                 value = 20;
                 autoReuse = true;
             }
-            else if (type == 63)
+            else if (itemId == 63)
             {
                 name = "Sunflower";
                 useTurn = true;
@@ -2587,7 +2587,7 @@ namespace Terraria
                 height = 26;
                 value = 200;
             }
-            else if (type == 64)
+            else if (itemId == 64)
             {
                 mana = 10;
                 damage = 10;
@@ -2607,7 +2607,7 @@ namespace Terraria
                 value = 10000;
                 magic = true;
             }
-            else if (type == 65)
+            else if (itemId == 65)
             {
                 knockBack = 5f;
                 alpha = 100;
@@ -2629,7 +2629,7 @@ namespace Terraria
                 value = 50000;
                 melee = true;
             }
-            else if (type == 66)
+            else if (itemId == 66)
             {
                 useStyle = 1;
                 name = "Purification Powder";
@@ -2646,7 +2646,7 @@ namespace Terraria
                 toolTip = "Cleanses the corruption";
                 value = 75;
             }
-            else if (type == 67)
+            else if (itemId == 67)
             {
                 damage = 0;
                 useStyle = 1;
@@ -2664,7 +2664,7 @@ namespace Terraria
                 value = 100;
                 toolTip = "Removes the Hallow";
             }
-            else if (type == 68)
+            else if (itemId == 68)
             {
                 name = "Rotten Chunk";
                 width = 18;
@@ -2673,7 +2673,7 @@ namespace Terraria
                 toolTip = "'Looks tasty!'";
                 value = 10;
             }
-            else if (type == 69)
+            else if (itemId == 69)
             {
                 name = "Worm Tooth";
                 width = 8;
@@ -2681,7 +2681,7 @@ namespace Terraria
                 maxStack = 99;
                 value = 100;
             }
-            else if (type == 70)
+            else if (itemId == 70)
             {
                 useStyle = 4;
                 consumable = true;
@@ -2693,7 +2693,7 @@ namespace Terraria
                 maxStack = 20;
                 toolTip = "Summons the Eater of Worlds";
             }
-            else if (type == 71)
+            else if (itemId == 71)
             {
                 name = "Copper Coin";
                 width = 10;
@@ -2715,7 +2715,7 @@ namespace Terraria
                 createTile = 330;
                 noMelee = true;
             }
-            else if (type == 72)
+            else if (itemId == 72)
             {
                 name = "Silver Coin";
                 width = 10;
@@ -2737,7 +2737,7 @@ namespace Terraria
                 createTile = 331;
                 noMelee = true;
             }
-            else if (type == 73)
+            else if (itemId == 73)
             {
                 name = "Gold Coin";
                 width = 10;
@@ -2759,7 +2759,7 @@ namespace Terraria
                 createTile = 332;
                 noMelee = true;
             }
-            else if (type == 74)
+            else if (itemId == 74)
             {
                 name = "Platinum Coin";
                 width = 12;
@@ -2781,7 +2781,7 @@ namespace Terraria
                 createTile = 333;
                 noMelee = true;
             }
-            else if (type == 75)
+            else if (itemId == 75)
             {
                 name = "Fallen Star";
                 width = 18;
@@ -2799,7 +2799,7 @@ namespace Terraria
                 consumable = true;
                 rare = 1;
             }
-            else if (type == 76)
+            else if (itemId == 76)
             {
                 name = "Copper Greaves";
                 width = 18;
@@ -2808,7 +2808,7 @@ namespace Terraria
                 legSlot = 1;
                 value = 750;
             }
-            else if (type == 77)
+            else if (itemId == 77)
             {
                 name = "Iron Greaves";
                 width = 18;
@@ -2817,7 +2817,7 @@ namespace Terraria
                 legSlot = 2;
                 value = 3000;
             }
-            else if (type == 78)
+            else if (itemId == 78)
             {
                 name = "Silver Greaves";
                 width = 18;
@@ -2826,7 +2826,7 @@ namespace Terraria
                 legSlot = 3;
                 value = 7500;
             }
-            else if (type == 79)
+            else if (itemId == 79)
             {
                 name = "Gold Greaves";
                 width = 18;
@@ -2835,7 +2835,7 @@ namespace Terraria
                 legSlot = 4;
                 value = 15000;
             }
-            else if (type == 80)
+            else if (itemId == 80)
             {
                 name = "Copper Chainmail";
                 width = 18;
@@ -2844,7 +2844,7 @@ namespace Terraria
                 bodySlot = 1;
                 value = 1000;
             }
-            else if (type == 81)
+            else if (itemId == 81)
             {
                 name = "Iron Chainmail";
                 width = 18;
@@ -2853,7 +2853,7 @@ namespace Terraria
                 bodySlot = 2;
                 value = 4000;
             }
-            else if (type == 82)
+            else if (itemId == 82)
             {
                 name = "Silver Chainmail";
                 width = 18;
@@ -2862,7 +2862,7 @@ namespace Terraria
                 bodySlot = 3;
                 value = 10000;
             }
-            else if (type == 83)
+            else if (itemId == 83)
             {
                 name = "Gold Chainmail";
                 width = 18;
@@ -2871,7 +2871,7 @@ namespace Terraria
                 bodySlot = 4;
                 value = 20000;
             }
-            else if (type == 84)
+            else if (itemId == 84)
             {
                 noUseGraphic = true;
                 damage = 0;
@@ -2890,7 +2890,7 @@ namespace Terraria
                 value = 20000;
                 toolTip = "'Get over here!'";
             }
-            else if (type == 85)
+            else if (itemId == 85)
             {
                 name = "Chain";
                 useStyle = 1;
@@ -2907,7 +2907,7 @@ namespace Terraria
                 tileBoost += 3;
                 toolTip = "Can be climbed on";
             }
-            else if (type == 86)
+            else if (itemId == 86)
             {
                 name = "Shadow Scale";
                 width = 14;
@@ -2916,7 +2916,7 @@ namespace Terraria
                 rare = 1;
                 value = 500;
             }
-            else if (type == 87)
+            else if (itemId == 87)
             {
                 name = "Piggy Bank";
                 useStyle = 1;
@@ -2931,7 +2931,7 @@ namespace Terraria
                 height = 12;
                 value = 10000;
             }
-            else if (type == 88)
+            else if (itemId == 88)
             {
                 name = "Mining Helmet";
                 width = 22;
@@ -2942,7 +2942,7 @@ namespace Terraria
                 value = buyPrice(0, 4, 0, 0);
                 toolTip = "Provides light when worn";
             }
-            else if (type == 89)
+            else if (itemId == 89)
             {
                 name = "Copper Helmet";
                 width = 18;
@@ -2951,7 +2951,7 @@ namespace Terraria
                 headSlot = 1;
                 value = 1250;
             }
-            else if (type == 90)
+            else if (itemId == 90)
             {
                 name = "Iron Helmet";
                 width = 18;
@@ -2960,7 +2960,7 @@ namespace Terraria
                 headSlot = 2;
                 value = 5000;
             }
-            else if (type == 91)
+            else if (itemId == 91)
             {
                 name = "Silver Helmet";
                 width = 18;
@@ -2969,7 +2969,7 @@ namespace Terraria
                 headSlot = 3;
                 value = 12500;
             }
-            else if (type == 92)
+            else if (itemId == 92)
             {
                 name = "Gold Helmet";
                 width = 18;
@@ -2978,7 +2978,7 @@ namespace Terraria
                 headSlot = 4;
                 value = 25000;
             }
-            else if (type == 93)
+            else if (itemId == 93)
             {
                 name = "Wood Wall";
                 useStyle = 1;
@@ -2992,7 +2992,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 94)
+            else if (itemId == 94)
             {
                 name = "Wood Platform";
                 useStyle = 1;
@@ -3006,7 +3006,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 95)
+            else if (itemId == 95)
             {
                 useStyle = 5;
                 useAnimation = 16;
@@ -3025,7 +3025,7 @@ namespace Terraria
                 rare = 1;
                 ranged = true;
             }
-            else if (type == 96)
+            else if (itemId == 96)
             {
                 useStyle = 5;
                 autoReuse = true;
@@ -3046,7 +3046,7 @@ namespace Terraria
                 ranged = true;
                 crit = 7;
             }
-            else if (type == 97)
+            else if (itemId == 97)
             {
                 name = "Musket Ball";
                 shootSpeed = 4f;
@@ -3061,7 +3061,7 @@ namespace Terraria
                 value = 7;
                 ranged = true;
             }
-            else if (type == 98)
+            else if (itemId == 98)
             {
                 useStyle = 5;
                 autoReuse = true;
@@ -3082,7 +3082,7 @@ namespace Terraria
                 toolTip2 = "'Half shark, half gun, completely awesome.'";
                 ranged = true;
             }
-            else if (type == 99)
+            else if (itemId == 99)
             {
                 useStyle = 5;
                 useAnimation = 28;
@@ -3099,7 +3099,7 @@ namespace Terraria
                 value = 1400;
                 ranged = true;
             }
-            else if (type == 100)
+            else if (itemId == 100)
             {
                 name = "Shadow Greaves";
                 width = 18;
@@ -3110,7 +3110,7 @@ namespace Terraria
                 value = 22500;
                 toolTip = "7% increased melee speed";
             }
-            else if (type == 101)
+            else if (itemId == 101)
             {
                 name = "Shadow Scalemail";
                 width = 18;
@@ -3121,7 +3121,7 @@ namespace Terraria
                 value = 30000;
                 toolTip = "7% increased melee speed";
             }
-            else if (type == 102)
+            else if (itemId == 102)
             {
                 name = "Shadow Helmet";
                 width = 18;
@@ -3132,7 +3132,7 @@ namespace Terraria
                 value = 37500;
                 toolTip = "7% increased melee speed";
             }
-            else if (type == 103)
+            else if (itemId == 103)
             {
                 name = "Nightmare Pickaxe";
                 useStyle = 1;
@@ -3152,7 +3152,7 @@ namespace Terraria
                 toolTip = "Able to mine Hellstone";
                 melee = true;
             }
-            else if (type == 104)
+            else if (itemId == 104)
             {
                 name = "The Breaker";
                 autoReuse = true;
@@ -3170,7 +3170,7 @@ namespace Terraria
                 value = 15000;
                 melee = true;
             }
-            else if (type == 105)
+            else if (itemId == 105)
             {
                 flame = true;
                 noWet = true;
@@ -3187,7 +3187,7 @@ namespace Terraria
                 height = 18;
                 holdStyle = 1;
             }
-            else if (type == 106)
+            else if (itemId == 106)
             {
                 name = "Copper Chandelier";
                 useStyle = 1;
@@ -3202,7 +3202,7 @@ namespace Terraria
                 height = 26;
                 value = 3000;
             }
-            else if (type == 107)
+            else if (itemId == 107)
             {
                 name = "Silver Chandelier";
                 useStyle = 1;
@@ -3218,7 +3218,7 @@ namespace Terraria
                 height = 26;
                 value = 12000;
             }
-            else if (type == 108)
+            else if (itemId == 108)
             {
                 name = "Gold Chandelier";
                 useStyle = 1;
@@ -3234,7 +3234,7 @@ namespace Terraria
                 height = 26;
                 value = 24000;
             }
-            else if (type == 109)
+            else if (itemId == 109)
             {
                 name = "Mana Crystal";
                 maxStack = 99;
@@ -3248,7 +3248,7 @@ namespace Terraria
                 toolTip = "Permanently increases maximum mana by 20";
                 rare = 2;
             }
-            else if (type == 110)
+            else if (itemId == 110)
             {
                 name = "Lesser Mana Potion";
                 useSound = 3;
@@ -3263,7 +3263,7 @@ namespace Terraria
                 height = 24;
                 value = buyPrice(0, 0, 1, 0);
             }
-            else if (type == 111)
+            else if (itemId == 111)
             {
                 name = "Band of Starpower";
                 width = 22;
@@ -3274,7 +3274,7 @@ namespace Terraria
                 value = 50000;
                 handOnSlot = 3;
             }
-            else if (type == 112)
+            else if (itemId == 112)
             {
                 mana = 15;
                 damage = 48;
@@ -3294,7 +3294,7 @@ namespace Terraria
                 value = 10000;
                 magic = true;
             }
-            else if (type == 113)
+            else if (itemId == 113)
             {
                 mana = 10;
                 channel = true;
@@ -3315,7 +3315,7 @@ namespace Terraria
                 value = 10000;
                 magic = true;
             }
-            else if (type == 114)
+            else if (itemId == 114)
             {
                 channel = true;
                 knockBack = 5f;
@@ -3332,7 +3332,7 @@ namespace Terraria
                 toolTip = "Magically moves dirt";
                 value = buyPrice(0, 5, 0, 0);
             }
-            else if (type == 115)
+            else if (itemId == 115)
             {
                 channel = true;
                 damage = 0;
@@ -3350,7 +3350,7 @@ namespace Terraria
                 value = 10000;
                 buffType = 19;
             }
-            else if (type == 116)
+            else if (itemId == 116)
             {
                 name = "Meteorite";
                 useStyle = 1;
@@ -3365,7 +3365,7 @@ namespace Terraria
                 height = 12;
                 value = 1000;
             }
-            else if (type == 117)
+            else if (itemId == 117)
             {
                 name = "Meteorite Bar";
                 width = 20;
@@ -3383,7 +3383,7 @@ namespace Terraria
                 createTile = 239;
                 placeStyle = 9;
             }
-            else if (type == 118)
+            else if (itemId == 118)
             {
                 name = "Hook";
                 maxStack = 99;
@@ -3392,7 +3392,7 @@ namespace Terraria
                 value = 1000;
                 toolTip = "Sometimes dropped by Skeletons and Piranha";
             }
-            else if (type == 119)
+            else if (itemId == 119)
             {
                 noMelee = true;
                 useStyle = 1;
@@ -3411,7 +3411,7 @@ namespace Terraria
                 value = 100000;
                 melee = true;
             }
-            else if (type == 120)
+            else if (itemId == 120)
             {
                 useStyle = 5;
                 useAnimation = 22;
@@ -3433,7 +3433,7 @@ namespace Terraria
                 toolTip = "Lights wooden arrows ablaze";
                 ranged = true;
             }
-            else if (type == 121)
+            else if (itemId == 121)
             {
                 name = "Fiery Greatsword";
                 useStyle = 1;
@@ -3449,7 +3449,7 @@ namespace Terraria
                 toolTip = "'It's made out of fire!'";
                 melee = true;
             }
-            if (type == 122)
+            if (itemId == 122)
             {
                 name = "Molten Pickaxe";
                 useStyle = 1;
@@ -3468,7 +3468,7 @@ namespace Terraria
                 value = 27000;
                 melee = true;
             }
-            else if (type == 123)
+            else if (itemId == 123)
             {
                 name = "Meteor Helmet";
                 width = 18;
@@ -3479,7 +3479,7 @@ namespace Terraria
                 value = 45000;
                 toolTip = "7% increased magic damage";
             }
-            else if (type == 124)
+            else if (itemId == 124)
             {
                 name = "Meteor Suit";
                 width = 18;
@@ -3490,7 +3490,7 @@ namespace Terraria
                 value = 30000;
                 toolTip = "7% increased magic damage";
             }
-            else if (type == 125)
+            else if (itemId == 125)
             {
                 name = "Meteor Leggings";
                 width = 18;
@@ -3501,7 +3501,7 @@ namespace Terraria
                 value = 30000;
                 toolTip = "7% increased magic damage";
             }
-            else if (type == 126)
+            else if (itemId == 126)
             {
                 name = "Bottled Water";
                 useSound = 3;
@@ -3517,7 +3517,7 @@ namespace Terraria
                 potion = true;
                 value = 20;
             }
-            else if (type == (int)127)
+            else if (itemId == (int)127)
             {
                 autoReuse = true;
                 useStyle = 5;
@@ -3538,7 +3538,7 @@ namespace Terraria
                 magic = true;
                 value = 20000;
             }
-            else if (type == 128)
+            else if (itemId == 128)
             {
                 name = "Rocket Boots";
                 width = 28;
@@ -3549,7 +3549,7 @@ namespace Terraria
                 value = 50000;
                 shoeSlot = 12;
             }
-            else if (type == 129)
+            else if (itemId == 129)
             {
                 name = "Gray Brick";
                 useStyle = 1;
@@ -3563,7 +3563,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 130)
+            else if (itemId == 130)
             {
                 name = "Gray Brick Wall";
                 useStyle = 1;
@@ -3577,7 +3577,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 131)
+            else if (itemId == 131)
             {
                 name = "Red Brick";
                 useStyle = 1;
@@ -3591,7 +3591,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 132)
+            else if (itemId == 132)
             {
                 name = "Red Brick Wall";
                 useStyle = 1;
@@ -3605,7 +3605,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 133)
+            else if (itemId == 133)
             {
                 name = "Clay Block";
                 useStyle = 1;
@@ -3619,7 +3619,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 134)
+            else if (itemId == 134)
             {
                 name = "Blue Brick";
                 useStyle = 1;
@@ -3633,7 +3633,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 135)
+            else if (itemId == 135)
             {
                 name = "Blue Brick Wall";
                 useStyle = 1;
@@ -3647,7 +3647,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 136)
+            else if (itemId == 136)
             {
                 name = "Chain Lantern";
                 useStyle = 1;
@@ -3661,7 +3661,7 @@ namespace Terraria
                 width = 12;
                 height = 28;
             }
-            else if (type == 137)
+            else if (itemId == 137)
             {
                 name = "Green Brick";
                 useStyle = 1;
@@ -3675,7 +3675,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 138)
+            else if (itemId == 138)
             {
                 name = "Green Brick Wall";
                 useStyle = 1;
@@ -3689,7 +3689,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 139)
+            else if (itemId == 139)
             {
                 name = "Pink Brick";
                 useStyle = 1;
@@ -3703,7 +3703,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 140)
+            else if (itemId == 140)
             {
                 name = "Pink Brick Wall";
                 useStyle = 1;
@@ -3717,7 +3717,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 141)
+            else if (itemId == 141)
             {
                 name = "Gold Brick";
                 useStyle = 1;
@@ -3731,7 +3731,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 142)
+            else if (itemId == 142)
             {
                 name = "Gold Brick Wall";
                 useStyle = 1;
@@ -3745,7 +3745,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 143)
+            else if (itemId == 143)
             {
                 name = "Silver Brick";
                 useStyle = 1;
@@ -3759,7 +3759,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 144)
+            else if (itemId == 144)
             {
                 name = "Silver Brick Wall";
                 useStyle = 1;
@@ -3773,7 +3773,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 145)
+            else if (itemId == 145)
             {
                 name = "Copper Brick";
                 useStyle = 1;
@@ -3787,7 +3787,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 146)
+            else if (itemId == 146)
             {
                 name = "Copper Brick Wall";
                 useStyle = 1;
@@ -3801,7 +3801,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 147)
+            else if (itemId == 147)
             {
                 name = "Spike";
                 useStyle = 1;
@@ -3815,7 +3815,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 148)
+            else if (itemId == 148)
             {
                 flame = true;
                 noWet = true;
@@ -3834,7 +3834,7 @@ namespace Terraria
                 toolTip = "Holding this may attract unwanted attention";
                 rare = 1;
             }
-            else if (type == 149)
+            else if (itemId == 149)
             {
                 name = "Book";
                 useStyle = 1;
@@ -3850,7 +3850,7 @@ namespace Terraria
                 toolTip = "'It contains strange symbols'";
                 value = sellPrice(0, 0, 0, 75);
             }
-            else if (type == 150)
+            else if (itemId == 150)
             {
                 name = "Cobweb";
                 useStyle = 1;
@@ -3865,7 +3865,7 @@ namespace Terraria
                 height = 24;
                 alpha = 100;
             }
-            else if (type == 151)
+            else if (itemId == 151)
             {
                 name = "Necro Helmet";
                 width = 18;
@@ -3876,7 +3876,7 @@ namespace Terraria
                 value = 45000;
                 toolTip = "4% increased ranged damage.";
             }
-            else if (type == 152)
+            else if (itemId == 152)
             {
                 name = "Necro Breastplate";
                 width = 18;
@@ -3887,7 +3887,7 @@ namespace Terraria
                 value = 30000;
                 toolTip = "4% increased ranged damage.";
             }
-            else if (type == 153)
+            else if (itemId == 153)
             {
                 name = "Necro Greaves";
                 width = 18;
@@ -3898,7 +3898,7 @@ namespace Terraria
                 value = 30000;
                 toolTip = "4% increased ranged damage.";
             }
-            else if (type == 154)
+            else if (itemId == 154)
             {
                 name = "Bone";
                 maxStack = 999;
@@ -3919,7 +3919,7 @@ namespace Terraria
                 ammo = 154;
                 notAmmo = false;
             }
-            else if (type == 155)
+            else if (itemId == 155)
             {
                 autoReuse = true;
                 useTurn = true;
@@ -3936,7 +3936,7 @@ namespace Terraria
                 knockBack = 2.5f;
                 melee = true;
             }
-            else if (type == 156)
+            else if (itemId == 156)
             {
                 name = "Cobalt Shield";
                 width = 24;
@@ -3948,7 +3948,7 @@ namespace Terraria
                 toolTip = "Grants immunity to knockback";
                 shieldSlot = 1;
             }
-            else if (type == 157)
+            else if (itemId == 157)
             {
                 mana = 6;
                 autoReuse = true;
@@ -3969,7 +3969,7 @@ namespace Terraria
                 toolTip = "Sprays out a shower of water";
                 magic = true;
             }
-            else if (type == 158)
+            else if (itemId == 158)
             {
                 name = "Lucky Horseshoe";
                 width = 20;
@@ -3979,7 +3979,7 @@ namespace Terraria
                 accessory = true;
                 toolTip = "Negates fall damage";
             }
-            else if (type == 159)
+            else if (itemId == 159)
             {
                 name = "Shiny Red Balloon";
                 width = 14;
@@ -3990,7 +3990,7 @@ namespace Terraria
                 toolTip = "Increases jump height";
                 balloonSlot = 8;
             }
-            else if (type == 160)
+            else if (itemId == 160)
             {
                 autoReuse = true;
                 noMelee = true;
@@ -4010,7 +4010,7 @@ namespace Terraria
                 value = 27000;
                 ranged = true;
             }
-            else if (type == 161)
+            else if (itemId == 161)
             {
                 useStyle = 1;
                 name = "Spiky Ball";
@@ -4030,7 +4030,7 @@ namespace Terraria
                 value = 80;
                 thrown = true;
             }
-            else if (type == 162)
+            else if (itemId == 162)
             {
                 name = "Ball O' Hurt";
                 useStyle = 5;
@@ -4051,7 +4051,7 @@ namespace Terraria
                 channel = true;
                 noMelee = true;
             }
-            else if (type == 163)
+            else if (itemId == 163)
             {
                 name = "Blue Moon";
                 noMelee = true;
@@ -4072,7 +4072,7 @@ namespace Terraria
                 melee = true;
                 channel = true;
             }
-            else if (type == 164)
+            else if (itemId == 164)
             {
                 autoReuse = false;
                 useStyle = 5;
@@ -4093,7 +4093,7 @@ namespace Terraria
                 rare = 2;
                 ranged = true;
             }
-            else if (type == 165)
+            else if (itemId == 165)
             {
                 autoReuse = true;
                 rare = 2;
@@ -4114,7 +4114,7 @@ namespace Terraria
                 magic = true;
                 value = 50000;
             }
-            else if (type == 166)
+            else if (itemId == 166)
             {
                 useStyle = 1;
                 name = "Bomb";
@@ -4133,7 +4133,7 @@ namespace Terraria
                 damage = 0;
                 toolTip = "A small explosion that will destroy some tiles";
             }
-            else if (type == 167)
+            else if (itemId == 167)
             {
                 useStyle = 1;
                 name = "Dynamite";
@@ -4152,7 +4152,7 @@ namespace Terraria
                 rare = 1;
                 toolTip = "A large explosion that will destroy most tiles";
             }
-            else if (type == 168)
+            else if (itemId == 168)
             {
                 useStyle = 5;
                 name = "Grenade";
@@ -4173,7 +4173,7 @@ namespace Terraria
                 toolTip = "A small explosion that will not destroy tiles";
                 thrown = true;
             }
-            else if (type == 169)
+            else if (itemId == 169)
             {
                 name = "Sand Block";
                 useStyle = 1;
@@ -4188,7 +4188,7 @@ namespace Terraria
                 height = 12;
                 ammo = 42;
             }
-            else if (type == 170)
+            else if (itemId == 170)
             {
                 name = "Glass";
                 useStyle = 1;
@@ -4202,7 +4202,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 171)
+            else if (itemId == 171)
             {
                 name = "Sign";
                 useStyle = 1;
@@ -4216,7 +4216,7 @@ namespace Terraria
                 width = 28;
                 height = 28;
             }
-            else if (type == 172)
+            else if (itemId == 172)
             {
                 name = "Ash Block";
                 useStyle = 1;
@@ -4230,7 +4230,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 173)
+            else if (itemId == 173)
             {
                 name = "Obsidian";
                 useStyle = 1;
@@ -4244,7 +4244,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 174)
+            else if (itemId == 174)
             {
                 name = "Hellstone";
                 useStyle = 1;
@@ -4259,7 +4259,7 @@ namespace Terraria
                 height = 12;
                 rare = 2;
             }
-            else if (type == 175)
+            else if (itemId == 175)
             {
                 name = "Hellstone Bar";
                 width = 20;
@@ -4277,7 +4277,7 @@ namespace Terraria
                 createTile = 239;
                 placeStyle = 10;
             }
-            else if (type == 176)
+            else if (itemId == 176)
             {
                 name = "Mud Block";
                 useStyle = 1;
@@ -4291,7 +4291,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 181)
+            else if (itemId == 181)
             {
                 name = "Amethyst";
                 createTile = 178;
@@ -4308,7 +4308,7 @@ namespace Terraria
                 height = 14;
                 value = 1875;
             }
-            else if (type == 180)
+            else if (itemId == 180)
             {
                 name = "Topaz";
                 createTile = 178;
@@ -4325,7 +4325,7 @@ namespace Terraria
                 height = 14;
                 value = 3750;
             }
-            else if (type == 177)
+            else if (itemId == 177)
             {
                 name = "Sapphire";
                 createTile = 178;
@@ -4342,7 +4342,7 @@ namespace Terraria
                 height = 14;
                 value = 5625;
             }
-            else if (type == 179)
+            else if (itemId == 179)
             {
                 name = "Emerald";
                 createTile = 178;
@@ -4359,7 +4359,7 @@ namespace Terraria
                 height = 14;
                 value = 7500;
             }
-            else if (type == 178)
+            else if (itemId == 178)
             {
                 name = "Ruby";
                 createTile = 178;
@@ -4376,7 +4376,7 @@ namespace Terraria
                 height = 14;
                 value = 11250;
             }
-            else if (type == 182)
+            else if (itemId == 182)
             {
                 name = "Diamond";
                 createTile = 178;
@@ -4393,7 +4393,7 @@ namespace Terraria
                 height = 14;
                 value = 15000;
             }
-            else if (type == 183)
+            else if (itemId == 183)
             {
                 name = "Glowing Mushroom";
                 width = 16;
@@ -4408,13 +4408,13 @@ namespace Terraria
                 consumable = true;
                 createTile = 190;
             }
-            else if (type == 184)
+            else if (itemId == 184)
             {
                 name = "Star";
                 width = 12;
                 height = 12;
             }
-            else if (type == 185)
+            else if (itemId == 185)
             {
                 noUseGraphic = true;
                 damage = 0;
@@ -4432,7 +4432,7 @@ namespace Terraria
                 noMelee = true;
                 value = 20000;
             }
-            else if (type == 186)
+            else if (itemId == 186)
             {
                 name = "Breathing Reed";
                 width = 44;
@@ -4442,7 +4442,7 @@ namespace Terraria
                 holdStyle = 2;
                 toolTip = "'Because not drowning is kinda nice'";
             }
-            else if (type == 187)
+            else if (itemId == 187)
             {
                 name = "Flipper";
                 width = 28;
@@ -4453,7 +4453,7 @@ namespace Terraria
                 toolTip = "Grants the ability to swim";
                 shoeSlot = 1;
             }
-            else if (type == 188)
+            else if (itemId == 188)
             {
                 name = "Healing Potion";
                 useSound = 3;
@@ -4470,7 +4470,7 @@ namespace Terraria
                 potion = true;
                 value = 1000;
             }
-            else if (type == 189)
+            else if (itemId == 189)
             {
                 name = "Mana Potion";
                 useSound = 3;
@@ -4486,7 +4486,7 @@ namespace Terraria
                 rare = 1;
                 value = buyPrice(0, 0, 2, 50);
             }
-            else if (type == 190)
+            else if (itemId == 190)
             {
                 name = "Blade of Grass";
                 useStyle = 1;
@@ -4501,7 +4501,7 @@ namespace Terraria
                 value = 27000;
                 melee = true;
             }
-            else if (type == 191)
+            else if (itemId == 191)
             {
                 noMelee = true;
                 useStyle = 1;
@@ -4520,7 +4520,7 @@ namespace Terraria
                 value = 50000;
                 melee = true;
             }
-            else if (type == 192)
+            else if (itemId == 192)
             {
                 name = "Obsidian Brick";
                 useStyle = 1;
@@ -4534,7 +4534,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 193)
+            else if (itemId == 193)
             {
                 name = "Obsidian Skull";
                 width = 20;
@@ -4545,7 +4545,7 @@ namespace Terraria
                 defense = 1;
                 toolTip = "Grants immunity to fire blocks";
             }
-            else if (type == 194)
+            else if (itemId == 194)
             {
                 autoReuse = true;
                 name = "Mushroom Grass Seeds";
@@ -4560,7 +4560,7 @@ namespace Terraria
                 height = 14;
                 value = 150;
             }
-            else if (type == 195)
+            else if (itemId == 195)
             {
                 autoReuse = true;
                 name = "Jungle Grass Seeds";
@@ -4575,7 +4575,7 @@ namespace Terraria
                 height = 14;
                 value = 150;
             }
-            else if (type == 196)
+            else if (itemId == 196)
             {
                 name = "Wooden Hammer";
                 autoReuse = true;
@@ -4594,7 +4594,7 @@ namespace Terraria
                 value = 50;
                 melee = true;
             }
-            else if (type == 197)
+            else if (itemId == 197)
             {
                 autoReuse = true;
                 useStyle = 5;
@@ -4614,7 +4614,7 @@ namespace Terraria
                 toolTip = "Shoots fallen stars";
                 ranged = true;
             }
-            else if (type == 198)
+            else if (itemId == 198)
             {
                 name = "Blue Phaseblade";
                 useStyle = 1;
@@ -4629,7 +4629,7 @@ namespace Terraria
                 value = 27000;
                 melee = true;
             }
-            else if (type == 199)
+            else if (itemId == 199)
             {
                 name = "Red Phaseblade";
                 useStyle = 1;
@@ -4644,7 +4644,7 @@ namespace Terraria
                 value = 27000;
                 melee = true;
             }
-            else if (type == 200)
+            else if (itemId == 200)
             {
                 name = "Green Phaseblade";
                 useStyle = 1;
@@ -4659,7 +4659,7 @@ namespace Terraria
                 value = 27000;
                 melee = true;
             }
-            else if (type == 201)
+            else if (itemId == 201)
             {
                 name = "Purple Phaseblade";
                 useStyle = 1;
@@ -4674,7 +4674,7 @@ namespace Terraria
                 value = 27000;
                 melee = true;
             }
-            else if (type == 202)
+            else if (itemId == 202)
             {
                 name = "White Phaseblade";
                 useStyle = 1;
@@ -4689,7 +4689,7 @@ namespace Terraria
                 value = 27000;
                 melee = true;
             }
-            else if (type == 203)
+            else if (itemId == 203)
             {
                 name = "Yellow Phaseblade";
                 useStyle = 1;
@@ -4704,7 +4704,7 @@ namespace Terraria
                 value = 27000;
                 melee = true;
             }
-            else if (type == 204)
+            else if (itemId == 204)
             {
                 name = "Meteor Hamaxe";
                 useTurn = true;
@@ -4724,7 +4724,7 @@ namespace Terraria
                 value = 15000;
                 melee = true;
             }
-            else if (type == 205)
+            else if (itemId == 205)
             {
                 name = "Empty Bucket";
                 useStyle = 1;
@@ -4738,7 +4738,7 @@ namespace Terraria
                 maxStack = 99;
                 autoReuse = true;
             }
-            else if (type == 206)
+            else if (itemId == 206)
             {
                 name = "Water Bucket";
                 useStyle = 1;
@@ -4750,7 +4750,7 @@ namespace Terraria
                 maxStack = 99;
                 autoReuse = true;
             }
-            else if (type == 207)
+            else if (itemId == 207)
             {
                 name = "Lava Bucket";
                 useStyle = 1;
@@ -4762,7 +4762,7 @@ namespace Terraria
                 maxStack = 99;
                 autoReuse = true;
             }
-            else if (type == 208)
+            else if (itemId == 208)
             {
                 name = "Jungle Rose";
                 width = 20;
@@ -4772,7 +4772,7 @@ namespace Terraria
                 toolTip = "'It's pretty, oh so pretty'";
                 vanity = true;
             }
-            else if (type == 209)
+            else if (itemId == 209)
             {
                 name = "Stinger";
                 width = 16;
@@ -4780,7 +4780,7 @@ namespace Terraria
                 maxStack = 99;
                 value = 200;
             }
-            else if (type == 210)
+            else if (itemId == 210)
             {
                 name = "Vine";
                 width = 14;
@@ -4788,7 +4788,7 @@ namespace Terraria
                 maxStack = 99;
                 value = 1000;
             }
-            else if (type == 211)
+            else if (itemId == 211)
             {
                 name = "Feral Claws";
                 width = 20;
@@ -4800,7 +4800,7 @@ namespace Terraria
                 handOnSlot = 5;
                 handOffSlot = 9;
             }
-            else if (type == 212)
+            else if (itemId == 212)
             {
                 name = "Anklet of the Wind";
                 width = 20;
@@ -4810,7 +4810,7 @@ namespace Terraria
                 toolTip = "10% increased movement speed";
                 value = 50000;
             }
-            else if (type == 213)
+            else if (itemId == 213)
             {
                 name = "Staff of Regrowth";
                 useStyle = 1;
@@ -4829,7 +4829,7 @@ namespace Terraria
                 toolTip = "Creates grass on dirt";
                 melee = true;
             }
-            else if (type == 214)
+            else if (itemId == 214)
             {
                 name = "Hellstone Brick";
                 useStyle = 1;
@@ -4843,7 +4843,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 215)
+            else if (itemId == 215)
             {
                 name = "Whoopie Cushion";
                 width = 18;
@@ -4858,7 +4858,7 @@ namespace Terraria
                 toolTip = "'May annoy others'";
                 value = 100;
             }
-            else if (type == 216)
+            else if (itemId == 216)
             {
                 name = "Shackle";
                 width = 20;
@@ -4870,7 +4870,7 @@ namespace Terraria
                 handOffSlot = 7;
                 handOnSlot = 12;
             }
-            else if (type == 217)
+            else if (itemId == 217)
             {
                 name = "Molten Hamaxe";
                 useTurn = true;
@@ -4890,7 +4890,7 @@ namespace Terraria
                 value = 15000;
                 melee = true;
             }
-            else if (type == 218)
+            else if (itemId == 218)
             {
                 mana = 12;
                 channel = true;
@@ -4911,7 +4911,7 @@ namespace Terraria
                 value = 10000;
                 magic = true;
             }
-            else if (type == 219)
+            else if (itemId == 219)
             {
                 autoReuse = false;
                 useStyle = 5;
@@ -4932,7 +4932,7 @@ namespace Terraria
                 rare = 3;
                 ranged = true;
             }
-            else if (type == 220)
+            else if (itemId == 220)
             {
                 name = "Sunfury";
                 noMelee = true;
@@ -4954,7 +4954,7 @@ namespace Terraria
                 melee = true;
                 channel = true;
             }
-            else if (type == 221)
+            else if (itemId == 221)
             {
                 name = "Hellforge";
                 useStyle = 1;
@@ -4969,7 +4969,7 @@ namespace Terraria
                 height = 24;
                 value = 3000;
             }
-            else if (type == 222)
+            else if (itemId == 222)
             {
                 name = "Clay Pot";
                 useStyle = 1;
@@ -4985,7 +4985,7 @@ namespace Terraria
                 value = 100;
                 toolTip = "Grows plants";
             }
-            else if (type == 223)
+            else if (itemId == 223)
             {
                 name = "Nature's Gift";
                 width = 20;
@@ -4996,7 +4996,7 @@ namespace Terraria
                 toolTip = "6% reduced mana usage";
                 faceSlot = 1;
             }
-            else if (type == 224)
+            else if (itemId == 224)
             {
                 name = "Bed";
                 useStyle = 1;
@@ -5010,7 +5010,7 @@ namespace Terraria
                 height = 20;
                 value = 2000;
             }
-            else if (type == 225)
+            else if (itemId == 225)
             {
                 name = "Silk";
                 maxStack = 999;
@@ -5018,9 +5018,9 @@ namespace Terraria
                 height = 22;
                 value = 1000;
             }
-            else if (type == 226 || type == 227)
+            else if (itemId == 226 || itemId == 227)
             {
-                type = 227;
+                itemId = 227;
                 name = "Restoration Potion";
                 useSound = 3;
                 healMana = 80;
@@ -5037,7 +5037,7 @@ namespace Terraria
                 value = 1500;
                 rare = 1;
             }
-            else if (type == 228)
+            else if (itemId == 228)
             {
                 name = "Jungle Hat";
                 width = 18;
@@ -5049,7 +5049,7 @@ namespace Terraria
                 toolTip = "Increases maximum mana by 40";
                 toolTip2 = "4% increased magic critical strike chance";
             }
-            else if (type == 229)
+            else if (itemId == 229)
             {
                 name = "Jungle Shirt";
                 width = 18;
@@ -5061,7 +5061,7 @@ namespace Terraria
                 toolTip = "Increases maximum mana by 20";
                 toolTip2 = "4% increased magic critical strike chance";
             }
-            else if (type == 230)
+            else if (itemId == 230)
             {
                 name = "Jungle Pants";
                 width = 18;
@@ -5073,7 +5073,7 @@ namespace Terraria
                 toolTip = "Increases maximum mana by 20";
                 toolTip2 = "4% increased magic critical strike chance";
             }
-            else if (type == 231)
+            else if (itemId == 231)
             {
                 name = "Molten Helmet";
                 width = 18;
@@ -5083,7 +5083,7 @@ namespace Terraria
                 rare = 3;
                 value = 45000;
             }
-            else if (type == 232)
+            else if (itemId == 232)
             {
                 name = "Molten Breastplate";
                 width = 18;
@@ -5093,7 +5093,7 @@ namespace Terraria
                 rare = 3;
                 value = 30000;
             }
-            else if (type == 233)
+            else if (itemId == 233)
             {
                 name = "Molten Greaves";
                 width = 18;
@@ -5103,7 +5103,7 @@ namespace Terraria
                 rare = 3;
                 value = 30000;
             }
-            else if (type == 234)
+            else if (itemId == 234)
             {
                 name = "Meteor Shot";
                 shootSpeed = 3f;
@@ -5119,7 +5119,7 @@ namespace Terraria
                 rare = 1;
                 ranged = true;
             }
-            else if (type == 235)
+            else if (itemId == 235)
             {
                 useStyle = 1;
                 name = "Sticky Bomb";
@@ -5138,7 +5138,7 @@ namespace Terraria
                 damage = 0;
                 toolTip = "'Tossing may be difficult.'";
             }
-            else if (type == 236)
+            else if (itemId == 236)
             {
                 name = "Black Lens";
                 width = 12;
@@ -5146,7 +5146,7 @@ namespace Terraria
                 maxStack = 99;
                 value = 5000;
             }
-            else if (type == 237)
+            else if (itemId == 237)
             {
                 name = "Sunglasses";
                 width = 28;
@@ -5157,7 +5157,7 @@ namespace Terraria
                 toolTip = "'Makes you look cool!'";
                 vanity = true;
             }
-            else if (type == 238)
+            else if (itemId == 238)
             {
                 name = "Wizard Hat";
                 width = 28;
@@ -5168,7 +5168,7 @@ namespace Terraria
                 defense = 2;
                 toolTip = "15% increased magic damage";
             }
-            else if (type == 239)
+            else if (itemId == 239)
             {
                 name = "Top Hat";
                 width = 18;
@@ -5177,7 +5177,7 @@ namespace Terraria
                 value = 10000;
                 vanity = true;
             }
-            else if (type == 240)
+            else if (itemId == 240)
             {
                 name = "Tuxedo Shirt";
                 width = 18;
@@ -5186,7 +5186,7 @@ namespace Terraria
                 value = 5000;
                 vanity = true;
             }
-            else if (type == 241)
+            else if (itemId == 241)
             {
                 name = "Tuxedo Pants";
                 width = 18;
@@ -5195,7 +5195,7 @@ namespace Terraria
                 value = 5000;
                 vanity = true;
             }
-            else if (type == 242)
+            else if (itemId == 242)
             {
                 name = "Summer Hat";
                 width = 18;
@@ -5204,7 +5204,7 @@ namespace Terraria
                 value = 10000;
                 vanity = true;
             }
-            else if (type == 243)
+            else if (itemId == 243)
             {
                 name = "Bunny Hood";
                 width = 18;
@@ -5213,7 +5213,7 @@ namespace Terraria
                 value = 20000;
                 vanity = true;
             }
-            else if (type == 244)
+            else if (itemId == 244)
             {
                 name = "Plumber's Hat";
                 width = 18;
@@ -5222,7 +5222,7 @@ namespace Terraria
                 value = 10000;
                 vanity = true;
             }
-            else if (type == 245)
+            else if (itemId == 245)
             {
                 name = "Plumber's Shirt";
                 width = 18;
@@ -5231,7 +5231,7 @@ namespace Terraria
                 value = 250000;
                 vanity = true;
             }
-            else if (type == 246)
+            else if (itemId == 246)
             {
                 name = "Plumber's Pants";
                 width = 18;
@@ -5240,7 +5240,7 @@ namespace Terraria
                 value = 250000;
                 vanity = true;
             }
-            else if (type == 247)
+            else if (itemId == 247)
             {
                 name = "Hero's Hat";
                 width = 18;
@@ -5249,7 +5249,7 @@ namespace Terraria
                 value = 10000;
                 vanity = true;
             }
-            else if (type == 248)
+            else if (itemId == 248)
             {
                 name = "Hero's Shirt";
                 width = 18;
@@ -5258,7 +5258,7 @@ namespace Terraria
                 value = 5000;
                 vanity = true;
             }
-            else if (type == 249)
+            else if (itemId == 249)
             {
                 name = "Hero's Pants";
                 width = 18;
@@ -5267,7 +5267,7 @@ namespace Terraria
                 value = 5000;
                 vanity = true;
             }
-            else if (type == 250)
+            else if (itemId == 250)
             {
                 name = "Fish Bowl";
                 width = 18;
@@ -5286,7 +5286,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 251)
+            else if (itemId == 251)
             {
                 name = "Archaeologist's Hat";
                 width = 18;
@@ -5295,7 +5295,7 @@ namespace Terraria
                 value = 10000;
                 vanity = true;
             }
-            else if (type == 252)
+            else if (itemId == 252)
             {
                 name = "Archaeologist's Jacket";
                 width = 18;
@@ -5304,7 +5304,7 @@ namespace Terraria
                 value = 5000;
                 vanity = true;
             }
-            else if (type == 253)
+            else if (itemId == 253)
             {
                 name = "Archaeologist's Pants";
                 width = 18;
@@ -5313,7 +5313,7 @@ namespace Terraria
                 value = 5000;
                 vanity = true;
             }
-            else if (type == 254)
+            else if (itemId == 254)
             {
                 name = "Black Thread";
                 maxStack = 99;
@@ -5321,7 +5321,7 @@ namespace Terraria
                 height = 20;
                 value = 10000;
             }
-            else if (type == (int)255)
+            else if (itemId == (int)255)
             {
                 name = "Green Thread";
                 maxStack = 99;
@@ -5329,7 +5329,7 @@ namespace Terraria
                 height = 20;
                 value = 2000;
             }
-            else if (type == 256)
+            else if (itemId == 256)
             {
                 name = "Ninja Hood";
                 width = 18;
@@ -5340,7 +5340,7 @@ namespace Terraria
                 rare = 1;
                 toolTip = "20% increased throwing velocity";
             }
-            else if (type == 257)
+            else if (itemId == 257)
             {
                 name = "Ninja Shirt";
                 width = 18;
@@ -5351,7 +5351,7 @@ namespace Terraria
                 rare = 1;
                 toolTip = "15% increased throwing damage";
             }
-            else if (type == 258)
+            else if (itemId == 258)
             {
                 name = "Ninja Pants";
                 width = 18;
@@ -5362,7 +5362,7 @@ namespace Terraria
                 rare = 1;
                 toolTip = "10% increased throwing critical strike chance";
             }
-            else if (type == 259)
+            else if (itemId == 259)
             {
                 name = "Leather";
                 width = 18;
@@ -5370,7 +5370,7 @@ namespace Terraria
                 maxStack = 99;
                 value = 50;
             }
-            else if (type == 260)
+            else if (itemId == 260)
             {
                 name = "Red Hat";
                 width = 18;
@@ -5379,7 +5379,7 @@ namespace Terraria
                 value = 1000;
                 vanity = true;
             }
-            else if (type == 261)
+            else if (itemId == 261)
             {
                 name = "Goldfish";
                 useStyle = 1;
@@ -5392,9 +5392,9 @@ namespace Terraria
                 width = 12;
                 height = 12;
                 noUseGraphic = true;
-                makeNPC = (short)55;
+                makeNPC = 55;
             }
-            else if (type == 262)
+            else if (itemId == 262)
             {
                 name = "Robe";
                 width = 18;
@@ -5403,7 +5403,7 @@ namespace Terraria
                 value = 2000;
                 vanity = true;
             }
-            else if (type == 263)
+            else if (itemId == 263)
             {
                 name = "Robot Hat";
                 width = 18;
@@ -5412,7 +5412,7 @@ namespace Terraria
                 value = 10000;
                 vanity = true;
             }
-            else if (type == 264)
+            else if (itemId == 264)
             {
                 name = "Gold Crown";
                 width = 18;
@@ -5421,7 +5421,7 @@ namespace Terraria
                 value = 10000;
                 vanity = true;
             }
-            else if (type == 265)
+            else if (itemId == 265)
             {
                 name = "Hellfire Arrow";
                 shootSpeed = 6.5f;
@@ -5437,7 +5437,7 @@ namespace Terraria
                 rare = 2;
                 ranged = true;
             }
-            else if (type == 266)
+            else if (itemId == 266)
             {
                 useStyle = 5;
                 useAnimation = 16;
@@ -5458,7 +5458,7 @@ namespace Terraria
                 toolTip = "'This is a good idea!'";
                 ranged = true;
             }
-            else if (type == 267)
+            else if (itemId == 267)
             {
                 accessory = true;
                 name = "Guide Voodoo Doll";
@@ -5467,7 +5467,7 @@ namespace Terraria
                 value = 1000;
                 toolTip = "'You are a terrible person.'";
             }
-            else if (type == 268)
+            else if (itemId == 268)
             {
                 headSlot = 27;
                 defense = 2;
@@ -5478,7 +5478,7 @@ namespace Terraria
                 rare = 2;
                 toolTip = "Greatly extends underwater breathing";
             }
-            else if (type == 269)
+            else if (itemId == 269)
             {
                 name = "Familiar Shirt";
                 bodySlot = 0;
@@ -5488,7 +5488,7 @@ namespace Terraria
                 color = Main.player[Main.myPlayer].shirtColor;
                 vanity = true;
             }
-            else if (type == 270)
+            else if (itemId == 270)
             {
                 name = "Familiar Pants";
                 legSlot = 0;
@@ -5498,7 +5498,7 @@ namespace Terraria
                 color = Main.player[Main.myPlayer].pantsColor;
                 vanity = true;
             }
-            else if (type == 271)
+            else if (itemId == 271)
             {
                 name = "Familiar Wig";
                 headSlot = 0;
@@ -5508,7 +5508,7 @@ namespace Terraria
                 color = Main.player[Main.myPlayer].hairColor;
                 vanity = true;
             }
-            else if (type == 272)
+            else if (itemId == 272)
             {
                 mana = 14;
                 damage = 35;
@@ -5529,7 +5529,7 @@ namespace Terraria
                 value = 10000;
                 magic = true;
             }
-            else if (type == 273)
+            else if (itemId == 273)
             {
                 name = "Night's Edge";
                 useStyle = 1;
@@ -5545,7 +5545,7 @@ namespace Terraria
                 value = 54000;
                 melee = true;
             }
-            else if (type == 274)
+            else if (itemId == 274)
             {
                 name = "Dark Lance";
                 useStyle = 5;
@@ -5565,7 +5565,7 @@ namespace Terraria
                 noUseGraphic = true;
                 melee = true;
             }
-            else if (type == 275)
+            else if (itemId == 275)
             {
                 name = "Coral";
                 useStyle = 1;
@@ -5580,7 +5580,7 @@ namespace Terraria
                 height = 22;
                 value = 400;
             }
-            else if (type == 276)
+            else if (itemId == 276)
             {
                 name = "Cactus";
                 useStyle = 1;
@@ -5595,7 +5595,7 @@ namespace Terraria
                 height = 12;
                 value = 10;
             }
-            else if (type == 277)
+            else if (itemId == 277)
             {
                 name = "Trident";
                 useStyle = 5;
@@ -5615,7 +5615,7 @@ namespace Terraria
                 noUseGraphic = true;
                 melee = true;
             }
-            else if (type == 278)
+            else if (itemId == 278)
             {
                 name = "Silver Bullet";
                 shootSpeed = 4.5f;
@@ -5630,7 +5630,7 @@ namespace Terraria
                 value = 15;
                 ranged = true;
             }
-            else if (type == 279)
+            else if (itemId == 279)
             {
                 useStyle = 1;
                 name = "Throwing Knife";
@@ -5650,7 +5650,7 @@ namespace Terraria
                 knockBack = 2f;
                 thrown = true;
             }
-            else if (type == 280)
+            else if (itemId == 280)
             {
                 name = "Spear";
                 useStyle = 5;
@@ -5669,7 +5669,7 @@ namespace Terraria
                 noUseGraphic = true;
                 melee = true;
             }
-            else if (type == 281)
+            else if (itemId == 281)
             {
                 useStyle = 5;
                 autoReuse = true;
@@ -5689,7 +5689,7 @@ namespace Terraria
                 toolTip = "Allows the collection of seeds for ammo";
                 ranged = true;
             }
-            else if (type == 282)
+            else if (itemId == 282)
             {
                 color = new Color((int)255, (int)255, (int)255, 0);
                 useStyle = 1;
@@ -5708,7 +5708,7 @@ namespace Terraria
                 holdStyle = 1;
                 toolTip = "Works when wet";
             }
-            else if (type == 283)
+            else if (itemId == 283)
             {
                 name = "Seed";
                 shoot = 51;
@@ -5721,7 +5721,7 @@ namespace Terraria
                 ranged = true;
                 consumable = true;
             }
-            else if (type == 284)
+            else if (itemId == 284)
             {
                 noMelee = true;
                 useStyle = 1;
@@ -5739,7 +5739,7 @@ namespace Terraria
                 value = 5000;
                 melee = true;
             }
-            else if (type == 285)
+            else if (itemId == 285)
             {
                 name = "Aglet";
                 width = 24;
@@ -5748,7 +5748,7 @@ namespace Terraria
                 toolTip = "5% increased movement speed";
                 value = 5000;
             }
-            else if (type == 286)
+            else if (itemId == 286)
             {
                 color = new Color((int)255, (int)255, (int)255, 0);
                 useStyle = 1;
@@ -5766,7 +5766,7 @@ namespace Terraria
                 value = 20;
                 holdStyle = 1;
             }
-            else if (type == 287)
+            else if (itemId == 287)
             {
                 crit = 4;
                 useStyle = 1;
@@ -5788,7 +5788,7 @@ namespace Terraria
                 knockBack = 2.4f;
                 thrown = true;
             }
-            else if (type == 288)
+            else if (itemId == 288)
             {
                 name = "Obsidian Skin Potion";
                 useSound = 3;
@@ -5806,7 +5806,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 289)
+            else if (itemId == 289)
             {
                 name = "Regeneration Potion";
                 useSound = 3;
@@ -5824,7 +5824,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 290)
+            else if (itemId == 290)
             {
                 name = "Swiftness Potion";
                 useSound = 3;
@@ -5842,7 +5842,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 291)
+            else if (itemId == 291)
             {
                 name = "Gills Potion";
                 useSound = 3;
@@ -5860,7 +5860,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 292)
+            else if (itemId == 292)
             {
                 name = "Ironskin Potion";
                 useSound = 3;
@@ -5878,7 +5878,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 293)
+            else if (itemId == 293)
             {
                 name = "Mana Regeneration Potion";
                 useSound = 3;
@@ -5896,7 +5896,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 294)
+            else if (itemId == 294)
             {
                 name = "Magic Power Potion";
                 useSound = 3;
@@ -5914,7 +5914,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 295)
+            else if (itemId == 295)
             {
                 name = "Featherfall Potion";
                 useSound = 3;
@@ -5932,7 +5932,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 296)
+            else if (itemId == 296)
             {
                 name = "Spelunker Potion";
                 useSound = 3;
@@ -5950,7 +5950,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 297)
+            else if (itemId == 297)
             {
                 name = "Invisibility Potion";
                 useSound = 3;
@@ -5968,7 +5968,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 298)
+            else if (itemId == 298)
             {
                 name = "Shine Potion";
                 useSound = 3;
@@ -5986,7 +5986,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 299)
+            else if (itemId == 299)
             {
                 name = "Night Owl Potion";
                 useSound = 3;
@@ -6004,7 +6004,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 300)
+            else if (itemId == 300)
             {
                 name = "Battle Potion";
                 useSound = 3;
@@ -6022,7 +6022,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 301)
+            else if (itemId == 301)
             {
                 name = "Thorns Potion";
                 useSound = 3;
@@ -6040,7 +6040,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 302)
+            else if (itemId == 302)
             {
                 name = "Water Walking Potion";
                 useSound = 3;
@@ -6058,7 +6058,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 303)
+            else if (itemId == 303)
             {
                 name = "Archery Potion";
                 useSound = 3;
@@ -6076,7 +6076,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 304)
+            else if (itemId == 304)
             {
                 name = "Hunter Potion";
                 useSound = 3;
@@ -6094,7 +6094,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 305)
+            else if (itemId == 305)
             {
                 name = "Gravitation Potion";
                 useSound = 3;
@@ -6112,7 +6112,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 306)
+            else if (itemId == 306)
             {
                 name = "Gold Chest";
                 useStyle = 1;
@@ -6128,7 +6128,7 @@ namespace Terraria
                 height = 22;
                 value = 5000;
             }
-            else if (type == 307)
+            else if (itemId == 307)
             {
                 autoReuse = true;
                 name = "Daybloom Seeds";
@@ -6144,7 +6144,7 @@ namespace Terraria
                 height = 14;
                 value = 80;
             }
-            else if (type == 308)
+            else if (itemId == 308)
             {
                 autoReuse = true;
                 name = "Moonglow Seeds";
@@ -6160,7 +6160,7 @@ namespace Terraria
                 height = 14;
                 value = 80;
             }
-            else if (type == 309)
+            else if (itemId == 309)
             {
                 autoReuse = true;
                 name = "Blinkroot Seeds";
@@ -6176,7 +6176,7 @@ namespace Terraria
                 height = 14;
                 value = 80;
             }
-            else if (type == 310)
+            else if (itemId == 310)
             {
                 autoReuse = true;
                 name = "Deathweed Seeds";
@@ -6192,7 +6192,7 @@ namespace Terraria
                 height = 14;
                 value = 80;
             }
-            else if (type == 311)
+            else if (itemId == 311)
             {
                 autoReuse = true;
                 name = "Waterleaf Seeds";
@@ -6208,7 +6208,7 @@ namespace Terraria
                 height = 14;
                 value = 80;
             }
-            else if (type == 312)
+            else if (itemId == 312)
             {
                 autoReuse = true;
                 name = "Fireblossom Seeds";
@@ -6224,7 +6224,7 @@ namespace Terraria
                 height = 14;
                 value = 80;
             }
-            else if (type == 313)
+            else if (itemId == 313)
             {
                 name = "Daybloom";
                 maxStack = 99;
@@ -6232,7 +6232,7 @@ namespace Terraria
                 height = 14;
                 value = 100;
             }
-            else if (type == 314)
+            else if (itemId == 314)
             {
                 name = "Moonglow";
                 maxStack = 99;
@@ -6240,7 +6240,7 @@ namespace Terraria
                 height = 14;
                 value = 100;
             }
-            else if (type == 315)
+            else if (itemId == 315)
             {
                 name = "Blinkroot";
                 maxStack = 99;
@@ -6248,7 +6248,7 @@ namespace Terraria
                 height = 14;
                 value = 100;
             }
-            else if (type == 316)
+            else if (itemId == 316)
             {
                 name = "Deathweed";
                 maxStack = 99;
@@ -6256,7 +6256,7 @@ namespace Terraria
                 height = 14;
                 value = 100;
             }
-            else if (type == 317)
+            else if (itemId == 317)
             {
                 name = "Waterleaf";
                 maxStack = 99;
@@ -6264,7 +6264,7 @@ namespace Terraria
                 height = 14;
                 value = 100;
             }
-            else if (type == 318)
+            else if (itemId == 318)
             {
                 name = "Fireblossom";
                 maxStack = 99;
@@ -6272,7 +6272,7 @@ namespace Terraria
                 height = 14;
                 value = 100;
             }
-            else if (type == 319)
+            else if (itemId == 319)
             {
                 name = "Shark Fin";
                 maxStack = 99;
@@ -6280,7 +6280,7 @@ namespace Terraria
                 height = 14;
                 value = 200;
             }
-            else if (type == 320)
+            else if (itemId == 320)
             {
                 name = "Feather";
                 maxStack = 99;
@@ -6288,7 +6288,7 @@ namespace Terraria
                 height = 14;
                 value = 50;
             }
-            else if (type == 321)
+            else if (itemId == 321)
             {
                 name = "Tombstone";
                 useTurn = true;
@@ -6301,7 +6301,7 @@ namespace Terraria
                 width = 20;
                 height = 20;
             }
-            else if (type == 322)
+            else if (itemId == 322)
             {
                 name = "Mime Mask";
                 headSlot = 28;
@@ -6309,7 +6309,7 @@ namespace Terraria
                 height = 20;
                 value = 20000;
             }
-            else if (type == 323)
+            else if (itemId == 323)
             {
                 name = "Antlion Mandible";
                 width = 10;
@@ -6317,7 +6317,7 @@ namespace Terraria
                 maxStack = 99;
                 value = 50;
             }
-            else if (type == 324)
+            else if (itemId == 324)
             {
                 name = "Illegal Gun Parts";
                 width = 10;
@@ -6326,7 +6326,7 @@ namespace Terraria
                 value = 200000;
                 toolTip = "'Banned in most places'";
             }
-            else if (type == 325)
+            else if (itemId == 325)
             {
                 name = "The Doctor's Shirt";
                 width = 18;
@@ -6335,7 +6335,7 @@ namespace Terraria
                 value = 200000;
                 vanity = true;
             }
-            else if (type == 326)
+            else if (itemId == 326)
             {
                 name = "The Doctor's Pants";
                 width = 18;
@@ -6344,7 +6344,7 @@ namespace Terraria
                 value = 200000;
                 vanity = true;
             }
-            else if (type == 327)
+            else if (itemId == 327)
             {
                 name = "Golden Key";
                 width = 14;
@@ -6352,7 +6352,7 @@ namespace Terraria
                 maxStack = 99;
                 toolTip = "Opens one Gold Chest";
             }
-            else if (type == 328)
+            else if (itemId == 328)
             {
                 name = "Shadow Chest";
                 useStyle = 1;
@@ -6368,7 +6368,7 @@ namespace Terraria
                 height = 22;
                 value = 5000;
             }
-            else if (type == 329)
+            else if (itemId == 329)
             {
                 name = "Shadow Key";
                 width = 14;
@@ -6377,7 +6377,7 @@ namespace Terraria
                 toolTip = "Opens all Shadow Chests";
                 value = 75000;
             }
-            else if (type == 330)
+            else if (itemId == 330)
             {
                 name = "Obsidian Brick Wall";
                 useStyle = 1;
@@ -6391,7 +6391,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 331)
+            else if (itemId == 331)
             {
                 name = "Jungle Spores";
                 width = 18;
@@ -6399,7 +6399,7 @@ namespace Terraria
                 maxStack = 99;
                 value = 100;
             }
-            else if (type == 332)
+            else if (itemId == 332)
             {
                 name = "Loom";
                 useStyle = 1;
@@ -6415,7 +6415,7 @@ namespace Terraria
                 value = 300;
                 toolTip = "Used for crafting cloth";
             }
-            else if (type == 333)
+            else if (itemId == 333)
             {
                 name = "Piano";
                 useStyle = 1;
@@ -6430,7 +6430,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 334)
+            else if (itemId == 334)
             {
                 name = "Dresser";
                 useStyle = 1;
@@ -6445,7 +6445,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 335)
+            else if (itemId == 335)
             {
                 name = "Bench";
                 useStyle = 1;
@@ -6460,7 +6460,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 336)
+            else if (itemId == 336)
             {
                 name = "Bathtub";
                 useStyle = 1;
@@ -6475,7 +6475,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 337)
+            else if (itemId == 337)
             {
                 name = "Red Banner";
                 useStyle = 1;
@@ -6491,7 +6491,7 @@ namespace Terraria
                 height = 24;
                 value = 500;
             }
-            else if (type == 338)
+            else if (itemId == 338)
             {
                 name = "Green Banner";
                 useStyle = 1;
@@ -6507,7 +6507,7 @@ namespace Terraria
                 height = 24;
                 value = 500;
             }
-            else if (type == 339)
+            else if (itemId == 339)
             {
                 name = "Blue Banner";
                 useStyle = 1;
@@ -6523,7 +6523,7 @@ namespace Terraria
                 height = 24;
                 value = 500;
             }
-            else if (type == 340)
+            else if (itemId == 340)
             {
                 name = "Yellow Banner";
                 useStyle = 1;
@@ -6539,7 +6539,7 @@ namespace Terraria
                 height = 24;
                 value = 500;
             }
-            else if (type == 341)
+            else if (itemId == 341)
             {
                 name = "Lamp Post";
                 useStyle = 1;
@@ -6554,7 +6554,7 @@ namespace Terraria
                 height = 24;
                 value = 500;
             }
-            else if (type == 342)
+            else if (itemId == 342)
             {
                 name = "Tiki Torch";
                 useStyle = 1;
@@ -6569,7 +6569,7 @@ namespace Terraria
                 height = 24;
                 value = 500;
             }
-            else if (type == 343)
+            else if (itemId == 343)
             {
                 name = "Barrel";
                 useStyle = 1;
@@ -6585,7 +6585,7 @@ namespace Terraria
                 height = 20;
                 value = 500;
             }
-            else if (type == 344)
+            else if (itemId == 344)
             {
                 name = "Chinese Lantern";
                 useStyle = 1;
@@ -6600,7 +6600,7 @@ namespace Terraria
                 height = 20;
                 value = 500;
             }
-            else if (type == 345)
+            else if (itemId == 345)
             {
                 name = "Cooking Pot";
                 useStyle = 1;
@@ -6615,7 +6615,7 @@ namespace Terraria
                 height = 20;
                 value = 500;
             }
-            else if (type == 346)
+            else if (itemId == 346)
             {
                 name = "Safe";
                 useStyle = 1;
@@ -6630,7 +6630,7 @@ namespace Terraria
                 height = 20;
                 value = 200000;
             }
-            else if (type == 347)
+            else if (itemId == 347)
             {
                 name = "Skull Lantern";
                 useStyle = 1;
@@ -6645,7 +6645,7 @@ namespace Terraria
                 height = 20;
                 value = 500;
             }
-            else if (type == 348)
+            else if (itemId == 348)
             {
                 name = "Trash Can";
                 useStyle = 1;
@@ -6661,7 +6661,7 @@ namespace Terraria
                 height = 20;
                 value = 1000;
             }
-            else if (type == 349)
+            else if (itemId == 349)
             {
                 name = "Candelabra";
                 useStyle = 1;
@@ -6676,7 +6676,7 @@ namespace Terraria
                 height = 20;
                 value = 1500;
             }
-            else if (type == 350)
+            else if (itemId == 350)
             {
                 name = "Pink Vase";
                 useStyle = 1;
@@ -6692,7 +6692,7 @@ namespace Terraria
                 height = 24;
                 value = 70;
             }
-            else if (type == 351)
+            else if (itemId == 351)
             {
                 name = "Mug";
                 useStyle = 1;
@@ -6708,7 +6708,7 @@ namespace Terraria
                 height = 24;
                 value = 20;
             }
-            else if (type == 352)
+            else if (itemId == 352)
             {
                 name = "Keg";
                 useStyle = 1;
@@ -6724,7 +6724,7 @@ namespace Terraria
                 value = 600;
                 toolTip = "Used for brewing ale";
             }
-            else if (type == 353)
+            else if (itemId == 353)
             {
                 name = "Ale";
                 useSound = 3;
@@ -6740,7 +6740,7 @@ namespace Terraria
                 buffTime = 7200;
                 value = 100;
             }
-            else if (type == 354)
+            else if (itemId == 354)
             {
                 name = "Bookcase";
                 useStyle = 1;
@@ -6755,7 +6755,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 355)
+            else if (itemId == 355)
             {
                 name = "Throne";
                 useStyle = 1;
@@ -6770,7 +6770,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 356)
+            else if (itemId == 356)
             {
                 name = "Bowl";
                 useStyle = 1;
@@ -6785,7 +6785,7 @@ namespace Terraria
                 height = 24;
                 value = 20;
             }
-            else if (type == 357)
+            else if (itemId == 357)
             {
                 name = "Bowl of Soup";
                 useSound = 3;
@@ -6803,7 +6803,7 @@ namespace Terraria
                 toolTip = "Minor improvements to all stats";
                 value = 1000;
             }
-            else if (type == 358)
+            else if (itemId == 358)
             {
                 name = "Toilet";
                 useStyle = 1;
@@ -6819,7 +6819,7 @@ namespace Terraria
                 height = 30;
                 value = 150;
             }
-            else if (type == 359)
+            else if (itemId == 359)
             {
                 name = "Grandfather Clock";
                 useStyle = 1;
@@ -6834,7 +6834,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 360)
+            else if (itemId == 360)
             {
                 name = "Armor Statue";
                 useStyle = 1;
@@ -6849,7 +6849,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 361)
+            else if (itemId == 361)
             {
                 useStyle = 4;
                 consumable = true;
@@ -6861,7 +6861,7 @@ namespace Terraria
                 toolTip = "Summons a Goblin Army";
                 maxStack = 20;
             }
-            else if (type == 362)
+            else if (itemId == 362)
             {
                 name = "Tattered Cloth";
                 maxStack = 99;
@@ -6869,7 +6869,7 @@ namespace Terraria
                 height = 24;
                 value = 30;
             }
-            else if (type == 363)
+            else if (itemId == 363)
             {
                 name = "Sawmill";
                 useStyle = 1;
@@ -6885,7 +6885,7 @@ namespace Terraria
                 value = 300;
                 toolTip = "Used for advanced wood crafting";
             }
-            else if (type == 364)
+            else if (itemId == 364)
             {
                 name = "Cobalt Ore";
                 useStyle = 1;
@@ -6901,7 +6901,7 @@ namespace Terraria
                 value = 3500;
                 rare = 3;
             }
-            else if (type == 365)
+            else if (itemId == 365)
             {
                 name = "Mythril Ore";
                 useStyle = 1;
@@ -6917,7 +6917,7 @@ namespace Terraria
                 value = 5500;
                 rare = 3;
             }
-            else if (type == 366)
+            else if (itemId == 366)
             {
                 name = "Adamantite Ore";
                 useStyle = 1;
@@ -6933,7 +6933,7 @@ namespace Terraria
                 value = 7500;
                 rare = 3;
             }
-            else if (type == 367)
+            else if (itemId == 367)
             {
                 name = "Pwnhammer";
                 useTurn = true;
@@ -6953,7 +6953,7 @@ namespace Terraria
                 melee = true;
                 toolTip = "Strong enough to destroy Demon Altars";
             }
-            else if (type == 368)
+            else if (itemId == 368)
             {
                 autoReuse = true;
                 name = "Excalibur";
@@ -6970,7 +6970,7 @@ namespace Terraria
                 value = 230000;
                 melee = true;
             }
-            else if (type == 369)
+            else if (itemId == 369)
             {
                 autoReuse = true;
                 name = "Hallowed Seeds";
@@ -6986,7 +6986,7 @@ namespace Terraria
                 value = 2000;
                 rare = 3;
             }
-            else if (type == 370)
+            else if (itemId == 370)
             {
                 name = "Ebonsand Block";
                 useStyle = 1;
@@ -7001,7 +7001,7 @@ namespace Terraria
                 height = 12;
                 ammo = 42;
             }
-            else if (type == 371)
+            else if (itemId == 371)
             {
                 name = "Cobalt Hat";
                 width = 18;
@@ -7013,7 +7013,7 @@ namespace Terraria
                 toolTip = "Increases maximum mana by 40";
                 toolTip2 = "9% increased magic critical strike chance";
             }
-            else if (type == 372)
+            else if (itemId == 372)
             {
                 name = "Cobalt Helmet";
                 width = 18;
@@ -7025,7 +7025,7 @@ namespace Terraria
                 toolTip = "7% increased movement speed";
                 toolTip2 = "12% increased melee speed";
             }
-            else if (type == 373)
+            else if (itemId == 373)
             {
                 name = "Cobalt Mask";
                 width = 18;
@@ -7037,7 +7037,7 @@ namespace Terraria
                 toolTip = "10% increased ranged damage";
                 toolTip2 = "6% increased ranged critical strike chance";
             }
-            else if (type == 374)
+            else if (itemId == 374)
             {
                 name = "Cobalt Breastplate";
                 width = 18;
@@ -7048,7 +7048,7 @@ namespace Terraria
                 value = 60000;
                 toolTip2 = "3% increased critical strike chance";
             }
-            else if (type == 375)
+            else if (itemId == 375)
             {
                 name = "Cobalt Leggings";
                 width = 18;
@@ -7059,7 +7059,7 @@ namespace Terraria
                 value = 45000;
                 toolTip2 = "10% increased movement speed";
             }
-            else if (type == 376)
+            else if (itemId == 376)
             {
                 name = "Mythril Hood";
                 width = 18;
@@ -7071,7 +7071,7 @@ namespace Terraria
                 toolTip = "Increases maximum mana by 60";
                 toolTip2 = "15% increased magic damage";
             }
-            else if (type == 377)
+            else if (itemId == 377)
             {
                 name = "Mythril Helmet";
                 width = 18;
@@ -7083,7 +7083,7 @@ namespace Terraria
                 toolTip = "5% increased melee critical strike chance";
                 toolTip2 = "10% increased melee damage";
             }
-            else if (type == 378)
+            else if (itemId == 378)
             {
                 name = "Mythril Hat";
                 width = 18;
@@ -7095,7 +7095,7 @@ namespace Terraria
                 toolTip = "12% increased ranged damage";
                 toolTip2 = "7% increased ranged critical strike chance";
             }
-            else if (type == 379)
+            else if (itemId == 379)
             {
                 name = "Mythril Chainmail";
                 width = 18;
@@ -7106,7 +7106,7 @@ namespace Terraria
                 value = 90000;
                 toolTip2 = "5% increased damage";
             }
-            else if (type == 380)
+            else if (itemId == 380)
             {
                 name = "Mythril Greaves";
                 width = 18;
@@ -7117,7 +7117,7 @@ namespace Terraria
                 value = 67500;
                 toolTip2 = "3% increased critical strike chance";
             }
-            else if (type == 381)
+            else if (itemId == 381)
             {
                 name = "Cobalt Bar";
                 width = 20;
@@ -7134,7 +7134,7 @@ namespace Terraria
                 createTile = 239;
                 placeStyle = 11;
             }
-            else if (type == 382)
+            else if (itemId == 382)
             {
                 name = "Mythril Bar";
                 width = 20;
@@ -7151,7 +7151,7 @@ namespace Terraria
                 createTile = 239;
                 placeStyle = 13;
             }
-            else if (type == 383)
+            else if (itemId == 383)
             {
                 name = "Cobalt Chainsaw";
                 useStyle = 5;
@@ -7172,7 +7172,7 @@ namespace Terraria
                 melee = true;
                 channel = true;
             }
-            else if (type == 384)
+            else if (itemId == 384)
             {
                 name = "Mythril Chainsaw";
                 useStyle = 5;
@@ -7193,7 +7193,7 @@ namespace Terraria
                 melee = true;
                 channel = true;
             }
-            else if (type == 385)
+            else if (itemId == 385)
             {
                 name = "Cobalt Drill";
                 useStyle = 5;
@@ -7215,7 +7215,7 @@ namespace Terraria
                 channel = true;
                 toolTip = "Can mine Mythril and Orichalcum";
             }
-            else if (type == 386)
+            else if (itemId == 386)
             {
                 name = "Mythril Drill";
                 useStyle = 5;
@@ -7237,7 +7237,7 @@ namespace Terraria
                 channel = true;
                 toolTip = "Can mine Adamantite and Titanium";
             }
-            else if (type == 387)
+            else if (itemId == 387)
             {
                 name = "Adamantite Chainsaw";
                 useStyle = 5;
@@ -7258,7 +7258,7 @@ namespace Terraria
                 melee = true;
                 channel = true;
             }
-            else if (type == 388)
+            else if (itemId == 388)
             {
                 name = "Adamantite Drill";
                 useStyle = 5;
@@ -7279,7 +7279,7 @@ namespace Terraria
                 melee = true;
                 channel = true;
             }
-            else if (type == 389)
+            else if (itemId == 389)
             {
                 name = "Dao of Pow";
                 noMelee = true;
@@ -7302,7 +7302,7 @@ namespace Terraria
                 toolTip = "Has a chance to confuse";
                 toolTip2 = "'Find your inner pieces'";
             }
-            else if (type == 390)
+            else if (itemId == 390)
             {
                 name = "Mythril Halberd";
                 useStyle = 5;
@@ -7322,7 +7322,7 @@ namespace Terraria
                 noUseGraphic = true;
                 melee = true;
             }
-            else if (type == 391)
+            else if (itemId == 391)
             {
                 name = "Adamantite Bar";
                 width = 20;
@@ -7339,7 +7339,7 @@ namespace Terraria
                 createTile = 239;
                 placeStyle = 15;
             }
-            else if (type == 392)
+            else if (itemId == 392)
             {
                 name = "Glass Wall";
                 useStyle = 1;
@@ -7353,7 +7353,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 393)
+            else if (itemId == 393)
             {
                 name = "Compass";
                 width = 24;
@@ -7363,7 +7363,7 @@ namespace Terraria
                 accessory = true;
                 toolTip = "Shows horizontal position";
             }
-            else if (type == 394)
+            else if (itemId == 394)
             {
                 name = "Diving Gear";
                 width = 24;
@@ -7375,7 +7375,7 @@ namespace Terraria
                 toolTip2 = "Greatly extends underwater breathing";
                 faceSlot = 4;
             }
-            else if (type == 395)
+            else if (itemId == 395)
             {
                 name = "GPS";
                 width = 24;
@@ -7386,7 +7386,7 @@ namespace Terraria
                 toolTip = "Shows position";
                 toolTip2 = "Tells the time";
             }
-            else if (type == 396)
+            else if (itemId == 396)
             {
                 name = "Obsidian Horseshoe";
                 width = 24;
@@ -7397,7 +7397,7 @@ namespace Terraria
                 toolTip = "Negates fall damage";
                 toolTip2 = "Grants immunity to fire blocks";
             }
-            else if (type == 397)
+            else if (itemId == 397)
             {
                 name = "Obsidian Shield";
                 width = 24;
@@ -7410,7 +7410,7 @@ namespace Terraria
                 toolTip2 = "Grants immunity to fire blocks";
                 shieldSlot = 3;
             }
-            else if (type == 398)
+            else if (itemId == 398)
             {
                 name = "Tinkerer's Workshop";
                 useStyle = 1;
@@ -7426,7 +7426,7 @@ namespace Terraria
                 value = 100000;
                 toolTip = "Allows the combining of some accessories";
             }
-            else if (type == 399)
+            else if (itemId == 399)
             {
                 name = "Cloud in a Balloon";
                 width = 14;
@@ -7438,7 +7438,7 @@ namespace Terraria
                 toolTip2 = "Increases jump height";
                 balloonSlot = 4;
             }
-            else if (type == 400)
+            else if (itemId == 400)
             {
                 name = "Adamantite Headgear";
                 width = 18;
@@ -7450,7 +7450,7 @@ namespace Terraria
                 toolTip = "Increases maximum mana by 80";
                 toolTip2 = "11% increased magic damage and critical strike chance";
             }
-            else if (type == 401)
+            else if (itemId == 401)
             {
                 name = "Adamantite Helmet";
                 width = 18;
@@ -7462,7 +7462,7 @@ namespace Terraria
                 toolTip = "7% increased melee critical strike chance";
                 toolTip2 = "14% increased melee damage";
             }
-            else if (type == 402)
+            else if (itemId == 402)
             {
                 name = "Adamantite Mask";
                 width = 18;
@@ -7474,7 +7474,7 @@ namespace Terraria
                 toolTip = "14% increased ranged damage";
                 toolTip2 = "8% increased ranged critical strike chance";
             }
-            else if (type == 403)
+            else if (itemId == 403)
             {
                 name = "Adamantite Breastplate";
                 width = 18;
@@ -7485,7 +7485,7 @@ namespace Terraria
                 value = 120000;
                 toolTip = "6% increased damage";
             }
-            else if (type == 404)
+            else if (itemId == 404)
             {
                 name = "Adamantite Leggings";
                 width = 18;
@@ -7497,7 +7497,7 @@ namespace Terraria
                 toolTip = "4% increased critical strike chance";
                 toolTip2 = "5% increased movement speed";
             }
-            else if (type == 405)
+            else if (itemId == 405)
             {
                 name = "Spectre Boots";
                 width = 28;
@@ -7509,7 +7509,7 @@ namespace Terraria
                 value = 100000;
                 shoeSlot = 13;
             }
-            else if (type == 406)
+            else if (itemId == 406)
             {
                 name = "Adamantite Glaive";
                 useStyle = 5;
@@ -7529,7 +7529,7 @@ namespace Terraria
                 noUseGraphic = true;
                 melee = true;
             }
-            else if (type == 407)
+            else if (itemId == 407)
             {
                 name = "Toolbelt";
                 width = 28;
@@ -7540,7 +7540,7 @@ namespace Terraria
                 value = 100000;
                 waistSlot = 5;
             }
-            else if (type == 408)
+            else if (itemId == 408)
             {
                 name = "Pearlsand Block";
                 useStyle = 1;
@@ -7555,7 +7555,7 @@ namespace Terraria
                 height = 12;
                 ammo = 42;
             }
-            else if (type == 409)
+            else if (itemId == 409)
             {
                 name = "Pearlstone Block";
                 useStyle = 1;
@@ -7569,7 +7569,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 410)
+            else if (itemId == 410)
             {
                 name = "Mining Shirt";
                 width = 18;
@@ -7579,7 +7579,7 @@ namespace Terraria
                 value = 5000;
                 rare = 1;
             }
-            else if (type == 411)
+            else if (itemId == 411)
             {
                 name = "Mining Pants";
                 width = 18;
@@ -7589,7 +7589,7 @@ namespace Terraria
                 value = 5000;
                 rare = 1;
             }
-            else if (type == 412)
+            else if (itemId == 412)
             {
                 name = "Pearlstone Brick";
                 useStyle = 1;
@@ -7603,7 +7603,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 413)
+            else if (itemId == 413)
             {
                 name = "Iridescent Brick";
                 useStyle = 1;
@@ -7617,7 +7617,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 414)
+            else if (itemId == 414)
             {
                 name = "Mudstone Block";
                 useStyle = 1;
@@ -7631,7 +7631,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 415)
+            else if (itemId == 415)
             {
                 name = "Cobalt Brick";
                 useStyle = 1;
@@ -7645,7 +7645,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 416)
+            else if (itemId == 416)
             {
                 name = "Mythril Brick";
                 useStyle = 1;
@@ -7659,7 +7659,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 417)
+            else if (itemId == 417)
             {
                 name = "Pearlstone Brick Wall";
                 useStyle = 1;
@@ -7673,7 +7673,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 418)
+            else if (itemId == 418)
             {
                 name = "Iridescent Brick Wall";
                 useStyle = 1;
@@ -7687,7 +7687,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 419)
+            else if (itemId == 419)
             {
                 name = "Mudstone Brick Wall";
                 useStyle = 1;
@@ -7701,7 +7701,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 420)
+            else if (itemId == 420)
             {
                 name = "Cobalt Brick Wall";
                 useStyle = 1;
@@ -7715,7 +7715,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 421)
+            else if (itemId == 421)
             {
                 name = "Mythril Brick Wall";
                 useStyle = 1;
@@ -7729,7 +7729,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 422)
+            else if (itemId == 422)
             {
                 useStyle = 1;
                 name = "Holy Water";
@@ -7750,7 +7750,7 @@ namespace Terraria
                 value = 200;
                 toolTip = "Spreads the Hallow to some blocks";
             }
-            else if (type == 423)
+            else if (itemId == 423)
             {
                 useStyle = 1;
                 name = "Unholy Water";
@@ -7771,7 +7771,7 @@ namespace Terraria
                 value = 200;
                 toolTip = "Spreads the corruption to some blocks";
             }
-            else if (type == 424)
+            else if (itemId == 424)
             {
                 name = "Silt Block";
                 useStyle = 1;
@@ -7785,7 +7785,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 425)
+            else if (itemId == 425)
             {
                 channel = true;
                 damage = 0;
@@ -7802,7 +7802,7 @@ namespace Terraria
                 value = value = 250000;
                 buffType = 27;
             }
-            else if (type == 426)
+            else if (itemId == 426)
             {
                 name = "Breaker Blade";
                 useStyle = 1;
@@ -7817,7 +7817,7 @@ namespace Terraria
                 value = 150000;
                 melee = true;
             }
-            else if (type == 427)
+            else if (itemId == 427)
             {
                 flame = true;
                 noWet = true;
@@ -7836,7 +7836,7 @@ namespace Terraria
                 height = 12;
                 value = 200;
             }
-            else if (type == 428)
+            else if (itemId == 428)
             {
                 flame = true;
                 noWet = true;
@@ -7855,7 +7855,7 @@ namespace Terraria
                 height = 12;
                 value = 200;
             }
-            else if (type == 429)
+            else if (itemId == 429)
             {
                 flame = true;
                 noWet = true;
@@ -7874,7 +7874,7 @@ namespace Terraria
                 height = 12;
                 value = 200;
             }
-            else if (type == 430)
+            else if (itemId == 430)
             {
                 flame = true;
                 noWet = true;
@@ -7893,7 +7893,7 @@ namespace Terraria
                 height = 12;
                 value = 200;
             }
-            else if (type == 431)
+            else if (itemId == 431)
             {
                 flame = true;
                 noWet = true;
@@ -7912,7 +7912,7 @@ namespace Terraria
                 height = 12;
                 value = 500;
             }
-            else if (type == 432)
+            else if (itemId == 432)
             {
                 flame = true;
                 noWet = true;
@@ -7931,7 +7931,7 @@ namespace Terraria
                 height = 12;
                 value = 200;
             }
-            else if (type == 433)
+            else if (itemId == 433)
             {
                 flame = true;
                 noWet = true;
@@ -7950,7 +7950,7 @@ namespace Terraria
                 height = 12;
                 value = 300;
             }
-            else if (type == 434)
+            else if (itemId == 434)
             {
                 autoReuse = true;
                 useStyle = 5;
@@ -7972,7 +7972,7 @@ namespace Terraria
                 toolTip = "Three round burst";
                 toolTip2 = "Only the first shot consumes ammo";
             }
-            else if (type == 435)
+            else if (itemId == 435)
             {
                 useStyle = 5;
                 autoReuse = true;
@@ -7992,7 +7992,7 @@ namespace Terraria
                 rare = 4;
                 knockBack = 1.5f;
             }
-            else if (type == 436)
+            else if (itemId == 436)
             {
                 useStyle = 5;
                 autoReuse = true;
@@ -8012,7 +8012,7 @@ namespace Terraria
                 rare = 4;
                 knockBack = 2f;
             }
-            else if (type == 437)
+            else if (itemId == 437)
             {
                 noUseGraphic = true;
                 damage = 0;
@@ -8030,7 +8030,7 @@ namespace Terraria
                 noMelee = true;
                 value = 200000;
             }
-            else if (type == 438)
+            else if (itemId == 438)
             {
                 name = "Star Statue";
                 useStyle = 1;
@@ -8046,7 +8046,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 2;
             }
-            else if (type == 439)
+            else if (itemId == 439)
             {
                 name = "Sword Statue";
                 useStyle = 1;
@@ -8062,7 +8062,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 3;
             }
-            else if (type == 440)
+            else if (itemId == 440)
             {
                 name = "Slime Statue";
                 useStyle = 1;
@@ -8078,7 +8078,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 4;
             }
-            else if (type == 441)
+            else if (itemId == 441)
             {
                 name = "Goblin Statue";
                 useStyle = 1;
@@ -8094,7 +8094,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 5;
             }
-            else if (type == 442)
+            else if (itemId == 442)
             {
                 name = "Shield Statue";
                 useStyle = 1;
@@ -8110,7 +8110,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 6;
             }
-            else if (type == 443)
+            else if (itemId == 443)
             {
                 name = "Bat Statue";
                 useStyle = 1;
@@ -8126,7 +8126,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 7;
             }
-            else if (type == 444)
+            else if (itemId == 444)
             {
                 name = "Fish Statue";
                 useStyle = 1;
@@ -8142,7 +8142,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 8;
             }
-            else if (type == 445)
+            else if (itemId == 445)
             {
                 name = "Bunny Statue";
                 useStyle = 1;
@@ -8158,7 +8158,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 9;
             }
-            else if (type == 446)
+            else if (itemId == 446)
             {
                 name = "Skeleton Statue";
                 useStyle = 1;
@@ -8174,7 +8174,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 10;
             }
-            else if (type == 447)
+            else if (itemId == 447)
             {
                 name = "Reaper Statue";
                 useStyle = 1;
@@ -8190,7 +8190,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 11;
             }
-            else if (type == 448)
+            else if (itemId == 448)
             {
                 name = "Woman Statue";
                 useStyle = 1;
@@ -8206,7 +8206,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 12;
             }
-            else if (type == 449)
+            else if (itemId == 449)
             {
                 name = "Imp Statue";
                 useStyle = 1;
@@ -8222,7 +8222,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 13;
             }
-            else if (type == 450)
+            else if (itemId == 450)
             {
                 name = "Gargoyle Statue";
                 useStyle = 1;
@@ -8238,7 +8238,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 14;
             }
-            else if (type == 451)
+            else if (itemId == 451)
             {
                 name = "Gloom Statue";
                 useStyle = 1;
@@ -8254,7 +8254,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 15;
             }
-            else if (type == 452)
+            else if (itemId == 452)
             {
                 name = "Hornet Statue";
                 useStyle = 1;
@@ -8270,7 +8270,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 16;
             }
-            else if (type == 453)
+            else if (itemId == 453)
             {
                 name = "Bomb Statue";
                 useStyle = 1;
@@ -8286,7 +8286,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 17;
             }
-            else if (type == 454)
+            else if (itemId == 454)
             {
                 name = "Crab Statue";
                 useStyle = 1;
@@ -8302,7 +8302,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 18;
             }
-            else if (type == 455)
+            else if (itemId == 455)
             {
                 name = "Hammer Statue";
                 useStyle = 1;
@@ -8318,7 +8318,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 19;
             }
-            else if (type == 456)
+            else if (itemId == 456)
             {
                 name = "Potion Statue";
                 useStyle = 1;
@@ -8334,7 +8334,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 20;
             }
-            else if (type == 457)
+            else if (itemId == 457)
             {
                 name = "Spear Statue";
                 useStyle = 1;
@@ -8350,7 +8350,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 21;
             }
-            else if (type == 458)
+            else if (itemId == 458)
             {
                 name = "Cross Statue";
                 useStyle = 1;
@@ -8366,7 +8366,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 22;
             }
-            else if (type == 459)
+            else if (itemId == 459)
             {
                 name = "Jellyfish Statue";
                 useStyle = 1;
@@ -8382,7 +8382,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 23;
             }
-            else if (type == 460)
+            else if (itemId == 460)
             {
                 name = "Bow Statue";
                 useStyle = 1;
@@ -8398,7 +8398,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 24;
             }
-            else if (type == 461)
+            else if (itemId == 461)
             {
                 name = "Boomerang Statue";
                 useStyle = 1;
@@ -8414,7 +8414,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 25;
             }
-            else if (type == 462)
+            else if (itemId == 462)
             {
                 name = "Boot Statue";
                 useStyle = 1;
@@ -8430,7 +8430,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 26;
             }
-            else if (type == 463)
+            else if (itemId == 463)
             {
                 name = "Chest Statue";
                 useStyle = 1;
@@ -8446,7 +8446,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 27;
             }
-            else if (type == 464)
+            else if (itemId == 464)
             {
                 name = "Bird Statue";
                 useStyle = 1;
@@ -8462,7 +8462,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 28;
             }
-            else if (type == 465)
+            else if (itemId == 465)
             {
                 name = "Axe Statue";
                 useStyle = 1;
@@ -8478,7 +8478,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 29;
             }
-            else if (type == 466)
+            else if (itemId == 466)
             {
                 name = "Corrupt Statue";
                 useStyle = 1;
@@ -8494,7 +8494,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 30;
             }
-            else if (type == 467)
+            else if (itemId == 467)
             {
                 name = "Tree Statue";
                 useStyle = 1;
@@ -8510,7 +8510,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 31;
             }
-            else if (type == 468)
+            else if (itemId == 468)
             {
                 name = "Anvil Statue";
                 useStyle = 1;
@@ -8526,7 +8526,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 32;
             }
-            else if (type == 469)
+            else if (itemId == 469)
             {
                 name = "Pickaxe Statue";
                 useStyle = 1;
@@ -8542,7 +8542,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 33;
             }
-            else if (type == 470)
+            else if (itemId == 470)
             {
                 name = "Mushroom Statue";
                 useStyle = 1;
@@ -8557,7 +8557,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 471)
+            else if (itemId == 471)
             {
                 name = "Eyeball Statue";
                 useStyle = 1;
@@ -8573,7 +8573,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 35;
             }
-            else if (type == 472)
+            else if (itemId == 472)
             {
                 name = "Pillar Statue";
                 useStyle = 1;
@@ -8589,7 +8589,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 36;
             }
-            else if (type == 473)
+            else if (itemId == 473)
             {
                 name = "Heart Statue";
                 useStyle = 1;
@@ -8605,7 +8605,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 37;
             }
-            else if (type == 474)
+            else if (itemId == 474)
             {
                 name = "Pot Statue";
                 useStyle = 1;
@@ -8621,7 +8621,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 38;
             }
-            else if (type == 475)
+            else if (itemId == 475)
             {
                 name = "Sunflower Statue";
                 useStyle = 1;
@@ -8637,7 +8637,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 39;
             }
-            else if (type == 476)
+            else if (itemId == 476)
             {
                 name = "King Statue";
                 useStyle = 1;
@@ -8653,7 +8653,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 40;
             }
-            else if (type == 477)
+            else if (itemId == 477)
             {
                 name = "Queen Statue";
                 useStyle = 1;
@@ -8669,7 +8669,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 41;
             }
-            else if (type == 478)
+            else if (itemId == 478)
             {
                 name = "Pirahna Statue";
                 useStyle = 1;
@@ -8685,7 +8685,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 42;
             }
-            else if (type == 479)
+            else if (itemId == 479)
             {
                 name = "Planked Wall";
                 useStyle = 1;
@@ -8699,7 +8699,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 480)
+            else if (itemId == 480)
             {
                 name = "Wooden Beam";
                 useStyle = 1;
@@ -8713,7 +8713,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 481)
+            else if (itemId == 481)
             {
                 useStyle = 5;
                 autoReuse = true;
@@ -8733,7 +8733,7 @@ namespace Terraria
                 rare = 4;
                 knockBack = 2.5f;
             }
-            else if (type == 482)
+            else if (itemId == 482)
             {
                 name = "Adamantite Sword";
                 useStyle = 1;
@@ -8749,7 +8749,7 @@ namespace Terraria
                 value = 138000;
                 melee = true;
             }
-            else if (type == 483)
+            else if (itemId == 483)
             {
                 useTurn = true;
                 autoReuse = true;
@@ -8767,7 +8767,7 @@ namespace Terraria
                 value = 69000;
                 melee = true;
             }
-            else if (type == 484)
+            else if (itemId == 484)
             {
                 name = "Mythril Sword";
                 useStyle = 1;
@@ -8783,7 +8783,7 @@ namespace Terraria
                 value = 103500;
                 melee = true;
             }
-            else if (type == 485)
+            else if (itemId == 485)
             {
                 rare = 4;
                 name = "Moon Charm";
@@ -8793,7 +8793,7 @@ namespace Terraria
                 toolTip = "Turns the holder into a werewolf on full moons";
                 value = 150000;
             }
-            else if (type == 486)
+            else if (itemId == 486)
             {
                 name = "Ruler";
                 width = 10;
@@ -8803,7 +8803,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 487)
+            else if (itemId == 487)
             {
                 name = "Crystal Ball";
                 useStyle = 1;
@@ -8819,7 +8819,7 @@ namespace Terraria
                 value = 100000;
                 rare = 3;
             }
-            else if (type == 488)
+            else if (itemId == 488)
             {
                 name = "Disco Ball";
                 useStyle = 1;
@@ -8834,7 +8834,7 @@ namespace Terraria
                 height = 26;
                 value = 10000;
             }
-            else if (type == 489)
+            else if (itemId == 489)
             {
                 name = "Sorcerer Emblem";
                 width = 24;
@@ -8844,7 +8844,7 @@ namespace Terraria
                 value = 100000;
                 rare = 4;
             }
-            else if (type == 491)
+            else if (itemId == 491)
             {
                 name = "Ranger Emblem";
                 width = 24;
@@ -8854,7 +8854,7 @@ namespace Terraria
                 value = 100000;
                 rare = 4;
             }
-            else if (type == 490)
+            else if (itemId == 490)
             {
                 name = "Warrior Emblem";
                 width = 24;
@@ -8864,7 +8864,7 @@ namespace Terraria
                 value = 100000;
                 rare = 4;
             }
-            else if (type == 492)
+            else if (itemId == 492)
             {
                 name = "Demon Wings";
                 width = 24;
@@ -8875,7 +8875,7 @@ namespace Terraria
                 rare = 5;
                 wingSlot = 1;
             }
-            else if (type == 493)
+            else if (itemId == 493)
             {
                 name = "Angel Wings";
                 width = 24;
@@ -8886,7 +8886,7 @@ namespace Terraria
                 rare = 5;
                 wingSlot = 2;
             }
-            else if (type == 494)
+            else if (itemId == 494)
             {
                 rare = 5;
                 useStyle = 5;
@@ -8905,7 +8905,7 @@ namespace Terraria
                 mana = 4;
                 magic = true;
             }
-            else if (type == 495)
+            else if (itemId == 495)
             {
                 rare = 5;
                 mana = 18;
@@ -8926,7 +8926,7 @@ namespace Terraria
                 value = 200000;
                 magic = true;
             }
-            else if (type == 496)
+            else if (itemId == 496)
             {
                 rare = 4;
                 mana = 6;
@@ -8949,7 +8949,7 @@ namespace Terraria
                 magic = true;
                 knockBack = 2f;
             }
-            else if (type == 497)
+            else if (itemId == 497)
             {
                 name = "Neptune's Shell";
                 width = 24;
@@ -8959,7 +8959,7 @@ namespace Terraria
                 value = 150000;
                 rare = 5;
             }
-            else if (type == 498)
+            else if (itemId == 498)
             {
                 name = "Mannequin";
                 useStyle = 1;
@@ -8973,7 +8973,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 499)
+            else if (itemId == 499)
             {
                 name = "Greater Healing Potion";
                 useSound = 3;
@@ -8990,7 +8990,7 @@ namespace Terraria
                 potion = true;
                 value = 5000;
             }
-            else if (type == 500)
+            else if (itemId == 500)
             {
                 name = "Greater Mana Potion";
                 useSound = 3;
@@ -9006,7 +9006,7 @@ namespace Terraria
                 rare = 3;
                 value = buyPrice(0, 0, 5, 0);
             }
-            else if (type == 501)
+            else if (itemId == 501)
             {
                 name = "Pixie Dust";
                 width = 16;
@@ -9015,7 +9015,7 @@ namespace Terraria
                 value = 500;
                 rare = 1;
             }
-            else if (type == 502)
+            else if (itemId == 502)
             {
                 name = "Crystal Shard";
                 useStyle = 1;
@@ -9031,7 +9031,7 @@ namespace Terraria
                 value = 8000;
                 rare = 1;
             }
-            else if (type == 503)
+            else if (itemId == 503)
             {
                 name = "Clown Hat";
                 width = 18;
@@ -9041,7 +9041,7 @@ namespace Terraria
                 vanity = true;
                 rare = 2;
             }
-            else if (type == 504)
+            else if (itemId == 504)
             {
                 name = "Clown Shirt";
                 width = 18;
@@ -9051,7 +9051,7 @@ namespace Terraria
                 vanity = true;
                 rare = 2;
             }
-            else if (type == 505)
+            else if (itemId == 505)
             {
                 name = "Clown Pants";
                 width = 18;
@@ -9061,7 +9061,7 @@ namespace Terraria
                 vanity = true;
                 rare = 2;
             }
-            else if (type == 506)
+            else if (itemId == 506)
             {
                 useStyle = 5;
                 autoReuse = true;
@@ -9082,7 +9082,7 @@ namespace Terraria
                 ranged = true;
                 toolTip = "Uses gel for ammo";
             }
-            else if (type == 507)
+            else if (itemId == 507)
             {
                 rare = 3;
                 useStyle = 1;
@@ -9095,7 +9095,7 @@ namespace Terraria
                 noMelee = true;
                 value = 10000;
             }
-            else if (type == 508)
+            else if (itemId == 508)
             {
                 rare = 3;
                 useStyle = 5;
@@ -9108,7 +9108,7 @@ namespace Terraria
                 noMelee = true;
                 value = 10000;
             }
-            else if (type == 509)
+            else if (itemId == 509)
             {
                 useStyle = 1;
                 useTurn = true;
@@ -9124,7 +9124,7 @@ namespace Terraria
                 mech = true;
                 tileBoost = 20;
             }
-            else if (type == 510)
+            else if (itemId == 510)
             {
                 useStyle = 1;
                 useTurn = true;
@@ -9140,7 +9140,7 @@ namespace Terraria
                 mech = true;
                 tileBoost = 20;
             }
-            else if (type == 511)
+            else if (itemId == 511)
             {
                 name = "Active Stone Block";
                 useStyle = 1;
@@ -9156,7 +9156,7 @@ namespace Terraria
                 value = 1000;
                 mech = true;
             }
-            else if (type == 512)
+            else if (itemId == 512)
             {
                 name = "Inactive Stone Block";
                 useStyle = 1;
@@ -9172,7 +9172,7 @@ namespace Terraria
                 value = 1000;
                 mech = true;
             }
-            else if (type == 513)
+            else if (itemId == 513)
             {
                 name = "Lever";
                 useStyle = 1;
@@ -9188,7 +9188,7 @@ namespace Terraria
                 value = 3000;
                 mech = true;
             }
-            else if (type == 514)
+            else if (itemId == 514)
             {
                 autoReuse = true;
                 useStyle = 5;
@@ -9208,7 +9208,7 @@ namespace Terraria
                 magic = true;
                 value = 150000;
             }
-            else if (type == 515)
+            else if (itemId == 515)
             {
                 name = "Crystal Bullet";
                 shootSpeed = 5f;
@@ -9225,7 +9225,7 @@ namespace Terraria
                 rare = 3;
                 toolTip = "Creates several crystal shards on impact";
             }
-            else if (type == 516)
+            else if (itemId == 516)
             {
                 name = "Holy Arrow";
                 shootSpeed = 3.5f;
@@ -9242,7 +9242,7 @@ namespace Terraria
                 rare = 3;
                 toolTip = "Summons falling stars on impact";
             }
-            else if (type == 517)
+            else if (itemId == 517)
             {
                 useStyle = 1;
                 name = "Magic Dagger";
@@ -9263,7 +9263,7 @@ namespace Terraria
                 rare = 4;
                 toolTip = "A magical returning dagger";
             }
-            else if (type == 518)
+            else if (itemId == 518)
             {
                 autoReuse = true;
                 rare = 4;
@@ -9284,7 +9284,7 @@ namespace Terraria
                 magic = true;
                 value = 500000;
             }
-            else if (type == 519)
+            else if (itemId == 519)
             {
                 autoReuse = true;
                 rare = 4;
@@ -9305,7 +9305,7 @@ namespace Terraria
                 magic = true;
                 value = 500000;
             }
-            else if (type == 520)
+            else if (itemId == 520)
             {
                 name = "Soul of Light";
                 width = 18;
@@ -9315,7 +9315,7 @@ namespace Terraria
                 rare = 3;
                 toolTip = "'The essence of light creatures'";
             }
-            else if (type == 521)
+            else if (itemId == 521)
             {
                 name = "Soul of Night";
                 width = 18;
@@ -9325,7 +9325,7 @@ namespace Terraria
                 rare = 3;
                 toolTip = "'The essence of dark creatures'";
             }
-            else if (type == 522)
+            else if (itemId == 522)
             {
                 name = "Cursed Flame";
                 width = 12;
@@ -9335,7 +9335,7 @@ namespace Terraria
                 rare = 3;
                 toolTip = "'Not even water can put the flame out'";
             }
-            else if (type == 523)
+            else if (itemId == 523)
             {
                 flame = true;
                 name = "Cursed Torch";
@@ -9355,7 +9355,7 @@ namespace Terraria
                 rare = 1;
                 toolTip = "Can be placed in water";
             }
-            else if (type == 524)
+            else if (itemId == 524)
             {
                 name = "Adamantite Forge";
                 useStyle = 1;
@@ -9372,7 +9372,7 @@ namespace Terraria
                 toolTip = "Used to smelt adamantite ore";
                 rare = 3;
             }
-            else if (type == 525)
+            else if (itemId == 525)
             {
                 name = "Mythril Anvil";
                 useStyle = 1;
@@ -9389,7 +9389,7 @@ namespace Terraria
                 toolTip = "Used to craft items from mythril and adamantite bars";
                 rare = 3;
             }
-            else if (type == 526)
+            else if (itemId == 526)
             {
                 name = "Unicorn Horn";
                 width = 14;
@@ -9399,7 +9399,7 @@ namespace Terraria
                 rare = 1;
                 toolTip = "'Sharp and magical!'";
             }
-            else if (type == 527)
+            else if (itemId == 527)
             {
                 name = "Dark Shard";
                 width = 14;
@@ -9409,7 +9409,7 @@ namespace Terraria
                 rare = 2;
                 toolTip = "'Sometimes carried by creatures in corrupt deserts'";
             }
-            else if (type == 528)
+            else if (itemId == 528)
             {
                 name = "Light Shard";
                 width = 14;
@@ -9419,7 +9419,7 @@ namespace Terraria
                 rare = 2;
                 toolTip = "'Sometimes carried by creatures in light deserts'";
             }
-            else if (type == 529)
+            else if (itemId == 529)
             {
                 name = "Red Pressure Plate";
                 useStyle = 1;
@@ -9438,7 +9438,7 @@ namespace Terraria
                 mech = true;
                 toolTip = "Activates when stepped on";
             }
-            else if (type == 530)
+            else if (itemId == 530)
             {
                 name = "Wire";
                 width = 12;
@@ -9448,7 +9448,7 @@ namespace Terraria
                 mech = true;
                 notAmmo = true;
             }
-            else if (type == 531)
+            else if (itemId == 531)
             {
                 name = "Spell Tome";
                 width = 12;
@@ -9458,7 +9458,7 @@ namespace Terraria
                 rare = 1;
                 toolTip = "Can be enchanted";
             }
-            else if (type == 532)
+            else if (itemId == 532)
             {
                 name = "Star Cloak";
                 width = 20;
@@ -9469,7 +9469,7 @@ namespace Terraria
                 rare = 4;
                 backSlot = 2;
             }
-            else if (type == 533)
+            else if (itemId == 533)
             {
                 useStyle = 5;
                 autoReuse = true;
@@ -9491,7 +9491,7 @@ namespace Terraria
                 knockBack = 1f;
                 ranged = true;
             }
-            else if (type == 534)
+            else if (itemId == 534)
             {
                 knockBack = 6.5f;
                 useStyle = 5;
@@ -9511,7 +9511,7 @@ namespace Terraria
                 ranged = true;
                 toolTip = "Fires a spread of bullets";
             }
-            else if (type == 535)
+            else if (itemId == 535)
             {
                 name = "Philosopher's Stone";
                 width = 12;
@@ -9521,7 +9521,7 @@ namespace Terraria
                 accessory = true;
                 rare = 4;
             }
-            else if (type == 536)
+            else if (itemId == 536)
             {
                 name = "Titan Glove";
                 width = 12;
@@ -9533,7 +9533,7 @@ namespace Terraria
                 handOnSlot = 15;
                 handOffSlot = 8;
             }
-            else if (type == 537)
+            else if (itemId == 537)
             {
                 name = "Cobalt Naginata";
                 useStyle = 5;
@@ -9553,7 +9553,7 @@ namespace Terraria
                 noUseGraphic = true;
                 melee = true;
             }
-            else if (type == 538)
+            else if (itemId == 538)
             {
                 name = "Switch";
                 useStyle = 1;
@@ -9569,7 +9569,7 @@ namespace Terraria
                 value = 2000;
                 mech = true;
             }
-            else if (type == 539)
+            else if (itemId == 539)
             {
                 name = "Dart Trap";
                 useStyle = 1;
@@ -9585,7 +9585,7 @@ namespace Terraria
                 value = 10000;
                 mech = true;
             }
-            else if (type == 540)
+            else if (itemId == 540)
             {
                 name = "Boulder";
                 useStyle = 1;
@@ -9600,7 +9600,7 @@ namespace Terraria
                 height = 12;
                 mech = true;
             }
-            else if (type == 541)
+            else if (itemId == 541)
             {
                 name = "Green Pressure Plate";
                 useStyle = 1;
@@ -9618,7 +9618,7 @@ namespace Terraria
                 value = 5000;
                 toolTip = "Activates when stepped on";
             }
-            else if (type == 542)
+            else if (itemId == 542)
             {
                 name = "Gray Pressure Plate";
                 useStyle = 1;
@@ -9636,7 +9636,7 @@ namespace Terraria
                 value = 5000;
                 toolTip = "Activates when a player steps on it on";
             }
-            else if (type == 543)
+            else if (itemId == 543)
             {
                 name = "Brown Pressure Plate";
                 useStyle = 1;
@@ -9654,7 +9654,7 @@ namespace Terraria
                 value = 5000;
                 toolTip = "Activates when a player steps on it on";
             }
-            else if (type == 544)
+            else if (itemId == 544)
             {
                 useStyle = 4;
                 name = "Mechanical Eye";
@@ -9667,7 +9667,7 @@ namespace Terraria
                 toolTip = "Summons The Twins";
                 rare = 3;
             }
-            else if (type == 545)
+            else if (itemId == 545)
             {
                 name = "Cursed Arrow";
                 shootSpeed = 4f;
@@ -9683,7 +9683,7 @@ namespace Terraria
                 ranged = true;
                 rare = 3;
             }
-            else if (type == 546)
+            else if (itemId == 546)
             {
                 name = "Cursed Bullet";
                 shootSpeed = 5f;
@@ -9700,7 +9700,7 @@ namespace Terraria
                 ranged = true;
                 rare = 3;
             }
-            else if (type == 547)
+            else if (itemId == 547)
             {
                 name = "Soul of Fright";
                 width = 18;
@@ -9710,7 +9710,7 @@ namespace Terraria
                 rare = 5;
                 toolTip = "'The essence of pure terror'";
             }
-            else if (type == 548)
+            else if (itemId == 548)
             {
                 name = "Soul of Might";
                 width = 18;
@@ -9720,7 +9720,7 @@ namespace Terraria
                 rare = 5;
                 toolTip = "'The essence of the destroyer'";
             }
-            else if (type == 549)
+            else if (itemId == 549)
             {
                 name = "Soul of Sight";
                 width = 18;
@@ -9730,7 +9730,7 @@ namespace Terraria
                 rare = 5;
                 toolTip = "'The essence of omniscient watchers'";
             }
-            else if (type == 550)
+            else if (itemId == 550)
             {
                 name = "Gungnir";
                 useStyle = 5;
@@ -9750,7 +9750,7 @@ namespace Terraria
                 noUseGraphic = true;
                 melee = true;
             }
-            else if (type == 551)
+            else if (itemId == 551)
             {
                 name = "Hallowed Plate Mail";
                 width = 18;
@@ -9761,7 +9761,7 @@ namespace Terraria
                 value = 200000;
                 toolTip = "7% increased critical strike chance";
             }
-            else if (type == 552)
+            else if (itemId == 552)
             {
                 name = "Hallowed Greaves";
                 width = 18;
@@ -9773,7 +9773,7 @@ namespace Terraria
                 toolTip = "7% increased damage";
                 toolTip2 = "8% increased movement speed";
             }
-            else if (type == 553)
+            else if (itemId == 553)
             {
                 name = "Hallowed Helmet";
                 width = 18;
@@ -9785,7 +9785,7 @@ namespace Terraria
                 toolTip = "15% increased ranged damage";
                 toolTip2 = "8% increased ranged critical strike chance";
             }
-            else if (type == 558)
+            else if (itemId == 558)
             {
                 name = "Hallowed Headgear";
                 width = 18;
@@ -9797,7 +9797,7 @@ namespace Terraria
                 toolTip = "Increases maximum mana by 100";
                 toolTip2 = "12% increased magic damage and critical strike chance";
             }
-            else if (type == 559)
+            else if (itemId == 559)
             {
                 name = "Hallowed Mask";
                 width = 18;
@@ -9809,7 +9809,7 @@ namespace Terraria
                 toolTip = "10% increased melee damage and critical strike chance";
                 toolTip2 = "10% increased melee haste";
             }
-            else if (type == 554)
+            else if (itemId == 554)
             {
                 name = "Cross Necklace";
                 width = 20;
@@ -9820,7 +9820,7 @@ namespace Terraria
                 rare = 4;
                 neckSlot = 2;
             }
-            else if (type == 555)
+            else if (itemId == 555)
             {
                 name = "Mana Flower";
                 width = 20;
@@ -9832,7 +9832,7 @@ namespace Terraria
                 rare = 4;
                 waistSlot = 6;
             }
-            else if (type == 556)
+            else if (itemId == 556)
             {
                 useStyle = 4;
                 name = "Mechanical Worm";
@@ -9845,7 +9845,7 @@ namespace Terraria
                 toolTip = "Summons Destroyer";
                 rare = 3;
             }
-            else if (type == 557)
+            else if (itemId == 557)
             {
                 useStyle = 4;
                 name = "Mechanical Skull";
@@ -9858,7 +9858,7 @@ namespace Terraria
                 toolTip = "Summons Skeletron Prime";
                 rare = 3;
             }
-            else if (type == 560)
+            else if (itemId == 560)
             {
                 useStyle = 4;
                 name = "Slime Crown";
@@ -9871,7 +9871,7 @@ namespace Terraria
                 toolTip = "Summons King Slime";
                 rare = 1;
             }
-            else if (type == 561)
+            else if (itemId == 561)
             {
                 melee = true;
                 autoReuse = true;
@@ -9893,7 +9893,7 @@ namespace Terraria
                 value = 500000;
                 toolTip = "Stacks up to 5";
             }
-            else if (type == 562)
+            else if (itemId == 562)
             {
                 name = "Music Box (Overworld Day)";
                 useStyle = 1;
@@ -9910,7 +9910,7 @@ namespace Terraria
                 value = 100000;
                 accessory = true;
             }
-            else if (type == 563)
+            else if (itemId == 563)
             {
                 name = "Music Box (Eerie)";
                 useStyle = 1;
@@ -9927,7 +9927,7 @@ namespace Terraria
                 value = 100000;
                 accessory = true;
             }
-            else if (type == 564)
+            else if (itemId == 564)
             {
                 name = "Music Box (Night)";
                 useStyle = 1;
@@ -9944,7 +9944,7 @@ namespace Terraria
                 value = 100000;
                 accessory = true;
             }
-            else if (type == 565)
+            else if (itemId == 565)
             {
                 name = "Music Box (Title)";
                 useStyle = 1;
@@ -9961,7 +9961,7 @@ namespace Terraria
                 value = 100000;
                 accessory = true;
             }
-            else if (type == 566)
+            else if (itemId == 566)
             {
                 name = "Music Box (Underground)";
                 useStyle = 1;
@@ -9978,7 +9978,7 @@ namespace Terraria
                 value = 100000;
                 accessory = true;
             }
-            else if (type == 567)
+            else if (itemId == 567)
             {
                 name = "Music Box (Boss 1)";
                 useStyle = 1;
@@ -9995,7 +9995,7 @@ namespace Terraria
                 value = 100000;
                 accessory = true;
             }
-            else if (type == 568)
+            else if (itemId == 568)
             {
                 name = "Music Box (Jungle)";
                 useStyle = 1;
@@ -10012,7 +10012,7 @@ namespace Terraria
                 value = 100000;
                 accessory = true;
             }
-            else if (type == 569)
+            else if (itemId == 569)
             {
                 name = "Music Box (Corruption)";
                 useStyle = 1;
@@ -10029,7 +10029,7 @@ namespace Terraria
                 value = 100000;
                 accessory = true;
             }
-            else if (type == 570)
+            else if (itemId == 570)
             {
                 name = "Music Box (Underground Corruption)";
                 useStyle = 1;
@@ -10046,7 +10046,7 @@ namespace Terraria
                 value = 100000;
                 accessory = true;
             }
-            else if (type == 571)
+            else if (itemId == 571)
             {
                 name = "Music Box (The Hallow)";
                 useStyle = 1;
@@ -10063,7 +10063,7 @@ namespace Terraria
                 value = 100000;
                 accessory = true;
             }
-            else if (type == 572)
+            else if (itemId == 572)
             {
                 name = "Music Box (Boss 2)";
                 useStyle = 1;
@@ -10080,7 +10080,7 @@ namespace Terraria
                 value = 100000;
                 accessory = true;
             }
-            else if (type == 573)
+            else if (itemId == 573)
             {
                 name = "Music Box (Underground Hallow)";
                 useStyle = 1;
@@ -10097,7 +10097,7 @@ namespace Terraria
                 value = 100000;
                 accessory = true;
             }
-            else if (type == 574)
+            else if (itemId == 574)
             {
                 name = "Music Box (Boss 3)";
                 useStyle = 1;
@@ -10114,7 +10114,7 @@ namespace Terraria
                 value = 100000;
                 accessory = true;
             }
-            else if (type == 575)
+            else if (itemId == 575)
             {
                 name = "Soul of Flight";
                 width = 18;
@@ -10124,7 +10124,7 @@ namespace Terraria
                 rare = 3;
                 toolTip = "'The essence of powerful flying creatures'";
             }
-            else if (type == 576)
+            else if (itemId == 576)
             {
                 name = "Music Box";
                 width = 24;
@@ -10134,7 +10134,7 @@ namespace Terraria
                 value = 100000;
                 accessory = true;
             }
-            else if (type == 577)
+            else if (itemId == 577)
             {
                 name = "Demonite Brick";
                 useStyle = 1;
@@ -10148,7 +10148,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 578)
+            else if (itemId == 578)
             {
                 useStyle = 5;
                 autoReuse = true;
@@ -10168,7 +10168,7 @@ namespace Terraria
                 rare = 4;
                 knockBack = 2.5f;
             }
-            else if (type == 579)
+            else if (itemId == 579)
             {
                 name = "Drax";
                 useStyle = 5;
@@ -10191,7 +10191,7 @@ namespace Terraria
                 channel = true;
                 toolTip = "'Not to be confused with a picksaw'";
             }
-            else if (type == 580)
+            else if (itemId == 580)
             {
                 mech = true;
                 name = "Explosives";
@@ -10207,7 +10207,7 @@ namespace Terraria
                 height = 12;
                 toolTip = "Explodes when activated";
             }
-            else if (type == 581)
+            else if (itemId == 581)
             {
                 mech = true;
                 name = "Inlet Pump";
@@ -10223,7 +10223,7 @@ namespace Terraria
                 height = 12;
                 toolTip = "Sends water to outlet pumps";
             }
-            else if (type == 582)
+            else if (itemId == 582)
             {
                 mech = true;
                 name = "Outlet Pump";
@@ -10239,7 +10239,7 @@ namespace Terraria
                 height = 12;
                 toolTip = "Receives water from inlet pumps";
             }
-            else if (type == 583)
+            else if (itemId == 583)
             {
                 mech = true;
                 noWet = true;
@@ -10258,7 +10258,7 @@ namespace Terraria
                 value = 50;
                 toolTip = "Activates every second";
             }
-            else if (type == 584)
+            else if (itemId == 584)
             {
                 mech = true;
                 noWet = true;
@@ -10277,7 +10277,7 @@ namespace Terraria
                 value = 50;
                 toolTip = "Activates every 3 seconds";
             }
-            else if (type == 585)
+            else if (itemId == 585)
             {
                 mech = true;
                 noWet = true;
@@ -10296,7 +10296,7 @@ namespace Terraria
                 value = 50;
                 toolTip = "Activates every 5 seconds";
             }
-            else if (type == 586)
+            else if (itemId == 586)
             {
                 name = "Candy Cane Block";
                 useStyle = 1;
@@ -10310,7 +10310,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 587)
+            else if (itemId == 587)
             {
                 name = "Candy Cane Wall";
                 useStyle = 1;
@@ -10324,7 +10324,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 588)
+            else if (itemId == 588)
             {
                 name = "Santa Hat";
                 width = 18;
@@ -10333,7 +10333,7 @@ namespace Terraria
                 value = 150000;
                 vanity = true;
             }
-            else if (type == 589)
+            else if (itemId == 589)
             {
                 name = "Santa Shirt";
                 width = 18;
@@ -10342,7 +10342,7 @@ namespace Terraria
                 value = 150000;
                 vanity = true;
             }
-            else if (type == 590)
+            else if (itemId == 590)
             {
                 name = "Santa Pants";
                 width = 18;
@@ -10351,7 +10351,7 @@ namespace Terraria
                 value = 150000;
                 vanity = true;
             }
-            else if (type == 591)
+            else if (itemId == 591)
             {
                 name = "Green Candy Cane Block";
                 useStyle = 1;
@@ -10365,7 +10365,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 592)
+            else if (itemId == 592)
             {
                 name = "Green Candy Cane Wall";
                 useStyle = 1;
@@ -10379,7 +10379,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 593)
+            else if (itemId == 593)
             {
                 name = "Snow Block";
                 useStyle = 1;
@@ -10393,7 +10393,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 594)
+            else if (itemId == 594)
             {
                 name = "Snow Brick";
                 useStyle = 1;
@@ -10407,7 +10407,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 595)
+            else if (itemId == 595)
             {
                 name = "Snow Brick Wall";
                 useStyle = 1;
@@ -10421,7 +10421,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 596)
+            else if (itemId == 596)
             {
                 name = "Blue Light";
                 useStyle = 1;
@@ -10437,7 +10437,7 @@ namespace Terraria
                 height = 12;
                 value = 500;
             }
-            else if (type == 597)
+            else if (itemId == 597)
             {
                 name = "Red Light";
                 useStyle = 1;
@@ -10453,7 +10453,7 @@ namespace Terraria
                 height = 12;
                 value = 500;
             }
-            else if (type == 598)
+            else if (itemId == 598)
             {
                 name = "Green Light";
                 useStyle = 1;
@@ -10469,7 +10469,7 @@ namespace Terraria
                 height = 12;
                 value = 500;
             }
-            else if (type == 599)
+            else if (itemId == 599)
             {
                 name = "Blue Present";
                 width = 12;
@@ -10477,7 +10477,7 @@ namespace Terraria
                 rare = 1;
                 toolTip = "Right click to open";
             }
-            else if (type == 600)
+            else if (itemId == 600)
             {
                 name = "Green Present";
                 width = 12;
@@ -10485,7 +10485,7 @@ namespace Terraria
                 rare = 1;
                 toolTip = "Right click to open";
             }
-            else if (type == 601)
+            else if (itemId == 601)
             {
                 name = "Yellow Present";
                 width = 12;
@@ -10493,7 +10493,7 @@ namespace Terraria
                 rare = 1;
                 toolTip = "Right click to open";
             }
-            else if (type == 602)
+            else if (itemId == 602)
             {
                 name = "Snow Globe";
                 useStyle = 4;
@@ -10505,7 +10505,7 @@ namespace Terraria
                 toolTip = "Summons the Frost Legion";
                 rare = 2;
             }
-            else if (type == 603)
+            else if (itemId == 603)
             {
                 damage = 0;
                 useStyle = 1;
@@ -10522,7 +10522,7 @@ namespace Terraria
                 value = 0;
                 buffType = 40;
             }
-            else if (type == 604)
+            else if (itemId == 604)
             {
                 name = "Adamantite Beam";
                 useStyle = 1;
@@ -10536,7 +10536,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 605)
+            else if (itemId == 605)
             {
                 name = "Adamantite Beam Wall";
                 useStyle = 1;
@@ -10550,7 +10550,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 606)
+            else if (itemId == 606)
             {
                 name = "Demonite Brick Wall";
                 useStyle = 1;
@@ -10564,7 +10564,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 607)
+            else if (itemId == 607)
             {
                 name = "Sandstone Brick";
                 useStyle = 1;
@@ -10578,7 +10578,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 608)
+            else if (itemId == 608)
             {
                 name = "Sandstone Brick Wall";
                 useStyle = 1;
@@ -10592,7 +10592,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 609)
+            else if (itemId == 609)
             {
                 name = "Ebonstone Brick";
                 useStyle = 1;
@@ -10606,7 +10606,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 610)
+            else if (itemId == 610)
             {
                 name = "Ebonstone Brick Wall";
                 useStyle = 1;
@@ -10620,7 +10620,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 611)
+            else if (itemId == 611)
             {
                 name = "Red Stucco";
                 useStyle = 1;
@@ -10634,7 +10634,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 612)
+            else if (itemId == 612)
             {
                 name = "Yellow Stucco";
                 useStyle = 1;
@@ -10648,7 +10648,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 613)
+            else if (itemId == 613)
             {
                 name = "Green Stucco";
                 useStyle = 1;
@@ -10662,7 +10662,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 614)
+            else if (itemId == 614)
             {
                 name = "Gray Stucco";
                 useStyle = 1;
@@ -10676,7 +10676,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 615)
+            else if (itemId == 615)
             {
                 name = "Red Stucco Wall";
                 useStyle = 1;
@@ -10690,7 +10690,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 616)
+            else if (itemId == 616)
             {
                 name = "Yellow Stucco Wall";
                 useStyle = 1;
@@ -10704,7 +10704,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 617)
+            else if (itemId == 617)
             {
                 name = "Green Stucco Wall";
                 useStyle = 1;
@@ -10718,7 +10718,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 618)
+            else if (itemId == 618)
             {
                 name = "Gray Wall";
                 useStyle = 1;
@@ -10732,7 +10732,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 619)
+            else if (itemId == 619)
             {
                 name = "Ebonwood";
                 useStyle = 1;
@@ -10746,7 +10746,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 620)
+            else if (itemId == 620)
             {
                 name = "Rich Mahogany";
                 useStyle = 1;
@@ -10760,7 +10760,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 621)
+            else if (itemId == 621)
             {
                 name = "Pearlwood";
                 useStyle = 1;
@@ -10774,7 +10774,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 622)
+            else if (itemId == 622)
             {
                 name = "Ebonwood Wall";
                 useStyle = 1;
@@ -10788,7 +10788,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 623)
+            else if (itemId == 623)
             {
                 name = "Rich Mahogany Wall";
                 useStyle = 1;
@@ -10802,7 +10802,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 624)
+            else if (itemId == 624)
             {
                 name = "Pearlwood Wall";
                 useStyle = 1;
@@ -10816,7 +10816,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 625)
+            else if (itemId == 625)
             {
                 name = "Ebonwood Chest";
                 useStyle = 1;
@@ -10832,7 +10832,7 @@ namespace Terraria
                 height = 22;
                 value = 500;
             }
-            else if (type == 626)
+            else if (itemId == 626)
             {
                 name = "Rich Mahogany Chest";
                 useStyle = 1;
@@ -10848,7 +10848,7 @@ namespace Terraria
                 height = 22;
                 value = 500;
             }
-            else if (type == 627)
+            else if (itemId == 627)
             {
                 name = "Pearlwood Chest";
                 useStyle = 1;
@@ -10864,7 +10864,7 @@ namespace Terraria
                 height = 22;
                 value = 500;
             }
-            else if (type == 628)
+            else if (itemId == 628)
             {
                 name = "Ebonwood Chair";
                 useStyle = 1;
@@ -10879,7 +10879,7 @@ namespace Terraria
                 width = 12;
                 height = 30;
             }
-            else if (type == 629)
+            else if (itemId == 629)
             {
                 name = "Rich Mahogany Chair";
                 useStyle = 1;
@@ -10894,7 +10894,7 @@ namespace Terraria
                 width = 12;
                 height = 30;
             }
-            else if (type == 630)
+            else if (itemId == 630)
             {
                 name = "Pearlwood Chair";
                 useStyle = 1;
@@ -10909,7 +10909,7 @@ namespace Terraria
                 width = 12;
                 height = 30;
             }
-            else if (type == 631)
+            else if (itemId == 631)
             {
                 name = "Ebonwood Platform";
                 useStyle = 1;
@@ -10924,7 +10924,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 632)
+            else if (itemId == 632)
             {
                 name = "Rich Mahogany Platform";
                 useStyle = 1;
@@ -10939,7 +10939,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 633)
+            else if (itemId == 633)
             {
                 name = "Pearlwood Platform";
                 useStyle = 1;
@@ -10954,7 +10954,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 634)
+            else if (itemId == 634)
             {
                 name = "Bone Platform";
                 useStyle = 1;
@@ -10969,7 +10969,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 635)
+            else if (itemId == 635)
             {
                 name = "Ebonwood Work Bench";
                 useStyle = 1;
@@ -10986,7 +10986,7 @@ namespace Terraria
                 value = 150;
                 toolTip = "Used for basic crafting";
             }
-            else if (type == 636)
+            else if (itemId == 636)
             {
                 name = "Rich Mahogany Work Bench";
                 useStyle = 1;
@@ -11003,7 +11003,7 @@ namespace Terraria
                 value = 150;
                 toolTip = "Used for basic crafting";
             }
-            else if (type == 637)
+            else if (itemId == 637)
             {
                 name = "Pearlwood Work Bench";
                 useStyle = 1;
@@ -11020,7 +11020,7 @@ namespace Terraria
                 value = 150;
                 toolTip = "Used for basic crafting";
             }
-            else if (type == 638)
+            else if (itemId == 638)
             {
                 name = "Ebonwood Table";
                 useStyle = 1;
@@ -11036,7 +11036,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 639)
+            else if (itemId == 639)
             {
                 name = "Rich Mahogany Table";
                 useStyle = 1;
@@ -11052,7 +11052,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 640)
+            else if (itemId == 640)
             {
                 name = "Pearlwood Table";
                 useStyle = 1;
@@ -11068,7 +11068,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 641)
+            else if (itemId == 641)
             {
                 name = "Ebonwood Piano";
                 useStyle = 1;
@@ -11084,7 +11084,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 642)
+            else if (itemId == 642)
             {
                 name = "Rich Mahogany Piano";
                 useStyle = 1;
@@ -11100,7 +11100,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 643)
+            else if (itemId == 643)
             {
                 name = "Pearlwood Piano";
                 useStyle = 1;
@@ -11116,7 +11116,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 644)
+            else if (itemId == 644)
             {
                 name = "Ebonwood Bed";
                 useStyle = 1;
@@ -11131,7 +11131,7 @@ namespace Terraria
                 height = 20;
                 value = 2000;
             }
-            else if (type == 645)
+            else if (itemId == 645)
             {
                 name = "Rich Mahogany Bed";
                 useStyle = 1;
@@ -11146,7 +11146,7 @@ namespace Terraria
                 height = 20;
                 value = 2000;
             }
-            else if (type == 646)
+            else if (itemId == 646)
             {
                 name = "Pearlwood Bed";
                 useStyle = 1;
@@ -11161,7 +11161,7 @@ namespace Terraria
                 height = 20;
                 value = 2000;
             }
-            else if (type == 647)
+            else if (itemId == 647)
             {
                 name = "Ebonwood Dresser";
                 useStyle = 1;
@@ -11177,7 +11177,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 648)
+            else if (itemId == 648)
             {
                 name = "Rich Mahogany Dresser";
                 useStyle = 1;
@@ -11193,7 +11193,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 649)
+            else if (itemId == 649)
             {
                 name = "Pearlwood Dresser";
                 useStyle = 1;
@@ -11209,7 +11209,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 650)
+            else if (itemId == 650)
             {
                 name = "Ebonwood Door";
                 useStyle = 1;
@@ -11224,7 +11224,7 @@ namespace Terraria
                 height = 28;
                 value = 200;
             }
-            else if (type == 651)
+            else if (itemId == 651)
             {
                 name = "Rich Mahogany Door";
                 useStyle = 1;
@@ -11239,7 +11239,7 @@ namespace Terraria
                 height = 28;
                 value = 200;
             }
-            else if (type == 652)
+            else if (itemId == 652)
             {
                 name = "Pearlwood Door";
                 useStyle = 1;
@@ -11254,7 +11254,7 @@ namespace Terraria
                 height = 28;
                 value = 200;
             }
-            else if (type == 653)
+            else if (itemId == 653)
             {
                 name = "Ebonwood Sword";
                 useStyle = 1;
@@ -11270,7 +11270,7 @@ namespace Terraria
                 value = 100;
                 melee = true;
             }
-            else if (type == 654)
+            else if (itemId == 654)
             {
                 name = "Ebonwood Hammer";
                 autoReuse = true;
@@ -11288,7 +11288,7 @@ namespace Terraria
                 value = 50;
                 melee = true;
             }
-            else if (type == 655)
+            else if (itemId == 655)
             {
                 name = "Ebonwood Bow";
                 useStyle = 5;
@@ -11305,7 +11305,7 @@ namespace Terraria
                 value = 100;
                 ranged = true;
             }
-            else if (type == 656)
+            else if (itemId == 656)
             {
                 name = "Rich Mahogany Sword";
                 useStyle = 1;
@@ -11321,7 +11321,7 @@ namespace Terraria
                 value = 100;
                 melee = true;
             }
-            else if (type == 657)
+            else if (itemId == 657)
             {
                 name = "Rich Mahogany Hammer";
                 autoReuse = true;
@@ -11339,7 +11339,7 @@ namespace Terraria
                 value = 50;
                 melee = true;
             }
-            else if (type == 658)
+            else if (itemId == 658)
             {
                 name = "Rich Mahogany Bow";
                 useStyle = 5;
@@ -11356,7 +11356,7 @@ namespace Terraria
                 value = 100;
                 ranged = true;
             }
-            else if (type == 659)
+            else if (itemId == 659)
             {
                 name = "Pearlwood Sword";
                 useStyle = 1;
@@ -11372,7 +11372,7 @@ namespace Terraria
                 value = 100;
                 melee = true;
             }
-            else if (type == 660)
+            else if (itemId == 660)
             {
                 name = "Pearlwood Hammer";
                 autoReuse = true;
@@ -11390,7 +11390,7 @@ namespace Terraria
                 value = 50;
                 melee = true;
             }
-            else if (type == 661)
+            else if (itemId == 661)
             {
                 name = "Pearlwood Bow";
                 useStyle = 5;
@@ -11407,7 +11407,7 @@ namespace Terraria
                 value = 100;
                 ranged = true;
             }
-            else if (type == 662)
+            else if (itemId == 662)
             {
                 name = "Rainbow Brick";
                 useStyle = 1;
@@ -11421,7 +11421,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 663)
+            else if (itemId == 663)
             {
                 name = "Rainbow Brick Wall";
                 useStyle = 1;
@@ -11435,7 +11435,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 664)
+            else if (itemId == 664)
             {
                 name = "Ice Block";
                 useStyle = 1;
@@ -11449,7 +11449,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 665)
+            else if (itemId == 665)
             {
                 name = "Red's Wings";
                 width = 24;
@@ -11460,7 +11460,7 @@ namespace Terraria
                 wingSlot = 3;
                 value = 400000;
             }
-            else if (type == 666)
+            else if (itemId == 666)
             {
                 name = "Red's Helmet";
                 width = 18;
@@ -11470,7 +11470,7 @@ namespace Terraria
                 toolTip = "You shouldn't have this";
                 vanity = true;
             }
-            else if (type == 667)
+            else if (itemId == 667)
             {
                 name = "Red's Breastplate";
                 width = 18;
@@ -11480,7 +11480,7 @@ namespace Terraria
                 toolTip = "You shouldn't have this";
                 vanity = true;
             }
-            else if (type == 668)
+            else if (itemId == 668)
             {
                 name = "Red's Leggings";
                 width = 18;
@@ -11490,7 +11490,7 @@ namespace Terraria
                 toolTip = "You shouldn't have this";
                 vanity = true;
             }
-            else if (type == 669)
+            else if (itemId == 669)
             {
                 damage = 0;
                 useStyle = 1;
@@ -11507,7 +11507,7 @@ namespace Terraria
                 buffType = 41;
                 value = sellPrice(0, 2, 0, 0);
             }
-            else if (type == 670)
+            else if (itemId == 670)
             {
                 crit = 2;
                 noMelee = true;
@@ -11527,7 +11527,7 @@ namespace Terraria
                 value = 50000;
                 melee = true;
             }
-            else if (type == 671)
+            else if (itemId == 671)
             {
                 crit = 13;
                 autoReuse = true;
@@ -11545,7 +11545,7 @@ namespace Terraria
                 value = 138000;
                 melee = true;
             }
-            else if (type == 672)
+            else if (itemId == 672)
             {
                 name = "Cutlass";
                 useStyle = 1;
@@ -11562,7 +11562,7 @@ namespace Terraria
                 autoReuse = true;
                 useTurn = true;
             }
-            else if (type == 673)
+            else if (itemId == 673)
             {
                 name = "Boreal Wood Work Bench";
                 useStyle = 1;
@@ -11579,7 +11579,7 @@ namespace Terraria
                 value = 150;
                 toolTip = "Used for basic crafting";
             }
-            else if (type == 674)
+            else if (itemId == 674)
             {
                 name = "True Excalibur";
                 useStyle = 1;
@@ -11597,7 +11597,7 @@ namespace Terraria
                 value = sellPrice(0, 10, 0, 0);
                 melee = true;
             }
-            else if (type == 675)
+            else if (itemId == 675)
             {
                 name = "True Night's Edge";
                 useStyle = 1;
@@ -11615,7 +11615,7 @@ namespace Terraria
                 value = sellPrice(0, 10, 0, 0);
                 melee = true;
             }
-            else if (type == 676)
+            else if (itemId == 676)
             {
                 autoReuse = true;
                 name = "Frostbrand";
@@ -11635,7 +11635,7 @@ namespace Terraria
                 toolTip = "Shoots an icy bolt";
                 melee = true;
             }
-            else if (type == 677)
+            else if (itemId == 677)
             {
                 name = "Boreal Wood Table";
                 useStyle = 1;
@@ -11651,7 +11651,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 678)
+            else if (itemId == 678)
             {
                 name = "Red Potion";
                 useSound = 3;
@@ -11665,7 +11665,7 @@ namespace Terraria
                 height = 24;
                 rare = 9;
             }
-            else if (type == 679)
+            else if (itemId == 679)
             {
                 autoReuse = true;
                 knockBack = 7f;
@@ -11686,7 +11686,7 @@ namespace Terraria
                 ranged = true;
                 toolTip = "Fires a spread of bullets";
             }
-            else if (type == 680)
+            else if (itemId == 680)
             {
                 name = "Bamboo Chest";
                 useStyle = 1;
@@ -11702,7 +11702,7 @@ namespace Terraria
                 height = 22;
                 value = 5000;
             }
-            else if (type == 681)
+            else if (itemId == 681)
             {
                 name = "Ice Chest";
                 useStyle = 1;
@@ -11718,7 +11718,7 @@ namespace Terraria
                 height = 22;
                 value = 5000;
             }
-            else if (type == 682)
+            else if (itemId == 682)
             {
                 useStyle = 5;
                 useAnimation = 19;
@@ -11739,7 +11739,7 @@ namespace Terraria
                 value = 27000;
                 ranged = true;
             }
-            else if (type == 683)
+            else if (itemId == 683)
             {
                 autoReuse = true;
                 rare = 6;
@@ -11759,7 +11759,7 @@ namespace Terraria
                 magic = true;
                 value = 500000;
             }
-            else if (type == 684)
+            else if (itemId == 684)
             {
                 name = "Frost Helmet";
                 width = 18;
@@ -11770,7 +11770,7 @@ namespace Terraria
                 value = 250000;
                 toolTip = "16% increased melee and ranged damage";
             }
-            else if (type == 685)
+            else if (itemId == 685)
             {
                 name = "Frost Breastplate";
                 width = 18;
@@ -11781,7 +11781,7 @@ namespace Terraria
                 value = 200000;
                 toolTip = "11% increased melee and ranged critical strike chance";
             }
-            else if (type == 686)
+            else if (itemId == 686)
             {
                 name = "Frost Leggings";
                 width = 18;
@@ -11793,7 +11793,7 @@ namespace Terraria
                 toolTip = "8% increased movement speed";
                 toolTip = "7% increased melee attack speed";
             }
-            else if (type == 687)
+            else if (itemId == 687)
             {
                 name = "Tin Helmet";
                 width = 18;
@@ -11802,7 +11802,7 @@ namespace Terraria
                 headSlot = 47;
                 value = 1875;
             }
-            else if (type == 688)
+            else if (itemId == 688)
             {
                 name = "Tin Chainmail";
                 width = 18;
@@ -11811,7 +11811,7 @@ namespace Terraria
                 bodySlot = 28;
                 value = sellPrice(0, 0, 0, 50);
             }
-            else if (type == 689)
+            else if (itemId == 689)
             {
                 name = "Tin Greaves";
                 width = 18;
@@ -11820,7 +11820,7 @@ namespace Terraria
                 legSlot = 27;
                 value = 1125;
             }
-            else if (type == 690)
+            else if (itemId == 690)
             {
                 name = "Lead Helmet";
                 width = 18;
@@ -11829,7 +11829,7 @@ namespace Terraria
                 headSlot = 48;
                 value = 7500;
             }
-            else if (type == 691)
+            else if (itemId == 691)
             {
                 name = "Lead Chainmail";
                 width = 18;
@@ -11838,7 +11838,7 @@ namespace Terraria
                 bodySlot = 29;
                 value = 6000;
             }
-            else if (type == 692)
+            else if (itemId == 692)
             {
                 name = "Lead Greaves";
                 width = 18;
@@ -11847,7 +11847,7 @@ namespace Terraria
                 legSlot = 28;
                 value = 4500;
             }
-            else if (type == 693)
+            else if (itemId == 693)
             {
                 name = "Tungsten Helmet";
                 width = 18;
@@ -11856,7 +11856,7 @@ namespace Terraria
                 headSlot = 49;
                 value = 7500;
             }
-            else if (type == 694)
+            else if (itemId == 694)
             {
                 name = "Tungsten Chainmail";
                 width = 18;
@@ -11865,7 +11865,7 @@ namespace Terraria
                 bodySlot = 30;
                 value = 6000;
             }
-            else if (type == 695)
+            else if (itemId == 695)
             {
                 name = "Tungsten Greaves";
                 width = 18;
@@ -11874,7 +11874,7 @@ namespace Terraria
                 legSlot = 29;
                 value = 4500;
             }
-            else if (type == 696)
+            else if (itemId == 696)
             {
                 name = "Platinum Helmet";
                 width = 18;
@@ -11883,7 +11883,7 @@ namespace Terraria
                 headSlot = 50;
                 value = 7500;
             }
-            else if (type == 697)
+            else if (itemId == 697)
             {
                 name = "Platinum Chainmail";
                 width = 18;
@@ -11892,7 +11892,7 @@ namespace Terraria
                 bodySlot = 31;
                 value = 6000;
             }
-            else if (type == 698)
+            else if (itemId == 698)
             {
                 name = "Platinum Greaves";
                 width = 18;
@@ -11901,7 +11901,7 @@ namespace Terraria
                 legSlot = 30;
                 value = 4500;
             }
-            else if (type == 699)
+            else if (itemId == 699)
             {
                 name = "Tin Ore";
                 useStyle = 1;
@@ -11916,7 +11916,7 @@ namespace Terraria
                 height = 12;
                 value = 375;
             }
-            else if (type == 700)
+            else if (itemId == 700)
             {
                 name = "Lead Ore";
                 useStyle = 1;
@@ -11931,7 +11931,7 @@ namespace Terraria
                 height = 12;
                 value = 750;
             }
-            else if (type == 701)
+            else if (itemId == 701)
             {
                 name = "Tungsten Ore";
                 useStyle = 1;
@@ -11946,7 +11946,7 @@ namespace Terraria
                 height = 12;
                 value = 1500;
             }
-            else if (type == 702)
+            else if (itemId == 702)
             {
                 name = "Platinum Ore";
                 useStyle = 1;
@@ -11961,7 +11961,7 @@ namespace Terraria
                 height = 12;
                 value = 3000;
             }
-            else if (type == 703)
+            else if (itemId == 703)
             {
                 name = "Tin Bar";
                 width = 20;
@@ -11977,7 +11977,7 @@ namespace Terraria
                 createTile = 239;
                 placeStyle = 1;
             }
-            else if (type == 704)
+            else if (itemId == 704)
             {
                 name = "Lead Bar";
                 width = 20;
@@ -11993,7 +11993,7 @@ namespace Terraria
                 createTile = 239;
                 placeStyle = 3;
             }
-            else if (type == 705)
+            else if (itemId == 705)
             {
                 name = "Tungsten Bar";
                 width = 20;
@@ -12009,7 +12009,7 @@ namespace Terraria
                 createTile = 239;
                 placeStyle = 5;
             }
-            else if (type == 706)
+            else if (itemId == 706)
             {
                 name = "Platinum Bar";
                 width = 20;
@@ -12025,7 +12025,7 @@ namespace Terraria
                 createTile = 239;
                 placeStyle = 7;
             }
-            else if (type == 707)
+            else if (itemId == 707)
             {
                 name = "Tin Watch";
                 width = 24;
@@ -12035,7 +12035,7 @@ namespace Terraria
                 value = 1500;
                 waistSlot = 8;
             }
-            else if (type == 708)
+            else if (itemId == 708)
             {
                 name = "Tungsten Watch";
                 width = 24;
@@ -12045,7 +12045,7 @@ namespace Terraria
                 value = 7500;
                 waistSlot = 9;
             }
-            else if (type == 709)
+            else if (itemId == 709)
             {
                 name = "Platinum Watch";
                 width = 24;
@@ -12056,7 +12056,7 @@ namespace Terraria
                 value = 15000;
                 waistSlot = 4;
             }
-            else if (type == 710)
+            else if (itemId == 710)
             {
                 name = "Tin Chandelier";
                 useStyle = 1;
@@ -12072,7 +12072,7 @@ namespace Terraria
                 height = 26;
                 value = 4500;
             }
-            else if (type == 711)
+            else if (itemId == 711)
             {
                 name = "Tungsten Chandelier";
                 useStyle = 1;
@@ -12088,7 +12088,7 @@ namespace Terraria
                 height = 26;
                 value = 18000;
             }
-            else if (type == 712)
+            else if (itemId == 712)
             {
                 name = "Platinum Chandelier";
                 useStyle = 1;
@@ -12104,7 +12104,7 @@ namespace Terraria
                 height = 26;
                 value = 36000;
             }
-            else if (type == 713)
+            else if (itemId == 713)
             {
                 flame = true;
                 name = "Platinum Candle";
@@ -12121,7 +12121,7 @@ namespace Terraria
                 height = 18;
                 holdStyle = 1;
             }
-            else if (type == 714)
+            else if (itemId == 714)
             {
                 name = "Platinum Candelabra";
                 useStyle = 1;
@@ -12135,7 +12135,7 @@ namespace Terraria
                 width = 20;
                 height = 20;
             }
-            else if (type == 715)
+            else if (itemId == 715)
             {
                 name = "Platinum Crown";
                 width = 18;
@@ -12144,7 +12144,7 @@ namespace Terraria
                 value = 15000;
                 vanity = true;
             }
-            else if (type == 716)
+            else if (itemId == 716)
             {
                 name = "Lead Anvil";
                 placeStyle = 1;
@@ -12161,7 +12161,7 @@ namespace Terraria
                 value = 7500;
                 toolTip = "Used to craft items from metal bars";
             }
-            else if (type == 717)
+            else if (itemId == 717)
             {
                 name = "Tin Brick";
                 useStyle = 1;
@@ -12175,7 +12175,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 718)
+            else if (itemId == 718)
             {
                 name = "Tungsten Brick";
                 useStyle = 1;
@@ -12189,7 +12189,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 719)
+            else if (itemId == 719)
             {
                 name = "Platinum Brick";
                 useStyle = 1;
@@ -12203,7 +12203,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 720)
+            else if (itemId == 720)
             {
                 name = "Tin Brick Wall";
                 useStyle = 1;
@@ -12217,7 +12217,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 721)
+            else if (itemId == 721)
             {
                 name = "Tungsten Brick Wall";
                 useStyle = 1;
@@ -12231,7 +12231,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 722)
+            else if (itemId == 722)
             {
                 name = "Platinum Brick Wall";
                 useStyle = 1;
@@ -12245,7 +12245,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 723)
+            else if (itemId == 723)
             {
                 rare = 4;
                 useSound = 1;
@@ -12263,7 +12263,7 @@ namespace Terraria
                 melee = true;
                 value = 500000;
             }
-            else if (type == 724)
+            else if (itemId == 724)
             {
                 autoReuse = true;
                 crit = 2;
@@ -12283,7 +12283,7 @@ namespace Terraria
                 melee = true;
                 value = 20000;
             }
-            else if (type == 725)
+            else if (itemId == 725)
             {
                 useStyle = 5;
                 useAnimation = 21;
@@ -12304,7 +12304,7 @@ namespace Terraria
                 toolTip = "Shoots frost arrows";
                 ranged = true;
             }
-            else if (type == 726)
+            else if (itemId == 726)
             {
                 autoReuse = true;
                 rare = 5;
@@ -12325,7 +12325,7 @@ namespace Terraria
                 value = 500000;
                 noMelee = true;
             }
-            else if (type == 727)
+            else if (itemId == 727)
             {
                 name = "Wood Helmet";
                 width = 18;
@@ -12333,7 +12333,7 @@ namespace Terraria
                 defense = 1;
                 headSlot = 52;
             }
-            else if (type == 728)
+            else if (itemId == 728)
             {
                 name = "Wood Breastplate";
                 width = 18;
@@ -12341,7 +12341,7 @@ namespace Terraria
                 defense = 1;
                 bodySlot = 32;
             }
-            else if (type == 729)
+            else if (itemId == 729)
             {
                 name = "Wood Greaves";
                 width = 18;
@@ -12349,7 +12349,7 @@ namespace Terraria
                 defense = 0;
                 legSlot = 31;
             }
-            else if (type == 730)
+            else if (itemId == 730)
             {
                 name = "Ebonwood Helmet";
                 width = 18;
@@ -12357,7 +12357,7 @@ namespace Terraria
                 defense = 1;
                 headSlot = 53;
             }
-            else if (type == 731)
+            else if (itemId == 731)
             {
                 name = "Ebonwood Breastplate";
                 width = 18;
@@ -12365,7 +12365,7 @@ namespace Terraria
                 defense = 2;
                 bodySlot = 33;
             }
-            else if (type == 732)
+            else if (itemId == 732)
             {
                 name = "Ebonwood Greaves";
                 width = 18;
@@ -12373,7 +12373,7 @@ namespace Terraria
                 defense = 1;
                 legSlot = 32;
             }
-            else if (type == 733)
+            else if (itemId == 733)
             {
                 name = "Rich Mahogany Helmet";
                 width = 18;
@@ -12381,7 +12381,7 @@ namespace Terraria
                 defense = 1;
                 headSlot = 54;
             }
-            else if (type == 734)
+            else if (itemId == 734)
             {
                 name = "Rich Mahogany Breastplate";
                 width = 18;
@@ -12389,7 +12389,7 @@ namespace Terraria
                 defense = 1;
                 bodySlot = 34;
             }
-            else if (type == 735)
+            else if (itemId == 735)
             {
                 name = "Rich Mahogany Greaves";
                 width = 18;
@@ -12397,7 +12397,7 @@ namespace Terraria
                 defense = 1;
                 legSlot = 33;
             }
-            else if (type == 736)
+            else if (itemId == 736)
             {
                 name = "Pearlwood Helmet";
                 width = 18;
@@ -12405,7 +12405,7 @@ namespace Terraria
                 defense = 2;
                 headSlot = 55;
             }
-            else if (type == 737)
+            else if (itemId == 737)
             {
                 name = "Pearlwood Breastplate";
                 width = 18;
@@ -12413,7 +12413,7 @@ namespace Terraria
                 defense = 3;
                 bodySlot = 35;
             }
-            else if (type == 738)
+            else if (itemId == 738)
             {
                 name = "Pearlwood Greaves";
                 width = 18;
@@ -12421,7 +12421,7 @@ namespace Terraria
                 defense = 2;
                 legSlot = 34;
             }
-            else if (type == 739)
+            else if (itemId == 739)
             {
                 name = "Amethyst Staff";
                 mana = 3;
@@ -12439,7 +12439,7 @@ namespace Terraria
                 magic = true;
                 noMelee = true;
             }
-            else if (type == 740)
+            else if (itemId == 740)
             {
                 name = "Topaz Staff";
                 mana = 4;
@@ -12457,7 +12457,7 @@ namespace Terraria
                 magic = true;
                 noMelee = true;
             }
-            else if (type == 741)
+            else if (itemId == 741)
             {
                 name = "Sapphire Staff";
                 mana = 5;
@@ -12476,7 +12476,7 @@ namespace Terraria
                 rare = 1;
                 noMelee = true;
             }
-            else if (type == 742)
+            else if (itemId == 742)
             {
                 name = "Emerald Staff";
                 mana = 6;
@@ -12496,7 +12496,7 @@ namespace Terraria
                 rare = 1;
                 noMelee = true;
             }
-            else if (type == 743)
+            else if (itemId == 743)
             {
                 name = "Ruby Staff";
                 mana = 7;
@@ -12516,7 +12516,7 @@ namespace Terraria
                 rare = 1;
                 noMelee = true;
             }
-            else if (type == 744)
+            else if (itemId == 744)
             {
                 name = "Diamond Staff";
                 mana = 8;
@@ -12536,7 +12536,7 @@ namespace Terraria
                 rare = 2;
                 noMelee = true;
             }
-            else if (type == 745)
+            else if (itemId == 745)
             {
                 name = "Grass Wall";
                 useStyle = 1;
@@ -12551,7 +12551,7 @@ namespace Terraria
                 height = 12;
                 value = 10;
             }
-            else if (type == 746)
+            else if (itemId == 746)
             {
                 name = "Jungle Wall";
                 useStyle = 1;
@@ -12566,7 +12566,7 @@ namespace Terraria
                 height = 12;
                 value = 10;
             }
-            else if (type == 747)
+            else if (itemId == 747)
             {
                 name = "Flower Wall";
                 useStyle = 1;
@@ -12581,7 +12581,7 @@ namespace Terraria
                 height = 12;
                 value = 10;
             }
-            else if (type == 748)
+            else if (itemId == 748)
             {
                 name = "Jetpack";
                 width = 24;
@@ -12593,7 +12593,7 @@ namespace Terraria
                 rare = 5;
                 wingSlot = 4;
             }
-            else if (type == 749)
+            else if (itemId == 749)
             {
                 name = "Butterfly Wings";
                 width = 24;
@@ -12604,7 +12604,7 @@ namespace Terraria
                 rare = 5;
                 wingSlot = 5;
             }
-            else if (type == 750)
+            else if (itemId == 750)
             {
                 name = "Cactus Wall";
                 useStyle = 1;
@@ -12618,7 +12618,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 751)
+            else if (itemId == 751)
             {
                 name = "Cloud";
                 useStyle = 1;
@@ -12632,7 +12632,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 752)
+            else if (itemId == 752)
             {
                 name = "Cloud Wall";
                 useStyle = 1;
@@ -12646,7 +12646,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 753)
+            else if (itemId == 753)
             {
                 damage = 0;
                 useStyle = 1;
@@ -12663,7 +12663,7 @@ namespace Terraria
                 value = sellPrice(0, 2, 0, 0);
                 buffType = 42;
             }
-            else if (type == 754)
+            else if (itemId == 754)
             {
                 name = "Rune Hat";
                 width = 28;
@@ -12673,7 +12673,7 @@ namespace Terraria
                 value = 50000;
                 vanity = true;
             }
-            else if (type == 755)
+            else if (itemId == 755)
             {
                 name = "Rune Robe";
                 width = 18;
@@ -12683,7 +12683,7 @@ namespace Terraria
                 vanity = true;
                 rare = 5;
             }
-            else if (type == 756)
+            else if (itemId == 756)
             {
                 rare = 7;
                 name = "Mushroom Spear";
@@ -12703,7 +12703,7 @@ namespace Terraria
                 noUseGraphic = true;
                 melee = true;
             }
-            else if (type == 757)
+            else if (itemId == 757)
             {
                 rare = 8;
                 useSound = 1;
@@ -12722,7 +12722,7 @@ namespace Terraria
                 value = sellPrice(0, 20, 0, 0);
                 autoReuse = true;
             }
-            else if (type == 758)
+            else if (itemId == 758)
             {
                 useStyle = 5;
                 autoReuse = true;
@@ -12742,7 +12742,7 @@ namespace Terraria
                 rare = 8;
                 ranged = true;
             }
-            else if (type == 759)
+            else if (itemId == 759)
             {
                 useStyle = 5;
                 autoReuse = true;
@@ -12762,7 +12762,7 @@ namespace Terraria
                 rare = 8;
                 ranged = true;
             }
-            else if (type == 760)
+            else if (itemId == 760)
             {
                 useStyle = 5;
                 autoReuse = true;
@@ -12782,7 +12782,7 @@ namespace Terraria
                 rare = 8;
                 ranged = true;
             }
-            else if (type == 761)
+            else if (itemId == 761)
             {
                 name = "Fairy Wings";
                 width = 24;
@@ -12793,7 +12793,7 @@ namespace Terraria
                 rare = 5;
                 wingSlot = 6;
             }
-            else if (type == 762)
+            else if (itemId == 762)
             {
                 name = "Slime Block";
                 useStyle = 1;
@@ -12807,7 +12807,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 763)
+            else if (itemId == 763)
             {
                 name = "Flesh Block";
                 useStyle = 1;
@@ -12821,7 +12821,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 764)
+            else if (itemId == 764)
             {
                 name = "Mushroom Wall";
                 useStyle = 1;
@@ -12835,7 +12835,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 765)
+            else if (itemId == 765)
             {
                 name = "Rain Cloud";
                 useStyle = 1;
@@ -12849,7 +12849,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 766)
+            else if (itemId == 766)
             {
                 name = "Bone Block";
                 useStyle = 1;
@@ -12863,7 +12863,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 767)
+            else if (itemId == 767)
             {
                 name = "Frozen Slime Block";
                 useStyle = 1;
@@ -12877,7 +12877,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 768)
+            else if (itemId == 768)
             {
                 name = "Bone Block Wall";
                 useStyle = 1;
@@ -12891,7 +12891,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 769)
+            else if (itemId == 769)
             {
                 name = "Slime Block Wall";
                 useStyle = 1;
@@ -12905,7 +12905,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 770)
+            else if (itemId == 770)
             {
                 name = "Flesh Block Wall";
                 useStyle = 1;
@@ -12919,7 +12919,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 771)
+            else if (itemId == 771)
             {
                 name = "Rocket I";
                 shoot = 0;
@@ -12934,7 +12934,7 @@ namespace Terraria
                 ranged = true;
                 toolTip = "Small blast radius. Will not destroy tiles";
             }
-            else if (type == 772)
+            else if (itemId == 772)
             {
                 name = "Rocket II";
                 shoot = 3;
@@ -12950,7 +12950,7 @@ namespace Terraria
                 toolTip = "Small blast radius. Will destroy tiles";
                 rare = 1;
             }
-            else if (type == 773)
+            else if (itemId == 773)
             {
                 name = "Rocket III";
                 shoot = 6;
@@ -12966,7 +12966,7 @@ namespace Terraria
                 toolTip = "Large blast radius. Will not destroy tiles";
                 rare = 1;
             }
-            else if (type == 774)
+            else if (itemId == 774)
             {
                 name = "Rocket IV";
                 shoot = 9;
@@ -12982,7 +12982,7 @@ namespace Terraria
                 toolTip = "Large blast radius. Will destroy tiles";
                 rare = 2;
             }
-            else if (type == 775)
+            else if (itemId == 775)
             {
                 name = "Asphalt Block";
                 useStyle = 1;
@@ -12997,7 +12997,7 @@ namespace Terraria
                 height = 12;
                 toolTip = "Increases running speed";
             }
-            else if (type == 776)
+            else if (itemId == 776)
             {
                 name = "Cobalt Pickaxe";
                 useStyle = 1;
@@ -13017,7 +13017,7 @@ namespace Terraria
                 toolTip = "Can mine Mythril and Orichalcum";
                 scale = 1.15f;
             }
-            else if (type == 777)
+            else if (itemId == 777)
             {
                 name = "Mythril Pickaxe";
                 useStyle = 1;
@@ -13037,7 +13037,7 @@ namespace Terraria
                 toolTip = "Can mine Adamantite and Titanium";
                 scale = 1.15f;
             }
-            else if (type == 778)
+            else if (itemId == 778)
             {
                 name = "Adamantite Pickaxe";
                 useStyle = 1;
@@ -13056,7 +13056,7 @@ namespace Terraria
                 melee = true;
                 scale = 1.15f;
             }
-            else if (type == 779)
+            else if (itemId == 779)
             {
                 useStyle = 5;
                 autoReuse = true;
@@ -13076,7 +13076,7 @@ namespace Terraria
                 toolTip = "Creates and destroys biomes when sprayed";
                 toolTip2 = "Uses colored solution";
             }
-            else if (type == 780)
+            else if (itemId == 780)
             {
                 name = "Green Solutiuon";
                 shoot = 0;
@@ -13090,7 +13090,7 @@ namespace Terraria
                 toolTip2 = "Spreads the purity";
                 consumable = true;
             }
-            else if (type == 781)
+            else if (itemId == 781)
             {
                 name = "Blue Solutiuon";
                 shoot = 1;
@@ -13104,7 +13104,7 @@ namespace Terraria
                 toolTip2 = "Spreads the hallow";
                 consumable = true;
             }
-            else if (type == 782)
+            else if (itemId == 782)
             {
                 name = "Purple Solutiuon";
                 shoot = 2;
@@ -13118,7 +13118,7 @@ namespace Terraria
                 toolTip2 = "Spreads the corruption";
                 consumable = true;
             }
-            else if (type == 783)
+            else if (itemId == 783)
             {
                 name = "Dark Blue Solution";
                 shoot = 3;
@@ -13132,7 +13132,7 @@ namespace Terraria
                 toolTip2 = "Spreads glowing mushrooms";
                 consumable = true;
             }
-            else if (type == 784)
+            else if (itemId == 784)
             {
                 name = "Red Solution";
                 shoot = 4;
@@ -13146,7 +13146,7 @@ namespace Terraria
                 toolTip2 = "Spreads the crimson";
                 consumable = true;
             }
-            else if (type == 785)
+            else if (itemId == 785)
             {
                 name = "Harpy Wings";
                 width = 24;
@@ -13157,7 +13157,7 @@ namespace Terraria
                 rare = 5;
                 wingSlot = 7;
             }
-            else if (type == 786)
+            else if (itemId == 786)
             {
                 name = "Bone Wings";
                 width = 24;
@@ -13168,7 +13168,7 @@ namespace Terraria
                 rare = 5;
                 wingSlot = 8;
             }
-            else if (type == 787)
+            else if (itemId == 787)
             {
                 name = "Hammush";
                 useTurn = true;
@@ -13188,7 +13188,7 @@ namespace Terraria
                 melee = true;
                 toolTip = "Strong enough to destroy Demon Altars";
             }
-            else if (type == 788)
+            else if (itemId == 788)
             {
                 mana = 10;
                 damage = 28;
@@ -13209,7 +13209,7 @@ namespace Terraria
                 value = 200000;
                 magic = true;
             }
-            else if (type == 789)
+            else if (itemId == 789)
             {
                 name = "Ankh Banner";
                 useStyle = 1;
@@ -13225,7 +13225,7 @@ namespace Terraria
                 height = 24;
                 value = 5000;
             }
-            else if (type == 790)
+            else if (itemId == 790)
             {
                 name = "Snake Banner";
                 useStyle = 1;
@@ -13241,7 +13241,7 @@ namespace Terraria
                 height = 24;
                 value = 5000;
             }
-            else if (type == 791)
+            else if (itemId == 791)
             {
                 name = "Omega Banner";
                 useStyle = 1;
@@ -13257,7 +13257,7 @@ namespace Terraria
                 height = 24;
                 value = 5000;
             }
-            else if (type == 792)
+            else if (itemId == 792)
             {
                 name = "Crimson Helmet";
                 width = 18;
@@ -13268,7 +13268,7 @@ namespace Terraria
                 toolTip = "2% increased damage";
                 rare = 1;
             }
-            else if (type == 793)
+            else if (itemId == 793)
             {
                 name = "Crimson Scalemail";
                 width = 18;
@@ -13279,7 +13279,7 @@ namespace Terraria
                 toolTip = "2% increased damage";
                 rare = 1;
             }
-            else if (type == 794)
+            else if (itemId == 794)
             {
                 name = "Crimson Greaves";
                 width = 18;
@@ -13290,7 +13290,7 @@ namespace Terraria
                 toolTip = "2% increased damage";
                 rare = 1;
             }
-            else if (type == 795)
+            else if (itemId == 795)
             {
                 name = "Blood Butcherer";
                 useStyle = 1;
@@ -13305,7 +13305,7 @@ namespace Terraria
                 value = 13500;
                 melee = true;
             }
-            else if (type == 796)
+            else if (itemId == 796)
             {
                 useStyle = 5;
                 useAnimation = 30;
@@ -13325,7 +13325,7 @@ namespace Terraria
                 value = 18000;
                 ranged = true;
             }
-            else if (type == 797)
+            else if (itemId == 797)
             {
                 name = "Flesh Grinder";
                 autoReuse = true;
@@ -13343,7 +13343,7 @@ namespace Terraria
                 value = 15000;
                 melee = true;
             }
-            else if (type == 798)
+            else if (itemId == 798)
             {
                 name = "Deathbringer Pickaxe";
                 useStyle = 1;
@@ -13363,7 +13363,7 @@ namespace Terraria
                 toolTip = "Able to mine Hellstone";
                 melee = true;
             }
-            else if (type == 799)
+            else if (itemId == 799)
             {
                 name = "Blood Lust Cluster";
                 autoReuse = true;
@@ -13381,7 +13381,7 @@ namespace Terraria
                 value = 13500;
                 melee = true;
             }
-            else if (type == 800)
+            else if (itemId == 800)
             {
                 useStyle = 5;
                 useAnimation = 23;
@@ -13401,7 +13401,7 @@ namespace Terraria
                 rare = 1;
                 ranged = true;
             }
-            else if (type == 801)
+            else if (itemId == 801)
             {
                 name = "The Meatball";
                 useStyle = 5;
@@ -13422,7 +13422,7 @@ namespace Terraria
                 channel = true;
                 noMelee = true;
             }
-            else if (type == 802)
+            else if (itemId == 802)
             {
                 name = "The Rotted Fork";
                 useStyle = 5;
@@ -13442,7 +13442,7 @@ namespace Terraria
                 noUseGraphic = true;
                 melee = true;
             }
-            else if (type == 803)
+            else if (itemId == 803)
             {
                 name = "Eskimo Hood";
                 width = 18;
@@ -13451,7 +13451,7 @@ namespace Terraria
                 value = 50000;
                 defense = 1;
             }
-            else if (type == 804)
+            else if (itemId == 804)
             {
                 name = "Eskimo Coat";
                 width = 18;
@@ -13460,7 +13460,7 @@ namespace Terraria
                 value = 40000;
                 defense = 2;
             }
-            else if (type == 805)
+            else if (itemId == 805)
             {
                 name = "Eskimo Pants";
                 width = 18;
@@ -13469,7 +13469,7 @@ namespace Terraria
                 value = 30000;
                 defense = 1;
             }
-            else if (type == 806)
+            else if (itemId == 806)
             {
                 name = "Living Wood Chair";
                 useStyle = 1;
@@ -13484,7 +13484,7 @@ namespace Terraria
                 width = 12;
                 height = 30;
             }
-            else if (type == 807)
+            else if (itemId == 807)
             {
                 name = "Cactus Chair";
                 useStyle = 1;
@@ -13499,7 +13499,7 @@ namespace Terraria
                 width = 12;
                 height = 30;
             }
-            else if (type == 808)
+            else if (itemId == 808)
             {
                 name = "Bone Chair";
                 useStyle = 1;
@@ -13514,7 +13514,7 @@ namespace Terraria
                 width = 12;
                 height = 30;
             }
-            else if (type == 809)
+            else if (itemId == 809)
             {
                 name = "Flesh Chair";
                 useStyle = 1;
@@ -13529,7 +13529,7 @@ namespace Terraria
                 width = 12;
                 height = 30;
             }
-            else if (type == 810)
+            else if (itemId == 810)
             {
                 name = "Mushroom Chair";
                 useStyle = 1;
@@ -13544,7 +13544,7 @@ namespace Terraria
                 width = 12;
                 height = 30;
             }
-            else if (type == 811)
+            else if (itemId == 811)
             {
                 name = "Bone Work Bench";
                 useStyle = 1;
@@ -13561,7 +13561,7 @@ namespace Terraria
                 value = 150;
                 toolTip = "Used for basic crafting";
             }
-            else if (type == 812)
+            else if (itemId == 812)
             {
                 name = "Cactus Work Bench";
                 useStyle = 1;
@@ -13578,7 +13578,7 @@ namespace Terraria
                 value = 150;
                 toolTip = "Used for basic crafting";
             }
-            else if (type == 813)
+            else if (itemId == 813)
             {
                 name = "Flesh Work Bench";
                 useStyle = 1;
@@ -13595,7 +13595,7 @@ namespace Terraria
                 value = 150;
                 toolTip = "Used for basic crafting";
             }
-            else if (type == 814)
+            else if (itemId == 814)
             {
                 name = "Mushroom Work Bench";
                 useStyle = 1;
@@ -13612,7 +13612,7 @@ namespace Terraria
                 value = 150;
                 toolTip = "Used for basic crafting";
             }
-            else if (type == 815)
+            else if (itemId == 815)
             {
                 name = "Slime Work Bench";
                 useStyle = 1;
@@ -13629,7 +13629,7 @@ namespace Terraria
                 value = 150;
                 toolTip = "Used for basic crafting";
             }
-            else if (type == 816)
+            else if (itemId == 816)
             {
                 name = "Cactus Door";
                 useStyle = 1;
@@ -13644,7 +13644,7 @@ namespace Terraria
                 height = 28;
                 value = 200;
             }
-            else if (type == 817)
+            else if (itemId == 817)
             {
                 name = "Flesh Door";
                 useStyle = 1;
@@ -13659,7 +13659,7 @@ namespace Terraria
                 height = 28;
                 value = 200;
             }
-            else if (type == 818)
+            else if (itemId == 818)
             {
                 name = "Mushroom Door";
                 useStyle = 1;
@@ -13674,7 +13674,7 @@ namespace Terraria
                 height = 28;
                 value = 200;
             }
-            else if (type == 819)
+            else if (itemId == 819)
             {
                 name = "Living Wood Door";
                 useStyle = 1;
@@ -13689,7 +13689,7 @@ namespace Terraria
                 height = 28;
                 value = 200;
             }
-            else if (type == 820)
+            else if (itemId == 820)
             {
                 name = "Bone Door";
                 useStyle = 1;
@@ -13704,7 +13704,7 @@ namespace Terraria
                 height = 28;
                 value = 200;
             }
-            else if (type == 821)
+            else if (itemId == 821)
             {
                 name = "Flame Wings";
                 width = 24;
@@ -13715,7 +13715,7 @@ namespace Terraria
                 rare = 5;
                 wingSlot = 9;
             }
-            else if (type == 822)
+            else if (itemId == 822)
             {
                 name = "Frozen Wings";
                 width = 24;
@@ -13726,7 +13726,7 @@ namespace Terraria
                 rare = 5;
                 wingSlot = 10;
             }
-            else if (type == 823)
+            else if (itemId == 823)
             {
                 name = "Ghost Wings";
                 color = new Color((int)255, (int)255, (int)255, 0);
@@ -13739,7 +13739,7 @@ namespace Terraria
                 rare = 8;
                 wingSlot = 11;
             }
-            else if (type == 824)
+            else if (itemId == 824)
             {
                 name = "Sunplate Block";
                 useStyle = 1;
@@ -13753,7 +13753,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 825)
+            else if (itemId == 825)
             {
                 name = "Disc Wall";
                 useStyle = 1;
@@ -13767,7 +13767,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 826)
+            else if (itemId == 826)
             {
                 name = "Skyware Chair";
                 useStyle = 1;
@@ -13782,7 +13782,7 @@ namespace Terraria
                 width = 12;
                 height = 30;
             }
-            else if (type == 827)
+            else if (itemId == 827)
             {
                 name = "Bone Table";
                 useStyle = 1;
@@ -13798,7 +13798,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 828)
+            else if (itemId == 828)
             {
                 name = "Flesh Table";
                 useStyle = 1;
@@ -13814,7 +13814,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 829)
+            else if (itemId == 829)
             {
                 name = "Living Wood Table";
                 useStyle = 1;
@@ -13830,7 +13830,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 830)
+            else if (itemId == 830)
             {
                 name = "Skyware Table";
                 useStyle = 1;
@@ -13846,7 +13846,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 831)
+            else if (itemId == 831)
             {
                 name = "Living Wood Chest";
                 useStyle = 1;
@@ -13862,7 +13862,7 @@ namespace Terraria
                 height = 22;
                 value = 5000;
             }
-            else if (type == 832)
+            else if (itemId == 832)
             {
                 name = "Living Wood Wand";
                 tileWand = 9;
@@ -13877,7 +13877,7 @@ namespace Terraria
                 rare = 1;
                 toolTip = "Places living wood";
             }
-            else if (type == 833)
+            else if (itemId == 833)
             {
                 name = "Purple Ice Block";
                 useStyle = 1;
@@ -13891,7 +13891,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 834)
+            else if (itemId == 834)
             {
                 name = "Pink Ice Block";
                 useStyle = 1;
@@ -13905,7 +13905,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 835)
+            else if (itemId == 835)
             {
                 name = "Red Ice Block";
                 useStyle = 1;
@@ -13919,7 +13919,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 836)
+            else if (itemId == 836)
             {
                 name = "Crimstone";
                 useStyle = 1;
@@ -13933,7 +13933,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 837)
+            else if (itemId == 837)
             {
                 name = "Skyware Door";
                 useStyle = 1;
@@ -13948,7 +13948,7 @@ namespace Terraria
                 height = 28;
                 value = 200;
             }
-            else if (type == 838)
+            else if (itemId == 838)
             {
                 name = "Skyware Chest";
                 useStyle = 1;
@@ -13964,7 +13964,7 @@ namespace Terraria
                 height = 22;
                 value = 5000;
             }
-            else if (type == 839)
+            else if (itemId == 839)
             {
                 name = "Steampunk Hat";
                 width = 28;
@@ -13974,7 +13974,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 1, 50, 0);
             }
-            else if (type == 840)
+            else if (itemId == 840)
             {
                 name = "Steampunk Shirt";
                 width = 18;
@@ -13984,7 +13984,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 1, 50, 0);
             }
-            else if (type == 841)
+            else if (itemId == 841)
             {
                 name = "Steampunk Pants";
                 width = 18;
@@ -13994,7 +13994,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 1, 50, 0);
             }
-            else if (type == 842)
+            else if (itemId == 842)
             {
                 name = "Bee Hat";
                 width = 28;
@@ -14003,7 +14003,7 @@ namespace Terraria
                 rare = 1;
                 vanity = true;
             }
-            else if (type == 843)
+            else if (itemId == 843)
             {
                 name = "Bee Shirt";
                 width = 18;
@@ -14012,7 +14012,7 @@ namespace Terraria
                 rare = 1;
                 vanity = true;
             }
-            else if (type == 844)
+            else if (itemId == 844)
             {
                 name = "Bee Pants";
                 width = 18;
@@ -14021,7 +14021,7 @@ namespace Terraria
                 rare = 1;
                 vanity = true;
             }
-            else if (type == 845)
+            else if (itemId == 845)
             {
                 name = "World Banner";
                 useStyle = 1;
@@ -14037,7 +14037,7 @@ namespace Terraria
                 height = 24;
                 value = 5000;
             }
-            else if (type == 846)
+            else if (itemId == 846)
             {
                 name = "Sun Banner";
                 useStyle = 1;
@@ -14053,7 +14053,7 @@ namespace Terraria
                 height = 24;
                 value = 5000;
             }
-            else if (type == 847)
+            else if (itemId == 847)
             {
                 name = "Gravity Banner";
                 useStyle = 1;
@@ -14069,7 +14069,7 @@ namespace Terraria
                 height = 24;
                 value = 5000;
             }
-            else if (type == 848)
+            else if (itemId == 848)
             {
                 name = "Pharaoh's Mask";
                 width = 28;
@@ -14078,7 +14078,7 @@ namespace Terraria
                 rare = 1;
                 vanity = true;
             }
-            else if (type == 849)
+            else if (itemId == 849)
             {
                 useStyle = 1;
                 useTurn = true;
@@ -14093,7 +14093,7 @@ namespace Terraria
                 mech = true;
                 value = buyPrice(0, 0, 10, 0);
             }
-            else if (type == 850)
+            else if (itemId == 850)
             {
                 useStyle = 1;
                 useTurn = true;
@@ -14109,7 +14109,7 @@ namespace Terraria
                 mech = true;
                 tileBoost = 20;
             }
-            else if (type == 851)
+            else if (itemId == 851)
             {
                 useStyle = 1;
                 useTurn = true;
@@ -14125,7 +14125,7 @@ namespace Terraria
                 mech = true;
                 tileBoost = 20;
             }
-            else if (type == 852)
+            else if (itemId == 852)
             {
                 name = "Blue Pressure Plate";
                 useStyle = 1;
@@ -14143,7 +14143,7 @@ namespace Terraria
                 value = 5000;
                 toolTip = "Activates when a player steps on it on";
             }
-            else if (type == 853)
+            else if (itemId == 853)
             {
                 name = "Yellow Pressure Plate";
                 useStyle = 1;
@@ -14161,7 +14161,7 @@ namespace Terraria
                 value = 5000;
                 toolTip = "Activates when anything but a player steps on it on";
             }
-            else if (type == 854)
+            else if (itemId == 854)
             {
                 name = "Discount Card";
                 width = 16;
@@ -14171,7 +14171,7 @@ namespace Terraria
                 toolTip = "Shops have lower prices";
                 value = 50000;
             }
-            else if (type == 855)
+            else if (itemId == 855)
             {
                 name = "Lucky Coin";
                 width = 16;
@@ -14181,7 +14181,7 @@ namespace Terraria
                 toolTip = "Hitting enemies will sometimes drop extra coins";
                 value = 50000;
             }
-            else if (type == 856)
+            else if (itemId == 856)
             {
                 noWet = true;
                 name = "Stick Unicorn";
@@ -14193,7 +14193,7 @@ namespace Terraria
                 rare = 2;
                 vanity = true;
             }
-            else if (type == 857)
+            else if (itemId == 857)
             {
                 name = "Sandstorm in a Bottle";
                 width = 16;
@@ -14203,7 +14203,7 @@ namespace Terraria
                 toolTip = "Allows the holder to double jump";
                 value = 50000;
             }
-            else if (type == 858)
+            else if (itemId == 858)
             {
                 name = "Boreal Wood Sofa";
                 useStyle = 1;
@@ -14219,7 +14219,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 859)
+            else if (itemId == 859)
             {
                 useStyle = 1;
                 name = "Beach Ball";
@@ -14235,7 +14235,7 @@ namespace Terraria
                 noMelee = true;
                 value = 20;
             }
-            else if (type == 860)
+            else if (itemId == 860)
             {
                 name = "Charm of Myths";
                 width = 16;
@@ -14247,7 +14247,7 @@ namespace Terraria
                 value = 500000;
                 handOnSlot = 4;
             }
-            else if (type == 861)
+            else if (itemId == 861)
             {
                 name = "Moon Shell";
                 width = 16;
@@ -14257,7 +14257,7 @@ namespace Terraria
                 toolTip = "Turns the holder into a werewolf on full moons and a merfolk when entering water";
                 value = 500000;
             }
-            else if (type == 862)
+            else if (itemId == 862)
             {
                 name = "Star Veil";
                 width = 16;
@@ -14268,7 +14268,7 @@ namespace Terraria
                 value = 500000;
                 neckSlot = 5;
             }
-            else if (type == 863)
+            else if (itemId == 863)
             {
                 name = "Water Walking Boots";
                 width = 16;
@@ -14279,7 +14279,7 @@ namespace Terraria
                 value = 200000;
                 shoeSlot = 2;
             }
-            else if (type == 864)
+            else if (itemId == 864)
             {
                 name = "Tiara";
                 width = 28;
@@ -14289,7 +14289,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 25, 0, 0);
             }
-            else if (type == 865)
+            else if (itemId == 865)
             {
                 name = "Princess Dress";
                 width = 18;
@@ -14299,7 +14299,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 10, 0, 0);
             }
-            else if (type == 866)
+            else if (itemId == 866)
             {
                 name = "Pharaoh's Robe";
                 width = 18;
@@ -14308,7 +14308,7 @@ namespace Terraria
                 rare = 1;
                 vanity = true;
             }
-            else if (type == 867)
+            else if (itemId == 867)
             {
                 name = "Green Cap";
                 width = 28;
@@ -14317,7 +14317,7 @@ namespace Terraria
                 rare = 1;
                 vanity = true;
             }
-            else if (type == 868)
+            else if (itemId == 868)
             {
                 name = "Mushroom Cap";
                 width = 28;
@@ -14327,7 +14327,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 2, 0, 0);
             }
-            else if (type == 869)
+            else if (itemId == 869)
             {
                 name = "Tam O' Shanter";
                 width = 28;
@@ -14337,7 +14337,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 2, 50, 0);
             }
-            else if (type == 870)
+            else if (itemId == 870)
             {
                 name = "Mummy Mask";
                 width = 28;
@@ -14346,7 +14346,7 @@ namespace Terraria
                 rare = 1;
                 vanity = true;
             }
-            else if (type == 871)
+            else if (itemId == 871)
             {
                 name = "Mummy Shirt";
                 width = 28;
@@ -14355,7 +14355,7 @@ namespace Terraria
                 rare = 1;
                 vanity = true;
             }
-            else if (type == 872)
+            else if (itemId == 872)
             {
                 name = "Mummy Pants";
                 width = 28;
@@ -14364,7 +14364,7 @@ namespace Terraria
                 rare = 1;
                 vanity = true;
             }
-            else if (type == 873)
+            else if (itemId == 873)
             {
                 name = "Cowboy Hat";
                 width = 28;
@@ -14374,7 +14374,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 5, 0, 0);
             }
-            else if (type == 874)
+            else if (itemId == 874)
             {
                 name = "Cowboy Jacket";
                 width = 28;
@@ -14384,7 +14384,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 5, 0, 0);
             }
-            else if (type == 875)
+            else if (itemId == 875)
             {
                 name = "Cowboy Pants";
                 width = 28;
@@ -14394,7 +14394,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 5, 0, 0);
             }
-            else if (type == 876)
+            else if (itemId == 876)
             {
                 name = "Pirate Hat";
                 width = 28;
@@ -14404,7 +14404,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 5, 0, 0);
             }
-            else if (type == 877)
+            else if (itemId == 877)
             {
                 name = "Pirate Shirt";
                 width = 28;
@@ -14414,7 +14414,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 5, 0, 0);
             }
-            else if (type == 878)
+            else if (itemId == 878)
             {
                 name = "Pirate Pants";
                 width = 28;
@@ -14424,7 +14424,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 5, 0, 0);
             }
-            else if (type == 879)
+            else if (itemId == 879)
             {
                 name = "Viking Helmet";
                 width = 28;
@@ -14434,7 +14434,7 @@ namespace Terraria
                 defense = 4;
                 value = sellPrice(0, 0, 50, 0);
             }
-            else if (type == 880)
+            else if (itemId == 880)
             {
                 name = "Crimtane";
                 useStyle = 1;
@@ -14450,7 +14450,7 @@ namespace Terraria
                 rare = 1;
                 value = 4500;
             }
-            else if (type == 881)
+            else if (itemId == 881)
             {
                 name = "Cactus Sword";
                 useStyle = 1;
@@ -14466,7 +14466,7 @@ namespace Terraria
                 value = 1800;
                 melee = true;
             }
-            else if (type == 882)
+            else if (itemId == 882)
             {
                 name = "Cactus Pickaxe";
                 useStyle = 1;
@@ -14483,7 +14483,7 @@ namespace Terraria
                 value = 2000;
                 melee = true;
             }
-            else if (type == 883)
+            else if (itemId == 883)
             {
                 name = "Ice Brick";
                 useStyle = 1;
@@ -14497,7 +14497,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 884)
+            else if (itemId == 884)
             {
                 name = "Ice Brick Wall";
                 useStyle = 1;
@@ -14511,7 +14511,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 885)
+            else if (itemId == 885)
             {
                 name = "Adhesive Bandage";
                 width = 16;
@@ -14521,7 +14521,7 @@ namespace Terraria
                 toolTip = "Immunity to Bleeding";
                 value = 100000;
             }
-            else if (type == 886)
+            else if (itemId == 886)
             {
                 name = "Armor Polish";
                 width = 16;
@@ -14531,7 +14531,7 @@ namespace Terraria
                 toolTip = "Immunity to Broken Armor";
                 value = 100000;
             }
-            else if (type == 887)
+            else if (itemId == 887)
             {
                 name = "Bezoar";
                 width = 16;
@@ -14541,7 +14541,7 @@ namespace Terraria
                 toolTip = "Immunity to Poison";
                 value = 100000;
             }
-            else if (type == 888)
+            else if (itemId == 888)
             {
                 name = "Blindfold";
                 width = 16;
@@ -14552,7 +14552,7 @@ namespace Terraria
                 value = 100000;
                 faceSlot = 5;
             }
-            else if (type == 889)
+            else if (itemId == 889)
             {
                 name = "Fast Clock";
                 width = 16;
@@ -14562,7 +14562,7 @@ namespace Terraria
                 toolTip = "Immunity to Slow";
                 value = 100000;
             }
-            else if (type == 890)
+            else if (itemId == 890)
             {
                 name = "Megaphone";
                 width = 16;
@@ -14572,7 +14572,7 @@ namespace Terraria
                 toolTip = "Immunity to Silence";
                 value = 100000;
             }
-            else if (type == 891)
+            else if (itemId == 891)
             {
                 name = "Nazar";
                 width = 16;
@@ -14582,7 +14582,7 @@ namespace Terraria
                 toolTip = "Immunity to Curse";
                 value = 100000;
             }
-            else if (type == 892)
+            else if (itemId == 892)
             {
                 name = "Vitamins";
                 width = 16;
@@ -14592,7 +14592,7 @@ namespace Terraria
                 toolTip = "Immunity to Weakness";
                 value = 100000;
             }
-            else if (type == 893)
+            else if (itemId == 893)
             {
                 name = "Trifold Map";
                 width = 16;
@@ -14602,7 +14602,7 @@ namespace Terraria
                 toolTip = "Immunity to Confusion";
                 value = 100000;
             }
-            else if (type == 894)
+            else if (itemId == 894)
             {
                 name = "Cactus Helmet";
                 width = 18;
@@ -14610,7 +14610,7 @@ namespace Terraria
                 defense = 1;
                 headSlot = 70;
             }
-            else if (type == 895)
+            else if (itemId == 895)
             {
                 name = "Cactus Breastplate";
                 width = 18;
@@ -14618,7 +14618,7 @@ namespace Terraria
                 defense = 2;
                 bodySlot = 46;
             }
-            else if (type == 896)
+            else if (itemId == 896)
             {
                 name = "Cactus Leggings";
                 width = 18;
@@ -14626,7 +14626,7 @@ namespace Terraria
                 defense = 1;
                 legSlot = 42;
             }
-            else if (type == 897)
+            else if (itemId == 897)
             {
                 name = "Power Glove";
                 width = 16;
@@ -14639,7 +14639,7 @@ namespace Terraria
                 handOffSlot = 5;
                 handOnSlot = 10;
             }
-            else if (type == 898)
+            else if (itemId == 898)
             {
                 name = "Lightning Boots";
                 width = 16;
@@ -14651,7 +14651,7 @@ namespace Terraria
                 value = 300000;
                 shoeSlot = 10;
             }
-            else if (type == 899)
+            else if (itemId == 899)
             {
                 name = "Sun Stone";
                 width = 16;
@@ -14662,7 +14662,7 @@ namespace Terraria
                 value = 300000;
                 handOnSlot = 13;
             }
-            else if (type == 900)
+            else if (itemId == 900)
             {
                 name = "Moon Stone";
                 width = 16;
@@ -14673,7 +14673,7 @@ namespace Terraria
                 value = 300000;
                 handOnSlot = 14;
             }
-            else if (type == 901)
+            else if (itemId == 901)
             {
                 name = "Armor Bracing";
                 width = 16;
@@ -14683,7 +14683,7 @@ namespace Terraria
                 toolTip = "Immunity to Weakness and Broken Armor";
                 value = 100000;
             }
-            else if (type == 902)
+            else if (itemId == 902)
             {
                 name = "Medicated Bandage";
                 width = 16;
@@ -14693,7 +14693,7 @@ namespace Terraria
                 toolTip = "Immunity to Poison and Bleeding";
                 value = 100000;
             }
-            else if (type == 903)
+            else if (itemId == 903)
             {
                 name = "The Plan";
                 width = 16;
@@ -14703,7 +14703,7 @@ namespace Terraria
                 toolTip = "Immunity to Slow and Confusion";
                 value = 100000;
             }
-            else if (type == 904)
+            else if (itemId == 904)
             {
                 name = "Countercurse Mantra";
                 width = 16;
@@ -14713,7 +14713,7 @@ namespace Terraria
                 toolTip = "Immunity to Silence and Curse";
                 value = 100000;
             }
-            else if (type == 905)
+            else if (itemId == 905)
             {
                 name = "Coin Gun";
                 useStyle = 5;
@@ -14735,7 +14735,7 @@ namespace Terraria
                 knockBack = 2f;
                 ranged = true;
             }
-            else if (type == 906)
+            else if (itemId == 906)
             {
                 name = "Lava Charm";
                 width = 16;
@@ -14745,7 +14745,7 @@ namespace Terraria
                 toolTip = "Provides 7 seconds of immunity to lava";
                 value = 300000;
             }
-            else if (type == 907)
+            else if (itemId == 907)
             {
                 name = "Obsidian Water Walking Boots";
                 width = 16;
@@ -14757,7 +14757,7 @@ namespace Terraria
                 value = 500000;
                 shoeSlot = 11;
             }
-            else if (type == 908)
+            else if (itemId == 908)
             {
                 name = "Lava Waders";
                 width = 16;
@@ -14769,7 +14769,7 @@ namespace Terraria
                 value = 500000;
                 shoeSlot = 8;
             }
-            else if (type == 909)
+            else if (itemId == 909)
             {
                 name = "Pure Water Fountain";
                 useStyle = 1;
@@ -14785,7 +14785,7 @@ namespace Terraria
                 height = 36;
                 value = buyPrice(0, 4, 0, 0);
             }
-            else if (type == 910)
+            else if (itemId == 910)
             {
                 name = "Desert Water Fountain";
                 useStyle = 1;
@@ -14801,7 +14801,7 @@ namespace Terraria
                 height = 36;
                 value = buyPrice(0, 4, 0, 0);
             }
-            else if (type == 911)
+            else if (itemId == 911)
             {
                 name = "Shadewood";
                 useStyle = 1;
@@ -14815,7 +14815,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 912)
+            else if (itemId == 912)
             {
                 name = "Shadewood Door";
                 useStyle = 1;
@@ -14830,7 +14830,7 @@ namespace Terraria
                 height = 28;
                 value = 200;
             }
-            else if (type == 913)
+            else if (itemId == 913)
             {
                 name = "Shadewood Platform";
                 useStyle = 1;
@@ -14845,7 +14845,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 914)
+            else if (itemId == 914)
             {
                 name = "Shadewood Chest";
                 useStyle = 1;
@@ -14861,7 +14861,7 @@ namespace Terraria
                 height = 22;
                 value = 500;
             }
-            else if (type == 915)
+            else if (itemId == 915)
             {
                 name = "Shadewood Chair";
                 useStyle = 1;
@@ -14876,7 +14876,7 @@ namespace Terraria
                 width = 12;
                 height = 30;
             }
-            else if (type == 916)
+            else if (itemId == 916)
             {
                 name = "Shadewood Work Bench";
                 useStyle = 1;
@@ -14893,7 +14893,7 @@ namespace Terraria
                 value = 150;
                 toolTip = "Used for basic crafting";
             }
-            else if (type == 917)
+            else if (itemId == 917)
             {
                 name = "Shadewood Table";
                 useStyle = 1;
@@ -14909,7 +14909,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 918)
+            else if (itemId == 918)
             {
                 name = "Shadewood Dresser";
                 useStyle = 1;
@@ -14925,7 +14925,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 919)
+            else if (itemId == 919)
             {
                 name = "Shadewood Piano";
                 useStyle = 1;
@@ -14941,7 +14941,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 920)
+            else if (itemId == 920)
             {
                 name = "Shadewood Bed";
                 useStyle = 1;
@@ -14956,7 +14956,7 @@ namespace Terraria
                 height = 20;
                 value = 2000;
             }
-            else if (type == 921)
+            else if (itemId == 921)
             {
                 name = "Shadewood Sword";
                 useStyle = 1;
@@ -14972,7 +14972,7 @@ namespace Terraria
                 value = 100;
                 melee = true;
             }
-            else if (type == 922)
+            else if (itemId == 922)
             {
                 name = "Shadewood Hammer";
                 autoReuse = true;
@@ -14990,7 +14990,7 @@ namespace Terraria
                 value = 50;
                 melee = true;
             }
-            else if (type == 923)
+            else if (itemId == 923)
             {
                 name = "Shadewood Bow";
                 useStyle = 5;
@@ -15007,7 +15007,7 @@ namespace Terraria
                 value = 100;
                 ranged = true;
             }
-            else if (type == 924)
+            else if (itemId == 924)
             {
                 name = "Shadewood Helmet";
                 width = 18;
@@ -15015,7 +15015,7 @@ namespace Terraria
                 defense = 1;
                 headSlot = 71;
             }
-            else if (type == 925)
+            else if (itemId == 925)
             {
                 name = "Shadewood Breastplate";
                 width = 18;
@@ -15023,7 +15023,7 @@ namespace Terraria
                 defense = 2;
                 bodySlot = 47;
             }
-            else if (type == 926)
+            else if (itemId == 926)
             {
                 name = "Shadewood Greaves";
                 width = 18;
@@ -15031,7 +15031,7 @@ namespace Terraria
                 defense = 1;
                 legSlot = 43;
             }
-            else if (type == 927)
+            else if (itemId == 927)
             {
                 name = "Shadewood Wall";
                 useStyle = 1;
@@ -15045,7 +15045,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 928)
+            else if (itemId == 928)
             {
                 name = "Cannon";
                 useStyle = 1;
@@ -15061,7 +15061,7 @@ namespace Terraria
                 rare = 3;
                 value = buyPrice(0, 25, 0, 0);
             }
-            else if (type == 929)
+            else if (itemId == 929)
             {
                 name = "Cannonball";
                 useStyle = 1;
@@ -15077,7 +15077,7 @@ namespace Terraria
                 noMelee = true;
                 value = buyPrice(0, 0, 15, 0);
             }
-            else if (type == 930)
+            else if (itemId == 930)
             {
                 useStyle = 5;
                 useAnimation = 18;
@@ -15096,7 +15096,7 @@ namespace Terraria
                 rare = 1;
                 holdStyle = 1;
             }
-            else if (type == 931)
+            else if (itemId == 931)
             {
                 name = "Flare";
                 shootSpeed = 6f;
@@ -15111,7 +15111,7 @@ namespace Terraria
                 value = 7;
                 ranged = true;
             }
-            else if (type == 932)
+            else if (itemId == 932)
             {
                 name = "Bone Wand";
                 tileWand = 154;
@@ -15126,7 +15126,7 @@ namespace Terraria
                 rare = 1;
                 toolTip = "Places bone";
             }
-            else if (type == 933)
+            else if (itemId == 933)
             {
                 name = "Leaf Wand";
                 tileWand = 9;
@@ -15141,7 +15141,7 @@ namespace Terraria
                 rare = 1;
                 toolTip = "Places leaves";
             }
-            else if (type == 934)
+            else if (itemId == 934)
             {
                 name = "Flying Carpet";
                 width = 34;
@@ -15151,7 +15151,7 @@ namespace Terraria
                 toolTip = "Allows the owner to float for a few seconds";
                 value = 50000;
             }
-            else if (type == 935)
+            else if (itemId == 935)
             {
                 name = "Avenger Emblem";
                 width = 24;
@@ -15161,7 +15161,7 @@ namespace Terraria
                 value = 300000;
                 rare = 5;
             }
-            else if (type == 936)
+            else if (itemId == 936)
             {
                 name = "Mechanical Glove";
                 width = 24;
@@ -15174,7 +15174,7 @@ namespace Terraria
                 handOffSlot = 4;
                 handOnSlot = 9;
             }
-            else if (type == 937)
+            else if (itemId == 937)
             {
                 name = "Land Mine";
                 useStyle = 1;
@@ -15193,7 +15193,7 @@ namespace Terraria
                 mech = true;
                 toolTip = "Explodes when stepped on";
             }
-            else if (type == 938)
+            else if (itemId == 938)
             {
                 name = "Paladin's Shield";
                 width = 24;
@@ -15206,7 +15206,7 @@ namespace Terraria
                 value = 300000;
                 shieldSlot = 2;
             }
-            else if (type == 939)
+            else if (itemId == 939)
             {
                 noUseGraphic = true;
                 damage = 0;
@@ -15224,7 +15224,7 @@ namespace Terraria
                 noMelee = true;
                 value = 20000;
             }
-            else if (type == 940)
+            else if (itemId == 940)
             {
                 name = "Jungle Water Fountain";
                 useStyle = 1;
@@ -15240,7 +15240,7 @@ namespace Terraria
                 height = 36;
                 value = buyPrice(0, 4, 0, 0);
             }
-            else if (type == 941)
+            else if (itemId == 941)
             {
                 name = "Icy Water Fountain";
                 useStyle = 1;
@@ -15256,7 +15256,7 @@ namespace Terraria
                 height = 36;
                 value = buyPrice(0, 4, 0, 0);
             }
-            else if (type == 942)
+            else if (itemId == 942)
             {
                 name = "Corrupt Water Fountain";
                 useStyle = 1;
@@ -15272,7 +15272,7 @@ namespace Terraria
                 height = 36;
                 value = buyPrice(0, 4, 0, 0);
             }
-            else if (type == 943)
+            else if (itemId == 943)
             {
                 name = "Crimson Water Fountain";
                 useStyle = 1;
@@ -15288,7 +15288,7 @@ namespace Terraria
                 height = 36;
                 value = buyPrice(0, 4, 0, 0);
             }
-            else if (type == 944)
+            else if (itemId == 944)
             {
                 name = "Hallowed Water Fountain";
                 useStyle = 1;
@@ -15304,7 +15304,7 @@ namespace Terraria
                 height = 36;
                 value = buyPrice(0, 4, 0, 0);
             }
-            else if (type == 945)
+            else if (itemId == 945)
             {
                 name = "Blood Water Fountain";
                 useStyle = 1;
@@ -15320,7 +15320,7 @@ namespace Terraria
                 height = 36;
                 value = buyPrice(0, 4, 0, 0);
             }
-            else if (type == 946)
+            else if (itemId == 946)
             {
                 name = "Umbrella";
                 width = 44;
@@ -15330,7 +15330,7 @@ namespace Terraria
                 holdStyle = 2;
                 toolTip = "You will fall slower while holding this";
             }
-            else if (type == 947)
+            else if (itemId == 947)
             {
                 name = "Chlorophyte Ore";
                 useStyle = 1;
@@ -15347,7 +15347,7 @@ namespace Terraria
                 value = 3000;
                 toolTip = "Reacts to the light";
             }
-            else if (type == 948)
+            else if (itemId == 948)
             {
                 name = "Steampunk Wings";
                 width = 24;
@@ -15359,7 +15359,7 @@ namespace Terraria
                 wingSlot = 12;
                 value = buyPrice(1, 0, 0, 0);
             }
-            else if (type == 949)
+            else if (itemId == 949)
             {
                 useStyle = 1;
                 name = "Snowball";
@@ -15379,7 +15379,7 @@ namespace Terraria
                 thrown = true;
                 knockBack = 5.75f;
             }
-            else if (type == 950)
+            else if (itemId == 950)
             {
                 name = "Ice Skates";
                 width = 16;
@@ -15390,7 +15390,7 @@ namespace Terraria
                 value = 50000;
                 shoeSlot = 7;
             }
-            else if (type == 951)
+            else if (itemId == 951)
             {
                 name = "Snowball Launcher";
                 useStyle = 1;
@@ -15407,7 +15407,7 @@ namespace Terraria
                 rare = 2;
                 toolTip = "Rapidly launches snowballs";
             }
-            else if (type == 952)
+            else if (itemId == 952)
             {
                 name = "Web Covered Chest";
                 useStyle = 1;
@@ -15423,7 +15423,7 @@ namespace Terraria
                 height = 22;
                 value = 500;
             }
-            else if (type == 953)
+            else if (itemId == 953)
             {
                 name = "Climbing Claws";
                 width = 16;
@@ -15436,7 +15436,7 @@ namespace Terraria
                 handOnSlot = 11;
                 handOffSlot = 6;
             }
-            else if (type == 954)
+            else if (itemId == 954)
             {
                 name = "Ancient Iron Helmet";
                 width = 18;
@@ -15445,7 +15445,7 @@ namespace Terraria
                 headSlot = 72;
                 value = 5000;
             }
-            else if (type == 955)
+            else if (itemId == 955)
             {
                 name = "Ancient Gold Helmet";
                 width = 18;
@@ -15454,7 +15454,7 @@ namespace Terraria
                 headSlot = 73;
                 value = 25000;
             }
-            else if (type == 956)
+            else if (itemId == 956)
             {
                 name = "Ancient Shadow Helmet";
                 width = 18;
@@ -15465,7 +15465,7 @@ namespace Terraria
                 value = 37500;
                 toolTip = "7% increased melee speed";
             }
-            else if (type == 957)
+            else if (itemId == 957)
             {
                 name = "Ancient Shadow Scalemail";
                 width = 18;
@@ -15476,7 +15476,7 @@ namespace Terraria
                 value = 30000;
                 toolTip = "7% increased melee speed";
             }
-            else if (type == 958)
+            else if (itemId == 958)
             {
                 name = "Ancient Shadow Greaves";
                 width = 18;
@@ -15487,7 +15487,7 @@ namespace Terraria
                 value = 22500;
                 toolTip = "7% increased melee speed";
             }
-            else if (type == 959)
+            else if (itemId == 959)
             {
                 name = "Ancient Necro Helmet";
                 width = 18;
@@ -15498,7 +15498,7 @@ namespace Terraria
                 value = 45000;
                 toolTip = "4% increased ranged damage.";
             }
-            else if (type == 960)
+            else if (itemId == 960)
             {
                 name = "Ancient Cobalt Helmet";
                 width = 18;
@@ -15510,7 +15510,7 @@ namespace Terraria
                 toolTip = "Increases maximum mana by 40";
                 toolTip2 = "3% increased magic critical strike chance";
             }
-            else if (type == 961)
+            else if (itemId == 961)
             {
                 name = "Ancient Cobalt Breastplate";
                 width = 18;
@@ -15522,7 +15522,7 @@ namespace Terraria
                 toolTip = "Increases maximum mana by 20";
                 toolTip2 = "3% increased magic critical strike chance";
             }
-            else if (type == 962)
+            else if (itemId == 962)
             {
                 name = "Ancient Cobalt Leggings";
                 width = 18;
@@ -15534,7 +15534,7 @@ namespace Terraria
                 toolTip = "Increases maximum mana by 20";
                 toolTip2 = "3% increased magic critical strike chance";
             }
-            else if (type == 963)
+            else if (itemId == 963)
             {
                 name = "Black Belt";
                 width = 16;
@@ -15545,7 +15545,7 @@ namespace Terraria
                 value = 50000;
                 waistSlot = 10;
             }
-            else if (type == 964)
+            else if (itemId == 964)
             {
                 knockBack = 5.75f;
                 useStyle = 5;
@@ -15565,7 +15565,7 @@ namespace Terraria
                 ranged = true;
                 toolTip = "Fires a spread of bullets";
             }
-            else if (type == 965)
+            else if (itemId == 965)
             {
                 name = "Rope";
                 useStyle = 1;
@@ -15582,7 +15582,7 @@ namespace Terraria
                 tileBoost += 3;
                 toolTip = "Can be climbed on";
             }
-            else if (type == 966)
+            else if (itemId == 966)
             {
                 name = "Campfire";
                 useStyle = 1;
@@ -15597,7 +15597,7 @@ namespace Terraria
                 height = 12;
                 toolTip = "Life regen is increased when near a campfire";
             }
-            else if (type == 967)
+            else if (itemId == 967)
             {
                 name = "Marshmellow";
                 width = 12;
@@ -15605,7 +15605,7 @@ namespace Terraria
                 maxStack = 99;
                 value = 100;
             }
-            else if (type == 968)
+            else if (itemId == 968)
             {
                 name = "Marshmellow on a Stick";
                 holdStyle = 1;
@@ -15613,7 +15613,7 @@ namespace Terraria
                 height = 12;
                 value = 200;
             }
-            else if (type == 969)
+            else if (itemId == 969)
             {
                 name = "Cooked Marshmellow";
                 useSound = 2;
@@ -15632,7 +15632,7 @@ namespace Terraria
                 value = 1000;
                 value = 1000;
             }
-            else if (type == 970)
+            else if (itemId == 970)
             {
                 name = "Red Rocket";
                 createTile = 216;
@@ -15649,7 +15649,7 @@ namespace Terraria
                 value = 1500;
                 mech = true;
             }
-            else if (type == 971)
+            else if (itemId == 971)
             {
                 name = "Green Rocket";
                 createTile = 216;
@@ -15666,7 +15666,7 @@ namespace Terraria
                 value = 1500;
                 mech = true;
             }
-            else if (type == 972)
+            else if (itemId == 972)
             {
                 name = "Blue Rocket";
                 createTile = 216;
@@ -15683,7 +15683,7 @@ namespace Terraria
                 value = 1500;
                 mech = true;
             }
-            else if (type == 973)
+            else if (itemId == 973)
             {
                 name = "Yellow Rocket";
                 createTile = 216;
@@ -15700,7 +15700,7 @@ namespace Terraria
                 value = 1500;
                 mech = true;
             }
-            else if (type == 974)
+            else if (itemId == 974)
             {
                 flame = true;
                 name = "Ice Torch";
@@ -15719,7 +15719,7 @@ namespace Terraria
                 value = 60;
                 noWet = true;
             }
-            else if (type == 975)
+            else if (itemId == 975)
             {
                 name = "Shoe Spikes";
                 width = 16;
@@ -15731,7 +15731,7 @@ namespace Terraria
                 value = 50000;
                 shoeSlot = 4;
             }
-            else if (type == 976)
+            else if (itemId == 976)
             {
                 name = "Tiger Climbing Gear";
                 width = 16;
@@ -15744,7 +15744,7 @@ namespace Terraria
                 handOnSlot = 11;
                 handOffSlot = 6;
             }
-            else if (type == 977)
+            else if (itemId == 977)
             {
                 name = "Tabi";
                 width = 16;
@@ -15756,7 +15756,7 @@ namespace Terraria
                 value = 50000;
                 shoeSlot = 3;
             }
-            else if (type == 978)
+            else if (itemId == 978)
             {
                 name = "Pink Eskimo Hood";
                 width = 18;
@@ -15765,7 +15765,7 @@ namespace Terraria
                 value = 50000;
                 defense = 1;
             }
-            else if (type == 979)
+            else if (itemId == 979)
             {
                 name = "Pink Eskimo Coat";
                 width = 18;
@@ -15774,7 +15774,7 @@ namespace Terraria
                 value = 40000;
                 defense = 2;
             }
-            else if (type == 980)
+            else if (itemId == 980)
             {
                 name = "Pink Eskimo Pants";
                 width = 18;
@@ -15783,7 +15783,7 @@ namespace Terraria
                 value = 30000;
                 defense = 1;
             }
-            else if (type == 981)
+            else if (itemId == 981)
             {
                 name = "Pink Thread";
                 maxStack = 99;
@@ -15791,7 +15791,7 @@ namespace Terraria
                 height = 20;
                 value = 10000;
             }
-            else if (type == 982)
+            else if (itemId == 982)
             {
                 name = "Mana Regeneration Band";
                 width = 22;
@@ -15803,7 +15803,7 @@ namespace Terraria
                 value = 50000;
                 handOnSlot = 1;
             }
-            else if (type == 983)
+            else if (itemId == 983)
             {
                 name = "Sandstorm in a Balloon";
                 width = 14;
@@ -15815,7 +15815,7 @@ namespace Terraria
                 toolTip2 = "Increases jump height";
                 balloonSlot = 6;
             }
-            else if (type == 984)
+            else if (itemId == 984)
             {
                 name = "Master Ninja Gear";
                 width = 16;
@@ -15830,7 +15830,7 @@ namespace Terraria
                 shoeSlot = 14;
                 waistSlot = 10;
             }
-            else if (type == 985)
+            else if (itemId == 985)
             {
                 useStyle = 1;
                 name = "Rope Coil";
@@ -15849,7 +15849,7 @@ namespace Terraria
                 value = 100;
                 toolTip = "Throw to create a climbable line of rope";
             }
-            else if (type == 986)
+            else if (itemId == 986)
             {
                 useStyle = 5;
                 autoReuse = true;
@@ -15871,7 +15871,7 @@ namespace Terraria
                 ranged = true;
                 rare = 3;
             }
-            else if (type == 987)
+            else if (itemId == 987)
             {
                 name = "Blizzard in a Bottle";
                 width = 16;
@@ -15881,7 +15881,7 @@ namespace Terraria
                 toolTip = "Allows the holder to double jump";
                 value = 50000;
             }
-            else if (type == 988)
+            else if (itemId == 988)
             {
                 name = "Frostburn Arrow";
                 shootSpeed = 3.75f;
@@ -15896,7 +15896,7 @@ namespace Terraria
                 value = 15;
                 ranged = true;
             }
-            else if (type == 989)
+            else if (itemId == 989)
             {
                 autoReuse = true;
                 rare = 2;
@@ -15916,7 +15916,7 @@ namespace Terraria
                 melee = true;
                 value = 20000;
             }
-            else if (type == 990)
+            else if (itemId == 990)
             {
                 useTurn = true;
                 autoReuse = true;
@@ -15937,7 +15937,7 @@ namespace Terraria
                 scale = 1.1f;
                 toolTip = "'Not to be confused with a hamdrill'";
             }
-            else if (type == 991)
+            else if (itemId == 991)
             {
                 useTurn = true;
                 autoReuse = true;
@@ -15956,7 +15956,7 @@ namespace Terraria
                 melee = true;
                 scale = 1.1f;
             }
-            else if (type == 992)
+            else if (itemId == 992)
             {
                 useTurn = true;
                 autoReuse = true;
@@ -15975,7 +15975,7 @@ namespace Terraria
                 melee = true;
                 scale = 1.1f;
             }
-            else if (type == 993)
+            else if (itemId == 993)
             {
                 useTurn = true;
                 autoReuse = true;
@@ -15994,7 +15994,7 @@ namespace Terraria
                 melee = true;
                 scale = 1.1f;
             }
-            else if (type == 994)
+            else if (itemId == 994)
             {
                 damage = 0;
                 useStyle = 1;
@@ -16011,7 +16011,7 @@ namespace Terraria
                 value = 0;
                 buffType = 45;
             }
-            else if (type == 995)
+            else if (itemId == 995)
             {
                 name = "Blend-O-Matic";
                 useStyle = 1;
@@ -16027,7 +16027,7 @@ namespace Terraria
                 value = 100000;
                 toolTip = "Used to craft objects";
             }
-            else if (type == 996)
+            else if (itemId == 996)
             {
                 name = "Meat Grinder";
                 useStyle = 1;
@@ -16043,7 +16043,7 @@ namespace Terraria
                 value = 100000;
                 toolTip = "Used to craft objects";
             }
-            else if (type == 997)
+            else if (itemId == 997)
             {
                 name = "Silt Extractinator";
                 useStyle = 1;
@@ -16060,7 +16060,7 @@ namespace Terraria
                 toolTip = "Turns silt into something more useful";
                 toolTip2 = "'To use: Place silt in the extractinator'";
             }
-            else if (type == 998)
+            else if (itemId == 998)
             {
                 name = "Solidifier";
                 useStyle = 1;
@@ -16076,7 +16076,7 @@ namespace Terraria
                 value = 100000;
                 toolTip = "Used to craft objects";
             }
-            else if (type == 999)
+            else if (itemId == 999)
             {
                 name = "Amber";
                 createTile = 178;
@@ -16095,7 +16095,7 @@ namespace Terraria
             }
             else
             {
-                if (type != 1000)
+                if (itemId != 1000)
                     return;
                 useStyle = 5;
                 name = "Confetti Gun";
@@ -16115,9 +16115,9 @@ namespace Terraria
             }
         }
 
-        public void SetDefaults2(int type)
+        public void SetDefaults2(int itemId)
         {
-            if (type == 1001)
+            if (itemId == 1001)
             {
                 name = "Chlorophyte Mask";
                 width = 18;
@@ -16129,7 +16129,7 @@ namespace Terraria
                 toolTip = "16% increased melee damage";
                 toolTip2 = "6% increased melee critical strike chance";
             }
-            else if (type == 1002)
+            else if (itemId == 1002)
             {
                 name = "Chlorophyte Helmet";
                 width = 18;
@@ -16141,7 +16141,7 @@ namespace Terraria
                 toolTip = "16% increased ranged damage";
                 toolTip2 = "20% chance to not consume ammo";
             }
-            else if (type == 1003)
+            else if (itemId == 1003)
             {
                 name = "Chlorophyte Headgear";
                 width = 18;
@@ -16153,7 +16153,7 @@ namespace Terraria
                 toolTip = "Increases maximum mana by 80 and reduces mana usage by 17%";
                 toolTip2 = "16% increased magic damage";
             }
-            else if (type == 1004)
+            else if (itemId == 1004)
             {
                 name = "Chlorophyte Plate Mail";
                 width = 18;
@@ -16165,7 +16165,7 @@ namespace Terraria
                 toolTip = "5% increased damage";
                 toolTip = "7% increased critical strike chance";
             }
-            else if (type == 1005)
+            else if (itemId == 1005)
             {
                 name = "Chlorophyte Greaves";
                 width = 18;
@@ -16177,7 +16177,7 @@ namespace Terraria
                 toolTip = "8% increased critical strike chance";
                 toolTip = "5% increased movement speed";
             }
-            else if (type == 1006)
+            else if (itemId == 1006)
             {
                 name = "Chlorophyte Bar";
                 width = 20;
@@ -16194,7 +16194,7 @@ namespace Terraria
                 createTile = 239;
                 placeStyle = 17;
             }
-            else if (type == 1007)
+            else if (itemId == 1007)
             {
                 name = "Red Dye";
                 width = 20;
@@ -16203,7 +16203,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1008)
+            else if (itemId == 1008)
             {
                 name = "Orange Dye";
                 width = 20;
@@ -16212,7 +16212,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1009)
+            else if (itemId == 1009)
             {
                 name = "Yellow Dye";
                 width = 20;
@@ -16221,7 +16221,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1010)
+            else if (itemId == 1010)
             {
                 name = "Lime Dye";
                 width = 20;
@@ -16230,7 +16230,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1011)
+            else if (itemId == 1011)
             {
                 name = "Green Dye";
                 width = 20;
@@ -16239,7 +16239,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1012)
+            else if (itemId == 1012)
             {
                 name = "Teal Dye";
                 width = 20;
@@ -16248,7 +16248,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1013)
+            else if (itemId == 1013)
             {
                 name = "Cyan Dye";
                 width = 20;
@@ -16257,7 +16257,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1014)
+            else if (itemId == 1014)
             {
                 name = "Sky Blue Dye";
                 width = 20;
@@ -16266,7 +16266,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1015)
+            else if (itemId == 1015)
             {
                 name = "Blue Dye";
                 width = 20;
@@ -16275,7 +16275,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1016)
+            else if (itemId == 1016)
             {
                 name = "Purple Dye";
                 width = 20;
@@ -16284,7 +16284,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1017)
+            else if (itemId == 1017)
             {
                 name = "Violet Dye";
                 width = 20;
@@ -16293,7 +16293,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1018)
+            else if (itemId == 1018)
             {
                 name = "Pink Dye";
                 width = 20;
@@ -16302,7 +16302,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1019)
+            else if (itemId == 1019)
             {
                 name = "Red and Black Dye";
                 width = 20;
@@ -16311,7 +16311,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1020)
+            else if (itemId == 1020)
             {
                 name = "Orange and Black Dye";
                 width = 20;
@@ -16320,7 +16320,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1021)
+            else if (itemId == 1021)
             {
                 name = "Yellow and Black Dye";
                 width = 20;
@@ -16329,7 +16329,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1022)
+            else if (itemId == 1022)
             {
                 name = "Lime and Black Dye";
                 width = 20;
@@ -16338,7 +16338,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1023)
+            else if (itemId == 1023)
             {
                 name = "Green and Black Dye";
                 width = 20;
@@ -16347,7 +16347,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1024)
+            else if (itemId == 1024)
             {
                 name = "Teal and Black Dye";
                 width = 20;
@@ -16356,7 +16356,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1025)
+            else if (itemId == 1025)
             {
                 name = "Cyan and Black Dye";
                 width = 20;
@@ -16365,7 +16365,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1026)
+            else if (itemId == 1026)
             {
                 name = "Sky Blue and Black Dye";
                 width = 20;
@@ -16374,7 +16374,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1027)
+            else if (itemId == 1027)
             {
                 name = "Blue and Black Dye";
                 width = 20;
@@ -16383,7 +16383,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1028)
+            else if (itemId == 1028)
             {
                 name = "Purple and Black Dye";
                 width = 20;
@@ -16392,7 +16392,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1029)
+            else if (itemId == 1029)
             {
                 name = "Violet and Black Dye";
                 width = 20;
@@ -16401,7 +16401,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1030)
+            else if (itemId == 1030)
             {
                 name = "Pink and Black Dye";
                 width = 20;
@@ -16410,7 +16410,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1031)
+            else if (itemId == 1031)
             {
                 name = "Flame Dye";
                 width = 20;
@@ -16419,7 +16419,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1032)
+            else if (itemId == 1032)
             {
                 name = "Flame and Black Dye";
                 width = 20;
@@ -16428,7 +16428,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1033)
+            else if (itemId == 1033)
             {
                 name = "Green Flame Dye";
                 width = 20;
@@ -16437,7 +16437,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1034)
+            else if (itemId == 1034)
             {
                 name = "Green Flame and Black Dye";
                 width = 20;
@@ -16446,7 +16446,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1035)
+            else if (itemId == 1035)
             {
                 name = "Blue Flame Dye";
                 width = 20;
@@ -16455,7 +16455,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1036)
+            else if (itemId == 1036)
             {
                 name = "Blue Flame and Black Dye";
                 width = 20;
@@ -16464,7 +16464,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1037)
+            else if (itemId == 1037)
             {
                 name = "Silver Dye";
                 width = 20;
@@ -16473,7 +16473,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1038)
+            else if (itemId == 1038)
             {
                 name = "Bright Red Dye";
                 width = 20;
@@ -16482,7 +16482,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1039)
+            else if (itemId == 1039)
             {
                 name = "Bright Orange Dye";
                 width = 20;
@@ -16491,7 +16491,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1040)
+            else if (itemId == 1040)
             {
                 name = "Bright Yellow Dye";
                 width = 20;
@@ -16500,7 +16500,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1041)
+            else if (itemId == 1041)
             {
                 name = "Bright Lime Dye";
                 width = 20;
@@ -16509,7 +16509,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1042)
+            else if (itemId == 1042)
             {
                 name = "Bright Green Dye";
                 width = 20;
@@ -16518,7 +16518,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1043)
+            else if (itemId == 1043)
             {
                 name = "Bright Teal Dye";
                 width = 20;
@@ -16527,7 +16527,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1044)
+            else if (itemId == 1044)
             {
                 name = "Bright Cyan Dye";
                 width = 20;
@@ -16536,7 +16536,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1045)
+            else if (itemId == 1045)
             {
                 name = "Bright Sky Blue Dye";
                 width = 20;
@@ -16545,7 +16545,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1046)
+            else if (itemId == 1046)
             {
                 name = "Bright Blue Dye";
                 width = 20;
@@ -16554,7 +16554,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1047)
+            else if (itemId == 1047)
             {
                 name = "Bright Purple Dye";
                 width = 20;
@@ -16563,7 +16563,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1048)
+            else if (itemId == 1048)
             {
                 name = "Bright Violet Dye";
                 width = 20;
@@ -16572,7 +16572,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1049)
+            else if (itemId == 1049)
             {
                 name = "Bright Pink Dye";
                 width = 20;
@@ -16581,7 +16581,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1050)
+            else if (itemId == 1050)
             {
                 name = "Black Dye";
                 width = 20;
@@ -16590,7 +16590,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1051)
+            else if (itemId == 1051)
             {
                 name = "Red and Silver Dye";
                 width = 20;
@@ -16599,7 +16599,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1052)
+            else if (itemId == 1052)
             {
                 name = "Orange and Silver Dye";
                 width = 20;
@@ -16608,7 +16608,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1053)
+            else if (itemId == 1053)
             {
                 name = "Yellow and Silver Dye";
                 width = 20;
@@ -16617,7 +16617,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1054)
+            else if (itemId == 1054)
             {
                 name = "Lime and Silver Dye";
                 width = 20;
@@ -16626,7 +16626,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1055)
+            else if (itemId == 1055)
             {
                 name = "Green and Silver Dye";
                 width = 20;
@@ -16635,7 +16635,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1056)
+            else if (itemId == 1056)
             {
                 name = "Teal and Silver Dye";
                 width = 20;
@@ -16644,7 +16644,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1057)
+            else if (itemId == 1057)
             {
                 name = "Cyan and Silver Dye";
                 width = 20;
@@ -16653,7 +16653,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1058)
+            else if (itemId == 1058)
             {
                 name = "Sky Blue and Silver Dye";
                 width = 20;
@@ -16662,7 +16662,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1059)
+            else if (itemId == 1059)
             {
                 name = "Blue and Silver Dye";
                 width = 20;
@@ -16671,7 +16671,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1060)
+            else if (itemId == 1060)
             {
                 name = "Purple and Silver Dye";
                 width = 20;
@@ -16680,7 +16680,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1061)
+            else if (itemId == 1061)
             {
                 name = "Violet and Silver Dye";
                 width = 20;
@@ -16689,7 +16689,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1062)
+            else if (itemId == 1062)
             {
                 name = "Pink and Silver Dye";
                 width = 20;
@@ -16698,7 +16698,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1063)
+            else if (itemId == 1063)
             {
                 name = "Intense Flame Dye";
                 width = 20;
@@ -16707,7 +16707,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1064)
+            else if (itemId == 1064)
             {
                 name = "Intense Green Flame Dye";
                 width = 20;
@@ -16716,7 +16716,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1065)
+            else if (itemId == 1065)
             {
                 name = "Intense Blue Flame Dye";
                 width = 20;
@@ -16725,7 +16725,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1066)
+            else if (itemId == 1066)
             {
                 name = "Rainbow Dye";
                 width = 20;
@@ -16734,7 +16734,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1067)
+            else if (itemId == 1067)
             {
                 name = "Intense Rainbow Dye";
                 width = 20;
@@ -16743,7 +16743,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1068)
+            else if (itemId == 1068)
             {
                 name = "Yellow Gradient Dye";
                 width = 20;
@@ -16752,7 +16752,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1069)
+            else if (itemId == 1069)
             {
                 name = "Cyan Gradient Dye";
                 width = 20;
@@ -16761,7 +16761,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1070)
+            else if (itemId == 1070)
             {
                 name = "Violet Gradient Dye";
                 width = 20;
@@ -16770,7 +16770,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 1071)
+            else if (itemId == 1071)
             {
                 name = "Paintbrush";
                 useStyle = 1;
@@ -16783,7 +16783,7 @@ namespace Terraria
                 toolTip = "Used with paint to color blocks";
                 value = 10000;
             }
-            else if (type == 1072)
+            else if (itemId == 1072)
             {
                 name = "Paint Roller";
                 useStyle = 1;
@@ -16796,7 +16796,7 @@ namespace Terraria
                 toolTip = "Used with paint to color walls";
                 value = 10000;
             }
-            else if (type == 1073)
+            else if (itemId == 1073)
             {
                 name = "Red Paint";
                 paint = (byte)1;
@@ -16805,7 +16805,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1074)
+            else if (itemId == 1074)
             {
                 name = "Orange Paint";
                 paint = (byte)2;
@@ -16814,7 +16814,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1075)
+            else if (itemId == 1075)
             {
                 name = "Yellow Paint";
                 paint = (byte)3;
@@ -16823,7 +16823,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1076)
+            else if (itemId == 1076)
             {
                 name = "Lime Paint";
                 paint = (byte)4;
@@ -16832,7 +16832,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1077)
+            else if (itemId == 1077)
             {
                 name = "Green Paint";
                 paint = (byte)5;
@@ -16841,7 +16841,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1078)
+            else if (itemId == 1078)
             {
                 name = "Teal Paint";
                 paint = (byte)6;
@@ -16850,7 +16850,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1079)
+            else if (itemId == 1079)
             {
                 name = "Cyan Paint";
                 paint = (byte)7;
@@ -16859,7 +16859,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1080)
+            else if (itemId == 1080)
             {
                 name = "Sky Blue Paint";
                 paint = (byte)8;
@@ -16868,7 +16868,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1081)
+            else if (itemId == 1081)
             {
                 name = "Blue Paint";
                 paint = (byte)9;
@@ -16877,7 +16877,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1082)
+            else if (itemId == 1082)
             {
                 name = "Purple Paint";
                 paint = (byte)10;
@@ -16886,7 +16886,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1083)
+            else if (itemId == 1083)
             {
                 name = "Violet Paint";
                 paint = (byte)11;
@@ -16895,7 +16895,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1084)
+            else if (itemId == 1084)
             {
                 name = "Pink Paint";
                 paint = (byte)12;
@@ -16904,7 +16904,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1085)
+            else if (itemId == 1085)
             {
                 name = "Deep Red Paint";
                 paint = (byte)13;
@@ -16913,7 +16913,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1086)
+            else if (itemId == 1086)
             {
                 name = "Deep Orange Paint";
                 paint = (byte)14;
@@ -16922,7 +16922,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1087)
+            else if (itemId == 1087)
             {
                 name = "Deep Yellow Paint";
                 paint = (byte)15;
@@ -16931,7 +16931,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1088)
+            else if (itemId == 1088)
             {
                 name = "Deep Lime Paint";
                 paint = (byte)16;
@@ -16940,7 +16940,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1089)
+            else if (itemId == 1089)
             {
                 name = "Deep Green Paint";
                 paint = (byte)17;
@@ -16949,7 +16949,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1090)
+            else if (itemId == 1090)
             {
                 name = "Deep Teal Paint";
                 paint = (byte)18;
@@ -16958,7 +16958,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1091)
+            else if (itemId == 1091)
             {
                 name = "Deep Cyan Paint";
                 paint = (byte)19;
@@ -16967,7 +16967,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1092)
+            else if (itemId == 1092)
             {
                 name = "Deep Sky Blue Paint";
                 paint = (byte)20;
@@ -16976,7 +16976,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1093)
+            else if (itemId == 1093)
             {
                 name = "Deep Blue Paint";
                 paint = (byte)21;
@@ -16985,7 +16985,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1094)
+            else if (itemId == 1094)
             {
                 name = "Deep Purple Paint";
                 paint = (byte)22;
@@ -16994,7 +16994,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1095)
+            else if (itemId == 1095)
             {
                 name = "Deep Violet Paint";
                 paint = (byte)23;
@@ -17003,7 +17003,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1096)
+            else if (itemId == 1096)
             {
                 name = "Deep Pink Paint";
                 paint = (byte)24;
@@ -17012,7 +17012,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1097)
+            else if (itemId == 1097)
             {
                 name = "Black Paint";
                 paint = (byte)25;
@@ -17021,7 +17021,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1098)
+            else if (itemId == 1098)
             {
                 name = "White Paint";
                 paint = (byte)26;
@@ -17030,7 +17030,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1099)
+            else if (itemId == 1099)
             {
                 name = "Gray Paint";
                 paint = (byte)27;
@@ -17039,7 +17039,7 @@ namespace Terraria
                 value = 25;
                 maxStack = 999;
             }
-            else if (type == 1100)
+            else if (itemId == 1100)
             {
                 name = "Paint Scraper";
                 useStyle = 1;
@@ -17052,7 +17052,7 @@ namespace Terraria
                 toolTip = "Used to remove paint";
                 value = 10000;
             }
-            else if (type == 1101)
+            else if (itemId == 1101)
             {
                 name = "Lihzahrd Brick";
                 useStyle = 1;
@@ -17066,7 +17066,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 1102)
+            else if (itemId == 1102)
             {
                 name = "Lihzahrd Brick Wall";
                 useStyle = 1;
@@ -17080,7 +17080,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 1103)
+            else if (itemId == 1103)
             {
                 name = "Slush Block";
                 useStyle = 1;
@@ -17094,7 +17094,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 1104)
+            else if (itemId == 1104)
             {
                 name = "Palladium Ore";
                 useStyle = 1;
@@ -17110,7 +17110,7 @@ namespace Terraria
                 value = 4500;
                 rare = 3;
             }
-            else if (type == 1105)
+            else if (itemId == 1105)
             {
                 name = "Orichalcum Ore";
                 useStyle = 1;
@@ -17126,7 +17126,7 @@ namespace Terraria
                 value = 6500;
                 rare = 3;
             }
-            else if (type == 1106)
+            else if (itemId == 1106)
             {
                 name = "Titanium Ore";
                 useStyle = 1;
@@ -17142,7 +17142,7 @@ namespace Terraria
                 value = 8500;
                 rare = 3;
             }
-            else if (type == 1107)
+            else if (itemId == 1107)
             {
                 name = "Teal Mushroom";
                 width = 20;
@@ -17160,7 +17160,7 @@ namespace Terraria
                 autoReuse = true;
                 consumable = true;
             }
-            else if (type == 1108)
+            else if (itemId == 1108)
             {
                 name = "Green Mushroom";
                 width = 20;
@@ -17178,7 +17178,7 @@ namespace Terraria
                 autoReuse = true;
                 consumable = true;
             }
-            else if (type == 1109)
+            else if (itemId == 1109)
             {
                 name = "Sky Blue Flower";
                 width = 20;
@@ -17196,7 +17196,7 @@ namespace Terraria
                 autoReuse = true;
                 consumable = true;
             }
-            else if (type == 1110)
+            else if (itemId == 1110)
             {
                 name = "Yellow Marigold";
                 width = 20;
@@ -17214,7 +17214,7 @@ namespace Terraria
                 autoReuse = true;
                 consumable = true;
             }
-            else if (type == 1111)
+            else if (itemId == 1111)
             {
                 name = "Blue Berries";
                 width = 20;
@@ -17232,7 +17232,7 @@ namespace Terraria
                 autoReuse = true;
                 consumable = true;
             }
-            else if (type == 1112)
+            else if (itemId == 1112)
             {
                 name = "Lime Kelp";
                 width = 20;
@@ -17250,7 +17250,7 @@ namespace Terraria
                 autoReuse = true;
                 consumable = true;
             }
-            else if (type == 1113)
+            else if (itemId == 1113)
             {
                 name = "Pink Prickly Pear";
                 width = 20;
@@ -17260,7 +17260,7 @@ namespace Terraria
                 rare = 1;
                 toolTip = "Used to make Pink Dye";
             }
-            else if (type == 1114)
+            else if (itemId == 1114)
             {
                 name = "Orange Bloodroot";
                 width = 20;
@@ -17278,7 +17278,7 @@ namespace Terraria
                 autoReuse = true;
                 consumable = true;
             }
-            else if (type == 1115)
+            else if (itemId == 1115)
             {
                 name = "Red Husk";
                 width = 20;
@@ -17288,7 +17288,7 @@ namespace Terraria
                 rare = 1;
                 toolTip = "Used to make Red Dye";
             }
-            else if (type == 1116)
+            else if (itemId == 1116)
             {
                 name = "Cyan Husk";
                 width = 20;
@@ -17298,7 +17298,7 @@ namespace Terraria
                 rare = 1;
                 toolTip = "Used to make Cyan Dye";
             }
-            else if (type == 1117)
+            else if (itemId == 1117)
             {
                 name = "Violet Husk";
                 width = 20;
@@ -17308,7 +17308,7 @@ namespace Terraria
                 rare = 1;
                 toolTip = "Used to make Violet Dye";
             }
-            else if (type == 1118)
+            else if (itemId == 1118)
             {
                 name = "Purple Mucus";
                 width = 20;
@@ -17318,7 +17318,7 @@ namespace Terraria
                 rare = 1;
                 toolTip = "Used to make Purple Dye";
             }
-            else if (type == 1119)
+            else if (itemId == 1119)
             {
                 name = "Black Ink";
                 width = 20;
@@ -17328,7 +17328,7 @@ namespace Terraria
                 rare = 1;
                 toolTip = "Used to make Black Dye";
             }
-            else if (type == 1120)
+            else if (itemId == 1120)
             {
                 name = "Dye Vat";
                 useStyle = 1;
@@ -17344,7 +17344,7 @@ namespace Terraria
                 value = buyPrice(0, 5, 0, 0);
                 toolTip = "Used to craft dyes";
             }
-            else if (type == 1121)
+            else if (itemId == 1121)
             {
                 name = "Beegun";
                 useStyle = 5;
@@ -17364,7 +17364,7 @@ namespace Terraria
                 magic = true;
                 scale = 0.8f;
             }
-            else if (type == 1122)
+            else if (itemId == 1122)
             {
                 autoReuse = true;
                 useStyle = 1;
@@ -17385,7 +17385,7 @@ namespace Terraria
                 rare = 7;
                 toolTip = "A magical returning hatchet";
             }
-            else if (type == 1123)
+            else if (itemId == 1123)
             {
                 name = "Bee Keeper";
                 useStyle = 1;
@@ -17403,14 +17403,14 @@ namespace Terraria
                 toolTip = "Summons killer bees after striking your foe";
                 toolTip2 = "Small chance to cause confusion";
             }
-            else if (type == 1124)
+            else if (itemId == 1124)
             {
                 name = "Hive";
                 width = 12;
                 height = 12;
                 maxStack = 999;
             }
-            else if (type == 1125)
+            else if (itemId == 1125)
             {
                 name = "Honey Block";
                 useStyle = 1;
@@ -17424,7 +17424,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 1126)
+            else if (itemId == 1126)
             {
                 name = "Hive Wall";
                 useStyle = 1;
@@ -17438,7 +17438,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 1127)
+            else if (itemId == 1127)
             {
                 name = "Crispy Honey Block";
                 useStyle = 1;
@@ -17452,7 +17452,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 1128)
+            else if (itemId == 1128)
             {
                 name = "Honey Bucket";
                 useStyle = 1;
@@ -17464,7 +17464,7 @@ namespace Terraria
                 maxStack = 99;
                 autoReuse = true;
             }
-            else if (type == 1129)
+            else if (itemId == 1129)
             {
                 name = "Hive Wand";
                 tileWand = 1124;
@@ -17479,7 +17479,7 @@ namespace Terraria
                 rare = 1;
                 toolTip = "Places hives";
             }
-            else if (type == 1130)
+            else if (itemId == 1130)
             {
                 useStyle = 1;
                 name = "Beenade";
@@ -17499,7 +17499,7 @@ namespace Terraria
                 value = 200;
                 thrown = true;
             }
-            else if (type == 1131)
+            else if (itemId == 1131)
             {
                 name = "Gravity Globe";
                 width = 22;
@@ -17511,7 +17511,7 @@ namespace Terraria
                 value = 50000;
                 expert = true;
             }
-            else if (type == 1132)
+            else if (itemId == 1132)
             {
                 name = "Honey Comb";
                 width = 22;
@@ -17521,7 +17521,7 @@ namespace Terraria
                 toolTip = "Releases bees when damaged";
                 value = 100000;
             }
-            else if (type == 1133)
+            else if (itemId == 1133)
             {
                 useStyle = 4;
                 consumable = true;
@@ -17533,7 +17533,7 @@ namespace Terraria
                 maxStack = 20;
                 toolTip = "Summons the Queen Bee";
             }
-            else if (type == 1134)
+            else if (itemId == 1134)
             {
                 name = "Bottled Honey";
                 useSound = 3;
@@ -17549,7 +17549,7 @@ namespace Terraria
                 potion = true;
                 value = 40;
             }
-            else if (type == 1135)
+            else if (itemId == 1135)
             {
                 name = "Rain Hat";
                 width = 18;
@@ -17558,7 +17558,7 @@ namespace Terraria
                 value = 1000;
                 defense = 1;
             }
-            else if (type == 1136)
+            else if (itemId == 1136)
             {
                 name = "Rain Coat";
                 width = 18;
@@ -17567,7 +17567,7 @@ namespace Terraria
                 value = 1000;
                 defense = 2;
             }
-            else if (type == 1137)
+            else if (itemId == 1137)
             {
                 name = "Lihzahrd Door";
                 useStyle = 1;
@@ -17582,7 +17582,7 @@ namespace Terraria
                 height = 28;
                 value = 200;
             }
-            else if (type == 1138)
+            else if (itemId == 1138)
             {
                 name = "Dungeon Door";
                 useStyle = 1;
@@ -17597,7 +17597,7 @@ namespace Terraria
                 height = 28;
                 value = 200;
             }
-            else if (type == 1139)
+            else if (itemId == 1139)
             {
                 name = "Lead Door";
                 useStyle = 1;
@@ -17612,7 +17612,7 @@ namespace Terraria
                 height = 28;
                 value = 200;
             }
-            else if (type == 1140)
+            else if (itemId == 1140)
             {
                 name = "Iron Door";
                 useStyle = 1;
@@ -17627,7 +17627,7 @@ namespace Terraria
                 height = 28;
                 value = 200;
             }
-            else if (type == 1141)
+            else if (itemId == 1141)
             {
                 name = "Temple Key";
                 width = 14;
@@ -17636,7 +17636,7 @@ namespace Terraria
                 toolTip = "Opens the jungle temple door";
                 rare = 7;
             }
-            else if (type == 1142)
+            else if (itemId == 1142)
             {
                 name = "Lihzahrd Chest";
                 useStyle = 1;
@@ -17652,7 +17652,7 @@ namespace Terraria
                 height = 22;
                 value = 500;
             }
-            else if (type == 1143)
+            else if (itemId == 1143)
             {
                 name = "Lihzahrd Chair";
                 useStyle = 1;
@@ -17667,7 +17667,7 @@ namespace Terraria
                 width = 12;
                 height = 30;
             }
-            else if (type == 1144)
+            else if (itemId == 1144)
             {
                 name = "Lihzahrd Table";
                 useStyle = 1;
@@ -17683,7 +17683,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 1145)
+            else if (itemId == 1145)
             {
                 name = "Lihzahrd Work Bench";
                 useStyle = 1;
@@ -17700,7 +17700,7 @@ namespace Terraria
                 value = 150;
                 toolTip = "Used for basic crafting";
             }
-            else if (type == 1146)
+            else if (itemId == 1146)
             {
                 name = "Super Dart Trap";
                 useStyle = 1;
@@ -17717,7 +17717,7 @@ namespace Terraria
                 value = 10000;
                 mech = true;
             }
-            else if (type == 1147)
+            else if (itemId == 1147)
             {
                 name = "Flame Trap";
                 useStyle = 1;
@@ -17734,7 +17734,7 @@ namespace Terraria
                 value = 10000;
                 mech = true;
             }
-            else if (type == 1148)
+            else if (itemId == 1148)
             {
                 name = "Spiky Ball Trap";
                 useStyle = 1;
@@ -17751,7 +17751,7 @@ namespace Terraria
                 value = 10000;
                 mech = true;
             }
-            else if (type == 1149)
+            else if (itemId == 1149)
             {
                 name = "Spear Trap";
                 useStyle = 1;
@@ -17768,7 +17768,7 @@ namespace Terraria
                 value = 10000;
                 mech = true;
             }
-            else if (type == 1150)
+            else if (itemId == 1150)
             {
                 name = "Wooden Spike";
                 useStyle = 1;
@@ -17782,7 +17782,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 1151)
+            else if (itemId == 1151)
             {
                 name = "Lihzahrd Pressure Plate";
                 useStyle = 1;
@@ -17800,7 +17800,7 @@ namespace Terraria
                 value = 5000;
                 toolTip = "Activates when a player steps on it on";
             }
-            else if (type == 1152)
+            else if (itemId == 1152)
             {
                 name = "Lihzahrd Statue";
                 useStyle = 1;
@@ -17816,7 +17816,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 43;
             }
-            else if (type == 1153)
+            else if (itemId == 1153)
             {
                 name = "Lihzahrd Watcher Statue";
                 useStyle = 1;
@@ -17832,7 +17832,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 44;
             }
-            else if (type == 1154)
+            else if (itemId == 1154)
             {
                 name = "Lihzahrd Guardian Statue";
                 useStyle = 1;
@@ -17848,7 +17848,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 45;
             }
-            else if (type == 1155)
+            else if (itemId == 1155)
             {
                 name = "Wasp Gun";
                 useStyle = 5;
@@ -17867,7 +17867,7 @@ namespace Terraria
                 rare = 8;
                 magic = true;
             }
-            else if (type == 1156)
+            else if (itemId == 1156)
             {
                 channel = true;
                 name = "Piranha Gun";
@@ -17887,7 +17887,7 @@ namespace Terraria
                 ranged = true;
                 noMelee = true;
             }
-            else if (type == 1157)
+            else if (itemId == 1157)
             {
                 mana = 10;
                 damage = 34;
@@ -17908,7 +17908,7 @@ namespace Terraria
                 value = 100000;
                 summon = true;
             }
-            else if (type == 1158)
+            else if (itemId == 1158)
             {
                 name = "Pygmy Necklace";
                 rare = 7;
@@ -17919,7 +17919,7 @@ namespace Terraria
                 value = buyPrice(0, 40, 0, 0);
                 neckSlot = 4;
             }
-            else if (type == 1159)
+            else if (itemId == 1159)
             {
                 name = "Tiki Mask";
                 width = 18;
@@ -17931,7 +17931,7 @@ namespace Terraria
                 toolTip = "Increases your max number of minions";
                 toolTip2 = "Increases minion damage by 10%";
             }
-            else if (type == 1160)
+            else if (itemId == 1160)
             {
                 name = "Tiki Shirt";
                 width = 18;
@@ -17943,7 +17943,7 @@ namespace Terraria
                 toolTip = "Increases your max number of minions";
                 toolTip2 = "Increases minion damage by 10%";
             }
-            else if (type == 1161)
+            else if (itemId == 1161)
             {
                 name = "Tiki Pants";
                 width = 18;
@@ -17955,7 +17955,7 @@ namespace Terraria
                 toolTip = "Increases your max number of minions";
                 toolTip2 = "Increases minion damage by 10%";
             }
-            else if (type == 1162)
+            else if (itemId == 1162)
             {
                 name = "Leaf Wings";
                 width = 24;
@@ -17966,7 +17966,7 @@ namespace Terraria
                 wingSlot = 13;
                 rare = 5;
             }
-            else if (type == 1163)
+            else if (itemId == 1163)
             {
                 name = "Blizzard in a Balloon";
                 width = 14;
@@ -17978,7 +17978,7 @@ namespace Terraria
                 toolTip2 = "Increases jump height";
                 balloonSlot = 1;
             }
-            else if (type == 1164)
+            else if (itemId == 1164)
             {
                 name = "Bundle of Balloons";
                 width = 14;
@@ -17990,7 +17990,7 @@ namespace Terraria
                 toolTip2 = "Increases jump height";
                 balloonSlot = 3;
             }
-            else if (type == 1165)
+            else if (itemId == 1165)
             {
                 name = "Bat Wings";
                 width = 24;
@@ -18001,7 +18001,7 @@ namespace Terraria
                 rare = 5;
                 wingSlot = 14;
             }
-            else if (type == 1166)
+            else if (itemId == 1166)
             {
                 name = "Bone Sword";
                 useStyle = 1;
@@ -18016,7 +18016,7 @@ namespace Terraria
                 value = 9000;
                 melee = true;
             }
-            else if (type == 1167)
+            else if (itemId == 1167)
             {
                 name = "Hercules Beetle";
                 rare = 7;
@@ -18026,7 +18026,7 @@ namespace Terraria
                 toolTip = "Increases the damage and knockback of your minions";
                 value = buyPrice(0, 40, 0, 0);
             }
-            else if (type == 1168)
+            else if (itemId == 1168)
             {
                 useStyle = 1;
                 name = "Smoke Bomb";
@@ -18043,7 +18043,7 @@ namespace Terraria
                 noMelee = true;
                 value = 20;
             }
-            else if (type == 1169)
+            else if (itemId == 1169)
             {
                 damage = 0;
                 useStyle = 1;
@@ -18060,7 +18060,7 @@ namespace Terraria
                 value = sellPrice(0, 5, 0, 0);
                 buffType = 50;
             }
-            else if (type == 1170)
+            else if (itemId == 1170)
             {
                 damage = 0;
                 useStyle = 1;
@@ -18077,7 +18077,7 @@ namespace Terraria
                 value = sellPrice(0, 3, 0, 0);
                 buffType = 51;
             }
-            else if (type == 1171)
+            else if (itemId == 1171)
             {
                 damage = 0;
                 useStyle = 1;
@@ -18094,7 +18094,7 @@ namespace Terraria
                 buffType = 52;
                 value = buyPrice(2, 0, 0, 0);
             }
-            else if (type == 1172)
+            else if (itemId == 1172)
             {
                 damage = 0;
                 useStyle = 1;
@@ -18111,7 +18111,7 @@ namespace Terraria
                 value = sellPrice(0, 2, 0, 0);
                 buffType = 53;
             }
-            else if (type == 1173)
+            else if (itemId == 1173)
             {
                 name = "Grave Marker";
                 useTurn = true;
@@ -18125,7 +18125,7 @@ namespace Terraria
                 width = 20;
                 height = 20;
             }
-            else if (type == 1174)
+            else if (itemId == 1174)
             {
                 name = "Cross Grave Marker";
                 useTurn = true;
@@ -18139,7 +18139,7 @@ namespace Terraria
                 width = 20;
                 height = 20;
             }
-            else if (type == 1175)
+            else if (itemId == 1175)
             {
                 name = "Headstone";
                 useTurn = true;
@@ -18153,7 +18153,7 @@ namespace Terraria
                 width = 20;
                 height = 20;
             }
-            else if (type == 1176)
+            else if (itemId == 1176)
             {
                 name = "Gravestone";
                 useTurn = true;
@@ -18167,7 +18167,7 @@ namespace Terraria
                 width = 20;
                 height = 20;
             }
-            else if (type == 1177)
+            else if (itemId == 1177)
             {
                 name = "Obelisk";
                 useTurn = true;
@@ -18181,7 +18181,7 @@ namespace Terraria
                 width = 20;
                 height = 20;
             }
-            else if (type == 1178)
+            else if (itemId == 1178)
             {
                 useStyle = 5;
                 mana = 4;
@@ -18202,7 +18202,7 @@ namespace Terraria
                 toolTip = "Rapidly shoots razor sharp leaves";
                 magic = true;
             }
-            else if (type == 1179)
+            else if (itemId == 1179)
             {
                 name = "Chlorophyte Bullet";
                 shootSpeed = 5f;
@@ -18218,7 +18218,7 @@ namespace Terraria
                 ranged = true;
                 rare = 7;
             }
-            else if (type == 1180)
+            else if (itemId == 1180)
             {
                 damage = 0;
                 useStyle = 1;
@@ -18235,7 +18235,7 @@ namespace Terraria
                 buffType = 54;
                 value = sellPrice(0, 75, 0, 0);
             }
-            else if (type == 1181)
+            else if (itemId == 1181)
             {
                 damage = 0;
                 useStyle = 1;
@@ -18252,7 +18252,7 @@ namespace Terraria
                 value = buyPrice(0, 45, 0, 0);
                 buffType = 55;
             }
-            else if (type == 1182)
+            else if (itemId == 1182)
             {
                 damage = 0;
                 useStyle = 1;
@@ -18269,7 +18269,7 @@ namespace Terraria
                 value = sellPrice(0, 2, 0, 0);
                 buffType = 56;
             }
-            else if (type == 1183)
+            else if (itemId == 1183)
             {
                 damage = 0;
                 useStyle = 1;
@@ -18286,7 +18286,7 @@ namespace Terraria
                 value = sellPrice(0, 5, 50, 0);
                 buffType = 57;
             }
-            else if (type == 1184)
+            else if (itemId == 1184)
             {
                 name = "Palladium Bar";
                 width = 20;
@@ -18303,7 +18303,7 @@ namespace Terraria
                 createTile = 239;
                 placeStyle = 12;
             }
-            else if (type == 1185)
+            else if (itemId == 1185)
             {
                 useTurn = true;
                 autoReuse = true;
@@ -18321,7 +18321,7 @@ namespace Terraria
                 value = 92000;
                 melee = true;
             }
-            else if (type == 1186)
+            else if (itemId == 1186)
             {
                 name = "Palladium Pike";
                 useStyle = 5;
@@ -18341,7 +18341,7 @@ namespace Terraria
                 noUseGraphic = true;
                 melee = true;
             }
-            else if (type == 1187)
+            else if (itemId == 1187)
             {
                 useStyle = 5;
                 autoReuse = true;
@@ -18361,7 +18361,7 @@ namespace Terraria
                 rare = 4;
                 knockBack = 1.75f;
             }
-            else if (type == 1188)
+            else if (itemId == 1188)
             {
                 name = "Palladium Pickaxe";
                 useStyle = 1;
@@ -18381,7 +18381,7 @@ namespace Terraria
                 toolTip = "Can mine Mythril and Orichalcum";
                 scale = 1.15f;
             }
-            else if (type == 1189)
+            else if (itemId == 1189)
             {
                 name = "Palladium Drill";
                 useStyle = 5;
@@ -18403,7 +18403,7 @@ namespace Terraria
                 channel = true;
                 toolTip = "Can mine Mythril and Orichalcum";
             }
-            else if (type == 1190)
+            else if (itemId == 1190)
             {
                 name = "Palladium Chainsaw";
                 useStyle = 5;
@@ -18424,7 +18424,7 @@ namespace Terraria
                 melee = true;
                 channel = true;
             }
-            else if (type == 1191)
+            else if (itemId == 1191)
             {
                 name = "Orichalcum Bar";
                 width = 20;
@@ -18441,7 +18441,7 @@ namespace Terraria
                 createTile = 239;
                 placeStyle = 14;
             }
-            else if (type == 1192)
+            else if (itemId == 1192)
             {
                 name = "Orichalcum Sword";
                 useStyle = 1;
@@ -18457,7 +18457,7 @@ namespace Terraria
                 value = 126500;
                 melee = true;
             }
-            else if (type == 1193)
+            else if (itemId == 1193)
             {
                 name = "Orichalcum Halberd";
                 useStyle = 5;
@@ -18477,7 +18477,7 @@ namespace Terraria
                 noUseGraphic = true;
                 melee = true;
             }
-            else if (type == 1194)
+            else if (itemId == 1194)
             {
                 useStyle = 5;
                 autoReuse = true;
@@ -18497,7 +18497,7 @@ namespace Terraria
                 rare = 4;
                 knockBack = 2f;
             }
-            else if (type == 1195)
+            else if (itemId == 1195)
             {
                 name = "Orichalcum Pickaxe";
                 useStyle = 1;
@@ -18517,7 +18517,7 @@ namespace Terraria
                 toolTip = "Can mine Adamantite and Titanium";
                 scale = 1.15f;
             }
-            else if (type == 1196)
+            else if (itemId == 1196)
             {
                 name = "Orichalcum Drill";
                 useStyle = 5;
@@ -18539,7 +18539,7 @@ namespace Terraria
                 channel = true;
                 toolTip = "Can mine Adamantite and Titanium";
             }
-            else if (type == 1197)
+            else if (itemId == 1197)
             {
                 name = "Orichalcum Chainsaw";
                 useStyle = 5;
@@ -18560,7 +18560,7 @@ namespace Terraria
                 melee = true;
                 channel = true;
             }
-            else if (type == 1198)
+            else if (itemId == 1198)
             {
                 name = "Titanium Bar";
                 width = 20;
@@ -18577,7 +18577,7 @@ namespace Terraria
                 createTile = 239;
                 placeStyle = 16;
             }
-            else if (type == 1199)
+            else if (itemId == 1199)
             {
                 name = "Titanium Sword";
                 useStyle = 1;
@@ -18593,7 +18593,7 @@ namespace Terraria
                 value = 161000;
                 melee = true;
             }
-            else if (type == 1200)
+            else if (itemId == 1200)
             {
                 name = "Titanium Trident";
                 useStyle = 5;
@@ -18613,7 +18613,7 @@ namespace Terraria
                 noUseGraphic = true;
                 melee = true;
             }
-            else if (type == 1201)
+            else if (itemId == 1201)
             {
                 useStyle = 5;
                 autoReuse = true;
@@ -18633,7 +18633,7 @@ namespace Terraria
                 rare = 4;
                 knockBack = 2.5f;
             }
-            else if (type == 1202)
+            else if (itemId == 1202)
             {
                 name = "Titanium Pickaxe";
                 useStyle = 1;
@@ -18652,7 +18652,7 @@ namespace Terraria
                 melee = true;
                 scale = 1.15f;
             }
-            else if (type == 1203)
+            else if (itemId == 1203)
             {
                 name = "Titanium Drill";
                 useStyle = 5;
@@ -18673,7 +18673,7 @@ namespace Terraria
                 melee = true;
                 channel = true;
             }
-            else if (type == 1204)
+            else if (itemId == 1204)
             {
                 name = "Titanium Chainsaw";
                 useStyle = 5;
@@ -18694,7 +18694,7 @@ namespace Terraria
                 melee = true;
                 channel = true;
             }
-            else if (type == 1205)
+            else if (itemId == 1205)
             {
                 name = "Palladium Mask";
                 width = 18;
@@ -18706,7 +18706,7 @@ namespace Terraria
                 toolTip = "7% increased movement speed";
                 toolTip2 = "12% increased melee speed";
             }
-            else if (type == 1206)
+            else if (itemId == 1206)
             {
                 name = "Palladium Helmet";
                 width = 18;
@@ -18718,7 +18718,7 @@ namespace Terraria
                 toolTip = "10% increased ranged damage";
                 toolTip2 = "6% increased ranged critical strike chance";
             }
-            else if (type == 1207)
+            else if (itemId == 1207)
             {
                 name = "Palladium Headgear";
                 width = 18;
@@ -18730,7 +18730,7 @@ namespace Terraria
                 toolTip = "Increases maximum mana by 40";
                 toolTip2 = "9% increased magic critical strike chance";
             }
-            else if (type == 1208)
+            else if (itemId == 1208)
             {
                 name = "Palladium Breastplate";
                 width = 18;
@@ -18741,7 +18741,7 @@ namespace Terraria
                 value = 60000;
                 toolTip2 = "3% increased critical strike chance";
             }
-            else if (type == 1209)
+            else if (itemId == 1209)
             {
                 name = "Palladium Leggings";
                 width = 18;
@@ -18752,7 +18752,7 @@ namespace Terraria
                 value = 45000;
                 toolTip2 = "10% increased movement speed";
             }
-            else if (type == 1210)
+            else if (itemId == 1210)
             {
                 name = "Orichalcum Mask";
                 width = 18;
@@ -18764,7 +18764,7 @@ namespace Terraria
                 toolTip = "5% increased melee critical strike chance";
                 toolTip2 = "10% increased melee damage";
             }
-            else if (type == 1211)
+            else if (itemId == 1211)
             {
                 name = "Orichalcum Helmet";
                 width = 18;
@@ -18776,7 +18776,7 @@ namespace Terraria
                 toolTip = "12% increased ranged damage";
                 toolTip2 = "7% increased ranged critical strike chance";
             }
-            else if (type == 1212)
+            else if (itemId == 1212)
             {
                 name = "Orichalcum Headgear";
                 width = 18;
@@ -18788,7 +18788,7 @@ namespace Terraria
                 toolTip = "Increases maximum mana by 60";
                 toolTip2 = "15% increased magic damage";
             }
-            else if (type == 1213)
+            else if (itemId == 1213)
             {
                 name = "Orichalcum Breastplate";
                 width = 18;
@@ -18799,7 +18799,7 @@ namespace Terraria
                 value = 90000;
                 toolTip2 = "5% increased damage";
             }
-            else if (type == 1214)
+            else if (itemId == 1214)
             {
                 name = "Orichalcum Leggings";
                 width = 18;
@@ -18810,7 +18810,7 @@ namespace Terraria
                 value = 67500;
                 toolTip2 = "3% increased critical strike chance";
             }
-            else if (type == 1215)
+            else if (itemId == 1215)
             {
                 name = "Titanium Mask";
                 width = 18;
@@ -18822,7 +18822,7 @@ namespace Terraria
                 toolTip = "7% increased melee critical strike chance";
                 toolTip2 = "14% increased melee damage";
             }
-            else if (type == 1216)
+            else if (itemId == 1216)
             {
                 name = "Titanium Helmet";
                 width = 18;
@@ -18834,7 +18834,7 @@ namespace Terraria
                 toolTip = "14% increased ranged damage";
                 toolTip2 = "8% increased ranged critical strike chance";
             }
-            else if (type == 1217)
+            else if (itemId == 1217)
             {
                 name = "Titanium Headgear";
                 width = 18;
@@ -18846,7 +18846,7 @@ namespace Terraria
                 toolTip = "Increases maximum mana by 80";
                 toolTip2 = "11% increased magic damage and critical strike chance";
             }
-            else if (type == 1218)
+            else if (itemId == 1218)
             {
                 name = "Titanium Breastplate";
                 width = 18;
@@ -18857,7 +18857,7 @@ namespace Terraria
                 value = 120000;
                 toolTip = "6% increased damage";
             }
-            else if (type == 1219)
+            else if (itemId == 1219)
             {
                 name = "Titanium Leggings";
                 width = 18;
@@ -18869,7 +18869,7 @@ namespace Terraria
                 toolTip = "4% increased critical strike chance";
                 toolTip2 = "5% increased movement speed";
             }
-            else if (type == 1220)
+            else if (itemId == 1220)
             {
                 name = "Mythril Anvil";
                 useStyle = 1;
@@ -18887,7 +18887,7 @@ namespace Terraria
                 toolTip = "Used to craft items from mythril, orichalcum, adamantite, and titanium bars";
                 rare = 3;
             }
-            else if (type == 1221)
+            else if (itemId == 1221)
             {
                 name = "Orichalcum Forge";
                 useStyle = 1;
@@ -18905,7 +18905,7 @@ namespace Terraria
                 toolTip = "Used to smelt adamantite and titanium ore";
                 rare = 3;
             }
-            else if (type == 1222)
+            else if (itemId == 1222)
             {
                 useTurn = true;
                 autoReuse = true;
@@ -18924,7 +18924,7 @@ namespace Terraria
                 melee = true;
                 scale = 1.1f;
             }
-            else if (type == 1223)
+            else if (itemId == 1223)
             {
                 useTurn = true;
                 autoReuse = true;
@@ -18943,7 +18943,7 @@ namespace Terraria
                 melee = true;
                 scale = 1.1f;
             }
-            else if (type == 1224)
+            else if (itemId == 1224)
             {
                 useTurn = true;
                 autoReuse = true;
@@ -18962,7 +18962,7 @@ namespace Terraria
                 melee = true;
                 scale = 1.1f;
             }
-            else if (type == 1225)
+            else if (itemId == 1225)
             {
                 name = "Hallowed Bar";
                 width = 20;
@@ -18979,7 +18979,7 @@ namespace Terraria
                 createTile = 239;
                 placeStyle = 18;
             }
-            else if (type == 1226)
+            else if (itemId == 1226)
             {
                 name = "Chlorophyte Claymore";
                 useStyle = 1;
@@ -18997,7 +18997,7 @@ namespace Terraria
                 scale = 1.25f;
                 melee = true;
             }
-            else if (type == 1227)
+            else if (itemId == 1227)
             {
                 name = "Chlorophyte Saber";
                 autoReuse = true;
@@ -19016,7 +19016,7 @@ namespace Terraria
                 value = 276000;
                 melee = true;
             }
-            else if (type == 1228)
+            else if (itemId == 1228)
             {
                 name = "Chlorophyte Partisan";
                 useStyle = 5;
@@ -19036,7 +19036,7 @@ namespace Terraria
                 noUseGraphic = true;
                 melee = true;
             }
-            else if (type == 1229)
+            else if (itemId == 1229)
             {
                 useStyle = 5;
                 autoReuse = true;
@@ -19056,7 +19056,7 @@ namespace Terraria
                 rare = 7;
                 knockBack = 2.75f;
             }
-            else if (type == 1230)
+            else if (itemId == 1230)
             {
                 name = "Chlorophyte Pickaxe";
                 useStyle = 1;
@@ -19076,7 +19076,7 @@ namespace Terraria
                 scale = 1.15f;
                 ++tileBoost;
             }
-            else if (type == 1231)
+            else if (itemId == 1231)
             {
                 name = "Chlorophyte Drill";
                 useStyle = 5;
@@ -19098,7 +19098,7 @@ namespace Terraria
                 channel = true;
                 ++tileBoost;
             }
-            else if (type == 1232)
+            else if (itemId == 1232)
             {
                 name = "Chlorophyte Chainsaw";
                 useStyle = 5;
@@ -19120,7 +19120,7 @@ namespace Terraria
                 channel = true;
                 ++tileBoost;
             }
-            else if (type == 1233)
+            else if (itemId == 1233)
             {
                 useTurn = true;
                 autoReuse = true;
@@ -19140,7 +19140,7 @@ namespace Terraria
                 scale = 1.15f;
                 ++tileBoost;
             }
-            else if (type == 1234)
+            else if (itemId == 1234)
             {
                 name = "Chlorophyte Warhammer";
                 useTurn = true;
@@ -19160,7 +19160,7 @@ namespace Terraria
                 melee = true;
                 ++tileBoost;
             }
-            else if (type == 1235)
+            else if (itemId == 1235)
             {
                 name = "Chlorophyte Arrow";
                 shootSpeed = 4.5f;
@@ -19176,7 +19176,7 @@ namespace Terraria
                 ranged = true;
                 rare = 7;
             }
-            else if (type == 1236)
+            else if (itemId == 1236)
             {
                 noUseGraphic = true;
                 damage = 0;
@@ -19194,7 +19194,7 @@ namespace Terraria
                 noMelee = true;
                 value = 20000;
             }
-            else if (type == 1237)
+            else if (itemId == 1237)
             {
                 noUseGraphic = true;
                 damage = 0;
@@ -19212,7 +19212,7 @@ namespace Terraria
                 noMelee = true;
                 value = 20000;
             }
-            else if (type == 1238)
+            else if (itemId == 1238)
             {
                 noUseGraphic = true;
                 damage = 0;
@@ -19230,7 +19230,7 @@ namespace Terraria
                 noMelee = true;
                 value = 20000;
             }
-            else if (type == 1239)
+            else if (itemId == 1239)
             {
                 noUseGraphic = true;
                 damage = 0;
@@ -19248,7 +19248,7 @@ namespace Terraria
                 noMelee = true;
                 value = 20000;
             }
-            else if (type == 1240)
+            else if (itemId == 1240)
             {
                 noUseGraphic = true;
                 damage = 0;
@@ -19266,7 +19266,7 @@ namespace Terraria
                 noMelee = true;
                 value = 20000;
             }
-            else if (type == 1241)
+            else if (itemId == 1241)
             {
                 noUseGraphic = true;
                 damage = 0;
@@ -19284,7 +19284,7 @@ namespace Terraria
                 noMelee = true;
                 value = 20000;
             }
-            else if (type == 1242)
+            else if (itemId == 1242)
             {
                 damage = 0;
                 useStyle = 1;
@@ -19301,7 +19301,7 @@ namespace Terraria
                 value = sellPrice(0, 7, 50, 0);
                 buffType = 61;
             }
-            else if (type == 1243)
+            else if (itemId == 1243)
             {
                 name = "Umbrella Hat";
                 width = 28;
@@ -19310,7 +19310,7 @@ namespace Terraria
                 rare = 1;
                 vanity = true;
             }
-            else if (type == 1244)
+            else if (itemId == 1244)
             {
                 mana = 10;
                 damage = 36;
@@ -19330,7 +19330,7 @@ namespace Terraria
                 value = sellPrice(0, 3, 50, 0);
                 magic = true;
             }
-            else if (type == 1245)
+            else if (itemId == 1245)
             {
                 name = "Orange Torch";
                 useStyle = 1;
@@ -19348,7 +19348,7 @@ namespace Terraria
                 value = 60;
                 noWet = true;
             }
-            else if (type == 1246)
+            else if (itemId == 1246)
             {
                 name = "Crimsand Block";
                 useStyle = 1;
@@ -19363,7 +19363,7 @@ namespace Terraria
                 height = 12;
                 ammo = 42;
             }
-            else if (type == 1247)
+            else if (itemId == 1247)
             {
                 name = "Bee Cloak";
                 width = 20;
@@ -19374,7 +19374,7 @@ namespace Terraria
                 rare = 4;
                 backSlot = 1;
             }
-            else if (type == 1248)
+            else if (itemId == 1248)
             {
                 name = "Eye of the Golem";
                 width = 24;
@@ -19384,7 +19384,7 @@ namespace Terraria
                 value = 100000;
                 rare = 7;
             }
-            else if (type == 1249)
+            else if (itemId == 1249)
             {
                 name = "Honey Balloon";
                 width = 14;
@@ -19396,7 +19396,7 @@ namespace Terraria
                 toolTip2 = "Releases bees when damaged";
                 balloonSlot = 7;
             }
-            else if (type == 1250)
+            else if (itemId == 1250)
             {
                 name = "Blue Horseshoe Balloon";
                 width = 20;
@@ -19408,7 +19408,7 @@ namespace Terraria
                 toolTip = "Increases jump height and negates fall damage";
                 balloonSlot = 2;
             }
-            else if (type == 1251)
+            else if (itemId == 1251)
             {
                 name = "White Horseshoe Balloon";
                 width = 20;
@@ -19420,7 +19420,7 @@ namespace Terraria
                 toolTip = "Increases jump height and negates fall damage";
                 balloonSlot = 9;
             }
-            else if (type == 1252)
+            else if (itemId == 1252)
             {
                 name = "Yellow Horseshoe Balloon";
                 width = 20;
@@ -19432,7 +19432,7 @@ namespace Terraria
                 toolTip = "Increases jump height and negates fall damage";
                 balloonSlot = 10;
             }
-            else if (type == 1253)
+            else if (itemId == 1253)
             {
                 name = "Frozen Turtle Scale";
                 width = 20;
@@ -19442,7 +19442,7 @@ namespace Terraria
                 accessory = true;
                 rare = 5;
             }
-            else if (type == 1254)
+            else if (itemId == 1254)
             {
                 useStyle = 5;
                 useAnimation = 36;
@@ -19462,7 +19462,7 @@ namespace Terraria
                 rare = 8;
                 ranged = true;
             }
-            else if (type == 1255)
+            else if (itemId == 1255)
             {
                 autoReuse = false;
                 useStyle = 5;
@@ -19483,7 +19483,7 @@ namespace Terraria
                 rare = 7;
                 ranged = true;
             }
-            else if (type == 1256)
+            else if (itemId == 1256)
             {
                 mana = 10;
                 damage = 12;
@@ -19503,7 +19503,7 @@ namespace Terraria
                 value = 10000;
                 magic = true;
             }
-            else if (type == 1257)
+            else if (itemId == 1257)
             {
                 name = "Crimtane Bar";
                 width = 20;
@@ -19520,7 +19520,7 @@ namespace Terraria
                 createTile = 239;
                 placeStyle = 19;
             }
-            else if (type == 1258)
+            else if (itemId == 1258)
             {
                 useStyle = 5;
                 autoReuse = true;
@@ -19541,7 +19541,7 @@ namespace Terraria
                 ranged = true;
                 toolTip = "Shoots a bolt that explodes into deadly shrapnel";
             }
-            else if (type == 1259)
+            else if (itemId == 1259)
             {
                 name = "Flower Pow";
                 noMelee = true;
@@ -19562,7 +19562,7 @@ namespace Terraria
                 melee = true;
                 channel = true;
             }
-            else if (type == 1260)
+            else if (itemId == 1260)
             {
                 useStyle = 5;
                 useAnimation = 40;
@@ -19581,7 +19581,7 @@ namespace Terraria
                 magic = true;
                 mana = 20;
             }
-            else if (type == 1261)
+            else if (itemId == 1261)
             {
                 name = "Stynger Bolt";
                 shootSpeed = 2f;
@@ -19597,7 +19597,7 @@ namespace Terraria
                 rare = 5;
                 ranged = true;
             }
-            else if (type == 1262)
+            else if (itemId == 1262)
             {
                 name = "Chlorophyte Jackhammer";
                 useStyle = 5;
@@ -19619,7 +19619,7 @@ namespace Terraria
                 channel = true;
                 ++tileBoost;
             }
-            else if (type == 1263)
+            else if (itemId == 1263)
             {
                 name = "Teleporter";
                 useStyle = 1;
@@ -19635,7 +19635,7 @@ namespace Terraria
                 value = buyPrice(0, 2, 50, 0);
                 mech = true;
             }
-            else if (type == 1264)
+            else if (itemId == 1264)
             {
                 mana = 17;
                 damage = 55;
@@ -19655,7 +19655,7 @@ namespace Terraria
                 value = 10000;
                 magic = true;
             }
-            else if (type == 1265)
+            else if (itemId == 1265)
             {
                 autoReuse = true;
                 useStyle = 5;
@@ -19676,7 +19676,7 @@ namespace Terraria
                 rare = 7;
                 ranged = true;
             }
-            else if (type == 1266)
+            else if (itemId == 1266)
             {
                 rare = 8;
                 mana = 14;
@@ -19695,7 +19695,7 @@ namespace Terraria
                 magic = true;
                 value = 500000;
             }
-            else if (type == 1267)
+            else if (itemId == 1267)
             {
                 name = "Purple Stained Glass";
                 useStyle = 1;
@@ -19710,7 +19710,7 @@ namespace Terraria
                 height = 12;
                 value = sellPrice(0, 0, 5, 0);
             }
-            else if (type == 1268)
+            else if (itemId == 1268)
             {
                 name = "Yellow Stained Glass";
                 useStyle = 1;
@@ -19725,7 +19725,7 @@ namespace Terraria
                 height = 12;
                 value = sellPrice(0, 0, 5, 0);
             }
-            else if (type == 1269)
+            else if (itemId == 1269)
             {
                 name = "Blue Stained Glass";
                 useStyle = 1;
@@ -19740,7 +19740,7 @@ namespace Terraria
                 height = 12;
                 value = sellPrice(0, 0, 5, 0);
             }
-            else if (type == 1270)
+            else if (itemId == 1270)
             {
                 name = "Green Stained Glass";
                 useStyle = 1;
@@ -19755,7 +19755,7 @@ namespace Terraria
                 height = 12;
                 value = sellPrice(0, 0, 5, 0);
             }
-            else if (type == 1271)
+            else if (itemId == 1271)
             {
                 name = "Red Stained Glass";
                 useStyle = 1;
@@ -19770,7 +19770,7 @@ namespace Terraria
                 height = 12;
                 value = sellPrice(0, 0, 5, 0);
             }
-            else if (type == 1272)
+            else if (itemId == 1272)
             {
                 name = "Multicolored Stained Glass";
                 useStyle = 1;
@@ -19785,7 +19785,7 @@ namespace Terraria
                 height = 12;
                 value = sellPrice(0, 0, 5, 0);
             }
-            else if (type == 1273)
+            else if (itemId == 1273)
             {
                 name = "Skeletron Hand";
                 useStyle = 5;
@@ -19800,7 +19800,7 @@ namespace Terraria
                 rare = 2;
                 value = 45000;
             }
-            else if (type == 1274)
+            else if (itemId == 1274)
             {
                 name = "Skull";
                 width = 28;
@@ -19809,7 +19809,7 @@ namespace Terraria
                 rare = 1;
                 vanity = true;
             }
-            else if (type == 1275)
+            else if (itemId == 1275)
             {
                 name = "Balla Hat";
                 width = 28;
@@ -19819,7 +19819,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 1, 0, 0);
             }
-            else if (type == 1276)
+            else if (itemId == 1276)
             {
                 name = "Gangsta Hat";
                 width = 28;
@@ -19829,7 +19829,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 1, 0, 0);
             }
-            else if (type == 1277)
+            else if (itemId == 1277)
             {
                 name = "Sailor Hat";
                 width = 28;
@@ -19838,7 +19838,7 @@ namespace Terraria
                 rare = 1;
                 vanity = true;
             }
-            else if (type == 1278)
+            else if (itemId == 1278)
             {
                 name = "Eye Patch";
                 width = 28;
@@ -19847,7 +19847,7 @@ namespace Terraria
                 rare = 1;
                 vanity = true;
             }
-            else if (type == 1279)
+            else if (itemId == 1279)
             {
                 name = "Sailor Shirt";
                 width = 28;
@@ -19856,7 +19856,7 @@ namespace Terraria
                 rare = 1;
                 vanity = true;
             }
-            else if (type == 1280)
+            else if (itemId == 1280)
             {
                 name = "Sailor Pants";
                 width = 28;
@@ -19865,7 +19865,7 @@ namespace Terraria
                 rare = 1;
                 vanity = true;
             }
-            else if (type == 1281)
+            else if (itemId == 1281)
             {
                 name = "Skeletron Mask";
                 width = 28;
@@ -19874,7 +19874,7 @@ namespace Terraria
                 rare = 1;
                 vanity = true;
             }
-            else if (type == 1282)
+            else if (itemId == 1282)
             {
                 name = "Amethyst Robe";
                 width = 18;
@@ -19884,7 +19884,7 @@ namespace Terraria
                 toolTip = "Increases maximum mana by 20";
                 toolTip = "Reduces mana usage by 5%";
             }
-            else if (type == 1283)
+            else if (itemId == 1283)
             {
                 name = "Topaz Robe";
                 width = 18;
@@ -19895,7 +19895,7 @@ namespace Terraria
                 toolTip = "Increases maximum mana by 40";
                 toolTip2 = "Reduces mana usage by 7%";
             }
-            else if (type == 1284)
+            else if (itemId == 1284)
             {
                 name = "Sapphire Robe";
                 width = 18;
@@ -19907,7 +19907,7 @@ namespace Terraria
                 toolTip2 = "Reduces mana usage by 9%";
                 rare = 1;
             }
-            else if (type == 1285)
+            else if (itemId == 1285)
             {
                 name = "Emerald Robe";
                 width = 18;
@@ -19919,7 +19919,7 @@ namespace Terraria
                 toolTip2 = "Reduces mana usage by 11%";
                 rare = 1;
             }
-            else if (type == 1286)
+            else if (itemId == 1286)
             {
                 name = "Ruby Robe";
                 width = 18;
@@ -19931,7 +19931,7 @@ namespace Terraria
                 toolTip2 = "Reduces mana usage by 13%";
                 rare = 1;
             }
-            else if (type == 1287)
+            else if (itemId == 1287)
             {
                 name = "Diamond Robe";
                 defense = 3;
@@ -19943,7 +19943,7 @@ namespace Terraria
                 toolTip2 = "Reduces mana usage by 15%";
                 rare = 2;
             }
-            else if (type == 1288)
+            else if (itemId == 1288)
             {
                 name = "White Tuxedo Shirt";
                 width = 28;
@@ -19953,7 +19953,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 25, 0, 0);
             }
-            else if (type == 1289)
+            else if (itemId == 1289)
             {
                 name = "White Tuxedo Pants";
                 width = 28;
@@ -19963,7 +19963,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 25, 0, 0);
             }
-            else if (type == 1290)
+            else if (itemId == 1290)
             {
                 name = "Panic Necklace";
                 width = 22;
@@ -19974,7 +19974,7 @@ namespace Terraria
                 value = 50000;
                 neckSlot = 3;
             }
-            else if (type == 1291)
+            else if (itemId == 1291)
             {
                 name = "Heart Fruit";
                 maxStack = 99;
@@ -19989,7 +19989,7 @@ namespace Terraria
                 rare = 7;
                 value = sellPrice(0, 2, 0, 0);
             }
-            else if (type == 1292)
+            else if (itemId == 1292)
             {
                 name = "Lihzahrd Altar";
                 useStyle = 1;
@@ -20004,7 +20004,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 1293)
+            else if (itemId == 1293)
             {
                 name = "Lihzahrd Power Cell";
                 maxStack = 99;
@@ -20013,7 +20013,7 @@ namespace Terraria
                 height = 10;
                 value = sellPrice(0, 1, 0, 0);
             }
-            else if (type == 1294)
+            else if (itemId == 1294)
             {
                 name = "Picksaw";
                 useStyle = 1;
@@ -20035,7 +20035,7 @@ namespace Terraria
                 ++tileBoost;
                 toolTip = "Capable of mining Lihzahrd Bricks";
             }
-            else if (type == 1295)
+            else if (itemId == 1295)
             {
                 mana = 8;
                 useStyle = 5;
@@ -20056,7 +20056,7 @@ namespace Terraria
                 magic = true;
                 toolTip = "Shoots a piercing beam of heat";
             }
-            else if (type == 1296)
+            else if (itemId == 1296)
             {
                 mana = 15;
                 damage = 73;
@@ -20076,7 +20076,7 @@ namespace Terraria
                 magic = true;
                 toolTip = "Summons a powerful boulder";
             }
-            else if (type == 1297)
+            else if (itemId == 1297)
             {
                 autoReuse = true;
                 name = "Golem Fist";
@@ -20097,7 +20097,7 @@ namespace Terraria
                 noMelee = true;
                 toolTip = "Punches with the force of a golem";
             }
-            else if (type == 1298)
+            else if (itemId == 1298)
             {
                 name = "Water Chest";
                 useStyle = 1;
@@ -20113,7 +20113,7 @@ namespace Terraria
                 height = 22;
                 value = 500;
             }
-            else if (type == 1299)
+            else if (itemId == 1299)
             {
                 name = "Binoculars";
                 width = 14;
@@ -20122,7 +20122,7 @@ namespace Terraria
                 value = 150000;
                 toolTip = "Increases view range when held";
             }
-            else if (type == 1300)
+            else if (itemId == 1300)
             {
                 name = "Rifle Scope";
                 width = 14;
@@ -20133,7 +20133,7 @@ namespace Terraria
                 toolTip = "Increases view range for guns";
                 toolTip2 = "Right click to zoom out";
             }
-            else if (type == 1301)
+            else if (itemId == 1301)
             {
                 name = "Destroyer Emblem";
                 width = 24;
@@ -20144,7 +20144,7 @@ namespace Terraria
                 value = 300000;
                 rare = 7;
             }
-            else if (type == 1302)
+            else if (itemId == 1302)
             {
                 name = "High Velocity Bullet";
                 shootSpeed = 4f;
@@ -20160,7 +20160,7 @@ namespace Terraria
                 ranged = true;
                 rare = 3;
             }
-            else if (type == 1303)
+            else if (itemId == 1303)
             {
                 name = "Jellyfish Necklace";
                 width = 24;
@@ -20171,7 +20171,7 @@ namespace Terraria
                 rare = 2;
                 neckSlot = 1;
             }
-            else if (type == 1304)
+            else if (itemId == 1304)
             {
                 name = "Zombie Arm";
                 useStyle = 1;
@@ -20187,7 +20187,7 @@ namespace Terraria
                 value = 2000;
                 melee = true;
             }
-            else if (type == 1305)
+            else if (itemId == 1305)
             {
                 name = "The Axe";
                 autoReuse = true;
@@ -20207,7 +20207,7 @@ namespace Terraria
                 value = sellPrice(0, 10, 0, 0);
                 melee = true;
             }
-            else if (type == 1306)
+            else if (itemId == 1306)
             {
                 name = "Ice Sickle";
                 useStyle = 1;
@@ -20226,7 +20226,7 @@ namespace Terraria
                 toolTip = "Shoots an icy sickle";
                 melee = true;
             }
-            else if (type == 1307)
+            else if (itemId == 1307)
             {
                 accessory = true;
                 name = "Clothier Voodoo Doll";
@@ -20236,7 +20236,7 @@ namespace Terraria
                 toolTip = "'You are a terrible person.'";
                 rare = 1;
             }
-            else if (type == 1308)
+            else if (itemId == 1308)
             {
                 name = "Poison Staff";
                 mana = 22;
@@ -20256,7 +20256,7 @@ namespace Terraria
                 noMelee = true;
                 value = sellPrice(0, 4, 0, 0);
             }
-            else if (type == 1309)
+            else if (itemId == 1309)
             {
                 mana = 10;
                 damage = 8;
@@ -20277,7 +20277,7 @@ namespace Terraria
                 value = 100000;
                 summon = true;
             }
-            else if (type == 1310)
+            else if (itemId == 1310)
             {
                 name = "Poison Dart";
                 shoot = 267;
@@ -20294,7 +20294,7 @@ namespace Terraria
                 rare = 2;
                 consumable = true;
             }
-            else if (type == 1311)
+            else if (itemId == 1311)
             {
                 damage = 0;
                 useStyle = 1;
@@ -20311,7 +20311,7 @@ namespace Terraria
                 value = sellPrice(0, 3, 0, 0);
                 buffType = 65;
             }
-            else if (type == 1312)
+            else if (itemId == 1312)
             {
                 damage = 0;
                 useStyle = 1;
@@ -20328,7 +20328,7 @@ namespace Terraria
                 value = sellPrice(0, 2, 50, 0);
                 buffType = 66;
             }
-            else if (type == 1313)
+            else if (itemId == 1313)
             {
                 autoReuse = true;
                 rare = 2;
@@ -20349,7 +20349,7 @@ namespace Terraria
                 magic = true;
                 value = 50000;
             }
-            else if (type == 1314)
+            else if (itemId == 1314)
             {
                 autoReuse = true;
                 name = "KO Cannon";
@@ -20370,7 +20370,7 @@ namespace Terraria
                 noMelee = true;
                 toolTip = "Shoots a boxing glove";
             }
-            else if (type == 1315)
+            else if (itemId == 1315)
             {
                 useStyle = 4;
                 consumable = true;
@@ -20381,7 +20381,7 @@ namespace Terraria
                 height = 28;
                 toolTip = "Summons a Pirate Invasion";
             }
-            else if (type == 1316)
+            else if (itemId == 1316)
             {
                 name = "Turtle Helmet";
                 width = 18;
@@ -20393,7 +20393,7 @@ namespace Terraria
                 toolTip = "5% increased melee damage";
                 toolTip2 = "Enemies are more likely to target you";
             }
-            else if (type == 1317)
+            else if (itemId == 1317)
             {
                 name = "Turtle Scale Mail";
                 width = 18;
@@ -20405,7 +20405,7 @@ namespace Terraria
                 toolTip = "7% increased melee damage and critical strike chance";
                 toolTip2 = "Enemies are more likely to target you";
             }
-            else if (type == 1318)
+            else if (itemId == 1318)
             {
                 name = "Turtle Leggings";
                 width = 18;
@@ -20417,7 +20417,7 @@ namespace Terraria
                 toolTip = "3% increased melee critical strike chance";
                 toolTip2 = "Enemies are more likely to target you";
             }
-            else if (type == 1319)
+            else if (itemId == 1319)
             {
                 name = "Snowball Cannon";
                 autoReuse = true;
@@ -20439,7 +20439,7 @@ namespace Terraria
                 useAmmo = 949;
                 shoot = 166;
             }
-            else if (type == 1320)
+            else if (itemId == 1320)
             {
                 name = "Bone Pickaxe";
                 useStyle = 1;
@@ -20458,7 +20458,7 @@ namespace Terraria
                 scale = 1.15f;
                 melee = true;
             }
-            else if (type == 1321)
+            else if (itemId == 1321)
             {
                 name = "Magic Quiver";
                 width = 24;
@@ -20470,7 +20470,7 @@ namespace Terraria
                 rare = 4;
                 backSlot = 7;
             }
-            else if (type == 1322)
+            else if (itemId == 1322)
             {
                 name = "Magma Stone";
                 width = 24;
@@ -20480,7 +20480,7 @@ namespace Terraria
                 value = sellPrice(0, 2, 0, 0);
                 rare = 3;
             }
-            else if (type == 1323)
+            else if (itemId == 1323)
             {
                 name = "Lava Rose";
                 width = 24;
@@ -20491,7 +20491,7 @@ namespace Terraria
                 rare = 3;
                 faceSlot = 6;
             }
-            else if (type == 1324)
+            else if (itemId == 1324)
             {
                 autoReuse = true;
                 noMelee = true;
@@ -20512,7 +20512,7 @@ namespace Terraria
                 melee = true;
                 maxStack = 10;
             }
-            else if (type == 1325)
+            else if (itemId == 1325)
             {
                 autoReuse = false;
                 name = "Chain Knife";
@@ -20531,7 +20531,7 @@ namespace Terraria
                 melee = true;
                 noUseGraphic = true;
             }
-            else if (type == 1326)
+            else if (itemId == 1326)
             {
                 autoReuse = false;
                 name = "Rod of Discord";
@@ -20545,7 +20545,7 @@ namespace Terraria
                 value = sellPrice(0, 10, 0, 0);
                 toolTip = "Teleports to a new location";
             }
-            else if (type == 1327)
+            else if (itemId == 1327)
             {
                 autoReuse = true;
                 name = "Death Sickle";
@@ -20565,7 +20565,7 @@ namespace Terraria
                 toolTip = "Shoots a deathly sickle";
                 melee = true;
             }
-            else if (type == 1328)
+            else if (itemId == 1328)
             {
                 name = "Turtle Scale";
                 width = 14;
@@ -20574,7 +20574,7 @@ namespace Terraria
                 rare = 7;
                 value = 5000;
             }
-            else if (type == 1329)
+            else if (itemId == 1329)
             {
                 name = "Tissue Sample";
                 width = 14;
@@ -20583,7 +20583,7 @@ namespace Terraria
                 rare = 1;
                 value = 750;
             }
-            else if (type == 1330)
+            else if (itemId == 1330)
             {
                 name = "Vertebrae";
                 width = 18;
@@ -20591,7 +20591,7 @@ namespace Terraria
                 maxStack = 99;
                 value = 12;
             }
-            else if (type == 1331)
+            else if (itemId == 1331)
             {
                 useStyle = 4;
                 consumable = true;
@@ -20603,7 +20603,7 @@ namespace Terraria
                 maxStack = 20;
                 toolTip = "Summons the Brain of Cthulhu";
             }
-            else if (type == 1332)
+            else if (itemId == 1332)
             {
                 name = "Ichor";
                 width = 12;
@@ -20613,7 +20613,7 @@ namespace Terraria
                 rare = 3;
                 toolTip = "'The blood of gods'";
             }
-            else if (type == 1333)
+            else if (itemId == 1333)
             {
                 flame = true;
                 name = "Ichor Torch";
@@ -20633,7 +20633,7 @@ namespace Terraria
                 rare = 1;
                 toolTip = "Can be placed in water";
             }
-            else if (type == 1334)
+            else if (itemId == 1334)
             {
                 name = "Ichor Arrow";
                 shootSpeed = 4.25f;
@@ -20650,7 +20650,7 @@ namespace Terraria
                 rare = 3;
                 toolTip = "Decreases target's defense";
             }
-            else if (type == 1335)
+            else if (itemId == 1335)
             {
                 name = "Ichor Bullet";
                 shootSpeed = 5.25f;
@@ -20667,7 +20667,7 @@ namespace Terraria
                 rare = 3;
                 toolTip = "Decreases target's defense";
             }
-            else if (type == 1336)
+            else if (itemId == 1336)
             {
                 mana = 7;
                 autoReuse = true;
@@ -20688,7 +20688,7 @@ namespace Terraria
                 magic = true;
                 noMelee = true;
             }
-            else if (type == 1337)
+            else if (itemId == 1337)
             {
                 name = "Bunny Cannon";
                 useStyle = 1;
@@ -20704,7 +20704,7 @@ namespace Terraria
                 height = 12;
                 value = buyPrice(0, 50, 0, 0);
             }
-            else if (type == 1338)
+            else if (itemId == 1338)
             {
                 name = "Explosive Bunny";
                 useStyle = 1;
@@ -20720,7 +20720,7 @@ namespace Terraria
                 noMelee = true;
                 value = buyPrice(0, 0, 35, 0);
             }
-            else if (type == 1339)
+            else if (itemId == 1339)
             {
                 name = "Vial of Venom";
                 width = 12;
@@ -20728,7 +20728,7 @@ namespace Terraria
                 maxStack = 99;
                 value = buyPrice(0, 0, 10, 0);
             }
-            else if (type == 1340)
+            else if (itemId == 1340)
             {
                 name = "Flask of Venom";
                 useSound = 3;
@@ -20746,7 +20746,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 5, 0);
                 rare = 4;
             }
-            else if (type == 1341)
+            else if (itemId == 1341)
             {
                 name = "Venom Arrow";
                 shootSpeed = 4.3f;
@@ -20763,7 +20763,7 @@ namespace Terraria
                 rare = 3;
                 toolTip = "Inflicts target with venom";
             }
-            else if (type == 1342)
+            else if (itemId == 1342)
             {
                 name = "Venom Bullet";
                 shootSpeed = 5.3f;
@@ -20780,7 +20780,7 @@ namespace Terraria
                 rare = 3;
                 toolTip = "Inflicts target with venom";
             }
-            else if (type == 1343)
+            else if (itemId == 1343)
             {
                 name = "Fire Gauntlet";
                 width = 16;
@@ -20793,7 +20793,7 @@ namespace Terraria
                 handOffSlot = 1;
                 handOnSlot = 6;
             }
-            else if (type == 1344)
+            else if (itemId == 1344)
             {
                 name = "Cog";
                 useStyle = 1;
@@ -20808,7 +20808,7 @@ namespace Terraria
                 height = 12;
                 value = buyPrice(0, 0, 7, 0);
             }
-            else if (type == 1345)
+            else if (itemId == 1345)
             {
                 name = "Confetti";
                 width = 12;
@@ -20821,7 +20821,7 @@ namespace Terraria
                 autoReuse = true;
                 consumable = true;
             }
-            else if (type == 1346)
+            else if (itemId == 1346)
             {
                 name = "Nanites";
                 width = 12;
@@ -20829,7 +20829,7 @@ namespace Terraria
                 maxStack = 99;
                 value = buyPrice(0, 0, 10, 0);
             }
-            else if (type == 1347)
+            else if (itemId == 1347)
             {
                 name = "Explosive Powder";
                 width = 12;
@@ -20837,7 +20837,7 @@ namespace Terraria
                 maxStack = 99;
                 value = buyPrice(0, 0, 12, 0);
             }
-            else if (type == 1348)
+            else if (itemId == 1348)
             {
                 name = "Gold Dust";
                 width = 12;
@@ -20845,7 +20845,7 @@ namespace Terraria
                 maxStack = 99;
                 value = buyPrice(0, 0, 17, 0);
             }
-            else if (type == 1349)
+            else if (itemId == 1349)
             {
                 name = "Party Bullet";
                 shootSpeed = 5.1f;
@@ -20862,7 +20862,7 @@ namespace Terraria
                 rare = 3;
                 toolTip = "Explodes into confetti on impact";
             }
-            else if (type == 1350)
+            else if (itemId == 1350)
             {
                 name = "Nano Bullet";
                 shootSpeed = 4.6f;
@@ -20879,7 +20879,7 @@ namespace Terraria
                 rare = 3;
                 toolTip = "Causes confusion";
             }
-            else if (type == 1351)
+            else if (itemId == 1351)
             {
                 name = "Exploding Bullet";
                 shootSpeed = 4.7f;
@@ -20896,7 +20896,7 @@ namespace Terraria
                 rare = 3;
                 toolTip = "Explodes on impact";
             }
-            else if (type == 1352)
+            else if (itemId == 1352)
             {
                 name = "Golden Bullet";
                 shootSpeed = 4.6f;
@@ -20913,7 +20913,7 @@ namespace Terraria
                 rare = 3;
                 toolTip = "Enemies killed will drop more money";
             }
-            else if (type == 1353)
+            else if (itemId == 1353)
             {
                 name = "Flask of Cursed Flames";
                 useSound = 3;
@@ -20930,7 +20930,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 5, 0);
                 rare = 4;
             }
-            else if (type == 1354)
+            else if (itemId == 1354)
             {
                 name = "Flask of Fire";
                 useSound = 3;
@@ -20947,7 +20947,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 5, 0);
                 rare = 4;
             }
-            else if (type == 1355)
+            else if (itemId == 1355)
             {
                 name = "Flask of Gold";
                 useSound = 3;
@@ -20964,7 +20964,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 5, 0);
                 rare = 4;
             }
-            else if (type == 1356)
+            else if (itemId == 1356)
             {
                 name = "Flask of Ichor";
                 useSound = 3;
@@ -20981,7 +20981,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 5, 0);
                 rare = 4;
             }
-            else if (type == 1357)
+            else if (itemId == 1357)
             {
                 name = "Flask of Nanites";
                 useSound = 3;
@@ -20998,7 +20998,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 5, 0);
                 rare = 4;
             }
-            else if (type == 1358)
+            else if (itemId == 1358)
             {
                 name = "Flask of Party";
                 useSound = 3;
@@ -21015,7 +21015,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 5, 0);
                 rare = 4;
             }
-            else if (type == 1359)
+            else if (itemId == 1359)
             {
                 name = "Flask of Poison";
                 useSound = 3;
@@ -21032,7 +21032,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 5, 0);
                 rare = 4;
             }
-            else if (type == 1360)
+            else if (itemId == 1360)
             {
                 name = "Eye of Cthulhu Trophy";
                 useStyle = 1;
@@ -21049,7 +21049,7 @@ namespace Terraria
                 placeStyle = 0;
                 rare = 1;
             }
-            else if (type == 1361)
+            else if (itemId == 1361)
             {
                 name = "Eater of Worlds Trophy";
                 useStyle = 1;
@@ -21066,7 +21066,7 @@ namespace Terraria
                 placeStyle = 1;
                 rare = 1;
             }
-            else if (type == 1362)
+            else if (itemId == 1362)
             {
                 name = "Brain of Cthulhu Trophy";
                 useStyle = 1;
@@ -21083,7 +21083,7 @@ namespace Terraria
                 placeStyle = 2;
                 rare = 1;
             }
-            else if (type == 1363)
+            else if (itemId == 1363)
             {
                 name = "Skeletron Trophy";
                 useStyle = 1;
@@ -21100,7 +21100,7 @@ namespace Terraria
                 placeStyle = 3;
                 rare = 1;
             }
-            else if (type == 1364)
+            else if (itemId == 1364)
             {
                 name = "Queen Bee Trophy";
                 useStyle = 1;
@@ -21117,7 +21117,7 @@ namespace Terraria
                 placeStyle = 4;
                 rare = 1;
             }
-            else if (type == 1365)
+            else if (itemId == 1365)
             {
                 name = "Wall of Flesh Trophy";
                 useStyle = 1;
@@ -21134,7 +21134,7 @@ namespace Terraria
                 placeStyle = 5;
                 rare = 1;
             }
-            else if (type == 1366)
+            else if (itemId == 1366)
             {
                 name = "Destroyer Trophy";
                 useStyle = 1;
@@ -21151,7 +21151,7 @@ namespace Terraria
                 placeStyle = 6;
                 rare = 1;
             }
-            else if (type == 1367)
+            else if (itemId == 1367)
             {
                 name = "Skeletron Prime Trophy";
                 useStyle = 1;
@@ -21168,7 +21168,7 @@ namespace Terraria
                 placeStyle = 7;
                 rare = 1;
             }
-            else if (type == 1368)
+            else if (itemId == 1368)
             {
                 name = "Retinazer Trophy";
                 useStyle = 1;
@@ -21185,7 +21185,7 @@ namespace Terraria
                 placeStyle = 8;
                 rare = 1;
             }
-            else if (type == 1369)
+            else if (itemId == 1369)
             {
                 name = "Spazmatism Trophy";
                 useStyle = 1;
@@ -21202,7 +21202,7 @@ namespace Terraria
                 placeStyle = 9;
                 rare = 1;
             }
-            else if (type == 1370)
+            else if (itemId == 1370)
             {
                 name = "Plantera Trophy";
                 useStyle = 1;
@@ -21219,7 +21219,7 @@ namespace Terraria
                 placeStyle = 10;
                 rare = 1;
             }
-            else if (type == 1371)
+            else if (itemId == 1371)
             {
                 name = "Golem Trophy";
                 useStyle = 1;
@@ -21236,7 +21236,7 @@ namespace Terraria
                 placeStyle = 11;
                 rare = 1;
             }
-            else if (type == 1372)
+            else if (itemId == 1372)
             {
                 name = "Blood Moon Rising";
                 useStyle = 1;
@@ -21252,7 +21252,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 12;
             }
-            else if (type == 1373)
+            else if (itemId == 1373)
             {
                 name = "The Hanged Man";
                 useStyle = 1;
@@ -21268,7 +21268,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 13;
             }
-            else if (type == 1374)
+            else if (itemId == 1374)
             {
                 name = "Glory of the Fire";
                 useStyle = 1;
@@ -21284,7 +21284,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 14;
             }
-            else if (type == 1375)
+            else if (itemId == 1375)
             {
                 name = "Bone Warp";
                 useStyle = 1;
@@ -21300,7 +21300,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 15;
             }
-            else if (type == 1376)
+            else if (itemId == 1376)
             {
                 name = "Wall Skeleton";
                 useStyle = 1;
@@ -21315,7 +21315,7 @@ namespace Terraria
                 height = 30;
                 placeStyle = 16;
             }
-            else if (type == 1377)
+            else if (itemId == 1377)
             {
                 name = "Hanging Skeleton";
                 useStyle = 1;
@@ -21330,7 +21330,7 @@ namespace Terraria
                 height = 30;
                 placeStyle = 17;
             }
-            else if (type == 1378)
+            else if (itemId == 1378)
             {
                 name = "Blue Slab Wall";
                 useStyle = 1;
@@ -21344,7 +21344,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 1379)
+            else if (itemId == 1379)
             {
                 name = "Blue Tiled Wall";
                 useStyle = 1;
@@ -21358,7 +21358,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 1380)
+            else if (itemId == 1380)
             {
                 name = "Pink Slab Wall";
                 useStyle = 1;
@@ -21372,7 +21372,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 1381)
+            else if (itemId == 1381)
             {
                 name = "Pink Tiled Wall";
                 useStyle = 1;
@@ -21386,7 +21386,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 1382)
+            else if (itemId == 1382)
             {
                 name = "Green Slab Wall";
                 useStyle = 1;
@@ -21400,7 +21400,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 1383)
+            else if (itemId == 1383)
             {
                 name = "Green Tiled Wall";
                 useStyle = 1;
@@ -21414,7 +21414,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 1384)
+            else if (itemId == 1384)
             {
                 name = "Blue Brick Platform";
                 useStyle = 1;
@@ -21429,7 +21429,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 1385)
+            else if (itemId == 1385)
             {
                 name = "Pink Brick Platform";
                 useStyle = 1;
@@ -21444,7 +21444,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 1386)
+            else if (itemId == 1386)
             {
                 name = "Green Brick Platform";
                 useStyle = 1;
@@ -21459,7 +21459,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 1387)
+            else if (itemId == 1387)
             {
                 name = "Dungeon Shelf 1";
                 useStyle = 1;
@@ -21474,7 +21474,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 1388)
+            else if (itemId == 1388)
             {
                 name = "Dungeon Shelf 2";
                 useStyle = 1;
@@ -21489,7 +21489,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 1389)
+            else if (itemId == 1389)
             {
                 name = "Dungeon Shelf 3";
                 useStyle = 1;
@@ -21504,7 +21504,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 1390)
+            else if (itemId == 1390)
             {
                 name = "Lantern 1";
                 useStyle = 1;
@@ -21519,7 +21519,7 @@ namespace Terraria
                 height = 28;
                 placeStyle = 1;
             }
-            else if (type == 1391)
+            else if (itemId == 1391)
             {
                 name = "Lantern 2";
                 useStyle = 1;
@@ -21534,7 +21534,7 @@ namespace Terraria
                 height = 28;
                 placeStyle = 2;
             }
-            else if (type == 1392)
+            else if (itemId == 1392)
             {
                 name = "Lantern 3";
                 useStyle = 1;
@@ -21549,7 +21549,7 @@ namespace Terraria
                 height = 28;
                 placeStyle = 3;
             }
-            else if (type == 1393)
+            else if (itemId == 1393)
             {
                 name = "Lantern 4";
                 useStyle = 1;
@@ -21564,7 +21564,7 @@ namespace Terraria
                 height = 28;
                 placeStyle = 4;
             }
-            else if (type == 1394)
+            else if (itemId == 1394)
             {
                 name = "Lantern 5";
                 useStyle = 1;
@@ -21579,7 +21579,7 @@ namespace Terraria
                 height = 28;
                 placeStyle = 5;
             }
-            else if (type == 1395)
+            else if (itemId == 1395)
             {
                 name = "Lantern 6";
                 useStyle = 1;
@@ -21594,7 +21594,7 @@ namespace Terraria
                 height = 28;
                 placeStyle = 6;
             }
-            else if (type == 1396)
+            else if (itemId == 1396)
             {
                 name = "Blue Dungeon Chair";
                 useStyle = 1;
@@ -21609,7 +21609,7 @@ namespace Terraria
                 width = 12;
                 height = 30;
             }
-            else if (type == 1397)
+            else if (itemId == 1397)
             {
                 name = "Blue Dungeon Table";
                 useStyle = 1;
@@ -21625,7 +21625,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 1398)
+            else if (itemId == 1398)
             {
                 name = "Blue Dungeon Work Bench";
                 useStyle = 1;
@@ -21641,7 +21641,7 @@ namespace Terraria
                 height = 14;
                 value = 150;
             }
-            else if (type == 1399)
+            else if (itemId == 1399)
             {
                 name = "Green Dungeon Chair";
                 useStyle = 1;
@@ -21656,7 +21656,7 @@ namespace Terraria
                 width = 12;
                 height = 30;
             }
-            else if (type == 1400)
+            else if (itemId == 1400)
             {
                 name = "Green Dungeon Table";
                 useStyle = 1;
@@ -21672,7 +21672,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 1401)
+            else if (itemId == 1401)
             {
                 name = "Green Dungeon Work Bench";
                 useStyle = 1;
@@ -21688,7 +21688,7 @@ namespace Terraria
                 height = 14;
                 value = 150;
             }
-            else if (type == 1402)
+            else if (itemId == 1402)
             {
                 name = "Pink Dungeon Chair";
                 useStyle = 1;
@@ -21703,7 +21703,7 @@ namespace Terraria
                 width = 12;
                 height = 30;
             }
-            else if (type == 1403)
+            else if (itemId == 1403)
             {
                 name = "Pink Dungeon Table";
                 useStyle = 1;
@@ -21719,7 +21719,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 1404)
+            else if (itemId == 1404)
             {
                 name = "Pink Dungeon Work Bench";
                 useStyle = 1;
@@ -21735,7 +21735,7 @@ namespace Terraria
                 height = 14;
                 value = 150;
             }
-            else if (type == 1405)
+            else if (itemId == 1405)
             {
                 noWet = true;
                 name = "Blue Dungeon Candle";
@@ -21751,7 +21751,7 @@ namespace Terraria
                 height = 18;
                 placeStyle = 1;
             }
-            else if (type == 1406)
+            else if (itemId == 1406)
             {
                 noWet = true;
                 name = "Green Dungeon Candle";
@@ -21767,7 +21767,7 @@ namespace Terraria
                 height = 18;
                 placeStyle = 2;
             }
-            else if (type == 1407)
+            else if (itemId == 1407)
             {
                 noWet = true;
                 name = "Pink Dungeon Candle";
@@ -21783,7 +21783,7 @@ namespace Terraria
                 height = 18;
                 placeStyle = 3;
             }
-            else if (type == 1408)
+            else if (itemId == 1408)
             {
                 name = "Blue Dungeon Vase";
                 useStyle = 1;
@@ -21799,7 +21799,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 46;
             }
-            else if (type == 1409)
+            else if (itemId == 1409)
             {
                 name = "Green Dungeon Vase";
                 useStyle = 1;
@@ -21815,7 +21815,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 47;
             }
-            else if (type == 1410)
+            else if (itemId == 1410)
             {
                 name = "Pink Dungeon Vase";
                 useStyle = 1;
@@ -21831,7 +21831,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 48;
             }
-            else if (type == 1411)
+            else if (itemId == 1411)
             {
                 name = "Blue Dungeon Door";
                 useStyle = 1;
@@ -21846,7 +21846,7 @@ namespace Terraria
                 height = 28;
                 value = 200;
             }
-            else if (type == 1412)
+            else if (itemId == 1412)
             {
                 name = "Green Dungeon Door";
                 useStyle = 1;
@@ -21861,7 +21861,7 @@ namespace Terraria
                 height = 28;
                 value = 200;
             }
-            else if (type == 1413)
+            else if (itemId == 1413)
             {
                 name = "Pink Dungeon Door";
                 useStyle = 1;
@@ -21876,7 +21876,7 @@ namespace Terraria
                 height = 28;
                 value = 200;
             }
-            else if (type == 1414)
+            else if (itemId == 1414)
             {
                 name = "Blue Dungeon Bookcase";
                 useStyle = 1;
@@ -21892,7 +21892,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 1;
             }
-            else if (type == 1415)
+            else if (itemId == 1415)
             {
                 name = "Green Dungeon Bookcase";
                 useStyle = 1;
@@ -21908,7 +21908,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 2;
             }
-            else if (type == 1416)
+            else if (itemId == 1416)
             {
                 name = "Pink Dungeon Bookcase";
                 useStyle = 1;
@@ -21924,7 +21924,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 3;
             }
-            else if (type == 1417)
+            else if (itemId == 1417)
             {
                 name = "Catacomb";
                 useStyle = 1;
@@ -21939,7 +21939,7 @@ namespace Terraria
                 width = 30;
                 height = 30;
             }
-            else if (type == 1418)
+            else if (itemId == 1418)
             {
                 name = "Dungeon Shelf 4";
                 useStyle = 1;
@@ -21954,7 +21954,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 1419)
+            else if (itemId == 1419)
             {
                 name = "Skellington J Skellingsworth";
                 useStyle = 1;
@@ -21970,7 +21970,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 18;
             }
-            else if (type == 1420)
+            else if (itemId == 1420)
             {
                 name = "The Cursed Man";
                 useStyle = 1;
@@ -21986,7 +21986,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 19;
             }
-            else if (type == 1421)
+            else if (itemId == 1421)
             {
                 name = "The Eye Sees the End";
                 useStyle = 1;
@@ -22002,7 +22002,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 0;
             }
-            else if (type == 1422)
+            else if (itemId == 1422)
             {
                 name = "Something Evil is Watching You";
                 useStyle = 1;
@@ -22018,7 +22018,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 1;
             }
-            else if (type == 1423)
+            else if (itemId == 1423)
             {
                 name = "The Twins Have Awoken";
                 useStyle = 1;
@@ -22034,7 +22034,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 2;
             }
-            else if (type == 1424)
+            else if (itemId == 1424)
             {
                 name = "The Screamer";
                 useStyle = 1;
@@ -22050,7 +22050,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 3;
             }
-            else if (type == 1425)
+            else if (itemId == 1425)
             {
                 name = "Goblins Playing Poker";
                 useStyle = 1;
@@ -22066,7 +22066,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 4;
             }
-            else if (type == 1426)
+            else if (itemId == 1426)
             {
                 name = "Dryadisque";
                 useStyle = 1;
@@ -22082,7 +22082,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 5;
             }
-            else if (type == 1427)
+            else if (itemId == 1427)
             {
                 name = "Sunflowers";
                 useStyle = 1;
@@ -22098,7 +22098,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 20;
             }
-            else if (type == 1428)
+            else if (itemId == 1428)
             {
                 name = "Terrarian Gothic";
                 useStyle = 1;
@@ -22114,7 +22114,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 21;
             }
-            else if (type == 1429)
+            else if (itemId == 1429)
             {
                 name = "Beanie";
                 width = 18;
@@ -22123,7 +22123,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 1, 0, 0);
             }
-            else if (type == 1430)
+            else if (itemId == 1430)
             {
                 name = "Imbuing Station";
                 useStyle = 1;
@@ -22139,7 +22139,7 @@ namespace Terraria
                 value = buyPrice(0, 7, 0, 0);
                 rare = 2;
             }
-            else if (type == 1431)
+            else if (itemId == 1431)
             {
                 name = "Star in a Bottle";
                 useStyle = 1;
@@ -22154,7 +22154,7 @@ namespace Terraria
                 height = 28;
                 placeStyle = 7;
             }
-            else if (type == 1432)
+            else if (itemId == 1432)
             {
                 name = "Empty Bullet";
                 width = 12;
@@ -22162,7 +22162,7 @@ namespace Terraria
                 maxStack = 999;
                 value = buyPrice(0, 0, 0, 3);
             }
-            else if (type == 1433)
+            else if (itemId == 1433)
             {
                 name = "Impact";
                 useStyle = 1;
@@ -22178,7 +22178,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 6;
             }
-            else if (type == 1434)
+            else if (itemId == 1434)
             {
                 name = "Powered by Birds";
                 useStyle = 1;
@@ -22194,7 +22194,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 7;
             }
-            else if (type == 1435)
+            else if (itemId == 1435)
             {
                 name = "The Destroyer";
                 useStyle = 1;
@@ -22210,7 +22210,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 8;
             }
-            else if (type == 1436)
+            else if (itemId == 1436)
             {
                 name = "The Persistency of Eyes";
                 useStyle = 1;
@@ -22226,7 +22226,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 9;
             }
-            else if (type == 1437)
+            else if (itemId == 1437)
             {
                 name = "Unicorn Crossing the Hallows";
                 useStyle = 1;
@@ -22242,7 +22242,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 10;
             }
-            else if (type == 1438)
+            else if (itemId == 1438)
             {
                 name = "Great Wave";
                 useStyle = 1;
@@ -22258,7 +22258,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 11;
             }
-            else if (type == 1439)
+            else if (itemId == 1439)
             {
                 name = "Starry Night";
                 useStyle = 1;
@@ -22274,7 +22274,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 12;
             }
-            else if (type == 1440)
+            else if (itemId == 1440)
             {
                 name = "Guide Picasso";
                 useStyle = 1;
@@ -22290,7 +22290,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 22;
             }
-            else if (type == 1441)
+            else if (itemId == 1441)
             {
                 name = "The Guardian's Gaze";
                 useStyle = 1;
@@ -22306,7 +22306,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 23;
             }
-            else if (type == 1442)
+            else if (itemId == 1442)
             {
                 name = "Father of Someone";
                 useStyle = 1;
@@ -22322,7 +22322,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 24;
             }
-            else if (type == 1443)
+            else if (itemId == 1443)
             {
                 name = "Nurse Lisa";
                 useStyle = 1;
@@ -22338,7 +22338,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 25;
             }
-            else if (type == 1444)
+            else if (itemId == 1444)
             {
                 name = "Shadowbeam Staff";
                 mana = 7;
@@ -22358,7 +22358,7 @@ namespace Terraria
                 rare = 8;
                 noMelee = true;
             }
-            else if (type == 1445)
+            else if (itemId == 1445)
             {
                 name = "Inferno Fork";
                 mana = 18;
@@ -22377,7 +22377,7 @@ namespace Terraria
                 noMelee = true;
                 rare = 8;
             }
-            else if (type == 1446)
+            else if (itemId == 1446)
             {
                 name = "Spectre Staff";
                 mana = 11;
@@ -22397,7 +22397,7 @@ namespace Terraria
                 noMelee = true;
                 rare = 8;
             }
-            else if (type == 1447)
+            else if (itemId == 1447)
             {
                 name = "Wooden Fence";
                 useStyle = 1;
@@ -22411,7 +22411,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 1448)
+            else if (itemId == 1448)
             {
                 name = "Lead Fence";
                 useStyle = 1;
@@ -22425,7 +22425,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 1449)
+            else if (itemId == 1449)
             {
                 name = "Bubble Machine";
                 useStyle = 1;
@@ -22441,7 +22441,7 @@ namespace Terraria
                 value = buyPrice(0, 4, 0, 0);
                 rare = 1;
             }
-            else if (type == 1450)
+            else if (itemId == 1450)
             {
                 name = "Bubble Wand";
                 useStyle = 1;
@@ -22456,7 +22456,7 @@ namespace Terraria
                 noMelee = true;
                 rare = 1;
             }
-            else if (type == 1451)
+            else if (itemId == 1451)
             {
                 name = "Marching Bones Banner";
                 useStyle = 1;
@@ -22472,7 +22472,7 @@ namespace Terraria
                 height = 24;
                 value = 1000;
             }
-            else if (type == 1452)
+            else if (itemId == 1452)
             {
                 name = "Necromantic Sign";
                 useStyle = 1;
@@ -22488,7 +22488,7 @@ namespace Terraria
                 height = 24;
                 value = 1000;
             }
-            else if (type == 1453)
+            else if (itemId == 1453)
             {
                 name = "Rusted Company Standard";
                 useStyle = 1;
@@ -22504,7 +22504,7 @@ namespace Terraria
                 height = 24;
                 value = 1000;
             }
-            else if (type == 1454)
+            else if (itemId == 1454)
             {
                 name = "Ragged Brotherhood Sigil";
                 useStyle = 1;
@@ -22520,7 +22520,7 @@ namespace Terraria
                 height = 24;
                 value = 1000;
             }
-            else if (type == 1455)
+            else if (itemId == 1455)
             {
                 name = "Molten Legion Flag";
                 useStyle = 1;
@@ -22536,7 +22536,7 @@ namespace Terraria
                 height = 24;
                 value = 1000;
             }
-            else if (type == 1456)
+            else if (itemId == 1456)
             {
                 name = "Diabolic Sigil";
                 useStyle = 1;
@@ -22552,7 +22552,7 @@ namespace Terraria
                 height = 24;
                 value = 1000;
             }
-            else if (type == 1457)
+            else if (itemId == 1457)
             {
                 name = "Obsidian Platform";
                 useStyle = 1;
@@ -22567,7 +22567,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 1458)
+            else if (itemId == 1458)
             {
                 name = "Obsidian Door";
                 useStyle = 1;
@@ -22582,7 +22582,7 @@ namespace Terraria
                 height = 28;
                 value = 200;
             }
-            else if (type == 1459)
+            else if (itemId == 1459)
             {
                 name = "Obsidian Chair";
                 useStyle = 1;
@@ -22597,7 +22597,7 @@ namespace Terraria
                 width = 12;
                 height = 30;
             }
-            else if (type == 1460)
+            else if (itemId == 1460)
             {
                 name = "Obsidian Table";
                 useStyle = 1;
@@ -22613,7 +22613,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 1461)
+            else if (itemId == 1461)
             {
                 name = "Obsidian Work Bench";
                 useStyle = 1;
@@ -22629,7 +22629,7 @@ namespace Terraria
                 height = 14;
                 value = 150;
             }
-            else if (type == 1462)
+            else if (itemId == 1462)
             {
                 name = "Obsidian Vase";
                 useStyle = 1;
@@ -22645,7 +22645,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 49;
             }
-            else if (type == 1463)
+            else if (itemId == 1463)
             {
                 name = "Obsidian Bookcase";
                 useStyle = 1;
@@ -22661,7 +22661,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 4;
             }
-            else if (type == 1464)
+            else if (itemId == 1464)
             {
                 name = "Hellbound Banner";
                 useStyle = 1;
@@ -22677,7 +22677,7 @@ namespace Terraria
                 height = 24;
                 value = 1000;
             }
-            else if (type == 1465)
+            else if (itemId == 1465)
             {
                 name = "Hell Hammer Banner";
                 useStyle = 1;
@@ -22693,7 +22693,7 @@ namespace Terraria
                 height = 24;
                 value = 1000;
             }
-            else if (type == 1466)
+            else if (itemId == 1466)
             {
                 name = "Helltower Banner";
                 useStyle = 1;
@@ -22709,7 +22709,7 @@ namespace Terraria
                 height = 24;
                 value = 1000;
             }
-            else if (type == 1467)
+            else if (itemId == 1467)
             {
                 name = "Lost Hopes of Man Banner";
                 useStyle = 1;
@@ -22725,7 +22725,7 @@ namespace Terraria
                 height = 24;
                 value = 1000;
             }
-            else if (type == 1468)
+            else if (itemId == 1468)
             {
                 name = "Obsidian Watcher Banner";
                 useStyle = 1;
@@ -22741,7 +22741,7 @@ namespace Terraria
                 height = 24;
                 value = 1000;
             }
-            else if (type == 1469)
+            else if (itemId == 1469)
             {
                 name = "Lava Erupts Banner";
                 useStyle = 1;
@@ -22757,7 +22757,7 @@ namespace Terraria
                 height = 24;
                 value = 1000;
             }
-            else if (type == 1470)
+            else if (itemId == 1470)
             {
                 name = "Blue Dungeon Bed";
                 useStyle = 1;
@@ -22772,7 +22772,7 @@ namespace Terraria
                 height = 20;
                 value = 2000;
             }
-            else if (type == 1471)
+            else if (itemId == 1471)
             {
                 name = "Green Dungeon Bed";
                 useStyle = 1;
@@ -22787,7 +22787,7 @@ namespace Terraria
                 height = 20;
                 value = 2000;
             }
-            else if (type == 1472)
+            else if (itemId == 1472)
             {
                 name = "Red Dungeon Bed";
                 useStyle = 1;
@@ -22802,7 +22802,7 @@ namespace Terraria
                 height = 20;
                 value = 2000;
             }
-            else if (type == 1473)
+            else if (itemId == 1473)
             {
                 name = "Obsidian Bed";
                 useStyle = 1;
@@ -22817,7 +22817,7 @@ namespace Terraria
                 height = 20;
                 value = 2000;
             }
-            else if (type >= 1474 && type <= 1478)
+            else if (itemId >= 1474 && itemId <= 1478)
             {
                 name = "Picture";
                 useStyle = 1;
@@ -22831,9 +22831,9 @@ namespace Terraria
                 width = 30;
                 height = 30;
                 value = sellPrice(0, 0, 10, 0);
-                placeStyle = type - 1474;
+                placeStyle = itemId - 1474;
             }
-            else if (type >= 1479 && type <= 1494)
+            else if (itemId >= 1479 && itemId <= 1494)
             {
                 name = "Picture";
                 useStyle = 1;
@@ -22846,10 +22846,10 @@ namespace Terraria
                 createTile = 246;
                 width = 30;
                 height = 30;
-                value = type < 1481 || type > 1494 ? Item.sellPrice(0, 0, 10, 0) : Item.buyPrice(0, 1, 0, 0);
-                placeStyle = type - 1479;
+                value = itemId < 1481 || itemId > 1494 ? Item.sellPrice(0, 0, 10, 0) : Item.buyPrice(0, 1, 0, 0);
+                placeStyle = itemId - 1479;
             }
-            else if (type == 1495)
+            else if (itemId == 1495)
             {
                 name = "American Explosive";
                 useStyle = 1;
@@ -22865,7 +22865,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 5;
             }
-            else if (type >= 1496 && type <= 1499)
+            else if (itemId >= 1496 && itemId <= 1499)
             {
                 name = "Picture";
                 useStyle = 1;
@@ -22879,9 +22879,9 @@ namespace Terraria
                 width = 30;
                 height = 30;
                 value = sellPrice(0, 0, 10, 0);
-                placeStyle = 26 + type - 1496;
+                placeStyle = 26 + itemId - 1496;
             }
-            else if (type >= 1500 && type <= 1502)
+            else if (itemId >= 1500 && itemId <= 1502)
             {
                 name = "Picture";
                 useStyle = 1;
@@ -22895,9 +22895,9 @@ namespace Terraria
                 width = 30;
                 height = 30;
                 value = sellPrice(0, 0, 10, 0);
-                placeStyle = 13 + type - 1500;
+                placeStyle = 13 + itemId - 1500;
             }
-            else if (type == 1503)
+            else if (itemId == 1503)
             {
                 name = "Spectre Hood";
                 width = 18;
@@ -22908,7 +22908,7 @@ namespace Terraria
                 value = 375000;
                 toolTip = "40% decreased magic damage";
             }
-            else if (type == 1504)
+            else if (itemId == 1504)
             {
                 name = "Spectre Robe";
                 width = 18;
@@ -22919,7 +22919,7 @@ namespace Terraria
                 value = 300000;
                 toolTip = "7% increased magic damage and critical strike chance";
             }
-            else if (type == 1505)
+            else if (itemId == 1505)
             {
                 name = "Spectre Pants";
                 width = 18;
@@ -22931,7 +22931,7 @@ namespace Terraria
                 toolTip = "8% increased magic damage";
                 toolTip2 = "8% increased movement speed";
             }
-            else if (type == 1506)
+            else if (itemId == 1506)
             {
                 name = "Spirit Pickaxe";
                 useStyle = 1;
@@ -22951,7 +22951,7 @@ namespace Terraria
                 scale = 1.15f;
                 tileBoost += 3;
             }
-            else if (type == 1507)
+            else if (itemId == 1507)
             {
                 name = "Spirit Hamaxe";
                 useTurn = true;
@@ -22972,7 +22972,7 @@ namespace Terraria
                 scale = 1.05f;
                 tileBoost += 3;
             }
-            else if (type == 1508)
+            else if (itemId == 1508)
             {
                 name = "Ectoplasm";
                 maxStack = 99;
@@ -22981,7 +22981,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 50, 0);
                 rare = 8;
             }
-            else if (type == 1509)
+            else if (itemId == 1509)
             {
                 name = "Gothic Chair";
                 useStyle = 1;
@@ -22996,7 +22996,7 @@ namespace Terraria
                 width = 12;
                 height = 30;
             }
-            else if (type == 1510)
+            else if (itemId == 1510)
             {
                 name = "Gothic Table";
                 useStyle = 1;
@@ -23012,7 +23012,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 1511)
+            else if (itemId == 1511)
             {
                 name = "Gothic Work Bench";
                 useStyle = 1;
@@ -23028,7 +23028,7 @@ namespace Terraria
                 height = 14;
                 value = 150;
             }
-            else if (type == 1512)
+            else if (itemId == 1512)
             {
                 name = "Gothic Bookcase";
                 useStyle = 1;
@@ -23044,7 +23044,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 5;
             }
-            else if (type == 1513)
+            else if (itemId == 1513)
             {
                 noMelee = true;
                 useStyle = 1;
@@ -23063,7 +23063,7 @@ namespace Terraria
                 value = sellPrice(0, 10, 0, 0);
                 melee = true;
             }
-            else if (type == 1514)
+            else if (itemId == 1514)
             {
                 name = "SWAT Helmet";
                 width = 18;
@@ -23073,7 +23073,7 @@ namespace Terraria
                 value = sellPrice(0, 1, 0, 0);
                 vanity = true;
             }
-            else if (type == 1515)
+            else if (itemId == 1515)
             {
                 name = "Bee Wings";
                 width = 24;
@@ -23084,7 +23084,7 @@ namespace Terraria
                 rare = 5;
                 wingSlot = 15;
             }
-            else if (type >= 1516 && type <= 1521)
+            else if (itemId >= 1516 && itemId <= 1521)
             {
                 name = "Feather";
                 maxStack = 99;
@@ -23093,14 +23093,14 @@ namespace Terraria
                 value = sellPrice(0, 2, 50, 0);
                 rare = 5;
             }
-            else if (type >= 1522 && type <= 1527)
+            else if (itemId >= 1522 && itemId <= 1527)
             {
                 name = "Large Gem";
                 width = 20;
                 height = 20;
                 rare = 1;
             }
-            else if (type >= 1528 && type <= 1532)
+            else if (itemId >= 1528 && itemId <= 1532)
             {
                 name = "Dungeon Chest";
                 useStyle = 1;
@@ -23111,12 +23111,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 21;
-                placeStyle = 18 + type - 1528;
+                placeStyle = 18 + itemId - 1528;
                 width = 26;
                 height = 22;
                 value = 2500;
             }
-            else if (type >= 1533 && type <= 1537)
+            else if (itemId >= 1533 && itemId <= 1537)
             {
                 name = "Dungeon Key";
                 width = 14;
@@ -23124,7 +23124,7 @@ namespace Terraria
                 maxStack = 99;
                 rare = 8;
             }
-            else if (type >= 1538 && type <= 1540)
+            else if (itemId >= 1538 && itemId <= 1540)
             {
                 name = "Picture";
                 useStyle = 1;
@@ -23138,9 +23138,9 @@ namespace Terraria
                 width = 30;
                 height = 30;
                 value = sellPrice(0, 0, 10, 0);
-                placeStyle = 30 + type - 1538;
+                placeStyle = 30 + itemId - 1538;
             }
-            else if (type >= 1541 && type <= 1542)
+            else if (itemId >= 1541 && itemId <= 1542)
             {
                 name = "Picture";
                 useStyle = 1;
@@ -23154,9 +23154,9 @@ namespace Terraria
                 width = 30;
                 height = 30;
                 value = sellPrice(0, 0, 10, 0);
-                placeStyle = 16 + type - 1541;
+                placeStyle = 16 + itemId - 1541;
             }
-            else if (type >= 1543 && type <= 1545)
+            else if (itemId >= 1543 && itemId <= 1545)
             {
                 name = "Spectre Paintbrush";
                 useStyle = 1;
@@ -23169,7 +23169,7 @@ namespace Terraria
                 value = 10000;
                 tileBoost += 3;
             }
-            else if (type == 1546)
+            else if (itemId == 1546)
             {
                 name = "Shroomite Headgear";
                 width = 18;
@@ -23181,7 +23181,7 @@ namespace Terraria
                 toolTip = "15% increased arrow damage";
                 toolTip2 = "5% ranged critical strike chance";
             }
-            else if (type == 1547)
+            else if (itemId == 1547)
             {
                 name = "Shroomite Mask";
                 width = 18;
@@ -23193,7 +23193,7 @@ namespace Terraria
                 toolTip = "15% increased bullet damage";
                 toolTip2 = "5% ranged critical strike chance";
             }
-            else if (type == 1548)
+            else if (itemId == 1548)
             {
                 name = "Shroomite Helmet";
                 width = 18;
@@ -23205,7 +23205,7 @@ namespace Terraria
                 toolTip = "15% increased rocket damage";
                 toolTip2 = "5% ranged critical strike chance";
             }
-            else if (type == 1549)
+            else if (itemId == 1549)
             {
                 name = "Shroomite Breastplate";
                 width = 18;
@@ -23217,7 +23217,7 @@ namespace Terraria
                 toolTip = "13% increased ranged critical strike chance";
                 toolTip2 = "20% chance to not consume ammo";
             }
-            else if (type == 1550)
+            else if (itemId == 1550)
             {
                 name = "Shroomite Leggings";
                 width = 18;
@@ -23229,7 +23229,7 @@ namespace Terraria
                 toolTip = "7% increased ranged critical strike chance";
                 toolTip2 = "12% increased movement speed";
             }
-            else if (type == 1551)
+            else if (itemId == 1551)
             {
                 name = "Autohammer";
                 useStyle = 1;
@@ -23245,7 +23245,7 @@ namespace Terraria
                 value = buyPrice(1, 0, 0, 0);
                 toolTip = "Converts Chlorophyte Bars into Shroomite Bars";
             }
-            else if (type == 1552)
+            else if (itemId == 1552)
             {
                 name = "Shroomite Bar";
                 width = 20;
@@ -23262,7 +23262,7 @@ namespace Terraria
                 createTile = 239;
                 placeStyle = 20;
             }
-            else if (type == 1553)
+            else if (itemId == 1553)
             {
                 useStyle = 5;
                 autoReuse = true;
@@ -23285,7 +23285,7 @@ namespace Terraria
                 knockBack = 2.5f;
                 ranged = true;
             }
-            else if (type == 1554)
+            else if (itemId == 1554)
             {
                 name = "Cenx's Tiara";
                 width = 18;
@@ -23294,7 +23294,7 @@ namespace Terraria
                 vanity = true;
                 headSlot = 106;
             }
-            else if (type == 1555)
+            else if (itemId == 1555)
             {
                 name = "Cenx's Breastplate";
                 width = 18;
@@ -23303,7 +23303,7 @@ namespace Terraria
                 vanity = true;
                 bodySlot = 68;
             }
-            else if (type == 1556)
+            else if (itemId == 1556)
             {
                 name = "Cenx's Leggings";
                 width = 18;
@@ -23312,7 +23312,7 @@ namespace Terraria
                 vanity = true;
                 legSlot = 57;
             }
-            else if (type == 1557)
+            else if (itemId == 1557)
             {
                 name = "Crowno's Mask";
                 width = 18;
@@ -23321,7 +23321,7 @@ namespace Terraria
                 vanity = true;
                 headSlot = 107;
             }
-            else if (type == 1558)
+            else if (itemId == 1558)
             {
                 name = "Crowno's Breastplate";
                 width = 18;
@@ -23330,7 +23330,7 @@ namespace Terraria
                 vanity = true;
                 bodySlot = 69;
             }
-            else if (type == 1559)
+            else if (itemId == 1559)
             {
                 name = "Crowno's Leggings";
                 width = 18;
@@ -23339,7 +23339,7 @@ namespace Terraria
                 vanity = true;
                 legSlot = 58;
             }
-            else if (type == 1560)
+            else if (itemId == 1560)
             {
                 name = "Will's Helmet";
                 width = 18;
@@ -23348,7 +23348,7 @@ namespace Terraria
                 vanity = true;
                 headSlot = 108;
             }
-            else if (type == 1561)
+            else if (itemId == 1561)
             {
                 name = "Will's Breastplate";
                 width = 18;
@@ -23357,7 +23357,7 @@ namespace Terraria
                 vanity = true;
                 bodySlot = 70;
             }
-            else if (type == 1562)
+            else if (itemId == 1562)
             {
                 name = "Will's Leggings";
                 width = 18;
@@ -23366,7 +23366,7 @@ namespace Terraria
                 vanity = true;
                 legSlot = 59;
             }
-            else if (type == 1563)
+            else if (itemId == 1563)
             {
                 name = "Jim's Helmet";
                 width = 18;
@@ -23375,7 +23375,7 @@ namespace Terraria
                 vanity = true;
                 headSlot = 109;
             }
-            else if (type == 1564)
+            else if (itemId == 1564)
             {
                 name = "Jim's Breastplate";
                 width = 18;
@@ -23384,7 +23384,7 @@ namespace Terraria
                 vanity = true;
                 bodySlot = 71;
             }
-            else if (type == 1565)
+            else if (itemId == 1565)
             {
                 name = "Jim's Leggings";
                 width = 18;
@@ -23393,7 +23393,7 @@ namespace Terraria
                 vanity = true;
                 legSlot = 60;
             }
-            else if (type == 1566)
+            else if (itemId == 1566)
             {
                 name = "Aaron's Helmet";
                 width = 18;
@@ -23402,7 +23402,7 @@ namespace Terraria
                 vanity = true;
                 headSlot = 110;
             }
-            else if (type == 1567)
+            else if (itemId == 1567)
             {
                 name = "Aaron's Breastplate";
                 width = 18;
@@ -23411,7 +23411,7 @@ namespace Terraria
                 vanity = true;
                 bodySlot = 72;
             }
-            else if (type == 1568)
+            else if (itemId == 1568)
             {
                 name = "Aaron's Leggings";
                 width = 18;
@@ -23420,7 +23420,7 @@ namespace Terraria
                 vanity = true;
                 legSlot = 61;
             }
-            else if (type == 1569)
+            else if (itemId == 1569)
             {
                 autoReuse = true;
                 useStyle = 1;
@@ -23441,7 +23441,7 @@ namespace Terraria
                 rare = 8;
                 toolTip = "Rapidly shoot life stealing daggers";
             }
-            else if (type == 1570)
+            else if (itemId == 1570)
             {
                 name = "Broken Hero Sword";
                 width = 14;
@@ -23450,7 +23450,7 @@ namespace Terraria
                 rare = 8;
                 value = sellPrice(0, 2, 0, 0);
             }
-            else if (type == 1571)
+            else if (itemId == 1571)
             {
                 autoReuse = true;
                 useStyle = 5;
@@ -23470,7 +23470,7 @@ namespace Terraria
                 melee = true;
                 rare = 8;
             }
-            else if (type == 1572)
+            else if (itemId == 1572)
             {
                 name = "Hydra Staff";
                 useStyle = 1;
@@ -23489,7 +23489,7 @@ namespace Terraria
                 summon = true;
                 mana = 20;
             }
-            else if (type == 1573)
+            else if (itemId == 1573)
             {
                 name = "The Creation of the Guide";
                 useStyle = 1;
@@ -23505,7 +23505,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 16;
             }
-            else if (type >= 1574 && type <= 1576)
+            else if (itemId >= 1574 && itemId <= 1576)
             {
                 name = "Picture";
                 useStyle = 1;
@@ -23519,9 +23519,9 @@ namespace Terraria
                 width = 30;
                 height = 30;
                 value = sellPrice(0, 0, 10, 0);
-                placeStyle = 33 + type - 1574;
+                placeStyle = 33 + itemId - 1574;
             }
-            else if (type == 1577)
+            else if (itemId == 1577)
             {
                 name = "Glorious Night";
                 useStyle = 1;
@@ -23537,7 +23537,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 6;
             }
-            else if (type == 1578)
+            else if (itemId == 1578)
             {
                 name = "Sweetheart Necklace";
                 width = 22;
@@ -23548,7 +23548,7 @@ namespace Terraria
                 value = 100000;
                 neckSlot = 6;
             }
-            else if (type == 1579)
+            else if (itemId == 1579)
             {
                 name = "Flurry Boots";
                 width = 28;
@@ -23559,7 +23559,7 @@ namespace Terraria
                 value = 50000;
                 shoeSlot = 5;
             }
-            else if (type == 1580)
+            else if (itemId == 1580)
             {
                 name = "D-Town's Helmet";
                 width = 18;
@@ -23568,7 +23568,7 @@ namespace Terraria
                 vanity = true;
                 headSlot = 111;
             }
-            else if (type == 1581)
+            else if (itemId == 1581)
             {
                 name = "D-Town's Breastplate";
                 width = 18;
@@ -23577,7 +23577,7 @@ namespace Terraria
                 vanity = true;
                 bodySlot = 73;
             }
-            else if (type == 1582)
+            else if (itemId == 1582)
             {
                 name = "D-Town's Leggings";
                 width = 18;
@@ -23586,7 +23586,7 @@ namespace Terraria
                 vanity = true;
                 legSlot = 62;
             }
-            else if (type == 1583)
+            else if (itemId == 1583)
             {
                 name = "D-Town's Wings";
                 width = 24;
@@ -23596,7 +23596,7 @@ namespace Terraria
                 wingSlot = 16;
                 value = 400000;
             }
-            else if (type == 1584)
+            else if (itemId == 1584)
             {
                 name = "Will's Wings";
                 width = 24;
@@ -23606,7 +23606,7 @@ namespace Terraria
                 wingSlot = 17;
                 value = 400000;
             }
-            else if (type == 1585)
+            else if (itemId == 1585)
             {
                 name = "Crowno's Wings";
                 width = 24;
@@ -23616,7 +23616,7 @@ namespace Terraria
                 wingSlot = 18;
                 value = 400000;
             }
-            else if (type == 1586)
+            else if (itemId == 1586)
             {
                 name = "Cenx's Wings";
                 width = 24;
@@ -23626,7 +23626,7 @@ namespace Terraria
                 wingSlot = 19;
                 value = 400000;
             }
-            else if (type == 1587)
+            else if (itemId == 1587)
             {
                 name = "Cenx's Dress";
                 width = 18;
@@ -23635,7 +23635,7 @@ namespace Terraria
                 vanity = true;
                 bodySlot = 74;
             }
-            else if (type == 1588)
+            else if (itemId == 1588)
             {
                 name = "Cenx's Dress Pants";
                 width = 18;
@@ -23644,7 +23644,7 @@ namespace Terraria
                 vanity = true;
                 legSlot = 63;
             }
-            else if (type == 1589)
+            else if (itemId == 1589)
             {
                 name = "Palladium Column";
                 useStyle = 1;
@@ -23658,7 +23658,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 1590)
+            else if (itemId == 1590)
             {
                 name = "Palladium Column Wall";
                 useStyle = 1;
@@ -23672,7 +23672,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 1591)
+            else if (itemId == 1591)
             {
                 name = "Bubblegum Block";
                 useStyle = 1;
@@ -23686,7 +23686,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 1592)
+            else if (itemId == 1592)
             {
                 name = "Bubblegum Block Wall";
                 useStyle = 1;
@@ -23700,7 +23700,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 1593)
+            else if (itemId == 1593)
             {
                 name = "Titanstone Block";
                 useStyle = 1;
@@ -23714,7 +23714,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 1594)
+            else if (itemId == 1594)
             {
                 name = "Titanstone Block Wall";
                 useStyle = 1;
@@ -23728,7 +23728,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 1595)
+            else if (itemId == 1595)
             {
                 name = "Magic Cuffs";
                 width = 22;
@@ -23741,7 +23741,7 @@ namespace Terraria
                 handOffSlot = 3;
                 handOnSlot = 8;
             }
-            else if (type >= 1596 && type <= 1610)
+            else if (itemId >= 1596 && itemId <= 1610)
             {
                 name = "Music Box";
                 useStyle = 1;
@@ -23751,14 +23751,14 @@ namespace Terraria
                 autoReuse = true;
                 consumable = true;
                 createTile = 139;
-                placeStyle = type - 1596 + 13;
+                placeStyle = itemId - 1596 + 13;
                 width = 24;
                 height = 24;
                 rare = 4;
                 value = 100000;
                 accessory = true;
             }
-            else if (type == 1611)
+            else if (itemId == 1611)
             {
                 name = "Butterfly Dust";
                 maxStack = 99;
@@ -23767,7 +23767,7 @@ namespace Terraria
                 value = sellPrice(0, 2, 50, 0);
                 rare = 5;
             }
-            else if (type == 1612)
+            else if (itemId == 1612)
             {
                 name = "Ankh Charm";
                 width = 16;
@@ -23777,7 +23777,7 @@ namespace Terraria
                 toolTip = "Grants immunity to most debuffs";
                 value = sellPrice(0, 3, 0, 0);
             }
-            else if (type == 1613)
+            else if (itemId == 1613)
             {
                 name = "Ankh Shield";
                 width = 24;
@@ -23790,7 +23790,7 @@ namespace Terraria
                 toolTip2 = "Grants immunity to most debuffs";
                 shieldSlot = 4;
             }
-            else if (type == 1614)
+            else if (itemId == 1614)
             {
                 name = "Blue Flare";
                 shootSpeed = 6f;
@@ -23805,7 +23805,7 @@ namespace Terraria
                 value = 7;
                 ranged = true;
             }
-            else if (type >= 1615 && type <= 1701)
+            else if (itemId >= 1615 && itemId <= 1701)
             {
                 name = "Monster Banner";
                 useStyle = 1;
@@ -23816,13 +23816,13 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 91;
-                placeStyle = 22 + type - 1615;
+                placeStyle = 22 + itemId - 1615;
                 width = 10;
                 height = 24;
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 1702)
+            else if (itemId == 1702)
             {
                 name = "Glass Platform";
                 useStyle = 1;
@@ -23837,7 +23837,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type >= 1703 && type <= 1708)
+            else if (itemId >= 1703 && itemId <= 1708)
             {
                 name = "Chair";
                 useStyle = 1;
@@ -23848,11 +23848,11 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 15;
-                placeStyle = 18 + type - 1703;
+                placeStyle = 18 + itemId - 1703;
                 width = 12;
                 height = 30;
             }
-            else if (type >= 1709 && type <= 1712)
+            else if (itemId >= 1709 && itemId <= 1712)
             {
                 name = "Door";
                 useStyle = 1;
@@ -23862,12 +23862,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 10;
-                placeStyle = 20 + type - 1709;
+                placeStyle = 20 + itemId - 1709;
                 width = 14;
                 height = 28;
                 value = 200;
             }
-            else if (type >= 1713 && type <= 1718)
+            else if (itemId >= 1713 && itemId <= 1718)
             {
                 name = "Table";
                 useStyle = 1;
@@ -23878,12 +23878,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 14;
-                placeStyle = 15 + type - 1713;
+                placeStyle = 15 + itemId - 1713;
                 width = 26;
                 height = 20;
                 value = 300;
             }
-            else if (type >= 1719 && type <= 1722)
+            else if (itemId >= 1719 && itemId <= 1722)
             {
                 name = "Bed";
                 useStyle = 1;
@@ -23893,12 +23893,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 79;
-                placeStyle = 9 + type - 1719;
+                placeStyle = 9 + itemId - 1719;
                 width = 28;
                 height = 20;
                 value = 2000;
             }
-            else if (type == 1723)
+            else if (itemId == 1723)
             {
                 name = "Living Wood Wall";
                 useStyle = 1;
@@ -23912,7 +23912,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 1724)
+            else if (itemId == 1724)
             {
                 name = "Fart in a Jar";
                 width = 16;
@@ -23922,7 +23922,7 @@ namespace Terraria
                 toolTip = "Allows the holder to double jump";
                 value = 75000;
             }
-            else if (type == 1725)
+            else if (itemId == 1725)
             {
                 name = "Pumpkin";
                 useStyle = 1;
@@ -23937,7 +23937,7 @@ namespace Terraria
                 height = 10;
                 value = sellPrice(0, 0, 0, 25);
             }
-            else if (type == 1726)
+            else if (itemId == 1726)
             {
                 name = "Pumpkin Wall";
                 useStyle = 1;
@@ -23951,7 +23951,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 1727)
+            else if (itemId == 1727)
             {
                 name = "Hay";
                 useStyle = 1;
@@ -23965,7 +23965,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 1728)
+            else if (itemId == 1728)
             {
                 name = "Hay Wall";
                 useStyle = 1;
@@ -23979,7 +23979,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 1729)
+            else if (itemId == 1729)
             {
                 name = "Spooky Wood";
                 useStyle = 1;
@@ -23993,7 +23993,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 1730)
+            else if (itemId == 1730)
             {
                 name = "Spooky Wood Wall";
                 useStyle = 1;
@@ -24007,7 +24007,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 1731)
+            else if (itemId == 1731)
             {
                 name = "Pumpkin Helmet";
                 width = 18;
@@ -24015,7 +24015,7 @@ namespace Terraria
                 defense = 2;
                 headSlot = 112;
             }
-            else if (type == 1732)
+            else if (itemId == 1732)
             {
                 name = "Pumpkin Breastplate";
                 width = 18;
@@ -24023,7 +24023,7 @@ namespace Terraria
                 defense = 3;
                 bodySlot = 75;
             }
-            else if (type == 1733)
+            else if (itemId == 1733)
             {
                 name = "Pumpkin Leggings";
                 width = 18;
@@ -24031,19 +24031,19 @@ namespace Terraria
                 defense = 2;
                 legSlot = 64;
             }
-            else if (type == 1734)
+            else if (itemId == 1734)
             {
                 name = "Candy Apple";
                 width = 12;
                 height = 12;
             }
-            else if (type == 1735)
+            else if (itemId == 1735)
             {
                 name = "Soul Cake";
                 width = 12;
                 height = 12;
             }
-            else if (type == 1736)
+            else if (itemId == 1736)
             {
                 name = "Nurse Hat";
                 width = 18;
@@ -24052,7 +24052,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1737)
+            else if (itemId == 1737)
             {
                 name = "Nurse Shirt";
                 width = 18;
@@ -24061,7 +24061,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1738)
+            else if (itemId == 1738)
             {
                 name = "Nurse Pants";
                 width = 18;
@@ -24070,7 +24070,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1739)
+            else if (itemId == 1739)
             {
                 name = "Wizard's Hat";
                 width = 18;
@@ -24079,7 +24079,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1740)
+            else if (itemId == 1740)
             {
                 name = "Guy Fawkes Mask";
                 width = 18;
@@ -24088,7 +24088,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1741)
+            else if (itemId == 1741)
             {
                 name = "Dye Trader Robe";
                 width = 18;
@@ -24097,7 +24097,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1742)
+            else if (itemId == 1742)
             {
                 name = "Steampunk Goggles";
                 width = 18;
@@ -24106,7 +24106,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1743)
+            else if (itemId == 1743)
             {
                 name = "Cyborg Helmet";
                 width = 18;
@@ -24115,7 +24115,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1744)
+            else if (itemId == 1744)
             {
                 name = "Cyborg Shirt";
                 width = 18;
@@ -24124,7 +24124,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1745)
+            else if (itemId == 1745)
             {
                 name = "Cyborg Pants";
                 width = 18;
@@ -24133,7 +24133,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1746)
+            else if (itemId == 1746)
             {
                 name = "Creeper Mask";
                 width = 18;
@@ -24142,7 +24142,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1747)
+            else if (itemId == 1747)
             {
                 name = "Creeper Shirt";
                 width = 18;
@@ -24151,7 +24151,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1748)
+            else if (itemId == 1748)
             {
                 name = "Creeper Pants";
                 width = 18;
@@ -24160,7 +24160,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1749)
+            else if (itemId == 1749)
             {
                 name = "Cat Mask";
                 width = 18;
@@ -24169,7 +24169,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1750)
+            else if (itemId == 1750)
             {
                 name = "Cat Shirt";
                 width = 18;
@@ -24178,7 +24178,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1751)
+            else if (itemId == 1751)
             {
                 name = "Cat Pants";
                 width = 18;
@@ -24187,7 +24187,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1752)
+            else if (itemId == 1752)
             {
                 name = "Ghost Mask";
                 width = 18;
@@ -24196,7 +24196,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1753)
+            else if (itemId == 1753)
             {
                 name = "Ghost Shirt";
                 width = 18;
@@ -24205,7 +24205,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1754)
+            else if (itemId == 1754)
             {
                 name = "Pumpkin Mask";
                 width = 18;
@@ -24214,7 +24214,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1755)
+            else if (itemId == 1755)
             {
                 name = "Pumpkin Shirt";
                 width = 18;
@@ -24223,7 +24223,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1756)
+            else if (itemId == 1756)
             {
                 name = "Pumpkin Pants";
                 width = 18;
@@ -24232,7 +24232,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1757)
+            else if (itemId == 1757)
             {
                 name = "Robot Mask";
                 width = 18;
@@ -24241,7 +24241,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1758)
+            else if (itemId == 1758)
             {
                 name = "Robot Shirt";
                 width = 18;
@@ -24250,7 +24250,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1759)
+            else if (itemId == 1759)
             {
                 name = "Robot Pants";
                 width = 18;
@@ -24259,7 +24259,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1760)
+            else if (itemId == 1760)
             {
                 name = "Unicorn Mask";
                 width = 18;
@@ -24268,7 +24268,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1761)
+            else if (itemId == 1761)
             {
                 name = "Unicorn Shirt";
                 width = 18;
@@ -24277,7 +24277,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1762)
+            else if (itemId == 1762)
             {
                 name = "Unicorn Pants";
                 width = 18;
@@ -24286,7 +24286,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1763)
+            else if (itemId == 1763)
             {
                 name = "Vampire Mask";
                 width = 18;
@@ -24295,7 +24295,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1764)
+            else if (itemId == 1764)
             {
                 name = "Vampire Shirt";
                 width = 18;
@@ -24304,7 +24304,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1765)
+            else if (itemId == 1765)
             {
                 name = "Vampire Pants";
                 width = 18;
@@ -24313,7 +24313,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1766)
+            else if (itemId == 1766)
             {
                 name = "Witch Hat";
                 width = 18;
@@ -24322,7 +24322,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1767)
+            else if (itemId == 1767)
             {
                 name = "Leprechaun Hat";
                 width = 18;
@@ -24331,7 +24331,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1768)
+            else if (itemId == 1768)
             {
                 name = "Leprechaun Shirt";
                 width = 18;
@@ -24340,7 +24340,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1769)
+            else if (itemId == 1769)
             {
                 name = "Leprechaun Pants";
                 width = 18;
@@ -24349,7 +24349,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1770)
+            else if (itemId == 1770)
             {
                 name = "Pixie Shirt";
                 width = 18;
@@ -24358,7 +24358,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1771)
+            else if (itemId == 1771)
             {
                 name = "Pixie Pants";
                 width = 18;
@@ -24367,7 +24367,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1772)
+            else if (itemId == 1772)
             {
                 name = "Princess Hat";
                 width = 18;
@@ -24376,7 +24376,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1773)
+            else if (itemId == 1773)
             {
                 name = "Princess Dress";
                 width = 18;
@@ -24385,7 +24385,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1774)
+            else if (itemId == 1774)
             {
                 name = "Goodie Bag";
                 width = 12;
@@ -24395,7 +24395,7 @@ namespace Terraria
                 maxStack = 99;
                 value = sellPrice(0, 1, 0, 0);
             }
-            else if (type == 1775)
+            else if (itemId == 1775)
             {
                 name = "Witch Dress";
                 width = 18;
@@ -24404,7 +24404,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1776)
+            else if (itemId == 1776)
             {
                 name = "Witch Boots";
                 width = 18;
@@ -24413,7 +24413,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1777)
+            else if (itemId == 1777)
             {
                 name = "Bride of Frankenstein Mask";
                 width = 18;
@@ -24422,7 +24422,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1778)
+            else if (itemId == 1778)
             {
                 name = "Bride of Frankenstein Dress";
                 width = 18;
@@ -24431,7 +24431,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1779)
+            else if (itemId == 1779)
             {
                 name = "Karate Tortoise Mask";
                 width = 18;
@@ -24440,7 +24440,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1780)
+            else if (itemId == 1780)
             {
                 name = "Karate Tortoise Shirt";
                 width = 18;
@@ -24449,7 +24449,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1781)
+            else if (itemId == 1781)
             {
                 name = "Karate Tortoise Pants";
                 width = 18;
@@ -24458,7 +24458,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1782)
+            else if (itemId == 1782)
             {
                 useStyle = 5;
                 autoReuse = true;
@@ -24479,7 +24479,7 @@ namespace Terraria
                 knockBack = 2f;
                 ranged = true;
             }
-            else if (type == 1783)
+            else if (itemId == 1783)
             {
                 name = "Candy Corn";
                 shootSpeed = 4f;
@@ -24494,7 +24494,7 @@ namespace Terraria
                 value = 5;
                 ranged = true;
             }
-            else if (type == 1784)
+            else if (itemId == 1784)
             {
                 useStyle = 5;
                 autoReuse = true;
@@ -24515,7 +24515,7 @@ namespace Terraria
                 knockBack = 5f;
                 ranged = true;
             }
-            else if (type == 1785)
+            else if (itemId == 1785)
             {
                 name = "Explosive Jack 'O Lantern";
                 shootSpeed = 4f;
@@ -24530,7 +24530,7 @@ namespace Terraria
                 value = 15;
                 ranged = true;
             }
-            else if (type == 1786)
+            else if (itemId == 1786)
             {
                 name = "Sickle";
                 useStyle = 1;
@@ -24545,7 +24545,7 @@ namespace Terraria
                 value = buyPrice(0, 0, 60, 0);
                 melee = true;
             }
-            else if (type == 1787)
+            else if (itemId == 1787)
             {
                 name = "Pumpkin Pie";
                 useSound = 2;
@@ -24563,7 +24563,7 @@ namespace Terraria
                 toolTip = "Minor improvements to all stats";
                 value = 1000;
             }
-            else if (type == 1788)
+            else if (itemId == 1788)
             {
                 name = "Scarecrow Hat";
                 width = 18;
@@ -24572,7 +24572,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1789)
+            else if (itemId == 1789)
             {
                 name = "Scarecrow Shirt";
                 width = 18;
@@ -24581,7 +24581,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1790)
+            else if (itemId == 1790)
             {
                 name = "Scarecrow Pants";
                 width = 18;
@@ -24590,7 +24590,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 3, 0, 0);
             }
-            else if (type == 1791)
+            else if (itemId == 1791)
             {
                 name = "Cauldron";
                 useStyle = 1;
@@ -24606,7 +24606,7 @@ namespace Terraria
                 height = 20;
                 value = buyPrice(0, 1, 50, 0);
             }
-            else if (type == 1792)
+            else if (itemId == 1792)
             {
                 name = "Pumpkin Chair";
                 useStyle = 1;
@@ -24621,7 +24621,7 @@ namespace Terraria
                 width = 12;
                 height = 30;
             }
-            else if (type == 1793)
+            else if (itemId == 1793)
             {
                 name = "Pumpkin Door";
                 useStyle = 1;
@@ -24636,7 +24636,7 @@ namespace Terraria
                 height = 28;
                 value = 200;
             }
-            else if (type == 1794)
+            else if (itemId == 1794)
             {
                 name = "Pumpkin Table";
                 useStyle = 1;
@@ -24652,7 +24652,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 1795)
+            else if (itemId == 1795)
             {
                 name = "Pumpkin Work Bench";
                 useStyle = 1;
@@ -24668,7 +24668,7 @@ namespace Terraria
                 height = 14;
                 value = 150;
             }
-            else if (type == 1796)
+            else if (itemId == 1796)
             {
                 name = "Pumpkin Platform";
                 useStyle = 1;
@@ -24683,7 +24683,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 1797)
+            else if (itemId == 1797)
             {
                 name = "Tattered Fairy Wings";
                 width = 24;
@@ -24693,7 +24693,7 @@ namespace Terraria
                 value = 400000;
                 wingSlot = 20;
             }
-            else if (type == 1798)
+            else if (itemId == 1798)
             {
                 damage = 0;
                 useStyle = 1;
@@ -24710,7 +24710,7 @@ namespace Terraria
                 buffType = 81;
                 value = sellPrice(0, 2, 0, 0);
             }
-            else if (type == 1799)
+            else if (itemId == 1799)
             {
                 damage = 0;
                 useStyle = 1;
@@ -24727,7 +24727,7 @@ namespace Terraria
                 buffType = 82;
                 value = sellPrice(0, 2, 0, 0);
             }
-            else if (type == 1800)
+            else if (itemId == 1800)
             {
                 noUseGraphic = true;
                 damage = 0;
@@ -24745,7 +24745,7 @@ namespace Terraria
                 noMelee = true;
                 value = sellPrice(0, 2, 0, 0);
             }
-            else if (type == 1801)
+            else if (itemId == 1801)
             {
                 name = "Bat Scepter";
                 useStyle = 5;
@@ -24765,7 +24765,7 @@ namespace Terraria
                 magic = true;
                 knockBack = 3f;
             }
-            else if (type == 1802)
+            else if (itemId == 1802)
             {
                 mana = 10;
                 damage = 37;
@@ -24788,9 +24788,9 @@ namespace Terraria
             }
             else
             {
-                if (type >= 1803 && type <= 1807)
+                if (itemId >= 1803 && itemId <= 1807)
                     return;
-                if (type == 1808)
+                if (itemId == 1808)
                 {
                     name = "Hanging Jack 'O Lantern";
                     useStyle = 1;
@@ -24805,7 +24805,7 @@ namespace Terraria
                     height = 28;
                     placeStyle = 8;
                 }
-                else if (type == 1809)
+                else if (itemId == 1809)
                 {
                     useStyle = 1;
                     name = "Rotten Egg";
@@ -24824,7 +24824,7 @@ namespace Terraria
                     thrown = true;
                     knockBack = 6.5f;
                 }
-                else if (type == 1810)
+                else if (itemId == 1810)
                 {
                     damage = 0;
                     useStyle = 1;
@@ -24840,7 +24840,7 @@ namespace Terraria
                     buffType = 84;
                     value = sellPrice(0, 2, 0, 0);
                 }
-                else if (type == 1811)
+                else if (itemId == 1811)
                 {
                     name = "Black Fairy Dust";
                     maxStack = 99;
@@ -24849,7 +24849,7 @@ namespace Terraria
                     value = sellPrice(0, 2, 50, 0);
                     rare = 5;
                 }
-                else if (type == 1812)
+                else if (itemId == 1812)
                 {
                     name = "Jackelier";
                     useStyle = 1;
@@ -24864,7 +24864,7 @@ namespace Terraria
                     width = 26;
                     height = 26;
                 }
-                else if (type == 1813)
+                else if (itemId == 1813)
                 {
                     name = "Jack 'O Lantern";
                     useStyle = 1;
@@ -24878,7 +24878,7 @@ namespace Terraria
                     width = 26;
                     height = 26;
                 }
-                else if (type == 1814)
+                else if (itemId == 1814)
                 {
                     name = "Spooky Chair";
                     useStyle = 1;
@@ -24893,7 +24893,7 @@ namespace Terraria
                     width = 12;
                     height = 30;
                 }
-                else if (type == 1815)
+                else if (itemId == 1815)
                 {
                     name = "Spooky Door";
                     useStyle = 1;
@@ -24908,7 +24908,7 @@ namespace Terraria
                     height = 28;
                     value = 200;
                 }
-                else if (type == 1816)
+                else if (itemId == 1816)
                 {
                     name = "Spooky Table";
                     useStyle = 1;
@@ -24924,7 +24924,7 @@ namespace Terraria
                     height = 20;
                     value = 300;
                 }
-                else if (type == 1817)
+                else if (itemId == 1817)
                 {
                     name = "Spooky Work Bench";
                     useStyle = 1;
@@ -24940,7 +24940,7 @@ namespace Terraria
                     height = 14;
                     value = 150;
                 }
-                else if (type == 1818)
+                else if (itemId == 1818)
                 {
                     name = "Spooky Platform";
                     useStyle = 1;
@@ -24955,7 +24955,7 @@ namespace Terraria
                     width = 8;
                     height = 10;
                 }
-                else if (type == 1819)
+                else if (itemId == 1819)
                 {
                     name = "Reaper Mask";
                     width = 18;
@@ -24964,7 +24964,7 @@ namespace Terraria
                     vanity = true;
                     value = buyPrice(0, 3, 0, 0);
                 }
-                else if (type == 1820)
+                else if (itemId == 1820)
                 {
                     name = "Reaper Robe";
                     width = 18;
@@ -24973,7 +24973,7 @@ namespace Terraria
                     vanity = true;
                     value = buyPrice(0, 3, 0, 0);
                 }
-                else if (type == 1821)
+                else if (itemId == 1821)
                 {
                     name = "Fox Mask";
                     width = 18;
@@ -24982,7 +24982,7 @@ namespace Terraria
                     vanity = true;
                     value = buyPrice(0, 3, 0, 0);
                 }
-                else if (type == 1822)
+                else if (itemId == 1822)
                 {
                     name = "Fox Shirt";
                     width = 18;
@@ -24991,7 +24991,7 @@ namespace Terraria
                     vanity = true;
                     value = buyPrice(0, 3, 0, 0);
                 }
-                else if (type == 1823)
+                else if (itemId == 1823)
                 {
                     name = "Fox Pants";
                     width = 18;
@@ -25000,7 +25000,7 @@ namespace Terraria
                     vanity = true;
                     value = buyPrice(0, 3, 0, 0);
                 }
-                else if (type == 1824)
+                else if (itemId == 1824)
                 {
                     name = "Cat Ears";
                     width = 18;
@@ -25009,7 +25009,7 @@ namespace Terraria
                     vanity = true;
                     value = buyPrice(0, 3, 0, 0);
                 }
-                else if (type == 1825)
+                else if (itemId == 1825)
                 {
                     noMelee = true;
                     useStyle = 1;
@@ -25028,7 +25028,7 @@ namespace Terraria
                     value = 50000;
                     melee = true;
                 }
-                else if (type == 1826)
+                else if (itemId == 1826)
                 {
                     autoReuse = true;
                     name = "Horseman's Blade";
@@ -25044,7 +25044,7 @@ namespace Terraria
                     value = sellPrice(0, 10, 0, 0);
                     melee = true;
                 }
-                else if (type == 1827)
+                else if (itemId == 1827)
                 {
                     name = "Bladed Glove";
                     useStyle = 1;
@@ -25063,7 +25063,7 @@ namespace Terraria
                     value = 50000;
                     melee = true;
                 }
-                else if (type == 1828)
+                else if (itemId == 1828)
                 {
                     autoReuse = true;
                     name = "Pumpkin Seed";
@@ -25079,7 +25079,7 @@ namespace Terraria
                     height = 10;
                     value = buyPrice(0, 0, 2, 50);
                 }
-                else if (type == 1829)
+                else if (itemId == 1829)
                 {
                     noUseGraphic = true;
                     damage = 0;
@@ -25097,7 +25097,7 @@ namespace Terraria
                     noMelee = true;
                     value = sellPrice(0, 4, 0, 0);
                 }
-                else if (type == 1830)
+                else if (itemId == 1830)
                 {
                     name = "Spooky Wings";
                     width = 24;
@@ -25107,7 +25107,7 @@ namespace Terraria
                     value = 400000;
                     wingSlot = 21;
                 }
-                else if (type == 1831)
+                else if (itemId == 1831)
                 {
                     name = "Spooky Twig";
                     maxStack = 99;
@@ -25116,7 +25116,7 @@ namespace Terraria
                     value = sellPrice(0, 2, 50, 0);
                     rare = 5;
                 }
-                else if (type == 1832)
+                else if (itemId == 1832)
                 {
                     name = "Spooky Helmet";
                     width = 18;
@@ -25128,7 +25128,7 @@ namespace Terraria
                     toolTip = "Increases your max number of minions";
                     toolTip2 = "Increases minion damage by 11%";
                 }
-                else if (type == 1833)
+                else if (itemId == 1833)
                 {
                     name = "Spooky Breastplate";
                     width = 18;
@@ -25140,7 +25140,7 @@ namespace Terraria
                     toolTip = "Increases your max number of minions";
                     toolTip2 = "Increases minion damage by 11%";
                 }
-                else if (type == 1834)
+                else if (itemId == 1834)
                 {
                     name = "Spooky Leggings";
                     width = 18;
@@ -25152,7 +25152,7 @@ namespace Terraria
                     toolTip = "Increases your max number of minions";
                     toolTip2 = "Increases minion damage by 11%";
                 }
-                else if (type == 1835)
+                else if (itemId == 1835)
                 {
                     useStyle = 5;
                     autoReuse = true;
@@ -25173,7 +25173,7 @@ namespace Terraria
                     knockBack = 6.5f;
                     ranged = true;
                 }
-                else if (type == 1836)
+                else if (itemId == 1836)
                 {
                     name = "Stake";
                     shootSpeed = 3f;
@@ -25188,7 +25188,7 @@ namespace Terraria
                     value = 15;
                     ranged = true;
                 }
-                else if (type == 1837)
+                else if (itemId == 1837)
                 {
                     useStyle = 1;
                     name = "Cursed Sapling";
@@ -25203,7 +25203,7 @@ namespace Terraria
                     buffType = 85;
                     value = sellPrice(0, 2, 0, 0);
                 }
-                else if (type == 1838)
+                else if (itemId == 1838)
                 {
                     name = "Space Creature Mask";
                     width = 18;
@@ -25212,7 +25212,7 @@ namespace Terraria
                     value = buyPrice(0, 3, 0, 0);
                     vanity = true;
                 }
-                else if (type == 1839)
+                else if (itemId == 1839)
                 {
                     name = "Space Creature Shirt";
                     width = 18;
@@ -25221,7 +25221,7 @@ namespace Terraria
                     value = buyPrice(0, 3, 0, 0);
                     vanity = true;
                 }
-                else if (type == 1840)
+                else if (itemId == 1840)
                 {
                     name = "Space Creature Pants";
                     width = 18;
@@ -25230,7 +25230,7 @@ namespace Terraria
                     value = buyPrice(0, 3, 0, 0);
                     vanity = true;
                 }
-                else if (type == 1841)
+                else if (itemId == 1841)
                 {
                     name = "Wolf Mask";
                     width = 18;
@@ -25239,7 +25239,7 @@ namespace Terraria
                     value = buyPrice(0, 3, 0, 0);
                     vanity = true;
                 }
-                else if (type == 1842)
+                else if (itemId == 1842)
                 {
                     name = "Wolf Shirt";
                     width = 18;
@@ -25248,7 +25248,7 @@ namespace Terraria
                     value = buyPrice(0, 3, 0, 0);
                     vanity = true;
                 }
-                else if (type == 1843)
+                else if (itemId == 1843)
                 {
                     name = "Wolf Pants";
                     width = 18;
@@ -25257,7 +25257,7 @@ namespace Terraria
                     value = buyPrice(0, 3, 0, 0);
                     vanity = true;
                 }
-                else if (type == 1844)
+                else if (itemId == 1844)
                 {
                     useStyle = 4;
                     name = "Pumpkin Moon Medallion";
@@ -25270,7 +25270,7 @@ namespace Terraria
                     toolTip = "Summons the Pumpkin Moon";
                     rare = 8;
                 }
-                else if (type == 1845)
+                else if (itemId == 1845)
                 {
                     name = "Necromantic Scroll";
                     rare = 8;
@@ -25281,7 +25281,7 @@ namespace Terraria
                     toolTip2 = "Increases minion damage by 10%";
                     value = buyPrice(0, 20, 0, 0);
                 }
-                else if (type >= 1846 && type <= 1850)
+                else if (itemId >= 1846 && itemId <= 1850)
                 {
                     name = "Large Painting";
                     useStyle = 1;
@@ -25295,9 +25295,9 @@ namespace Terraria
                     width = 30;
                     height = 30;
                     value = sellPrice(0, 0, 10, 0);
-                    placeStyle = 17 + type - 1846;
+                    placeStyle = 17 + itemId - 1846;
                 }
-                else if (type == 1851)
+                else if (itemId == 1851)
                 {
                     name = "Treasure Hunter Shirt";
                     width = 18;
@@ -25306,7 +25306,7 @@ namespace Terraria
                     value = buyPrice(0, 3, 0, 0);
                     vanity = true;
                 }
-                else if (type == 1852)
+                else if (itemId == 1852)
                 {
                     name = "Treasure Hunter Pants";
                     width = 18;
@@ -25315,7 +25315,7 @@ namespace Terraria
                     value = buyPrice(0, 3, 0, 0);
                     vanity = true;
                 }
-                else if (type == 1853)
+                else if (itemId == 1853)
                 {
                     name = "Dryad Coverings";
                     width = 18;
@@ -25324,7 +25324,7 @@ namespace Terraria
                     value = buyPrice(0, 3, 0, 0);
                     vanity = true;
                 }
-                else if (type == 1854)
+                else if (itemId == 1854)
                 {
                     name = "Dryad Loincloth";
                     width = 18;
@@ -25333,7 +25333,7 @@ namespace Terraria
                     value = buyPrice(0, 3, 0, 0);
                     vanity = true;
                 }
-                else if (type == 1855 || type == 1856)
+                else if (itemId == 1855 || itemId == 1856)
                 {
                     name = "Trophy";
                     useStyle = 1;
@@ -25348,9 +25348,9 @@ namespace Terraria
                     height = 30;
                     value = sellPrice(0, 1, 0, 0);
                     rare = 1;
-                    placeStyle = 36 + type - 1855;
+                    placeStyle = 36 + itemId - 1855;
                 }
-                else if (type == 1857)
+                else if (itemId == 1857)
                 {
                     name = "Jack 'O Lantern Mask";
                     width = 18;
@@ -25360,7 +25360,7 @@ namespace Terraria
                     vanity = true;
                     rare = 3;
                 }
-                else if (type == 1858)
+                else if (itemId == 1858)
                 {
                     name = "Sniper Scope";
                     width = 14;
@@ -25371,7 +25371,7 @@ namespace Terraria
                     toolTip = "Increases view range for guns (Right click to zoom out)";
                     toolTip2 = "10% increased ranged damage and critical strike chance";
                 }
-                else if (type == 1859)
+                else if (itemId == 1859)
                 {
                     name = "Heart Lantern";
                     useStyle = 1;
@@ -25386,7 +25386,7 @@ namespace Terraria
                     height = 28;
                     placeStyle = 9;
                 }
-                else if (type == 1860)
+                else if (itemId == 1860)
                 {
                     name = "Jellyfish Diving Gear";
                     width = 24;
@@ -25398,7 +25398,7 @@ namespace Terraria
                     toolTip2 = "Provides light under water";
                     faceSlot = 3;
                 }
-                else if (type == 1861)
+                else if (itemId == 1861)
                 {
                     name = "Arctic Diving Gear";
                     width = 24;
@@ -25410,7 +25410,7 @@ namespace Terraria
                     toolTip2 = "Provides light under water and extra mobility on ice";
                     faceSlot = 2;
                 }
-                else if (type == 1862)
+                else if (itemId == 1862)
                 {
                     name = "Sparkfrost Boots";
                     width = 16;
@@ -25422,7 +25422,7 @@ namespace Terraria
                     value = 350000;
                     shoeSlot = 9;
                 }
-                else if (type == 1863)
+                else if (itemId == 1863)
                 {
                     name = "Fart in a Balloon";
                     width = 14;
@@ -25434,7 +25434,7 @@ namespace Terraria
                     toolTip2 = "Increases jump height";
                     balloonSlot = 5;
                 }
-                else if (type == 1864)
+                else if (itemId == 1864)
                 {
                     name = "Papyrus Scarab";
                     rare = 8;
@@ -25445,7 +25445,7 @@ namespace Terraria
                     toolTip2 = "Increases the damage and knockback of your minions";
                     value = buyPrice(0, 25, 0, 0);
                 }
-                else if (type == 1865)
+                else if (itemId == 1865)
                 {
                     name = "Celestial Stone";
                     width = 16;
@@ -25456,7 +25456,7 @@ namespace Terraria
                     toolTip2 = "life regeneration, defense, pick speed, and minion knockback";
                     value = 400000;
                 }
-                else if (type == 1866)
+                else if (itemId == 1866)
                 {
                     name = "Hoverboard";
                     width = 24;
@@ -25467,19 +25467,19 @@ namespace Terraria
                     rare = 5;
                     wingSlot = 22;
                 }
-                else if (type == 1867)
+                else if (itemId == 1867)
                 {
                     name = "Candy Cane";
                     width = 12;
                     height = 12;
                 }
-                else if (type == 1868)
+                else if (itemId == 1868)
                 {
                     name = "Sugar Plum";
                     width = 12;
                     height = 12;
                 }
-                else if (type == 1869)
+                else if (itemId == 1869)
                 {
                     name = "Present";
                     useStyle = 1;
@@ -25495,7 +25495,7 @@ namespace Terraria
                     rare = 1;
                     toolTip = "Right click to open";
                 }
-                else if (type == 1870)
+                else if (itemId == 1870)
                 {
                     useStyle = 5;
                     autoReuse = true;
@@ -25515,7 +25515,7 @@ namespace Terraria
                     rare = 1;
                     ranged = true;
                 }
-                else if (type == 1871)
+                else if (itemId == 1871)
                 {
                     name = "Festive Wings";
                     width = 24;
@@ -25526,7 +25526,7 @@ namespace Terraria
                     rare = 5;
                     wingSlot = 23;
                 }
-                else if (type == 1872)
+                else if (itemId == 1872)
                 {
                     name = "Tree Block";
                     useStyle = 1;
@@ -25540,7 +25540,7 @@ namespace Terraria
                     width = 12;
                     height = 12;
                 }
-                else if (type == 1873)
+                else if (itemId == 1873)
                 {
                     name = "Christmas Tree";
                     useStyle = 1;
@@ -25555,7 +25555,7 @@ namespace Terraria
                     height = 12;
                     value = buyPrice(0, 0, 25, 0);
                 }
-                else if (type >= 1874 && type <= 1905)
+                else if (itemId >= 1874 && itemId <= 1905)
                 {
                     name = "Xmas decorations";
                     useStyle = 1;
@@ -25570,7 +25570,7 @@ namespace Terraria
                     noMelee = true;
                     value = buyPrice(0, 0, 5, 0);
                 }
-                else if (type == 1906)
+                else if (itemId == 1906)
                 {
                     name = "Giant Bow";
                     width = 18;
@@ -25579,7 +25579,7 @@ namespace Terraria
                     vanity = true;
                     value = buyPrice(0, 1, 0, 0);
                 }
-                else if (type == 1907)
+                else if (itemId == 1907)
                 {
                     name = "Reindeer Antlers";
                     width = 18;
@@ -25588,7 +25588,7 @@ namespace Terraria
                     vanity = true;
                     value = buyPrice(0, 1, 0, 0);
                 }
-                else if (type == 1908)
+                else if (itemId == 1908)
                 {
                     name = "Holly";
                     useStyle = 1;
@@ -25604,7 +25604,7 @@ namespace Terraria
                     value = sellPrice(0, 0, 10, 0);
                     placeStyle = 18;
                 }
-                else if (type == 1909)
+                else if (itemId == 1909)
                 {
                     name = "Candy Cane Sword";
                     useStyle = 1;
@@ -25619,7 +25619,7 @@ namespace Terraria
                     value = 13500;
                     melee = true;
                 }
-                else if (type == 1910)
+                else if (itemId == 1910)
                 {
                     name = "Elf Melter";
                     useStyle = 5;
@@ -25640,7 +25640,7 @@ namespace Terraria
                     ranged = true;
                     toolTip = "Uses gel for ammo";
                 }
-                else if (type == 1911)
+                else if (itemId == 1911)
                 {
                     name = "Christmas Pudding";
                     useSound = 2;
@@ -25658,7 +25658,7 @@ namespace Terraria
                     toolTip = "Minor improvements to all stats";
                     value = 1000;
                 }
-                else if (type == 1912)
+                else if (itemId == 1912)
                 {
                     name = "Eggnog";
                     useSound = 3;
@@ -25675,7 +25675,7 @@ namespace Terraria
                     value = 40;
                     rare = 1;
                 }
-                else if (type == 1913)
+                else if (itemId == 1913)
                 {
                     useStyle = 1;
                     name = "Star Anise";
@@ -25694,7 +25694,7 @@ namespace Terraria
                     value = 25;
                     thrown = true;
                 }
-                else if (type == 1914)
+                else if (itemId == 1914)
                 {
                     useStyle = 1;
                     name = "Reindeer Bells";
@@ -25708,7 +25708,7 @@ namespace Terraria
                     mountType = 0;
                     value = sellPrice(0, 5, 0, 0);
                 }
-                else if (type == 1915)
+                else if (itemId == 1915)
                 {
                     noUseGraphic = true;
                     damage = 0;
@@ -25726,7 +25726,7 @@ namespace Terraria
                     noMelee = true;
                     value = sellPrice(0, 4, 0, 0);
                 }
-                else if (type == 1916)
+                else if (itemId == 1916)
                 {
                     noUseGraphic = true;
                     damage = 0;
@@ -25744,7 +25744,7 @@ namespace Terraria
                     noMelee = true;
                     value = sellPrice(0, 4, 0, 0);
                 }
-                else if (type == 1917)
+                else if (itemId == 1917)
                 {
                     name = "Candy Cane Pickaxe";
                     useStyle = 1;
@@ -25762,7 +25762,7 @@ namespace Terraria
                     melee = true;
                     toolTip = "Can mine Meteorite";
                 }
-                else if (type == 1918)
+                else if (itemId == 1918)
                 {
                     noMelee = true;
                     useStyle = 1;
@@ -25781,7 +25781,7 @@ namespace Terraria
                     value = 50000;
                     melee = true;
                 }
-                else if (type == 1919)
+                else if (itemId == 1919)
                 {
                     name = "Sugar Cookie";
                     useSound = 2;
@@ -25799,7 +25799,7 @@ namespace Terraria
                     toolTip = "Minor improvements to all stats";
                     value = 1000;
                 }
-                else if (type == 1920)
+                else if (itemId == 1920)
                 {
                     name = "Gingerbread Man";
                     useSound = 2;
@@ -25817,7 +25817,7 @@ namespace Terraria
                     toolTip = "Minor improvements to all stats";
                     value = 1000;
                 }
-                else if (type == 1921)
+                else if (itemId == 1921)
                 {
                     name = "Hand Warmer";
                     width = 16;
@@ -25828,13 +25828,13 @@ namespace Terraria
                     handOffSlot = 2;
                     handOnSlot = 7;
                 }
-                else if (type == 1922)
+                else if (itemId == 1922)
                 {
                     name = "Coal";
                     width = 16;
                     height = 24;
                 }
-                else if (type == 1923)
+                else if (itemId == 1923)
                 {
                     name = "Toolbox";
                     width = 16;
@@ -25843,7 +25843,7 @@ namespace Terraria
                     rare = 2;
                     value = 50000;
                 }
-                else if (type == 1924)
+                else if (itemId == 1924)
                 {
                     name = "Pine Door";
                     useStyle = 1;
@@ -25858,7 +25858,7 @@ namespace Terraria
                     height = 28;
                     value = 200;
                 }
-                else if (type == 1925)
+                else if (itemId == 1925)
                 {
                     name = "Pine Chair";
                     useStyle = 1;
@@ -25873,7 +25873,7 @@ namespace Terraria
                     width = 12;
                     height = 30;
                 }
-                else if (type == 1926)
+                else if (itemId == 1926)
                 {
                     name = "Pine Table";
                     useStyle = 1;
@@ -25889,7 +25889,7 @@ namespace Terraria
                     height = 20;
                     value = 300;
                 }
-                else if (type == 1927)
+                else if (itemId == 1927)
                 {
                     useStyle = 1;
                     name = "Dog Whistle";
@@ -25905,7 +25905,7 @@ namespace Terraria
                     value = 0;
                     buffType = 91;
                 }
-                else if (type == 1928)
+                else if (itemId == 1928)
                 {
                     name = "Christmas Sword";
                     useStyle = 1;
@@ -25923,7 +25923,7 @@ namespace Terraria
                     value = sellPrice(0, 10, 0, 0);
                     melee = true;
                 }
-                else if (type == 1929)
+                else if (itemId == 1929)
                 {
                     useStyle = 5;
                     autoReuse = true;
@@ -25944,7 +25944,7 @@ namespace Terraria
                     knockBack = 1.75f;
                     ranged = true;
                 }
-                else if (type == 1930)
+                else if (itemId == 1930)
                 {
                     autoReuse = true;
                     name = "Razorpine";
@@ -25965,7 +25965,7 @@ namespace Terraria
                     rare = 8;
                     noMelee = true;
                 }
-                else if (type == 1931)
+                else if (itemId == 1931)
                 {
                     autoReuse = true;
                     name = "Blizzard Staff";
@@ -25984,7 +25984,7 @@ namespace Terraria
                     rare = 8;
                     noMelee = true;
                 }
-                else if (type == 1932)
+                else if (itemId == 1932)
                 {
                     name = "Mrs. Clause Hat";
                     width = 18;
@@ -25993,7 +25993,7 @@ namespace Terraria
                     vanity = true;
                     value = buyPrice(0, 3, 0, 0);
                 }
-                else if (type == 1933)
+                else if (itemId == 1933)
                 {
                     name = "Mrs. Clause Shirt";
                     width = 18;
@@ -26002,7 +26002,7 @@ namespace Terraria
                     vanity = true;
                     value = buyPrice(0, 3, 0, 0);
                 }
-                else if (type == 1934)
+                else if (itemId == 1934)
                 {
                     name = "Mrs. Clause Heals";
                     width = 18;
@@ -26011,7 +26011,7 @@ namespace Terraria
                     vanity = true;
                     value = buyPrice(0, 3, 0, 0);
                 }
-                else if (type == 1935)
+                else if (itemId == 1935)
                 {
                     name = "Parka Hood";
                     width = 18;
@@ -26020,7 +26020,7 @@ namespace Terraria
                     vanity = true;
                     value = buyPrice(0, 3, 0, 0);
                 }
-                else if (type == 1936)
+                else if (itemId == 1936)
                 {
                     name = "Parka Coat";
                     width = 18;
@@ -26029,7 +26029,7 @@ namespace Terraria
                     vanity = true;
                     value = buyPrice(0, 3, 0, 0);
                 }
-                else if (type == 1937)
+                else if (itemId == 1937)
                 {
                     name = "Parka Pants";
                     width = 18;
@@ -26038,7 +26038,7 @@ namespace Terraria
                     vanity = true;
                     value = buyPrice(0, 3, 0, 0);
                 }
-                else if (type == 1940)
+                else if (itemId == 1940)
                 {
                     name = "Tree Mask";
                     width = 18;
@@ -26047,7 +26047,7 @@ namespace Terraria
                     vanity = true;
                     value = buyPrice(0, 3, 0, 0);
                 }
-                else if (type == 1941)
+                else if (itemId == 1941)
                 {
                     name = "Tree Shirt";
                     width = 18;
@@ -26056,7 +26056,7 @@ namespace Terraria
                     vanity = true;
                     value = buyPrice(0, 3, 0, 0);
                 }
-                else if (type == 1942)
+                else if (itemId == 1942)
                 {
                     name = "Tree Trunks";
                     width = 18;
@@ -26065,7 +26065,7 @@ namespace Terraria
                     vanity = true;
                     value = buyPrice(0, 3, 0, 0);
                 }
-                else if (type == 1938)
+                else if (itemId == 1938)
                 {
                     name = "Snow Hat";
                     width = 18;
@@ -26074,7 +26074,7 @@ namespace Terraria
                     vanity = true;
                     value = buyPrice(0, 3, 0, 0);
                 }
-                else if (type == 1939)
+                else if (itemId == 1939)
                 {
                     name = "Christmas Sweater";
                     width = 18;
@@ -26083,7 +26083,7 @@ namespace Terraria
                     vanity = true;
                     value = buyPrice(0, 3, 0, 0);
                 }
-                else if (type == 1943)
+                else if (itemId == 1943)
                 {
                     name = "Elf Mask";
                     width = 18;
@@ -26092,7 +26092,7 @@ namespace Terraria
                     vanity = true;
                     value = buyPrice(0, 3, 0, 0);
                 }
-                else if (type == 1944)
+                else if (itemId == 1944)
                 {
                     name = "Elf Shirt";
                     width = 18;
@@ -26101,7 +26101,7 @@ namespace Terraria
                     vanity = true;
                     value = buyPrice(0, 3, 0, 0);
                 }
-                else if (type == 1945)
+                else if (itemId == 1945)
                 {
                     name = "Elf Pants";
                     width = 18;
@@ -26110,7 +26110,7 @@ namespace Terraria
                     vanity = true;
                     value = buyPrice(0, 3, 0, 0);
                 }
-                else if (type == 1946)
+                else if (itemId == 1946)
                 {
                     useStyle = 5;
                     autoReuse = true;
@@ -26130,7 +26130,7 @@ namespace Terraria
                     rare = 8;
                     ranged = true;
                 }
-                else if (type == 1947)
+                else if (itemId == 1947)
                 {
                     name = "North Pole";
                     useStyle = 5;
@@ -26150,7 +26150,7 @@ namespace Terraria
                     noUseGraphic = true;
                     melee = true;
                 }
-                else if (type >= 1948 && type <= 1957)
+                else if (itemId >= 1948 && itemId <= 1957)
                 {
                     name = "Christmas Wallpaper";
                     useStyle = 1;
@@ -26160,12 +26160,12 @@ namespace Terraria
                     autoReuse = true;
                     maxStack = 999;
                     consumable = true;
-                    createWall = 116 + type - 1948;
+                    createWall = 116 + itemId - 1948;
                     width = 12;
                     height = 12;
                     value = buyPrice(0, 0, 1, 0);
                 }
-                else if (type == 1958)
+                else if (itemId == 1958)
                 {
                     useStyle = 4;
                     name = "Naughty Present";
@@ -26178,7 +26178,7 @@ namespace Terraria
                     toolTip = "Summons the Frost Moon";
                     rare = 8;
                 }
-                else if (type == 1959)
+                else if (itemId == 1959)
                 {
                     useStyle = 1;
                     name = "Baby Grinch Mischief's Whistle";
@@ -26194,7 +26194,7 @@ namespace Terraria
                     value = 0;
                     buffType = 92;
                 }
-                else if (type == 1960 || type == 1961 || type == 1962)
+                else if (itemId == 1960 || itemId == 1961 || itemId == 1962)
                 {
                     name = "Trophy";
                     useStyle = 1;
@@ -26209,9 +26209,9 @@ namespace Terraria
                     height = 30;
                     value = sellPrice(0, 1, 0, 0);
                     rare = 1;
-                    placeStyle = 38 + type - 1960;
+                    placeStyle = 38 + itemId - 1960;
                 }
-                else if (type == 1963)
+                else if (itemId == 1963)
                 {
                     name = "Music Box (Pumpkin Moon)";
                     useStyle = 1;
@@ -26228,7 +26228,7 @@ namespace Terraria
                     value = 100000;
                     accessory = true;
                 }
-                else if (type == 1964)
+                else if (itemId == 1964)
                 {
                     name = "Music Box (Alt Underground)";
                     useStyle = 1;
@@ -26245,7 +26245,7 @@ namespace Terraria
                     value = 100000;
                     accessory = true;
                 }
-                else if (type == 1965)
+                else if (itemId == 1965)
                 {
                     name = "Music Box (Frost Moon)";
                     useStyle = 1;
@@ -26262,7 +26262,7 @@ namespace Terraria
                     value = 100000;
                     accessory = true;
                 }
-                else if (type == 1966)
+                else if (itemId == 1966)
                 {
                     name = "Brown Paint";
                     paint = (byte)28;
@@ -26271,7 +26271,7 @@ namespace Terraria
                     value = 25;
                     maxStack = 999;
                 }
-                else if (type == 1967)
+                else if (itemId == 1967)
                 {
                     name = "Shadow Paint";
                     paint = (byte)29;
@@ -26280,7 +26280,7 @@ namespace Terraria
                     value = 50;
                     maxStack = 999;
                 }
-                else if (type == 1968)
+                else if (itemId == 1968)
                 {
                     name = "Negative Paint";
                     paint = (byte)30;
@@ -26289,7 +26289,7 @@ namespace Terraria
                     value = 75;
                     maxStack = 999;
                 }
-                else if (type == 1969)
+                else if (itemId == 1969)
                 {
                     name = "Team Dye";
                     width = 20;
@@ -26298,7 +26298,7 @@ namespace Terraria
                     value = 10000;
                     rare = 1;
                 }
-                else if (type >= 1970 && type <= 1976)
+                else if (itemId >= 1970 && itemId <= 1976)
                 {
                     name = "Gemspark Block";
                     useStyle = 1;
@@ -26308,11 +26308,11 @@ namespace Terraria
                     autoReuse = true;
                     maxStack = 999;
                     consumable = true;
-                    createTile = 262 + type - 1970;
+                    createTile = 262 + itemId - 1970;
                     width = 12;
                     height = 12;
                 }
-                else if (type >= 1977 && type <= 1986)
+                else if (itemId >= 1977 && itemId <= 1986)
                 {
                     name = "Hair Dye";
                     width = 20;
@@ -26320,11 +26320,11 @@ namespace Terraria
                     maxStack = 99;
                     value = buyPrice(0, 5, 0, 0);
                     rare = 2;
-                    if (type == 1980)
+                    if (itemId == 1980)
                         value = buyPrice(0, 10, 0, 0);
-                    if (type == 1984)
+                    if (itemId == 1984)
                         value = buyPrice(0, 7, 50, 0);
-                    if (type == 1985)
+                    if (itemId == 1985)
                         value = buyPrice(0, 15, 0, 0);
                     useSound = 3;
                     useStyle = 2;
@@ -26333,7 +26333,7 @@ namespace Terraria
                     useTime = 17;
                     consumable = true;
                 }
-                else if (type == 1987)
+                else if (itemId == 1987)
                 {
                     name = "Angel Halo";
                     width = 18;
@@ -26345,7 +26345,7 @@ namespace Terraria
                     faceSlot = 7;
                     vanity = true;
                 }
-                else if (type == 1988)
+                else if (itemId == 1988)
                 {
                     name = "Fez";
                     width = 20;
@@ -26355,7 +26355,7 @@ namespace Terraria
                     vanity = true;
                     headSlot = 145;
                 }
-                else if (type == 1989)
+                else if (itemId == 1989)
                 {
                     name = "Womannequin";
                     useStyle = 1;
@@ -26369,7 +26369,7 @@ namespace Terraria
                     width = 22;
                     height = 32;
                 }
-                else if (type == 1990)
+                else if (itemId == 1990)
                 {
                     name = "Hair Dye Remover";
                     width = 20;
@@ -26385,7 +26385,7 @@ namespace Terraria
                     useTime = 17;
                     consumable = true;
                 }
-                else if (type == 1991)
+                else if (itemId == 1991)
                 {
                     name = "Bug Net";
                     useTurn = true;
@@ -26397,7 +26397,7 @@ namespace Terraria
                     value = buyPrice(0, 0, 25, 0);
                     autoReuse = true;
                 }
-                else if (type == 1992)
+                else if (itemId == 1992)
                 {
                     name = "Firefly";
                     useStyle = 1;
@@ -26409,11 +26409,11 @@ namespace Terraria
                     consumable = true;
                     width = 12;
                     height = 12;
-                    makeNPC = (short)355;
+                    makeNPC = 355;
                     noUseGraphic = true;
                     bait = 20;
                 }
-                else if (type == 1993)
+                else if (itemId == 1993)
                 {
                     name = "Firefly in a Bottle";
                     useStyle = 1;
@@ -26429,7 +26429,7 @@ namespace Terraria
                 }
                 else
                 {
-                    if (type < 1994 || type > 2001)
+                    if (itemId < 1994 || itemId > 2001)
                         return;
                     name = "Butterfly";
                     useStyle = 1;
@@ -26441,10 +26441,10 @@ namespace Terraria
                     consumable = true;
                     width = 12;
                     height = 12;
-                    makeNPC = (short)356;
-                    placeStyle = 1 + type - 1994;
+                    makeNPC = 356;
+                    placeStyle = 1 + itemId - 1994;
                     noUseGraphic = true;
-                    int num = type - 1994;
+                    int num = itemId - 1994;
                     if (num == 0)
                         bait = 5;
                     if (num == 4)
@@ -26466,9 +26466,9 @@ namespace Terraria
             }
         }
 
-        public void SetDefaults3(int type)
+        public void SetDefaults3(int itemId)
         {
-            if (type == 2002)
+            if (itemId == 2002)
             {
                 name = "Worm";
                 useStyle = 1;
@@ -26480,11 +26480,11 @@ namespace Terraria
                 consumable = true;
                 width = 12;
                 height = 12;
-                makeNPC = (short)357;
+                makeNPC = 357;
                 noUseGraphic = true;
                 bait = 25;
             }
-            else if (type == 2003)
+            else if (itemId == 2003)
             {
                 name = "Mouse";
                 useStyle = 1;
@@ -26496,10 +26496,10 @@ namespace Terraria
                 consumable = true;
                 width = 12;
                 height = 12;
-                makeNPC = (short)300;
+                makeNPC = 300;
                 noUseGraphic = true;
             }
-            else if (type == 2004)
+            else if (itemId == 2004)
             {
                 name = "Lightning Bug";
                 useStyle = 1;
@@ -26511,11 +26511,11 @@ namespace Terraria
                 consumable = true;
                 width = 12;
                 height = 12;
-                makeNPC = (short)358;
+                makeNPC = 358;
                 noUseGraphic = true;
                 bait = 35;
             }
-            else if (type == 2005)
+            else if (itemId == 2005)
             {
                 name = "Lightning Bug in a Bottle";
                 useStyle = 1;
@@ -26529,7 +26529,7 @@ namespace Terraria
                 width = 12;
                 height = 28;
             }
-            else if (type == 2006)
+            else if (itemId == 2006)
             {
                 name = "Snail";
                 useStyle = 1;
@@ -26541,11 +26541,11 @@ namespace Terraria
                 consumable = true;
                 width = 12;
                 height = 12;
-                makeNPC = (short)359;
+                makeNPC = 359;
                 noUseGraphic = true;
                 bait = 10;
             }
-            else if (type == 2007)
+            else if (itemId == 2007)
             {
                 name = "Glowing Snail";
                 useStyle = 1;
@@ -26557,11 +26557,11 @@ namespace Terraria
                 consumable = true;
                 width = 12;
                 height = 12;
-                makeNPC = (short)360;
+                makeNPC = 360;
                 noUseGraphic = true;
                 bait = 15;
             }
-            else if (type >= 2008 && type <= 2014)
+            else if (itemId >= 2008 && itemId <= 2014)
             {
                 name = "Wallpaper";
                 useStyle = 1;
@@ -26571,12 +26571,12 @@ namespace Terraria
                 autoReuse = true;
                 maxStack = 999;
                 consumable = true;
-                createWall = 126 + type - 2008;
+                createWall = 126 + itemId - 2008;
                 width = 12;
                 height = 12;
                 value = buyPrice(0, 0, 1, 0);
             }
-            else if (type >= 2015 && type <= 2019)
+            else if (itemId >= 2015 && itemId <= 2019)
             {
                 name = "Glowing Snail";
                 useStyle = 1;
@@ -26589,19 +26589,19 @@ namespace Terraria
                 width = 12;
                 height = 12;
                 noUseGraphic = true;
-                if (type == 2015)
-                    makeNPC = (short)74;
-                if (type == 2016)
-                    makeNPC = (short)297;
-                if (type == 2017)
-                    makeNPC = (short)298;
-                if (type == 2018)
-                    makeNPC = (short)299;
-                if (type != 2019)
+                if (itemId == 2015)
+                    makeNPC = 74;
+                if (itemId == 2016)
+                    makeNPC = 297;
+                if (itemId == 2017)
+                    makeNPC = 298;
+                if (itemId == 2018)
+                    makeNPC = 299;
+                if (itemId != 2019)
                     return;
-                makeNPC = (short)46;
+                makeNPC = 46;
             }
-            else if (type == 2020)
+            else if (itemId == 2020)
             {
                 name = "Cactus Bookcase";
                 useStyle = 1;
@@ -26617,7 +26617,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 6;
             }
-            else if (type == 2021)
+            else if (itemId == 2021)
             {
                 name = "Ebonwood Bookcase";
                 useStyle = 1;
@@ -26633,7 +26633,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 7;
             }
-            else if (type == 2022)
+            else if (itemId == 2022)
             {
                 name = "Flesh Bookcase";
                 useStyle = 1;
@@ -26649,7 +26649,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 8;
             }
-            else if (type == 2023)
+            else if (itemId == 2023)
             {
                 name = "Hive Bookcase";
                 useStyle = 1;
@@ -26665,7 +26665,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 9;
             }
-            else if (type == 2024)
+            else if (itemId == 2024)
             {
                 name = "Steampunk Bookcase";
                 useStyle = 1;
@@ -26681,7 +26681,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 10;
             }
-            else if (type == 2025)
+            else if (itemId == 2025)
             {
                 name = "Glass Bookcase";
                 useStyle = 1;
@@ -26697,7 +26697,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 11;
             }
-            else if (type == 2026)
+            else if (itemId == 2026)
             {
                 name = "Rich Mahogany Bookcase";
                 useStyle = 1;
@@ -26713,7 +26713,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 12;
             }
-            else if (type == 2027)
+            else if (itemId == 2027)
             {
                 name = "Pearlwood Bookcase";
                 useStyle = 1;
@@ -26729,7 +26729,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 13;
             }
-            else if (type == 2028)
+            else if (itemId == 2028)
             {
                 name = "Spooky Bookcase";
                 useStyle = 1;
@@ -26745,7 +26745,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 14;
             }
-            else if (type == 2029)
+            else if (itemId == 2029)
             {
                 name = "Sunplate Bookcase";
                 useStyle = 1;
@@ -26761,7 +26761,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 15;
             }
-            else if (type == 2030)
+            else if (itemId == 2030)
             {
                 name = "Temple Bookcase";
                 useStyle = 1;
@@ -26777,7 +26777,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 16;
             }
-            else if (type == 2031)
+            else if (itemId == 2031)
             {
                 name = "Frozen Bookcase";
                 useStyle = 1;
@@ -26793,7 +26793,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 17;
             }
-            else if (type == 2032)
+            else if (itemId == 2032)
             {
                 name = "Lantern 10";
                 useStyle = 1;
@@ -26808,7 +26808,7 @@ namespace Terraria
                 height = 28;
                 placeStyle = 10;
             }
-            else if (type == 2033)
+            else if (itemId == 2033)
             {
                 name = "Lantern 11";
                 useStyle = 1;
@@ -26823,7 +26823,7 @@ namespace Terraria
                 height = 28;
                 placeStyle = 11;
             }
-            else if (type == 2034)
+            else if (itemId == 2034)
             {
                 name = "Lantern 12";
                 useStyle = 1;
@@ -26838,7 +26838,7 @@ namespace Terraria
                 height = 28;
                 placeStyle = 12;
             }
-            else if (type == 2035)
+            else if (itemId == 2035)
             {
                 name = "Lantern 13";
                 useStyle = 1;
@@ -26853,7 +26853,7 @@ namespace Terraria
                 height = 28;
                 placeStyle = 13;
             }
-            else if (type == 2036)
+            else if (itemId == 2036)
             {
                 name = "Lantern 14";
                 useStyle = 1;
@@ -26868,7 +26868,7 @@ namespace Terraria
                 height = 28;
                 placeStyle = 14;
             }
-            else if (type == 2037)
+            else if (itemId == 2037)
             {
                 name = "Lantern 15";
                 useStyle = 1;
@@ -26883,7 +26883,7 @@ namespace Terraria
                 height = 28;
                 placeStyle = 15;
             }
-            else if (type == 2038)
+            else if (itemId == 2038)
             {
                 name = "Lantern 16";
                 useStyle = 1;
@@ -26898,7 +26898,7 @@ namespace Terraria
                 height = 28;
                 placeStyle = 16;
             }
-            else if (type == 2039)
+            else if (itemId == 2039)
             {
                 name = "Lantern 17";
                 useStyle = 1;
@@ -26913,7 +26913,7 @@ namespace Terraria
                 height = 28;
                 placeStyle = 17;
             }
-            else if (type == 2040)
+            else if (itemId == 2040)
             {
                 name = "Lantern 18";
                 useStyle = 1;
@@ -26928,7 +26928,7 @@ namespace Terraria
                 height = 28;
                 placeStyle = 18;
             }
-            else if (type == 2041)
+            else if (itemId == 2041)
             {
                 name = "Lantern 19";
                 useStyle = 1;
@@ -26943,7 +26943,7 @@ namespace Terraria
                 height = 28;
                 placeStyle = 19;
             }
-            else if (type == 2042)
+            else if (itemId == 2042)
             {
                 name = "Lantern 20";
                 useStyle = 1;
@@ -26958,7 +26958,7 @@ namespace Terraria
                 height = 28;
                 placeStyle = 20;
             }
-            else if (type == 2043)
+            else if (itemId == 2043)
             {
                 name = "Lantern 21";
                 useStyle = 1;
@@ -26973,7 +26973,7 @@ namespace Terraria
                 height = 28;
                 placeStyle = 21;
             }
-            else if (type == 2044)
+            else if (itemId == 2044)
             {
                 name = "Frozen Door";
                 useStyle = 1;
@@ -26988,7 +26988,7 @@ namespace Terraria
                 height = 28;
                 value = 200;
             }
-            else if (type >= 2045 && type <= 2054)
+            else if (itemId >= 2045 && itemId <= 2054)
             {
                 noWet = true;
                 name = "more candles";
@@ -27002,9 +27002,9 @@ namespace Terraria
                 createTile = 33;
                 width = 8;
                 height = 18;
-                placeStyle = 4 + type - 2045;
+                placeStyle = 4 + itemId - 2045;
             }
-            else if (type >= 2055 && type <= 2065)
+            else if (itemId >= 2055 && itemId <= 2065)
             {
                 name = "more chandeliers";
                 useStyle = 1;
@@ -27015,12 +27015,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 34;
-                placeStyle = 7 + type - 2055;
+                placeStyle = 7 + itemId - 2055;
                 width = 26;
                 height = 26;
                 value = 3000;
             }
-            else if (type >= 2066 && type <= 2071)
+            else if (itemId >= 2066 && itemId <= 2071)
             {
                 name = "more beds";
                 useStyle = 1;
@@ -27031,12 +27031,12 @@ namespace Terraria
                 consumable = true;
                 autoReuse = true;
                 createTile = 79;
-                placeStyle = 13 + type - 2066;
+                placeStyle = 13 + itemId - 2066;
                 width = 28;
                 height = 20;
                 value = 2000;
             }
-            else if (type >= 2072 && type <= 2081)
+            else if (itemId >= 2072 && itemId <= 2081)
             {
                 name = "more bathtubs";
                 useStyle = 1;
@@ -27047,12 +27047,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 90;
-                placeStyle = type + 1 - 2072;
+                placeStyle = itemId + 1 - 2072;
                 width = 20;
                 height = 20;
                 value = 300;
             }
-            else if (type >= 2082 && type <= 2091)
+            else if (itemId >= 2082 && itemId <= 2091)
             {
                 name = "Lamps";
                 useStyle = 1;
@@ -27063,12 +27063,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 93;
-                placeStyle = type + 1 - 2082;
+                placeStyle = itemId + 1 - 2082;
                 width = 10;
                 height = 24;
                 value = 500;
             }
-            else if (type >= 2092 && type <= 2103)
+            else if (itemId >= 2092 && itemId <= 2103)
             {
                 name = "more candelabras";
                 useStyle = 1;
@@ -27079,21 +27079,21 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 100;
-                placeStyle = type + 1 - 2092;
+                placeStyle = itemId + 1 - 2092;
                 width = 20;
                 height = 20;
                 value = 1500;
             }
-            else if (type >= 2104 && type <= 2113)
+            else if (itemId >= 2104 && itemId <= 2113)
             {
                 name = "Skeletron Mask";
                 width = 28;
                 height = 20;
-                headSlot = type + 146 - 2104;
+                headSlot = itemId + 146 - 2104;
                 rare = 1;
                 vanity = true;
             }
-            else if (type >= 2114 && type <= 2118)
+            else if (itemId >= 2114 && itemId <= 2118)
             {
                 name = "Rack";
                 useStyle = 1;
@@ -27107,10 +27107,10 @@ namespace Terraria
                 width = 30;
                 height = 30;
                 value = sellPrice(0, 0, 5, 0);
-                placeStyle = 41 + type - 2114;
+                placeStyle = 41 + itemId - 2114;
                 maxStack = 99;
             }
-            else if (type == 2119)
+            else if (itemId == 2119)
             {
                 name = "Stone Slab";
                 useStyle = 1;
@@ -27124,7 +27124,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 2120)
+            else if (itemId == 2120)
             {
                 name = "Sandstone Slab";
                 useStyle = 1;
@@ -27138,7 +27138,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 2121)
+            else if (itemId == 2121)
             {
                 name = "Frog";
                 useStyle = 1;
@@ -27150,10 +27150,10 @@ namespace Terraria
                 consumable = true;
                 width = 12;
                 height = 12;
-                makeNPC = (short)361;
+                makeNPC = 361;
                 noUseGraphic = true;
             }
-            else if (type == 2122)
+            else if (itemId == 2122)
             {
                 name = "Duck";
                 useStyle = 1;
@@ -27165,10 +27165,10 @@ namespace Terraria
                 consumable = true;
                 width = 12;
                 height = 12;
-                makeNPC = (short)362;
+                makeNPC = 362;
                 noUseGraphic = true;
             }
-            else if (type == 2123)
+            else if (itemId == 2123)
             {
                 name = "Duck";
                 useStyle = 1;
@@ -27180,10 +27180,10 @@ namespace Terraria
                 consumable = true;
                 width = 12;
                 height = 12;
-                makeNPC = (short)364;
+                makeNPC = 364;
                 noUseGraphic = true;
             }
-            else if (type >= 2124 && type <= 2128)
+            else if (itemId >= 2124 && itemId <= 2128)
             {
                 name = "more bathtubs";
                 useStyle = 1;
@@ -27194,12 +27194,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 90;
-                placeStyle = type + 11 - 2124;
+                placeStyle = itemId + 11 - 2124;
                 width = 20;
                 height = 20;
                 value = 300;
             }
-            else if (type >= 2129 && type <= 2134)
+            else if (itemId >= 2129 && itemId <= 2134)
             {
                 name = "Lamps";
                 useStyle = 1;
@@ -27210,12 +27210,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 93;
-                placeStyle = type + 11 - 2129;
+                placeStyle = itemId + 11 - 2129;
                 width = 10;
                 height = 24;
                 value = 500;
             }
-            else if (type >= 2135 && type <= 2138)
+            else if (itemId >= 2135 && itemId <= 2138)
             {
                 name = "Bookcase";
                 useStyle = 1;
@@ -27229,9 +27229,9 @@ namespace Terraria
                 width = 20;
                 height = 20;
                 value = 300;
-                placeStyle = 18 + type - 2135;
+                placeStyle = 18 + itemId - 2135;
             }
-            else if (type == 2139)
+            else if (itemId == 2139)
             {
                 name = "more beds";
                 useStyle = 1;
@@ -27247,7 +27247,7 @@ namespace Terraria
                 height = 20;
                 value = 2000;
             }
-            else if (type == 2140)
+            else if (itemId == 2140)
             {
                 name = "more beds";
                 useStyle = 1;
@@ -27263,7 +27263,7 @@ namespace Terraria
                 height = 20;
                 value = 2000;
             }
-            else if (type >= 2141 && type <= 2144)
+            else if (itemId >= 2141 && itemId <= 2144)
             {
                 name = "more chandeliers";
                 useStyle = 1;
@@ -27274,12 +27274,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 34;
-                placeStyle = 18 + type - 2141;
+                placeStyle = 18 + itemId - 2141;
                 width = 26;
                 height = 26;
                 value = 3000;
             }
-            else if (type >= 2145 && type <= 2148)
+            else if (itemId >= 2145 && itemId <= 2148)
             {
                 name = "Lantern 22";
                 useStyle = 1;
@@ -27292,9 +27292,9 @@ namespace Terraria
                 createTile = 42;
                 width = 12;
                 height = 28;
-                placeStyle = 22 + type - 2145;
+                placeStyle = 22 + itemId - 2145;
             }
-            else if (type >= 2149 && type <= 2152)
+            else if (itemId >= 2149 && itemId <= 2152)
             {
                 name = "more candelabras";
                 useStyle = 1;
@@ -27305,12 +27305,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 100;
-                placeStyle = type + 13 - 2149;
+                placeStyle = itemId + 13 - 2149;
                 width = 20;
                 height = 20;
                 value = 1500;
             }
-            else if (type >= 2153 && type <= 2155)
+            else if (itemId >= 2153 && itemId <= 2155)
             {
                 noWet = true;
                 name = "more candles";
@@ -27324,9 +27324,9 @@ namespace Terraria
                 createTile = 33;
                 width = 8;
                 height = 18;
-                placeStyle = 14 + type - 2153;
+                placeStyle = 14 + itemId - 2153;
             }
-            else if (type == 2156)
+            else if (itemId == 2156)
             {
                 name = "Black Scorpion";
                 useStyle = 1;
@@ -27338,11 +27338,11 @@ namespace Terraria
                 consumable = true;
                 width = 12;
                 height = 12;
-                makeNPC = (short)366;
+                makeNPC = 366;
                 noUseGraphic = true;
                 bait = 15;
             }
-            else if (type == 2157)
+            else if (itemId == 2157)
             {
                 name = "Scorpion";
                 useStyle = 1;
@@ -27354,11 +27354,11 @@ namespace Terraria
                 consumable = true;
                 width = 12;
                 height = 12;
-                makeNPC = (short)367;
+                makeNPC = 367;
                 noUseGraphic = true;
                 bait = 10;
             }
-            else if (type >= 2158 && type <= 2160)
+            else if (itemId >= 2158 && itemId <= 2160)
             {
                 name = "Wallpaper";
                 useStyle = 1;
@@ -27368,12 +27368,12 @@ namespace Terraria
                 autoReuse = true;
                 maxStack = 999;
                 consumable = true;
-                createWall = 133 + type - 2158;
+                createWall = 133 + itemId - 2158;
                 width = 12;
                 height = 12;
                 value = buyPrice(0, 0, 1, 0);
             }
-            else if (type == 2161)
+            else if (itemId == 2161)
             {
                 name = "Frost Core";
                 width = 18;
@@ -27382,7 +27382,7 @@ namespace Terraria
                 value = 50000;
                 rare = 5;
             }
-            else if (type >= 2162 && type <= 2168)
+            else if (itemId >= 2162 && itemId <= 2168)
             {
                 name = "Critter Cage";
                 useStyle = 1;
@@ -27392,11 +27392,11 @@ namespace Terraria
                 autoReuse = true;
                 maxStack = 99;
                 consumable = true;
-                createTile = 275 + type - 2162;
+                createTile = 275 + itemId - 2162;
                 width = 12;
                 height = 12;
             }
-            else if (type == 2169)
+            else if (itemId == 2169)
             {
                 name = "Waterfall Wall";
                 useStyle = 1;
@@ -27410,7 +27410,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 2170)
+            else if (itemId == 2170)
             {
                 name = "Lavafall Wall";
                 useStyle = 1;
@@ -27424,7 +27424,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 2171)
+            else if (itemId == 2171)
             {
                 autoReuse = true;
                 name = "Crimson Seeds";
@@ -27439,7 +27439,7 @@ namespace Terraria
                 height = 14;
                 value = 500;
             }
-            else if (type == 2172)
+            else if (itemId == 2172)
             {
                 name = "Heavy Work Bench";
                 useStyle = 1;
@@ -27455,7 +27455,7 @@ namespace Terraria
                 value = 500;
                 toolTip = "Used for advanced crafting";
             }
-            else if (type == 2173)
+            else if (itemId == 2173)
             {
                 name = "Copper Plating";
                 useStyle = 1;
@@ -27469,7 +27469,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type >= 2174 && type <= 2175)
+            else if (itemId >= 2174 && itemId <= 2175)
             {
                 name = "Critter Cage";
                 useStyle = 1;
@@ -27479,11 +27479,11 @@ namespace Terraria
                 autoReuse = true;
                 maxStack = 99;
                 consumable = true;
-                createTile = 285 + type - 2174;
+                createTile = 285 + itemId - 2174;
                 width = 12;
                 height = 12;
             }
-            else if (type == 2176)
+            else if (itemId == 2176)
             {
                 name = "Shroomite Digging Claw";
                 useStyle = 1;
@@ -27503,7 +27503,7 @@ namespace Terraria
                 melee = true;
                 --tileBoost;
             }
-            else if (type == 2177)
+            else if (itemId == 2177)
             {
                 name = "Ammo Box";
                 useStyle = 1;
@@ -27519,7 +27519,7 @@ namespace Terraria
                 value = buyPrice(0, 15, 0, 0);
                 rare = 6;
             }
-            else if (type >= 2178 && type <= 2187)
+            else if (itemId >= 2178 && itemId <= 2187)
             {
                 name = "Butterfly Jar";
                 useStyle = 1;
@@ -27529,11 +27529,11 @@ namespace Terraria
                 autoReuse = true;
                 maxStack = 99;
                 consumable = true;
-                createTile = 288 + type - 2178;
+                createTile = 288 + itemId - 2178;
                 width = 12;
                 height = 12;
             }
-            else if (type == 2189)
+            else if (itemId == 2189)
             {
                 name = "Spectre Mask";
                 width = 18;
@@ -27545,7 +27545,7 @@ namespace Terraria
                 toolTip = "Increases maximum mana by 60 and reduces mana usage by 13%";
                 toolTip2 = "5% increased magic damage and critical strike chance";
             }
-            else if (type == 2188)
+            else if (itemId == 2188)
             {
                 name = "Venom Staff";
                 mana = 25;
@@ -27565,7 +27565,7 @@ namespace Terraria
                 noMelee = true;
                 value = sellPrice(0, 7, 0, 0);
             }
-            else if (type >= 2190 && type <= 2191)
+            else if (itemId >= 2190 && itemId <= 2191)
             {
                 name = "Critter Cage";
                 useStyle = 1;
@@ -27575,11 +27575,11 @@ namespace Terraria
                 autoReuse = true;
                 maxStack = 99;
                 consumable = true;
-                createTile = 298 + type - 2190;
+                createTile = 298 + itemId - 2190;
                 width = 12;
                 height = 12;
             }
-            else if (type >= 2192 && type <= 2198 || (type == 2203 || type == 2204))
+            else if (itemId >= 2192 && itemId <= 2198 || (itemId == 2203 || itemId == 2204))
             {
                 name = "Crafting Tables";
                 useStyle = 1;
@@ -27589,12 +27589,12 @@ namespace Terraria
                 autoReuse = true;
                 maxStack = 99;
                 consumable = true;
-                createTile = type != 2203 ? (type != 2204 ? 300 + type - 2192 : 308) : 307;
+                createTile = itemId != 2203 ? (itemId != 2204 ? 300 + itemId - 2192 : 308) : 307;
                 width = 12;
                 height = 12;
                 value = buyPrice(0, 10, 0, 0);
             }
-            else if (type == 2199)
+            else if (itemId == 2199)
             {
                 name = "Beetle Helmet";
                 width = 18;
@@ -27606,7 +27606,7 @@ namespace Terraria
                 toolTip = "6% increased melee damage";
                 toolTip2 = "Enemies are more likely to target you";
             }
-            else if (type == 2200)
+            else if (itemId == 2200)
             {
                 name = "Beetle Scale Mail";
                 width = 18;
@@ -27618,7 +27618,7 @@ namespace Terraria
                 toolTip = "8% increased melee damage and critical strike chance";
                 toolTip = "6% increased movement and melee speed";
             }
-            else if (type == 2201)
+            else if (itemId == 2201)
             {
                 name = "Beetle Shell";
                 width = 18;
@@ -27630,7 +27630,7 @@ namespace Terraria
                 toolTip = "5% increased melee damage and critical strike chance";
                 toolTip2 = "Enemies are more likely to target you";
             }
-            else if (type == 2202)
+            else if (itemId == 2202)
             {
                 name = "Beetle Leggings";
                 width = 18;
@@ -27642,7 +27642,7 @@ namespace Terraria
                 toolTip = "6% increased movement and melee speed";
                 toolTip2 = "Enemies are more likely to target you";
             }
-            else if (type == 2205)
+            else if (itemId == 2205)
             {
                 name = "Penguin";
                 useStyle = 1;
@@ -27654,10 +27654,10 @@ namespace Terraria
                 consumable = true;
                 width = 12;
                 height = 12;
-                makeNPC = (short)148;
+                makeNPC = 148;
                 noUseGraphic = true;
             }
-            else if (type == 2206 || type == 2207)
+            else if (itemId == 2206 || itemId == 2207)
             {
                 name = "Critter Cage";
                 useStyle = 1;
@@ -27667,18 +27667,18 @@ namespace Terraria
                 autoReuse = true;
                 maxStack = 99;
                 consumable = true;
-                createTile = 309 + type - 2206;
+                createTile = 309 + itemId - 2206;
                 width = 12;
                 height = 12;
             }
-            else if (type == 2208)
+            else if (itemId == 2208)
             {
                 name = "Terrarium";
                 width = 18;
                 height = 20;
                 maxStack = 99;
             }
-            else if (type == 2209)
+            else if (itemId == 2209)
             {
                 name = "Super Mana Potion";
                 useSound = 3;
@@ -27694,7 +27694,7 @@ namespace Terraria
                 rare = 4;
                 value = 1500;
             }
-            else if (type >= 2210 && type <= 2213)
+            else if (itemId >= 2210 && itemId <= 2213)
             {
                 name = "Wooden Fences";
                 useStyle = 1;
@@ -27704,11 +27704,11 @@ namespace Terraria
                 autoReuse = true;
                 maxStack = 999;
                 consumable = true;
-                createWall = 138 + type - 2210;
+                createWall = 138 + itemId - 2210;
                 width = 12;
                 height = 12;
             }
-            else if (type >= 2214 && type <= 2217)
+            else if (itemId >= 2214 && itemId <= 2217)
             {
                 name = "Builder's Accessories";
                 width = 30;
@@ -27717,7 +27717,7 @@ namespace Terraria
                 rare = 3;
                 value = buyPrice(0, 10, 0, 0);
             }
-            else if (type == 2218)
+            else if (itemId == 2218)
             {
                 name = "Beetle Husk";
                 width = 14;
@@ -27726,7 +27726,7 @@ namespace Terraria
                 rare = 8;
                 value = sellPrice(0, 0, 50, 0);
             }
-            else if (type == 2219)
+            else if (itemId == 2219)
             {
                 name = "Celestial Magnet";
                 width = 24;
@@ -27736,7 +27736,7 @@ namespace Terraria
                 value = buyPrice(0, 15, 0, 0);
                 rare = 4;
             }
-            else if (type == 2220)
+            else if (itemId == 2220)
             {
                 name = "Celestial Emblem";
                 width = 24;
@@ -27747,7 +27747,7 @@ namespace Terraria
                 value = buyPrice(0, 16, 0, 0);
                 rare = 5;
             }
-            else if (type == 2221)
+            else if (itemId == 2221)
             {
                 name = "Celestial Cuffs";
                 width = 24;
@@ -27760,7 +27760,7 @@ namespace Terraria
                 handOffSlot = 10;
                 handOnSlot = 17;
             }
-            else if (type == 2222)
+            else if (itemId == 2222)
             {
                 name = "Peddler's Hat";
                 width = 18;
@@ -27769,7 +27769,7 @@ namespace Terraria
                 vanity = true;
                 value = sellPrice(0, 0, 25, 0);
             }
-            else if (type == 2223)
+            else if (itemId == 2223)
             {
                 autoReuse = true;
                 useStyle = 5;
@@ -27791,7 +27791,7 @@ namespace Terraria
                 ranged = true;
                 toolTip = "Shoots a charged arrow";
             }
-            else if (type == 2224)
+            else if (itemId == 2224)
             {
                 name = "more chandeliers";
                 useStyle = 1;
@@ -27807,7 +27807,7 @@ namespace Terraria
                 height = 26;
                 value = 3000;
             }
-            else if (type == 2225)
+            else if (itemId == 2225)
             {
                 name = "Lamps";
                 useStyle = 1;
@@ -27823,7 +27823,7 @@ namespace Terraria
                 height = 24;
                 value = 500;
             }
-            else if (type == 2226)
+            else if (itemId == 2226)
             {
                 name = "Lantern";
                 useStyle = 1;
@@ -27838,7 +27838,7 @@ namespace Terraria
                 height = 28;
                 placeStyle = 26;
             }
-            else if (type == 2227)
+            else if (itemId == 2227)
             {
                 name = "more candelabras";
                 useStyle = 1;
@@ -27854,7 +27854,7 @@ namespace Terraria
                 height = 20;
                 value = 1500;
             }
-            else if (type == 2228)
+            else if (itemId == 2228)
             {
                 name = "Dynasty Chair";
                 useStyle = 1;
@@ -27869,7 +27869,7 @@ namespace Terraria
                 width = 12;
                 height = 30;
             }
-            else if (type == 2229)
+            else if (itemId == 2229)
             {
                 name = "Dynasty Work Bench";
                 useStyle = 1;
@@ -27885,7 +27885,7 @@ namespace Terraria
                 height = 14;
                 value = 150;
             }
-            else if (type == 2230)
+            else if (itemId == 2230)
             {
                 name = "Dynasty Chest";
                 useStyle = 1;
@@ -27901,7 +27901,7 @@ namespace Terraria
                 height = 22;
                 value = 2500;
             }
-            else if (type == 2231)
+            else if (itemId == 2231)
             {
                 name = "Dynasty Bed";
                 useStyle = 1;
@@ -27917,7 +27917,7 @@ namespace Terraria
                 height = 20;
                 value = 2000;
             }
-            else if (type == 2232)
+            else if (itemId == 2232)
             {
                 name = "more bathtubs";
                 useStyle = 1;
@@ -27933,7 +27933,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2233)
+            else if (itemId == 2233)
             {
                 name = "Bookcase";
                 useStyle = 1;
@@ -27949,7 +27949,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 22;
             }
-            else if (type == 2234)
+            else if (itemId == 2234)
             {
                 name = "Dynasty Cup";
                 useStyle = 1;
@@ -27965,7 +27965,7 @@ namespace Terraria
                 height = 24;
                 value = 20;
             }
-            else if (type == 2235)
+            else if (itemId == 2235)
             {
                 name = "Bowl";
                 useStyle = 1;
@@ -27981,7 +27981,7 @@ namespace Terraria
                 height = 24;
                 value = 20;
             }
-            else if (type == 2236)
+            else if (itemId == 2236)
             {
                 noWet = true;
                 name = "more candles";
@@ -27997,7 +27997,7 @@ namespace Terraria
                 height = 18;
                 placeStyle = 17;
             }
-            else if (type >= 2237 && type <= 2241)
+            else if (itemId >= 2237 && itemId <= 2241)
             {
                 name = "Grandfather Clock";
                 useStyle = 1;
@@ -28008,12 +28008,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 104;
-                placeStyle = 1 + type - 2237;
+                placeStyle = 1 + itemId - 2237;
                 width = 20;
                 height = 20;
                 value = 300;
             }
-            else if (type == 2242 || type == 2243)
+            else if (itemId == 2242 || itemId == 2243)
             {
                 name = "Bowl";
                 useStyle = 1;
@@ -28024,15 +28024,15 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 103;
-                placeStyle = 2 + type - 2242;
+                placeStyle = 2 + itemId - 2242;
                 width = 16;
                 height = 24;
                 value = 20;
-                if (type != 2242)
+                if (itemId != 2242)
                     return;
                 value = buyPrice(0, 0, 20, 0);
             }
-            else if (type == 2244)
+            else if (itemId == 2244)
             {
                 name = "Wine Glass";
                 useStyle = 1;
@@ -28048,7 +28048,7 @@ namespace Terraria
                 height = 24;
                 value = 20;
             }
-            else if (type >= 2245 && type <= 2247)
+            else if (itemId >= 2245 && itemId <= 2247)
             {
                 name = "Piano";
                 useStyle = 1;
@@ -28059,12 +28059,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 87;
-                placeStyle = 5 + type - 2245;
+                placeStyle = 5 + itemId - 2245;
                 width = 20;
                 height = 20;
                 value = 300;
             }
-            else if (type == 2248)
+            else if (itemId == 2248)
             {
                 name = "Frozen Table";
                 useStyle = 1;
@@ -28080,7 +28080,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2249 || type == 2250)
+            else if (itemId == 2249 || itemId == 2250)
             {
                 name = "Dynasty Chest";
                 useStyle = 1;
@@ -28091,12 +28091,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 21;
-                placeStyle = 29 + type - 2249;
+                placeStyle = 29 + itemId - 2249;
                 width = 26;
                 height = 22;
                 value = 2500;
             }
-            else if (type >= 2251 && type <= 2253)
+            else if (itemId >= 2251 && itemId <= 2253)
             {
                 name = "Honey Work Bench";
                 useStyle = 1;
@@ -28107,12 +28107,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 18;
-                placeStyle = 19 + type - 2251;
+                placeStyle = 19 + itemId - 2251;
                 width = 28;
                 height = 14;
                 value = 150;
             }
-            else if (type >= 2254 && type <= 2256)
+            else if (itemId >= 2254 && itemId <= 2256)
             {
                 name = "Piano";
                 useStyle = 1;
@@ -28123,12 +28123,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 87;
-                placeStyle = 8 + type - 2254;
+                placeStyle = 8 + itemId - 2254;
                 width = 20;
                 height = 20;
                 value = 300;
             }
-            else if (type == 2257 || type == 2258)
+            else if (itemId == 2257 || itemId == 2258)
             {
                 name = "more cups";
                 useStyle = 1;
@@ -28139,15 +28139,15 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 13;
-                placeStyle = 7 + type - 2257;
+                placeStyle = 7 + itemId - 2257;
                 width = 16;
                 height = 24;
                 value = 20;
-                if (type != 2258)
+                if (itemId != 2258)
                     return;
                 value = buyPrice(0, 0, 50, 0);
             }
-            else if (type == 2259)
+            else if (itemId == 2259)
             {
                 name = "Dynasty Table";
                 useStyle = 1;
@@ -28163,7 +28163,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type >= 2260 && type <= 2262)
+            else if (itemId >= 2260 && itemId <= 2262)
             {
                 name = "Dynasty Blocks";
                 useStyle = 1;
@@ -28173,12 +28173,12 @@ namespace Terraria
                 autoReuse = true;
                 maxStack = 999;
                 consumable = true;
-                createTile = 311 + type - 2260;
+                createTile = 311 + itemId - 2260;
                 width = 12;
                 height = 12;
                 value = buyPrice(0, 0, 0, 50);
             }
-            else if (type >= 2263 && type <= 2264)
+            else if (itemId >= 2263 && itemId <= 2264)
             {
                 name = "Dynasty Walls";
                 useStyle = 1;
@@ -28188,11 +28188,11 @@ namespace Terraria
                 autoReuse = true;
                 maxStack = 999;
                 consumable = true;
-                createWall = 142 + type - 2263;
+                createWall = 142 + itemId - 2263;
                 width = 12;
                 height = 12;
             }
-            else if (type == 2265)
+            else if (itemId == 2265)
             {
                 name = "Dynasty Door";
                 useStyle = 1;
@@ -28207,7 +28207,7 @@ namespace Terraria
                 height = 28;
                 value = 200;
             }
-            else if (type == 2266)
+            else if (itemId == 2266)
             {
                 name = "Sake";
                 useSound = 3;
@@ -28224,7 +28224,7 @@ namespace Terraria
                 rare = 1;
                 value = buyPrice(0, 0, 5, 0);
             }
-            else if (type == 2267)
+            else if (itemId == 2267)
             {
                 name = "Pad Thai";
                 useSound = 3;
@@ -28242,7 +28242,7 @@ namespace Terraria
                 toolTip = "Minor improvements to all stats";
                 value = buyPrice(0, 0, 20, 0);
             }
-            else if (type == 2268)
+            else if (itemId == 2268)
             {
                 name = "Pho";
                 useSound = 3;
@@ -28260,7 +28260,7 @@ namespace Terraria
                 toolTip = "Minor improvements to all stats";
                 value = buyPrice(0, 0, 30, 0);
             }
-            else if (type == 2269)
+            else if (itemId == 2269)
             {
                 name = "Revolver";
                 autoReuse = false;
@@ -28282,7 +28282,7 @@ namespace Terraria
                 ranged = true;
                 crit = 5;
             }
-            else if (type == 2270)
+            else if (itemId == 2270)
             {
                 useStyle = 5;
                 autoReuse = true;
@@ -28303,7 +28303,7 @@ namespace Terraria
                 toolTip = "33% chance to not consume ammo";
                 ranged = true;
             }
-            else if (type == 2271)
+            else if (itemId == 2271)
             {
                 name = "Arcane Runes";
                 useStyle = 1;
@@ -28318,7 +28318,7 @@ namespace Terraria
                 height = 12;
                 value = buyPrice(0, 0, 2, 50);
             }
-            else if (type == 2272)
+            else if (itemId == 2272)
             {
                 name = "Water Gun";
                 useStyle = 5;
@@ -28332,7 +28332,7 @@ namespace Terraria
                 shootSpeed = 11f;
                 value = buyPrice(0, 1, 50, 0);
             }
-            else if (type == 2273)
+            else if (itemId == 2273)
             {
                 autoReuse = true;
                 useTurn = true;
@@ -28350,7 +28350,7 @@ namespace Terraria
                 value = buyPrice(0, 4, 0, 0);
                 melee = true;
             }
-            else if (type == 2274)
+            else if (itemId == 2274)
             {
                 flame = true;
                 noWet = true;
@@ -28369,7 +28369,7 @@ namespace Terraria
                 height = 12;
                 value = buyPrice(0, 0, 3, 0);
             }
-            else if (type == 2275)
+            else if (itemId == 2275)
             {
                 name = "Magic Hat";
                 width = 18;
@@ -28380,7 +28380,7 @@ namespace Terraria
                 defense = 2;
                 rare = 2;
             }
-            else if (type == 2276)
+            else if (itemId == 2276)
             {
                 name = "Diamond Ring";
                 width = 24;
@@ -28391,7 +28391,7 @@ namespace Terraria
                 value = buyPrice(2, 0, 0, 0);
                 handOnSlot = 16;
             }
-            else if (type == 2277)
+            else if (itemId == 2277)
             {
                 name = "Gi";
                 width = 18;
@@ -28403,7 +28403,7 @@ namespace Terraria
                 toolTip = "10% increased melee and movement speed";
                 rare = 1;
             }
-            else if (type == 2278)
+            else if (itemId == 2278)
             {
                 name = "Kimono";
                 width = 18;
@@ -28412,7 +28412,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 1, 0, 0);
             }
-            else if (type == 2279)
+            else if (itemId == 2279)
             {
                 name = "Gypsy Robe";
                 width = 18;
@@ -28424,7 +28424,7 @@ namespace Terraria
                 toolTip2 = "Reduces mana usage by 10%";
                 rare = 1;
             }
-            else if (type == 2280)
+            else if (itemId == 2280)
             {
                 name = "Beetle Wings";
                 width = 22;
@@ -28435,7 +28435,7 @@ namespace Terraria
                 rare = 7;
                 wingSlot = 24;
             }
-            else if (type >= 2281 && type <= 2283)
+            else if (itemId >= 2281 && itemId <= 2283)
             {
                 name = "Animal Skins";
                 useStyle = 1;
@@ -28449,9 +28449,9 @@ namespace Terraria
                 width = 30;
                 height = 30;
                 value = buyPrice(0, 1, 0, 0);
-                placeStyle = 22 + type - 2281;
+                placeStyle = 22 + itemId - 2281;
             }
-            else if (type >= 2284 && type <= 2287)
+            else if (itemId >= 2284 && itemId <= 2287)
             {
                 name = "Capes";
                 width = 26;
@@ -28460,11 +28460,11 @@ namespace Terraria
                 value = buyPrice(0, 5, 0, 0);
                 rare = 5;
                 accessory = true;
-                backSlot = (sbyte)(3 + type - 2284);
-                frontSlot = (sbyte)(1 + type - 2284);
+                backSlot = (sbyte)(3 + itemId - 2284);
+                frontSlot = (sbyte)(1 + itemId - 2284);
                 vanity = true;
             }
-            else if (type == 2288)
+            else if (itemId == 2288)
             {
                 name = "Frozen Chair";
                 useStyle = 1;
@@ -28479,7 +28479,7 @@ namespace Terraria
                 width = 12;
                 height = 30;
             }
-            else if (type == 2289 || type >= 2291 && type <= 2296)
+            else if (itemId == 2289 || itemId >= 2291 && itemId <= 2296)
             {
                 name = "Fishing Poles";
                 useStyle = 1;
@@ -28488,39 +28488,39 @@ namespace Terraria
                 width = 24;
                 height = 28;
                 useSound = 1;
-                shoot = 361 + type - 2291;
-                if (type == 2289)
+                shoot = 361 + itemId - 2291;
+                if (itemId == 2289)
                 {
                     fishingPole = 5;
                     shootSpeed = 9f;
                     shoot = 360;
                 }
-                else if (type == 2291)
+                else if (itemId == 2291)
                 {
                     fishingPole = 15;
                     shootSpeed = 11f;
                 }
-                else if (type == 2293)
+                else if (itemId == 2293)
                 {
                     fishingPole = 20;
                     shootSpeed = 13f;
                     rare = 1;
                 }
-                else if (type == 2292)
+                else if (itemId == 2292)
                 {
                     fishingPole = 27;
                     shootSpeed = 14f;
                     rare = 2;
                     value = sellPrice(0, 1, 0, 0);
                 }
-                else if (type == 2295)
+                else if (itemId == 2295)
                 {
                     fishingPole = 30;
                     shootSpeed = 15f;
                     rare = 2;
                     value = buyPrice(0, 20, 0, 0);
                 }
-                else if (type == 2296)
+                else if (itemId == 2296)
                 {
                     fishingPole = 40;
                     shootSpeed = 16f;
@@ -28529,7 +28529,7 @@ namespace Terraria
                 }
                 else
                 {
-                    if (type != 2294)
+                    if (itemId != 2294)
                         return;
                     fishingPole = 50;
                     shootSpeed = 17f;
@@ -28537,7 +28537,7 @@ namespace Terraria
                     value = sellPrice(0, 20, 0, 0);
                 }
             }
-            else if (type >= 2421 && type <= 2422)
+            else if (itemId >= 2421 && itemId <= 2422)
             {
                 name = "Fishing Poles";
                 useStyle = 1;
@@ -28546,8 +28546,8 @@ namespace Terraria
                 width = 24;
                 height = 28;
                 useSound = 1;
-                shoot = 381 + type - 2421;
-                if (type == 2421)
+                shoot = 381 + itemId - 2421;
+                if (itemId == 2421)
                 {
                     fishingPole = 22;
                     shootSpeed = 13.5f;
@@ -28561,7 +28561,7 @@ namespace Terraria
                     value = sellPrice(0, 10, 0, 0);
                 }
             }
-            else if (type == 2320)
+            else if (itemId == 2320)
             {
                 name = "Rockfish";
                 autoReuse = true;
@@ -28579,7 +28579,7 @@ namespace Terraria
                 rare = 3;
                 melee = true;
             }
-            else if (type == 2314)
+            else if (itemId == 2314)
             {
                 name = "Honeyfin";
                 maxStack = 30;
@@ -28596,106 +28596,106 @@ namespace Terraria
                 consumable = true;
                 potion = true;
             }
-            else if (type >= 2290 && type <= 2321)
+            else if (itemId >= 2290 && itemId <= 2321)
             {
                 name = "Fish";
                 maxStack = 999;
                 width = 26;
                 height = 26;
                 value = sellPrice(0, 0, 5, 0);
-                if (type == 2308)
+                if (itemId == 2308)
                 {
                     value = sellPrice(0, 10, 0, 0);
                     rare = 4;
                 }
-                if (type == 2312)
+                if (itemId == 2312)
                 {
                     value = sellPrice(0, 0, 50, 0);
                     rare = 2;
                 }
-                if (type == 2317)
+                if (itemId == 2317)
                 {
                     value = sellPrice(0, 3, 0, 0);
                     rare = 4;
                 }
-                if (type == 2310)
+                if (itemId == 2310)
                 {
                     value = sellPrice(0, 1, 0, 0);
                     rare = 3;
                 }
-                if (type == 2321)
+                if (itemId == 2321)
                 {
                     value = sellPrice(0, 0, 25, 0);
                     rare = 1;
                 }
-                if (type == 2315)
+                if (itemId == 2315)
                 {
                     value = sellPrice(0, 0, 15, 0);
                     rare = 2;
                 }
-                if (type == 2303)
+                if (itemId == 2303)
                 {
                     value = sellPrice(0, 0, 15, 0);
                     rare = 1;
                 }
-                if (type == 2304)
+                if (itemId == 2304)
                 {
                     value = sellPrice(0, 0, 30, 0);
                     rare = 1;
                 }
-                if (type == 2316)
+                if (itemId == 2316)
                     value = sellPrice(0, 0, 15, 0);
-                if (type == 2311)
+                if (itemId == 2311)
                 {
                     value = sellPrice(0, 0, 15, 0);
                     rare = 1;
                 }
-                if (type == 2313)
+                if (itemId == 2313)
                 {
                     value = sellPrice(0, 0, 15, 0);
                     rare = 1;
                 }
-                if (type == 2306)
+                if (itemId == 2306)
                 {
                     value = sellPrice(0, 0, 15, 0);
                     rare = 1;
                 }
-                if (type == 2307)
+                if (itemId == 2307)
                 {
                     value = sellPrice(0, 0, 25, 0);
                     rare = 2;
                 }
-                if (type == 2319)
+                if (itemId == 2319)
                 {
                     value = sellPrice(0, 0, 15, 0);
                     rare = 1;
                 }
-                if (type == 2318)
+                if (itemId == 2318)
                 {
                     value = sellPrice(0, 0, 15, 0);
                     rare = 1;
                 }
-                if (type == 2298)
+                if (itemId == 2298)
                     value = sellPrice(0, 0, 7, 50);
-                if (type == 2309)
+                if (itemId == 2309)
                 {
                     value = sellPrice(0, 0, 7, 50);
                     rare = 1;
                 }
-                if (type == 2300)
+                if (itemId == 2300)
                     value = sellPrice(0, 0, 7, 50);
-                if (type == 2301)
+                if (itemId == 2301)
                     value = sellPrice(0, 0, 7, 50);
-                if (type == 2302)
+                if (itemId == 2302)
                     value = sellPrice(0, 0, 15, 0);
-                if (type == 2299)
+                if (itemId == 2299)
                     value = sellPrice(0, 0, 7, 50);
-                if (type != 2305)
+                if (itemId != 2305)
                     return;
                 value = sellPrice(0, 0, 7, 50);
                 rare = 1;
             }
-            else if (type == 2322)
+            else if (itemId == 2322)
             {
                 name = "Mining Potion";
                 useSound = 3;
@@ -28713,7 +28713,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 2323)
+            else if (itemId == 2323)
             {
                 name = "Heartreach Potion";
                 useSound = 3;
@@ -28731,7 +28731,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 2324)
+            else if (itemId == 2324)
             {
                 name = "Calming Potion";
                 useSound = 3;
@@ -28749,7 +28749,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 2325)
+            else if (itemId == 2325)
             {
                 name = "Builder Potion";
                 useSound = 3;
@@ -28767,7 +28767,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 2326)
+            else if (itemId == 2326)
             {
                 name = "Titan Potion";
                 useSound = 3;
@@ -28785,7 +28785,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 2327)
+            else if (itemId == 2327)
             {
                 name = "Flipper Potion";
                 useSound = 3;
@@ -28803,7 +28803,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 2328)
+            else if (itemId == 2328)
             {
                 name = "Summoning Potion";
                 useSound = 3;
@@ -28821,7 +28821,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 2329)
+            else if (itemId == 2329)
             {
                 name = "Trapsight Potion";
                 useSound = 3;
@@ -28839,7 +28839,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 2330)
+            else if (itemId == 2330)
             {
                 name = "Purple Clubberfish";
                 autoReuse = true;
@@ -28855,7 +28855,7 @@ namespace Terraria
                 value = sellPrice(0, 1, 0, 0);
                 melee = true;
             }
-            else if (type == 2331)
+            else if (itemId == 2331)
             {
                 name = "Obsidian Swordfish";
                 useStyle = 5;
@@ -28875,7 +28875,7 @@ namespace Terraria
                 noUseGraphic = true;
                 melee = true;
             }
-            else if (type == 2332)
+            else if (itemId == 2332)
             {
                 name = "Swordfish";
                 useStyle = 5;
@@ -28894,7 +28894,7 @@ namespace Terraria
                 noUseGraphic = true;
                 melee = true;
             }
-            else if (type == 2333)
+            else if (itemId == 2333)
             {
                 name = "Iron Fence";
                 useStyle = 1;
@@ -28908,7 +28908,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 2334)
+            else if (itemId == 2334)
             {
                 name = "Wooden Crate";
                 width = 12;
@@ -28925,7 +28925,7 @@ namespace Terraria
                 useStyle = 1;
                 consumable = true;
             }
-            else if (type == 2335)
+            else if (itemId == 2335)
             {
                 name = "Iron Crate";
                 width = 12;
@@ -28942,7 +28942,7 @@ namespace Terraria
                 useStyle = 1;
                 consumable = true;
             }
-            else if (type == 2336)
+            else if (itemId == 2336)
             {
                 name = "Golden Crate";
                 width = 12;
@@ -28959,7 +28959,7 @@ namespace Terraria
                 useStyle = 1;
                 consumable = true;
             }
-            else if (type >= 2337 && type <= 2339)
+            else if (itemId >= 2337 && itemId <= 2339)
             {
                 name = "Junk";
                 width = 12;
@@ -28967,7 +28967,7 @@ namespace Terraria
                 rare = -1;
                 maxStack = 99;
             }
-            else if (type == 2340)
+            else if (itemId == 2340)
             {
                 name = "Tracks";
                 useStyle = 1;
@@ -28984,7 +28984,7 @@ namespace Terraria
                 cartTrack = true;
                 tileBoost = 5;
             }
-            else if (type == 2341)
+            else if (itemId == 2341)
             {
                 name = "Reaver Shark";
                 useStyle = 1;
@@ -29003,7 +29003,7 @@ namespace Terraria
                 value = sellPrice(0, 1, 50, 0);
                 melee = true;
             }
-            else if (type == 2342)
+            else if (itemId == 2342)
             {
                 name = "Sawtooth Shark";
                 useStyle = 5;
@@ -29024,7 +29024,7 @@ namespace Terraria
                 melee = true;
                 channel = true;
             }
-            else if (type == 2343)
+            else if (itemId == 2343)
             {
                 name = "Minecart";
                 width = 48;
@@ -29033,7 +29033,7 @@ namespace Terraria
                 rare = 1;
                 value = sellPrice(0, 0, 2, 0);
             }
-            else if (type == 2344)
+            else if (itemId == 2344)
             {
                 name = "Ammo Reservation Potion";
                 useSound = 3;
@@ -29051,7 +29051,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 2345)
+            else if (itemId == 2345)
             {
                 name = "Lifeforce Potion";
                 useSound = 3;
@@ -29069,7 +29069,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 2346)
+            else if (itemId == 2346)
             {
                 name = "Endurance Potion";
                 useSound = 3;
@@ -29087,7 +29087,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 2347)
+            else if (itemId == 2347)
             {
                 name = "Rage Potion";
                 useSound = 3;
@@ -29105,7 +29105,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 2348)
+            else if (itemId == 2348)
             {
                 name = "Inferno Potion";
                 useSound = 3;
@@ -29123,7 +29123,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 2349)
+            else if (itemId == 2349)
             {
                 name = "Wrath Potion";
                 useSound = 3;
@@ -29141,7 +29141,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 2350)
+            else if (itemId == 2350)
             {
                 name = "Recall Potion";
                 useSound = 6;
@@ -29157,7 +29157,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 2351)
+            else if (itemId == 2351)
             {
                 name = "Teleportation Potion";
                 useSound = 6;
@@ -29173,7 +29173,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 2352)
+            else if (itemId == 2352)
             {
                 useStyle = 1;
                 name = "Love Potion";
@@ -29191,7 +29191,7 @@ namespace Terraria
                 value = 200;
                 toolTip = "Throw at someone to make them fall in love";
             }
-            else if (type == 2353)
+            else if (itemId == 2353)
             {
                 useStyle = 1;
                 name = "Stink Potion";
@@ -29209,7 +29209,7 @@ namespace Terraria
                 value = 200;
                 toolTip = "Throw at someone to make them smell terrible";
             }
-            else if (type == 2354)
+            else if (itemId == 2354)
             {
                 name = "Fishing Potion";
                 useSound = 3;
@@ -29227,7 +29227,7 @@ namespace Terraria
                 rare = 1;
                 value = 1000;
             }
-            else if (type == 2355)
+            else if (itemId == 2355)
             {
                 name = "Sonar Potion";
                 useSound = 3;
@@ -29244,7 +29244,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 2356)
+            else if (itemId == 2356)
             {
                 name = "Crate Potion";
                 useSound = 3;
@@ -29261,7 +29261,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 2357)
+            else if (itemId == 2357)
             {
                 autoReuse = true;
                 name = "Shiverthorn Seeds";
@@ -29277,7 +29277,7 @@ namespace Terraria
                 height = 14;
                 value = 80;
             }
-            else if (type == 2358)
+            else if (itemId == 2358)
             {
                 name = "Shiverthorn";
                 maxStack = 99;
@@ -29285,7 +29285,7 @@ namespace Terraria
                 height = 14;
                 value = 100;
             }
-            else if (type == 2359)
+            else if (itemId == 2359)
             {
                 name = "Warmth Potion";
                 useSound = 3;
@@ -29303,7 +29303,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 2360)
+            else if (itemId == 2360)
             {
                 noUseGraphic = true;
                 damage = 0;
@@ -29320,7 +29320,7 @@ namespace Terraria
                 noMelee = true;
                 value = 20000;
             }
-            else if (type == 2361)
+            else if (itemId == 2361)
             {
                 name = "Bee Headgear";
                 width = 18;
@@ -29331,7 +29331,7 @@ namespace Terraria
                 value = 45000;
                 toolTip = "Increases minion damage by 4%";
             }
-            else if (type == 2362)
+            else if (itemId == 2362)
             {
                 name = "Bee Breastplate";
                 width = 18;
@@ -29342,7 +29342,7 @@ namespace Terraria
                 value = 30000;
                 toolTip = "Increases minion damage by 6%";
             }
-            else if (type == 2363)
+            else if (itemId == 2363)
             {
                 name = "Bee Greaves";
                 width = 18;
@@ -29353,7 +29353,7 @@ namespace Terraria
                 value = 30000;
                 toolTip = "Increases minion damage by 5%";
             }
-            else if (type == 2364)
+            else if (itemId == 2364)
             {
                 mana = 10;
                 damage = 9;
@@ -29374,7 +29374,7 @@ namespace Terraria
                 value = 10000;
                 summon = true;
             }
-            else if (type == 2365)
+            else if (itemId == 2365)
             {
                 mana = 10;
                 damage = 21;
@@ -29395,7 +29395,7 @@ namespace Terraria
                 value = 10000;
                 summon = true;
             }
-            else if (type == 2366)
+            else if (itemId == 2366)
             {
                 mana = 10;
                 damage = 21;
@@ -29414,7 +29414,7 @@ namespace Terraria
                 rare = 4;
                 summon = true;
             }
-            else if (type == 2367)
+            else if (itemId == 2367)
             {
                 name = "Angler Hat";
                 width = 18;
@@ -29424,7 +29424,7 @@ namespace Terraria
                 rare = 1;
                 value = sellPrice(0, 1, 0, 0);
             }
-            else if (type == 2368)
+            else if (itemId == 2368)
             {
                 name = "Angler Vest";
                 width = 18;
@@ -29434,7 +29434,7 @@ namespace Terraria
                 rare = 1;
                 value = sellPrice(0, 1, 0, 0);
             }
-            else if (type == 2369)
+            else if (itemId == 2369)
             {
                 name = "Angler Pants";
                 width = 18;
@@ -29444,7 +29444,7 @@ namespace Terraria
                 rare = 1;
                 value = sellPrice(0, 1, 0, 0);
             }
-            else if (type == 2370)
+            else if (itemId == 2370)
             {
                 name = "Spider Mask";
                 width = 18;
@@ -29456,7 +29456,7 @@ namespace Terraria
                 toolTip2 = "Increases minion damage by 5%";
                 defense = 5;
             }
-            else if (type == 2371)
+            else if (itemId == 2371)
             {
                 name = "Spider Breastplate";
                 width = 18;
@@ -29468,7 +29468,7 @@ namespace Terraria
                 toolTip2 = "Increases minion damage by 6%";
                 defense = 8;
             }
-            else if (type == 2372)
+            else if (itemId == 2372)
             {
                 name = "Spider Greaves";
                 width = 18;
@@ -29480,7 +29480,7 @@ namespace Terraria
                 toolTip2 = "Increases minion damage by 6%";
                 defense = 7;
             }
-            else if (type >= 2373 && type <= 2375)
+            else if (itemId >= 2373 && itemId <= 2375)
             {
                 name = "Fishing Accessories";
                 width = 26;
@@ -29490,7 +29490,7 @@ namespace Terraria
                 rare = 1;
                 accessory = true;
             }
-            else if (type >= 2376 && type <= 2385)
+            else if (itemId >= 2376 && itemId <= 2385)
             {
                 name = "More Pianos";
                 useStyle = 1;
@@ -29501,12 +29501,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 87;
-                placeStyle = 11 + type - 2376;
+                placeStyle = 11 + itemId - 2376;
                 width = 20;
                 height = 20;
                 value = 300;
             }
-            else if (type >= 2386 && type <= 2396)
+            else if (itemId >= 2386 && itemId <= 2396)
             {
                 name = "More Dressers";
                 useStyle = 1;
@@ -29517,12 +29517,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 88;
-                placeStyle = 5 + type - 2386;
+                placeStyle = 5 + itemId - 2386;
                 width = 20;
                 height = 20;
                 value = 300;
             }
-            else if (type >= 2397 && type <= 2416)
+            else if (itemId >= 2397 && itemId <= 2416)
             {
                 name = "Sofas";
                 useStyle = 1;
@@ -29533,12 +29533,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 89;
-                placeStyle = 1 + type - 2397;
+                placeStyle = 1 + itemId - 2397;
                 width = 20;
                 height = 20;
                 value = 300;
             }
-            else if (type == 2417)
+            else if (itemId == 2417)
             {
                 name = "Seashell Hairpin";
                 width = 18;
@@ -29547,7 +29547,7 @@ namespace Terraria
                 vanity = true;
                 value = sellPrice(0, 1, 0, 0);
             }
-            else if (type == 2418)
+            else if (itemId == 2418)
             {
                 name = "Mermaid Adornment";
                 width = 18;
@@ -29556,7 +29556,7 @@ namespace Terraria
                 vanity = true;
                 value = sellPrice(0, 1, 0, 0);
             }
-            else if (type == 2419)
+            else if (itemId == 2419)
             {
                 name = "Mermaid Tail";
                 width = 18;
@@ -29565,7 +29565,7 @@ namespace Terraria
                 vanity = true;
                 value = sellPrice(0, 1, 0, 0);
             }
-            else if (type == 2420)
+            else if (itemId == 2420)
             {
                 damage = 0;
                 useStyle = 1;
@@ -29582,7 +29582,7 @@ namespace Terraria
                 value = sellPrice(0, 3, 0, 0);
                 buffType = (int)127;
             }
-            else if (type == 2423)
+            else if (itemId == 2423)
             {
                 name = "Frog Leg";
                 width = 16;
@@ -29594,7 +29594,7 @@ namespace Terraria
                 value = 50000;
                 shoeSlot = 15;
             }
-            else if (type == 2424)
+            else if (itemId == 2424)
             {
                 noMelee = true;
                 useStyle = 1;
@@ -29613,7 +29613,7 @@ namespace Terraria
                 value = 50000;
                 melee = true;
             }
-            else if (type >= 2425 && type <= 2427)
+            else if (itemId >= 2425 && itemId <= 2427)
             {
                 name = "Fishing Food";
                 useSound = 2;
@@ -29631,7 +29631,7 @@ namespace Terraria
                 toolTip = "Minor improvements to all stats";
                 value = sellPrice(0, 0, 5, 0);
             }
-            else if (type == 2428)
+            else if (itemId == 2428)
             {
                 useStyle = 1;
                 name = "Fuzzy Carrot";
@@ -29645,7 +29645,7 @@ namespace Terraria
                 mountType = 1;
                 value = sellPrice(0, 5, 0, 0);
             }
-            else if (type == 2429)
+            else if (itemId == 2429)
             {
                 useStyle = 1;
                 name = "Scaly Truffle";
@@ -29659,7 +29659,7 @@ namespace Terraria
                 mountType = 2;
                 value = sellPrice(0, 5, 0, 0);
             }
-            else if (type == 2430)
+            else if (itemId == 2430)
             {
                 useStyle = 1;
                 name = "Slimy Saddle";
@@ -29673,7 +29673,7 @@ namespace Terraria
                 mountType = 3;
                 value = sellPrice(0, 5, 0, 0);
             }
-            else if (type == 2431)
+            else if (itemId == 2431)
             {
                 name = "Bee Wax";
                 width = 18;
@@ -29681,7 +29681,7 @@ namespace Terraria
                 maxStack = 99;
                 value = 100;
             }
-            else if (type >= 2432 && type <= 2434)
+            else if (itemId >= 2432 && itemId <= 2434)
             {
                 name = "Some walls";
                 useStyle = 1;
@@ -29691,14 +29691,14 @@ namespace Terraria
                 autoReuse = true;
                 maxStack = 999;
                 consumable = true;
-                createWall = 146 + type - 2432;
+                createWall = 146 + itemId - 2432;
                 width = 12;
                 height = 12;
-                if (type != 2434)
+                if (itemId != 2434)
                     return;
                 value = buyPrice(0, 0, 0, 50);
             }
-            else if (type == 2435)
+            else if (itemId == 2435)
             {
                 name = "Coralstone Block";
                 useStyle = 1;
@@ -29713,7 +29713,7 @@ namespace Terraria
                 height = 12;
                 value = buyPrice(0, 0, 0, 50);
             }
-            else if (type >= 2436 && type <= 2438)
+            else if (itemId >= 2436 && itemId <= 2438)
             {
                 name = "Jellyfish(es)";
                 useStyle = 1;
@@ -29729,7 +29729,7 @@ namespace Terraria
                 bait = 20;
                 value = sellPrice(0, 3, 50, 0);
             }
-            else if (type >= 2439 && type <= 2441)
+            else if (itemId >= 2439 && itemId <= 2441)
             {
                 name = "Jellyfish Jar";
                 useStyle = 1;
@@ -29739,11 +29739,11 @@ namespace Terraria
                 autoReuse = true;
                 maxStack = 99;
                 consumable = true;
-                createTile = 316 + type - 2439;
+                createTile = 316 + itemId - 2439;
                 width = 12;
                 height = 12;
             }
-            else if (type >= 2442 && type <= 2449)
+            else if (itemId >= 2442 && itemId <= 2449)
             {
                 name = "Fishing Wall Hangings";
                 useStyle = 1;
@@ -29757,9 +29757,9 @@ namespace Terraria
                 width = 30;
                 height = 30;
                 value = sellPrice(0, 0, 50, 0);
-                placeStyle = 46 + type - 2442;
+                placeStyle = 46 + itemId - 2442;
             }
-            else if (type >= 2450 && type <= 2488)
+            else if (itemId >= 2450 && itemId <= 2488)
             {
                 name = "Quest Fish";
                 questItem = true;
@@ -29769,7 +29769,7 @@ namespace Terraria
                 uniqueStack = true;
                 rare = -11;
             }
-            else if (type == 2489)
+            else if (itemId == 2489)
             {
                 name = "King Slime Trophy";
                 useStyle = 1;
@@ -29786,7 +29786,7 @@ namespace Terraria
                 placeStyle = 54;
                 rare = 1;
             }
-            else if (type == 2490)
+            else if (itemId == 2490)
             {
                 name = "Ship in a Bottle";
                 useStyle = 1;
@@ -29801,7 +29801,7 @@ namespace Terraria
                 height = 12;
                 value = sellPrice(0, 3, 0, 0);
             }
-            else if (type == 2491)
+            else if (itemId == 2491)
             {
                 useStyle = 1;
                 name = "Hardy Saddle";
@@ -29815,7 +29815,7 @@ namespace Terraria
                 mountType = 4;
                 value = sellPrice(0, 5, 0, 0);
             }
-            else if (type == 2492)
+            else if (itemId == 2492)
             {
                 name = "Pressure Track";
                 useStyle = 1;
@@ -29834,7 +29834,7 @@ namespace Terraria
                 tileBoost = 2;
                 value = sellPrice(0, 0, 10, 0);
             }
-            else if (type == 2493)
+            else if (itemId == 2493)
             {
                 name = "King Slime Mask";
                 width = 28;
@@ -29843,7 +29843,7 @@ namespace Terraria
                 rare = 1;
                 vanity = true;
             }
-            else if (type == 2494)
+            else if (itemId == 2494)
             {
                 name = "Fin Wings";
                 width = 22;
@@ -29854,7 +29854,7 @@ namespace Terraria
                 rare = 4;
                 wingSlot = 25;
             }
-            else if (type == 2495)
+            else if (itemId == 2495)
             {
                 name = "Treasure Map";
                 useStyle = 1;
@@ -29870,7 +29870,7 @@ namespace Terraria
                 value = sellPrice(0, 1, 0, 0);
                 placeStyle = 25;
             }
-            else if (type == 2496)
+            else if (itemId == 2496)
             {
                 name = "Seaweed Planter";
                 useStyle = 1;
@@ -29886,7 +29886,7 @@ namespace Terraria
                 height = 30;
                 value = sellPrice(0, 1, 0, 0);
             }
-            else if (type == 2497)
+            else if (itemId == 2497)
             {
                 name = "Pillagin Me Pixels";
                 useStyle = 1;
@@ -29902,7 +29902,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 50, 0);
                 placeStyle = 26;
             }
-            else if (type == 2498)
+            else if (itemId == 2498)
             {
                 name = "Fish Costume Mask";
                 width = 18;
@@ -29911,7 +29911,7 @@ namespace Terraria
                 vanity = true;
                 value = sellPrice(0, 1, 0, 0);
             }
-            else if (type == 2499)
+            else if (itemId == 2499)
             {
                 name = "Fish Costume Shirt";
                 width = 18;
@@ -29920,7 +29920,7 @@ namespace Terraria
                 vanity = true;
                 value = sellPrice(0, 1, 0, 0);
             }
-            else if (type == 2500)
+            else if (itemId == 2500)
             {
                 name = "Fish Costume Finskirt";
                 width = 18;
@@ -29929,7 +29929,7 @@ namespace Terraria
                 vanity = true;
                 value = sellPrice(0, 1, 0, 0);
             }
-            else if (type == 2501)
+            else if (itemId == 2501)
             {
                 name = "Ginger Beard";
                 width = 18;
@@ -29941,7 +29941,7 @@ namespace Terraria
                 faceSlot = 8;
                 vanity = true;
             }
-            else if (type == 2502)
+            else if (itemId == 2502)
             {
                 useStyle = 1;
                 name = "Honeyed Goggles";
@@ -29955,7 +29955,7 @@ namespace Terraria
                 mountType = 5;
                 value = sellPrice(0, 5, 0, 0);
             }
-            else if (type == 2503)
+            else if (itemId == 2503)
             {
                 name = "Boreal Wood";
                 useStyle = 1;
@@ -29969,7 +29969,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 2504)
+            else if (itemId == 2504)
             {
                 name = "Palm Wood";
                 useStyle = 1;
@@ -29983,7 +29983,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 2505)
+            else if (itemId == 2505)
             {
                 name = "Boreal Wood Wall";
                 useStyle = 1;
@@ -29997,7 +29997,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 2506)
+            else if (itemId == 2506)
             {
                 name = "Palm Wood Wall";
                 useStyle = 1;
@@ -30011,7 +30011,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 2507)
+            else if (itemId == 2507)
             {
                 name = "Boreal Wood Fence";
                 useStyle = 1;
@@ -30025,7 +30025,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 2508)
+            else if (itemId == 2508)
             {
                 name = "Palm Wood Fence";
                 useStyle = 1;
@@ -30039,7 +30039,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 2509)
+            else if (itemId == 2509)
             {
                 name = "Boreal Wood Helmet";
                 width = 18;
@@ -30047,7 +30047,7 @@ namespace Terraria
                 defense = 1;
                 headSlot = 166;
             }
-            else if (type == 2510)
+            else if (itemId == 2510)
             {
                 name = "Boreal Wood Breastplate";
                 width = 18;
@@ -30055,7 +30055,7 @@ namespace Terraria
                 defense = 1;
                 bodySlot = 173;
             }
-            else if (type == 2511)
+            else if (itemId == 2511)
             {
                 name = "Boreal Wood Greaves";
                 width = 18;
@@ -30063,7 +30063,7 @@ namespace Terraria
                 defense = 1;
                 legSlot = 108;
             }
-            else if (type == 2512)
+            else if (itemId == 2512)
             {
                 name = "Palm Wood Helmet";
                 width = 18;
@@ -30071,7 +30071,7 @@ namespace Terraria
                 defense = 1;
                 headSlot = 167;
             }
-            else if (type == 2513)
+            else if (itemId == 2513)
             {
                 name = "Palm Wood Breastplate";
                 width = 18;
@@ -30079,7 +30079,7 @@ namespace Terraria
                 defense = 1;
                 bodySlot = 174;
             }
-            else if (type == 2514)
+            else if (itemId == 2514)
             {
                 name = "Palm Wood Greaves";
                 width = 18;
@@ -30087,7 +30087,7 @@ namespace Terraria
                 defense = 1;
                 legSlot = 109;
             }
-            else if (type == 2517)
+            else if (itemId == 2517)
             {
                 name = "Palm Wood Sword";
                 useStyle = 1;
@@ -30103,7 +30103,7 @@ namespace Terraria
                 value = 100;
                 melee = true;
             }
-            else if (type == 2516)
+            else if (itemId == 2516)
             {
                 name = "Palm Wood Hammer";
                 autoReuse = true;
@@ -30121,7 +30121,7 @@ namespace Terraria
                 value = 50;
                 melee = true;
             }
-            else if (type == 2515)
+            else if (itemId == 2515)
             {
                 name = "Palm Wood Bow";
                 useStyle = 5;
@@ -30138,7 +30138,7 @@ namespace Terraria
                 value = 100;
                 ranged = true;
             }
-            else if (type == 2518)
+            else if (itemId == 2518)
             {
                 name = "Palm Wood Platform";
                 useStyle = 1;
@@ -30153,7 +30153,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 2519)
+            else if (itemId == 2519)
             {
                 name = "Palm Wood Bathtub";
                 useStyle = 1;
@@ -30169,7 +30169,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2520)
+            else if (itemId == 2520)
             {
                 name = "Palm Wood Bed";
                 useStyle = 1;
@@ -30185,7 +30185,7 @@ namespace Terraria
                 height = 20;
                 value = 2000;
             }
-            else if (type == 2521)
+            else if (itemId == 2521)
             {
                 name = "Palm Wood Bench";
                 useStyle = 1;
@@ -30201,7 +30201,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2527)
+            else if (itemId == 2527)
             {
                 name = "Palm Wood Sofa";
                 useStyle = 1;
@@ -30217,7 +30217,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2522)
+            else if (itemId == 2522)
             {
                 name = "Palm Wood Candelabra";
                 useStyle = 1;
@@ -30233,7 +30233,7 @@ namespace Terraria
                 height = 20;
                 value = 1500;
             }
-            else if (type == 2523)
+            else if (itemId == 2523)
             {
                 noWet = true;
                 name = "Palm Wood Candle";
@@ -30249,7 +30249,7 @@ namespace Terraria
                 width = 8;
                 height = 18;
             }
-            else if (type == 2524)
+            else if (itemId == 2524)
             {
                 name = "Palm Wood Chair";
                 useStyle = 1;
@@ -30264,7 +30264,7 @@ namespace Terraria
                 width = 12;
                 height = 30;
             }
-            else if (type == 2525)
+            else if (itemId == 2525)
             {
                 name = "Palm Wood Chandelier";
                 useStyle = 1;
@@ -30280,7 +30280,7 @@ namespace Terraria
                 height = 26;
                 value = 3000;
             }
-            else if (type == 2526)
+            else if (itemId == 2526)
             {
                 name = "Palm Wood Chest";
                 useStyle = 1;
@@ -30296,7 +30296,7 @@ namespace Terraria
                 height = 22;
                 value = 500;
             }
-            else if (type == 2528)
+            else if (itemId == 2528)
             {
                 name = "Palm Wood Door";
                 useStyle = 1;
@@ -30311,7 +30311,7 @@ namespace Terraria
                 height = 28;
                 value = 200;
             }
-            else if (type == 2529)
+            else if (itemId == 2529)
             {
                 name = "Palm Wood Dresser";
                 useStyle = 1;
@@ -30327,7 +30327,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2530)
+            else if (itemId == 2530)
             {
                 name = "Palm Wood Lantern";
                 useStyle = 1;
@@ -30342,7 +30342,7 @@ namespace Terraria
                 height = 28;
                 placeStyle = 27;
             }
-            else if (type == 2531)
+            else if (itemId == 2531)
             {
                 name = "Palm Wood Piano";
                 useStyle = 1;
@@ -30358,7 +30358,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2535)
+            else if (itemId == 2535)
             {
                 mana = 10;
                 damage = 30;
@@ -30379,7 +30379,7 @@ namespace Terraria
                 value = buyPrice(0, 10, 0, 0);
                 summon = true;
             }
-            else if (type == 2532)
+            else if (itemId == 2532)
             {
                 name = "Palm Wood Table";
                 useStyle = 1;
@@ -30395,7 +30395,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2533)
+            else if (itemId == 2533)
             {
                 name = "Palm Wood Lamp";
                 useStyle = 1;
@@ -30411,7 +30411,7 @@ namespace Terraria
                 height = 24;
                 value = 500;
             }
-            else if (type == 2534)
+            else if (itemId == 2534)
             {
                 name = "Palm Wood Work Bench";
                 useStyle = 1;
@@ -30428,7 +30428,7 @@ namespace Terraria
                 value = 150;
                 toolTip = "Used for basic crafting";
             }
-            else if (type == 2536)
+            else if (itemId == 2536)
             {
                 name = "Palm Wood Bookcase";
                 useStyle = 1;
@@ -30444,7 +30444,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 23;
             }
-            else if (type == 2549)
+            else if (itemId == 2549)
             {
                 name = "Mushroom Platform";
                 useStyle = 1;
@@ -30459,7 +30459,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 2537)
+            else if (itemId == 2537)
             {
                 name = "Mushroom Bathtub";
                 useStyle = 1;
@@ -30475,7 +30475,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2538)
+            else if (itemId == 2538)
             {
                 name = "Mushroom Bed";
                 useStyle = 1;
@@ -30491,7 +30491,7 @@ namespace Terraria
                 height = 20;
                 value = 2000;
             }
-            else if (type == 2539)
+            else if (itemId == 2539)
             {
                 name = "Mushroom Bench";
                 useStyle = 1;
@@ -30507,7 +30507,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2540)
+            else if (itemId == 2540)
             {
                 name = "Mushroom Bookcase";
                 useStyle = 1;
@@ -30523,7 +30523,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 24;
             }
-            else if (type == 2541)
+            else if (itemId == 2541)
             {
                 name = "Mushroom Candelabra";
                 useStyle = 1;
@@ -30539,7 +30539,7 @@ namespace Terraria
                 height = 20;
                 value = 1500;
             }
-            else if (type == 2542)
+            else if (itemId == 2542)
             {
                 noWet = true;
                 name = "Mushroom Candle";
@@ -30555,7 +30555,7 @@ namespace Terraria
                 width = 8;
                 height = 18;
             }
-            else if (type == 2543)
+            else if (itemId == 2543)
             {
                 name = "Mushroom Chandelier";
                 useStyle = 1;
@@ -30571,7 +30571,7 @@ namespace Terraria
                 height = 26;
                 value = 3000;
             }
-            else if (type == 2544)
+            else if (itemId == 2544)
             {
                 name = "Mushroom Chest";
                 useStyle = 1;
@@ -30587,7 +30587,7 @@ namespace Terraria
                 height = 22;
                 value = 500;
             }
-            else if (type == 2545)
+            else if (itemId == 2545)
             {
                 name = "Mushroom Dresser";
                 useStyle = 1;
@@ -30603,7 +30603,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2547)
+            else if (itemId == 2547)
             {
                 name = "Mushroom Lamp";
                 useStyle = 1;
@@ -30619,7 +30619,7 @@ namespace Terraria
                 height = 24;
                 value = 500;
             }
-            else if (type == 2546)
+            else if (itemId == 2546)
             {
                 name = "Mushroom Lantern";
                 useStyle = 1;
@@ -30634,7 +30634,7 @@ namespace Terraria
                 height = 28;
                 placeStyle = 28;
             }
-            else if (type == 2548)
+            else if (itemId == 2548)
             {
                 name = "Mushroom Piano";
                 useStyle = 1;
@@ -30650,7 +30650,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2413)
+            else if (itemId == 2413)
             {
                 name = "Mushroom Sofa";
                 useStyle = 1;
@@ -30666,7 +30666,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2550)
+            else if (itemId == 2550)
             {
                 name = "Mushroom Table";
                 useStyle = 1;
@@ -30682,7 +30682,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2551)
+            else if (itemId == 2551)
             {
                 mana = 10;
                 damage = 26;
@@ -30703,7 +30703,7 @@ namespace Terraria
                 value = buyPrice(0, 5, 0, 0);
                 summon = true;
             }
-            else if (type == 2552)
+            else if (itemId == 2552)
             {
                 name = "Boreal Wood Bathtub";
                 useStyle = 1;
@@ -30719,7 +30719,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2553)
+            else if (itemId == 2553)
             {
                 name = "Boreal Wood Bed";
                 useStyle = 1;
@@ -30735,7 +30735,7 @@ namespace Terraria
                 height = 20;
                 value = 2000;
             }
-            else if (type == 2554)
+            else if (itemId == 2554)
             {
                 name = "Boreal Wood Bookcase";
                 useStyle = 1;
@@ -30751,7 +30751,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 25;
             }
-            else if (type == 2555)
+            else if (itemId == 2555)
             {
                 name = "Boreal Wood Candelabra";
                 useStyle = 1;
@@ -30767,7 +30767,7 @@ namespace Terraria
                 height = 20;
                 value = 1500;
             }
-            else if (type == 2556)
+            else if (itemId == 2556)
             {
                 noWet = true;
                 name = "Boreal Wood Candle";
@@ -30783,7 +30783,7 @@ namespace Terraria
                 width = 8;
                 height = 18;
             }
-            else if (type == 2557)
+            else if (itemId == 2557)
             {
                 name = "Boreal Wood Chair";
                 useStyle = 1;
@@ -30798,7 +30798,7 @@ namespace Terraria
                 width = 12;
                 height = 30;
             }
-            else if (type == 2558)
+            else if (itemId == 2558)
             {
                 name = "Boreal Wood Chandelier";
                 useStyle = 1;
@@ -30814,7 +30814,7 @@ namespace Terraria
                 height = 26;
                 value = 3000;
             }
-            else if (type == 2559)
+            else if (itemId == 2559)
             {
                 name = "Boreal Wood Chest";
                 useStyle = 1;
@@ -30830,7 +30830,7 @@ namespace Terraria
                 height = 22;
                 value = 500;
             }
-            else if (type == 2560)
+            else if (itemId == 2560)
             {
                 name = "Boreal Wood Clock";
                 useStyle = 1;
@@ -30846,7 +30846,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2561)
+            else if (itemId == 2561)
             {
                 name = "Boreal Wood Door";
                 useStyle = 1;
@@ -30861,7 +30861,7 @@ namespace Terraria
                 height = 28;
                 value = 200;
             }
-            else if (type == 2562)
+            else if (itemId == 2562)
             {
                 name = "Boreal Wood Dresser";
                 useStyle = 1;
@@ -30877,7 +30877,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2563)
+            else if (itemId == 2563)
             {
                 name = "Boreal Wood Lamp";
                 useStyle = 1;
@@ -30893,7 +30893,7 @@ namespace Terraria
                 height = 24;
                 value = 500;
             }
-            else if (type == 2564)
+            else if (itemId == 2564)
             {
                 name = "Boreal Wood Lantern";
                 useStyle = 1;
@@ -30908,7 +30908,7 @@ namespace Terraria
                 width = 12;
                 height = 28;
             }
-            else if (type == 2565)
+            else if (itemId == 2565)
             {
                 name = "Boreal Wood Piano";
                 useStyle = 1;
@@ -30924,7 +30924,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2566)
+            else if (itemId == 2566)
             {
                 name = "Boreal Wood Platform";
                 useStyle = 1;
@@ -30939,7 +30939,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 2567)
+            else if (itemId == 2567)
             {
                 name = "Slime Bathtub";
                 useStyle = 1;
@@ -30955,7 +30955,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2568)
+            else if (itemId == 2568)
             {
                 name = "Slime Bed";
                 useStyle = 1;
@@ -30971,7 +30971,7 @@ namespace Terraria
                 height = 20;
                 value = 2000;
             }
-            else if (type == 2569)
+            else if (itemId == 2569)
             {
                 name = "Slime Bookcase";
                 useStyle = 1;
@@ -30987,7 +30987,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2570)
+            else if (itemId == 2570)
             {
                 name = "Slime Candelabra";
                 useStyle = 1;
@@ -31003,7 +31003,7 @@ namespace Terraria
                 height = 20;
                 value = 1500;
             }
-            else if (type == 2571)
+            else if (itemId == 2571)
             {
                 noWet = true;
                 name = "Slime Candle";
@@ -31019,7 +31019,7 @@ namespace Terraria
                 width = 8;
                 height = 18;
             }
-            else if (type == 2572)
+            else if (itemId == 2572)
             {
                 name = "Slime Chair";
                 useStyle = 1;
@@ -31034,7 +31034,7 @@ namespace Terraria
                 width = 12;
                 height = 30;
             }
-            else if (type == 2573)
+            else if (itemId == 2573)
             {
                 name = "Slime Chandelier";
                 useStyle = 1;
@@ -31050,7 +31050,7 @@ namespace Terraria
                 height = 26;
                 value = 3000;
             }
-            else if (type == 2574)
+            else if (itemId == 2574)
             {
                 name = "Slime Chest";
                 useStyle = 1;
@@ -31066,7 +31066,7 @@ namespace Terraria
                 height = 22;
                 value = 500;
             }
-            else if (type == 2575)
+            else if (itemId == 2575)
             {
                 name = "Slime Clock";
                 useStyle = 1;
@@ -31082,7 +31082,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2576)
+            else if (itemId == 2576)
             {
                 name = "Slime Door";
                 useStyle = 1;
@@ -31097,7 +31097,7 @@ namespace Terraria
                 height = 28;
                 value = 200;
             }
-            else if (type == 2577)
+            else if (itemId == 2577)
             {
                 name = "Slime Dresser";
                 useStyle = 1;
@@ -31113,7 +31113,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2578)
+            else if (itemId == 2578)
             {
                 name = "Slime Lamp";
                 useStyle = 1;
@@ -31129,7 +31129,7 @@ namespace Terraria
                 height = 24;
                 value = 500;
             }
-            else if (type == 2579)
+            else if (itemId == 2579)
             {
                 name = "Slime Lantern";
                 useStyle = 1;
@@ -31144,7 +31144,7 @@ namespace Terraria
                 width = 12;
                 height = 28;
             }
-            else if (type == 2580)
+            else if (itemId == 2580)
             {
                 name = "Slime Piano";
                 useStyle = 1;
@@ -31160,7 +31160,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2581)
+            else if (itemId == 2581)
             {
                 name = "Slime Platform";
                 useStyle = 1;
@@ -31175,7 +31175,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 2582)
+            else if (itemId == 2582)
             {
                 name = "Slime Sofa";
                 useStyle = 1;
@@ -31191,7 +31191,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2583)
+            else if (itemId == 2583)
             {
                 name = "Slime Table";
                 useStyle = 1;
@@ -31207,7 +31207,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2584)
+            else if (itemId == 2584)
             {
                 mana = 10;
                 damage = 40;
@@ -31228,7 +31228,7 @@ namespace Terraria
                 value = buyPrice(0, 5, 0, 0);
                 summon = true;
             }
-            else if (type == 2585)
+            else if (itemId == 2585)
             {
                 noUseGraphic = true;
                 damage = 0;
@@ -31245,7 +31245,7 @@ namespace Terraria
                 noMelee = true;
                 value = 20000;
             }
-            else if (type == 2586)
+            else if (itemId == 2586)
             {
                 useStyle = 5;
                 name = "Sticky Grenade";
@@ -31267,7 +31267,7 @@ namespace Terraria
                 toolTip2 = "Tossing may be difficult";
                 thrown = true;
             }
-            else if (type == 2587)
+            else if (itemId == 2587)
             {
                 damage = 0;
                 useStyle = 1;
@@ -31284,7 +31284,7 @@ namespace Terraria
                 buffType = 136;
                 value = sellPrice(0, 2, 0, 0);
             }
-            else if (type == 2588)
+            else if (itemId == 2588)
             {
                 name = "Duke Fishron Mask";
                 width = 28;
@@ -31293,7 +31293,7 @@ namespace Terraria
                 rare = 1;
                 vanity = true;
             }
-            else if (type == 2589)
+            else if (itemId == 2589)
             {
                 name = "Duke Fishron Trophy";
                 useStyle = 1;
@@ -31310,7 +31310,7 @@ namespace Terraria
                 placeStyle = 55;
                 rare = 1;
             }
-            else if (type == 2590)
+            else if (itemId == 2590)
             {
                 useStyle = 5;
                 name = "Molotov Cocktail";
@@ -31333,7 +31333,7 @@ namespace Terraria
                 thrown = true;
                 rare = 1;
             }
-            else if (type >= 2591 && type <= 2606)
+            else if (itemId >= 2591 && itemId <= 2606)
             {
                 name = "Grandfather Clock";
                 useStyle = 1;
@@ -31344,12 +31344,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 104;
-                placeStyle = 8 + type - 2591;
+                placeStyle = 8 + itemId - 2591;
                 width = 20;
                 height = 20;
                 value = 300;
             }
-            else if (type == 2607)
+            else if (itemId == 2607)
             {
                 name = "Spider Fang";
                 maxStack = 99;
@@ -31358,7 +31358,7 @@ namespace Terraria
                 rare = 4;
                 value = sellPrice(0, 0, 5, 0);
             }
-            else if (type == 2608)
+            else if (itemId == 2608)
             {
                 autoReuse = true;
                 scale = 1.05f;
@@ -31375,7 +31375,7 @@ namespace Terraria
                 value = 10000;
                 melee = true;
             }
-            else if (type == 2609)
+            else if (itemId == 2609)
             {
                 name = "Fishron Wings";
                 width = 22;
@@ -31386,7 +31386,7 @@ namespace Terraria
                 rare = 8;
                 wingSlot = 26;
             }
-            else if (type == 2610)
+            else if (itemId == 2610)
             {
                 name = "Slime Gun";
                 useStyle = 5;
@@ -31401,7 +31401,7 @@ namespace Terraria
                 autoReuse = true;
                 value = buyPrice(0, 1, 50, 0);
             }
-            else if (type == 2611)
+            else if (itemId == 2611)
             {
                 autoReuse = false;
                 name = "Flairon";
@@ -31421,7 +31421,7 @@ namespace Terraria
                 melee = true;
                 noUseGraphic = true;
             }
-            else if (type >= 2612 && type <= 2620)
+            else if (itemId >= 2612 && itemId <= 2620)
             {
                 name = "Many Chests";
                 useStyle = 1;
@@ -31432,12 +31432,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 21;
-                placeStyle = type > 2614 ? 41 + type - 2615 : 35 + (type - 2612) * 2;
+                placeStyle = itemId > 2614 ? 41 + itemId - 2615 : 35 + (itemId - 2612) * 2;
                 width = 26;
                 height = 22;
                 value = 500;
             }
-            else if (type == 2621)
+            else if (itemId == 2621)
             {
                 mana = 10;
                 damage = 50;
@@ -31458,7 +31458,7 @@ namespace Terraria
                 value = sellPrice(0, 5, 0, 0);
                 summon = true;
             }
-            else if (type == 2624)
+            else if (itemId == 2624)
             {
                 useStyle = 5;
                 autoReuse = true;
@@ -31478,7 +31478,7 @@ namespace Terraria
                 rare = 8;
                 knockBack = 2f;
             }
-            else if (type == 2622)
+            else if (itemId == 2622)
             {
                 mana = 16;
                 damage = 60;
@@ -31500,7 +31500,7 @@ namespace Terraria
                 value = sellPrice(0, 5, 0, 0);
                 magic = true;
             }
-            else if (type == 2625 || type == 2626)
+            else if (itemId == 2625 || itemId == 2626)
             {
                 name = "Beach Stuff";
                 useStyle = 1;
@@ -31510,7 +31510,7 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 324;
-                if (type == 2626)
+                if (itemId == 2626)
                 {
                     placeStyle = 1;
                     width = 26;
@@ -31522,7 +31522,7 @@ namespace Terraria
                     height = 22;
                 }
             }
-            else if (type >= 2627 && type <= 2630)
+            else if (itemId >= 2627 && itemId <= 2630)
             {
                 name = "More Platforms";
                 useStyle = 1;
@@ -31533,11 +31533,11 @@ namespace Terraria
                 maxStack = 999;
                 consumable = true;
                 createTile = 19;
-                placeStyle = 21 + type - 2627;
+                placeStyle = 21 + itemId - 2627;
                 width = 8;
                 height = 10;
             }
-            else if (type >= 2631 && type <= 2633)
+            else if (itemId >= 2631 && itemId <= 2633)
             {
                 name = "More Work Benches";
                 useStyle = 1;
@@ -31548,13 +31548,13 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 18;
-                placeStyle = 24 + type - 2631;
+                placeStyle = 24 + itemId - 2631;
                 width = 28;
                 height = 14;
                 value = 150;
                 toolTip = "Used for basic crafting";
             }
-            else if (type >= 2634 && type <= 2636)
+            else if (itemId >= 2634 && itemId <= 2636)
             {
                 name = "Sofas";
                 useStyle = 1;
@@ -31565,12 +31565,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 89;
-                placeStyle = 26 + type - 2634;
+                placeStyle = 26 + itemId - 2634;
                 width = 20;
                 height = 20;
                 value = 300;
             }
-            else if (type == 2623)
+            else if (itemId == 2623)
             {
                 autoReuse = true;
                 name = "Bubble Gun";
@@ -31590,7 +31590,7 @@ namespace Terraria
                 rare = 8;
                 noMelee = true;
             }
-            else if (type >= 2637 && type <= 2640)
+            else if (itemId >= 2637 && itemId <= 2640)
             {
                 name = "Dressers";
                 useStyle = 1;
@@ -31601,12 +31601,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 88;
-                placeStyle = 20 + type - 2637;
+                placeStyle = 20 + itemId - 2637;
                 width = 20;
                 height = 20;
                 value = 300;
             }
-            else if (type == 2641 || type == 2642)
+            else if (itemId == 2641 || itemId == 2642)
             {
                 name = "Lantern 1";
                 useStyle = 1;
@@ -31617,11 +31617,11 @@ namespace Terraria
                 maxStack = 999;
                 consumable = true;
                 createTile = 42;
-                placeStyle = type != 2641 ? 32 : 31;
+                placeStyle = itemId != 2641 ? 32 : 31;
                 width = 12;
                 height = 28;
             }
-            else if (type >= 2643 && type <= 2647)
+            else if (itemId >= 2643 && itemId <= 2647)
             {
                 name = "More Lamps";
                 useStyle = 1;
@@ -31632,12 +31632,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 93;
-                placeStyle = 22 + type - 2643;
+                placeStyle = 22 + itemId - 2643;
                 width = 10;
                 height = 24;
                 value = 500;
             }
-            else if (type >= 2648 && type <= 2651)
+            else if (itemId >= 2648 && itemId <= 2651)
             {
                 noWet = true;
                 name = "even more candles";
@@ -31651,9 +31651,9 @@ namespace Terraria
                 createTile = 33;
                 width = 8;
                 height = 18;
-                placeStyle = 22 + type - 2648;
+                placeStyle = 22 + itemId - 2648;
             }
-            else if (type >= 2652 && type <= 2657)
+            else if (itemId >= 2652 && itemId <= 2657)
             {
                 name = "More Chandeliers";
                 useStyle = 1;
@@ -31664,12 +31664,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 34;
-                placeStyle = 27 + type - 2652;
+                placeStyle = 27 + itemId - 2652;
                 width = 26;
                 height = 26;
                 value = 3000;
             }
-            else if (type >= 2658 && type <= 2663)
+            else if (itemId >= 2658 && itemId <= 2663)
             {
                 name = "more bathtubs";
                 useStyle = 1;
@@ -31680,12 +31680,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 90;
-                placeStyle = 21 + type - 2658;
+                placeStyle = 21 + itemId - 2658;
                 width = 20;
                 height = 20;
                 value = 300;
             }
-            else if (type >= 2664 && type <= 2668)
+            else if (itemId >= 2664 && itemId <= 2668)
             {
                 name = "even more candelabras";
                 useStyle = 1;
@@ -31696,12 +31696,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 100;
-                placeStyle = 22 + type - 2664;
+                placeStyle = 22 + itemId - 2664;
                 width = 20;
                 height = 20;
                 value = 1500;
             }
-            else if (type == 2669)
+            else if (itemId == 2669)
             {
                 name = "Pumpkin Bed";
                 useStyle = 1;
@@ -31717,7 +31717,7 @@ namespace Terraria
                 height = 20;
                 value = 2000;
             }
-            else if (type == 2670)
+            else if (itemId == 2670)
             {
                 name = "Pumpkin Bookcase";
                 useStyle = 1;
@@ -31733,7 +31733,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 27;
             }
-            else if (type == 2671)
+            else if (itemId == 2671)
             {
                 name = "Pumpkin Piano";
                 useStyle = 1;
@@ -31749,7 +31749,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2672)
+            else if (itemId == 2672)
             {
                 name = "Shark Statue";
                 useStyle = 1;
@@ -31765,7 +31765,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 50;
             }
-            else if (type == 2673)
+            else if (itemId == 2673)
             {
                 name = "Truffle Worm";
                 useStyle = 1;
@@ -31777,23 +31777,23 @@ namespace Terraria
                 consumable = true;
                 width = 12;
                 height = 12;
-                makeNPC = (short)374;
+                makeNPC = 374;
                 noUseGraphic = true;
                 bait = 666;
             }
-            else if (type >= 2674 && type <= 2676)
+            else if (itemId >= 2674 && itemId <= 2676)
             {
                 name = "baits";
                 maxStack = 999;
                 consumable = true;
                 width = 12;
                 height = 12;
-                if (type == 2675)
+                if (itemId == 2675)
                 {
                     bait = 30;
                     value = sellPrice(0, 0, 3, 0);
                 }
-                else if (type == 2676)
+                else if (itemId == 2676)
                 {
                     bait = 50;
                     value = sellPrice(0, 0, 10, 0);
@@ -31804,7 +31804,7 @@ namespace Terraria
                     value = sellPrice(0, 0, 1, 0);
                 }
             }
-            else if (type >= 2677 && type <= 2690)
+            else if (itemId >= 2677 && itemId <= 2690)
             {
                 name = "gemspark walls";
                 useStyle = 1;
@@ -31814,7 +31814,7 @@ namespace Terraria
                 autoReuse = true;
                 maxStack = 999;
                 consumable = true;
-                switch (type)
+                switch (itemId)
                 {
                     case 2677:
                         createWall = 153;
@@ -31862,7 +31862,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 2691)
+            else if (itemId == 2691)
             {
                 name = "Tin Plating Wall";
                 useStyle = 1;
@@ -31876,7 +31876,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 2692)
+            else if (itemId == 2692)
             {
                 name = "Tin Plating";
                 useStyle = 1;
@@ -31890,7 +31890,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 2693)
+            else if (itemId == 2693)
             {
                 name = "Waterfall Block";
                 useStyle = 1;
@@ -31904,7 +31904,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 2694)
+            else if (itemId == 2694)
             {
                 name = "Lavafall Block";
                 useStyle = 1;
@@ -31918,7 +31918,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 2695)
+            else if (itemId == 2695)
             {
                 name = "Confetti Block";
                 useStyle = 1;
@@ -31932,7 +31932,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 2696)
+            else if (itemId == 2696)
             {
                 name = "Confetti Wall";
                 useStyle = 1;
@@ -31946,7 +31946,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 2697)
+            else if (itemId == 2697)
             {
                 name = "Confetti Block";
                 useStyle = 1;
@@ -31960,7 +31960,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 2698)
+            else if (itemId == 2698)
             {
                 name = "Confetti Wall";
                 useStyle = 1;
@@ -31974,7 +31974,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 2699)
+            else if (itemId == 2699)
             {
                 name = "Weapon Rack";
                 useStyle = 1;
@@ -31989,7 +31989,7 @@ namespace Terraria
                 height = 30;
                 value = sellPrice(0, 0, 10, 0);
             }
-            else if (type == 2700)
+            else if (itemId == 2700)
             {
                 name = "Fireworks Box";
                 useStyle = 1;
@@ -32005,7 +32005,7 @@ namespace Terraria
                 value = buyPrice(0, 5, 0, 0);
                 mech = true;
             }
-            else if (type == 2701)
+            else if (itemId == 2701)
             {
                 name = "Living Fire Block";
                 useStyle = 1;
@@ -32019,7 +32019,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type >= 2702 && type <= 2737)
+            else if (itemId >= 2702 && itemId <= 2737)
             {
                 name = "statues";
                 useStyle = 1;
@@ -32033,9 +32033,9 @@ namespace Terraria
                 width = 20;
                 height = 20;
                 value = 300;
-                placeStyle = type - 2702;
+                placeStyle = itemId - 2702;
             }
-            else if (type == 2738)
+            else if (itemId == 2738)
             {
                 name = "Firework Fountain";
                 createTile = 338;
@@ -32052,7 +32052,7 @@ namespace Terraria
                 value = buyPrice(0, 3, 0, 0);
                 mech = true;
             }
-            else if (type == 2739)
+            else if (itemId == 2739)
             {
                 name = "Booster Track";
                 useStyle = 1;
@@ -32071,7 +32071,7 @@ namespace Terraria
                 tileBoost = 2;
                 value = buyPrice(0, 0, 50, 0);
             }
-            else if (type == 2740)
+            else if (itemId == 2740)
             {
                 name = "Grasshopper";
                 useStyle = 1;
@@ -32083,11 +32083,11 @@ namespace Terraria
                 consumable = true;
                 width = 12;
                 height = 12;
-                makeNPC = (short)377;
+                makeNPC = 377;
                 noUseGraphic = true;
                 bait = 10;
             }
-            else if (type == 2741)
+            else if (itemId == 2741)
             {
                 name = "Critter Cage";
                 useStyle = 1;
@@ -32101,7 +32101,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 2742)
+            else if (itemId == 2742)
             {
                 name = "Music Box (Underground Crimson)";
                 useStyle = 1;
@@ -32118,7 +32118,7 @@ namespace Terraria
                 value = 100000;
                 accessory = true;
             }
-            else if (type == 2743)
+            else if (itemId == 2743)
             {
                 name = "Cactus Table";
                 useStyle = 1;
@@ -32134,7 +32134,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2744)
+            else if (itemId == 2744)
             {
                 name = "Cactus Platform";
                 useStyle = 1;
@@ -32149,7 +32149,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 2745)
+            else if (itemId == 2745)
             {
                 name = "Boreal Wood Sword";
                 useStyle = 1;
@@ -32165,7 +32165,7 @@ namespace Terraria
                 value = 100;
                 melee = true;
             }
-            else if (type == 2746)
+            else if (itemId == 2746)
             {
                 name = "Boreal Wood Hammer";
                 autoReuse = true;
@@ -32183,7 +32183,7 @@ namespace Terraria
                 value = 50;
                 melee = true;
             }
-            else if (type == 2747)
+            else if (itemId == 2747)
             {
                 name = "Boreal Wood Bow";
                 useStyle = 5;
@@ -32200,7 +32200,7 @@ namespace Terraria
                 value = 100;
                 ranged = true;
             }
-            else if (type == 2748)
+            else if (itemId == 2748)
             {
                 name = "Glass Chest";
                 useStyle = 1;
@@ -32216,7 +32216,7 @@ namespace Terraria
                 height = 22;
                 value = 500;
             }
-            else if (type == 2749)
+            else if (itemId == 2749)
             {
                 mana = 10;
                 damage = 36;
@@ -32237,7 +32237,7 @@ namespace Terraria
                 value = 10000;
                 summon = true;
             }
-            else if (type == 2750)
+            else if (itemId == 2750)
             {
                 autoReuse = true;
                 name = "Meteor Staff";
@@ -32257,7 +32257,7 @@ namespace Terraria
                 noMelee = true;
                 useSound = 88;
             }
-            else if (type >= 2751 && type <= 2755)
+            else if (itemId >= 2751 && itemId <= 2755)
             {
                 name = "Living Fire Block";
                 useStyle = 1;
@@ -32267,11 +32267,11 @@ namespace Terraria
                 autoReuse = true;
                 maxStack = 999;
                 consumable = true;
-                createTile = 340 + type - 2751;
+                createTile = 340 + itemId - 2751;
                 width = 12;
                 height = 12;
             }
-            else if (type == 2756)
+            else if (itemId == 2756)
             {
                 name = "Gender Change Potion";
                 useSound = 6;
@@ -32286,7 +32286,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 2757)
+            else if (itemId == 2757)
             {
                 name = "Vortex Helmet";
                 width = 18;
@@ -32296,7 +32296,7 @@ namespace Terraria
                 glowMask = 26;
                 rare = 10;
             }
-            else if (type == 2758)
+            else if (itemId == 2758)
             {
                 name = "Vortex Breastplate";
                 width = 18;
@@ -32306,7 +32306,7 @@ namespace Terraria
                 glowMask = 27;
                 rare = 10;
             }
-            else if (type == 2759)
+            else if (itemId == 2759)
             {
                 name = "Vortex Leggings";
                 width = 18;
@@ -32315,7 +32315,7 @@ namespace Terraria
                 legSlot = 110;
                 rare = 10;
             }
-            else if (type == 2760)
+            else if (itemId == 2760)
             {
                 name = "Nebula Helmet";
                 width = 18;
@@ -32325,7 +32325,7 @@ namespace Terraria
                 glowMask = 28;
                 rare = 10;
             }
-            else if (type == 2761)
+            else if (itemId == 2761)
             {
                 name = "Nebula Breastplate";
                 width = 18;
@@ -32335,7 +32335,7 @@ namespace Terraria
                 glowMask = 29;
                 rare = 10;
             }
-            else if (type == 2762)
+            else if (itemId == 2762)
             {
                 name = "Nebula Leggings";
                 width = 18;
@@ -32345,7 +32345,7 @@ namespace Terraria
                 glowMask = 30;
                 rare = 10;
             }
-            else if (type == 2763)
+            else if (itemId == 2763)
             {
                 name = "Solar Flare Helmet";
                 width = 18;
@@ -32354,7 +32354,7 @@ namespace Terraria
                 headSlot = 171;
                 rare = 10;
             }
-            else if (type == 2764)
+            else if (itemId == 2764)
             {
                 name = "Solar Flare Breastplate";
                 width = 18;
@@ -32363,7 +32363,7 @@ namespace Terraria
                 bodySlot = 177;
                 rare = 10;
             }
-            else if (type == 2765)
+            else if (itemId == 2765)
             {
                 name = "Solar Flare Leggings";
                 width = 18;
@@ -32372,7 +32372,7 @@ namespace Terraria
                 legSlot = 112;
                 rare = 10;
             }
-            else if (type == 2767)
+            else if (itemId == 2767)
             {
                 useStyle = 4;
                 name = "Lunar Tablet";
@@ -32385,7 +32385,7 @@ namespace Terraria
                 toolTip = "Summons the Eclipse";
                 rare = 8;
             }
-            else if (type == 2766)
+            else if (itemId == 2766)
             {
                 name = "Lunar Tablet Fragment";
                 width = 22;
@@ -32394,7 +32394,7 @@ namespace Terraria
                 toolTip = "Power pulses weakly in the fragment";
                 rare = 8;
             }
-            else if (type == 2770)
+            else if (itemId == 2770)
             {
                 name = "Mothron Wings";
                 width = 22;
@@ -32405,7 +32405,7 @@ namespace Terraria
                 rare = 8;
                 wingSlot = 27;
             }
-            else if (type == 2769)
+            else if (itemId == 2769)
             {
                 useStyle = 1;
                 name = "Cosmic Car Key";
@@ -32419,7 +32419,7 @@ namespace Terraria
                 mountType = 7;
                 value = sellPrice(0, 5, 0, 0);
             }
-            else if (type == 2768)
+            else if (itemId == 2768)
             {
                 useStyle = 1;
                 name = "Drill Containment Unit";
@@ -32433,7 +32433,7 @@ namespace Terraria
                 mountType = 8;
                 value = sellPrice(0, 5, 0, 0);
             }
-            else if (type == 2771)
+            else if (itemId == 2771)
             {
                 useStyle = 1;
                 name = "Brain Scrambler";
@@ -32448,7 +32448,7 @@ namespace Terraria
                 mountType = 9;
                 value = sellPrice(0, 5, 0, 0);
             }
-            else if (type == 2772)
+            else if (itemId == 2772)
             {
                 name = "Vortex Axe";
                 autoReuse = true;
@@ -32468,7 +32468,7 @@ namespace Terraria
                 glowMask = 1;
                 tileBoost += 4;
             }
-            else if (type == 2773)
+            else if (itemId == 2773)
             {
                 name = "Vortex Chainsaw";
                 useStyle = 5;
@@ -32491,7 +32491,7 @@ namespace Terraria
                 glowMask = 20;
                 tileBoost += 4;
             }
-            else if (type == 2774)
+            else if (itemId == 2774)
             {
                 name = "Vortex Drill";
                 useStyle = 5;
@@ -32514,7 +32514,7 @@ namespace Terraria
                 glowMask = 21;
                 tileBoost += 4;
             }
-            else if (type == 2776)
+            else if (itemId == 2776)
             {
                 name = "Vortex Pickaxe";
                 useStyle = 1;
@@ -32534,7 +32534,7 @@ namespace Terraria
                 glowMask = 5;
                 tileBoost += 4;
             }
-            else if (type == 2775)
+            else if (itemId == 2775)
             {
                 name = "Vortex Hammer";
                 useTurn = true;
@@ -32555,81 +32555,81 @@ namespace Terraria
                 glowMask = 4;
                 tileBoost += 4;
             }
-            else if (type == 2777)
+            else if (itemId == 2777)
             {
                 SetDefaults3(2772);
-                type = 2777;
+                itemId = 2777;
                 name = "Nebula Axe";
                 glowMask = 6;
             }
-            else if (type == 2778)
+            else if (itemId == 2778)
             {
                 SetDefaults3(2773);
-                type = 2778;
+                itemId = 2778;
                 name = "Nebula Chainsaw";
                 shoot = 429;
                 glowMask = 22;
             }
-            else if (type == 2779)
+            else if (itemId == 2779)
             {
                 SetDefaults3(2774);
-                type = 2779;
+                itemId = 2779;
                 name = "Nebula Drill";
                 shoot = 430;
                 glowMask = 23;
             }
-            else if (type == 2780)
+            else if (itemId == 2780)
             {
                 SetDefaults3(2775);
-                type = 2780;
+                itemId = 2780;
                 name = "Nebula Hammer";
                 glowMask = 9;
             }
-            else if (type == 2781)
+            else if (itemId == 2781)
             {
                 SetDefaults3(2776);
-                type = 2781;
+                itemId = 2781;
                 name = "Nebula Pickaxe";
                 glowMask = 10;
             }
-            else if (type == 2782)
+            else if (itemId == 2782)
             {
                 SetDefaults3(2772);
-                type = 2782;
+                itemId = 2782;
                 name = "Solar Flare Axe";
                 glowMask = 0;
             }
-            else if (type == 2783)
+            else if (itemId == 2783)
             {
                 SetDefaults3(2773);
-                type = 2783;
+                itemId = 2783;
                 name = "Solar Flare Chainsaw";
                 shoot = 431;
                 glowMask = 0;
             }
-            else if (type == 2784)
+            else if (itemId == 2784)
             {
                 SetDefaults3(2774);
-                type = 2784;
+                itemId = 2784;
                 name = "Solar Flare Drill";
                 shoot = 432;
                 glowMask = 0;
             }
-            else if (type == 2785)
+            else if (itemId == 2785)
             {
                 SetDefaults3(2775);
-                type = 2785;
+                itemId = 2785;
                 name = "Solar Flare Hammer";
                 glowMask = 0;
             }
-            else if (type == 2786)
+            else if (itemId == 2786)
             {
                 SetDefaults3(2776);
-                type = 2786;
+                itemId = 2786;
                 name = "Solar Flare Pickaxe";
                 glowMask = 0;
             }
-            else if (type == 2787)
+            else if (itemId == 2787)
             {
                 name = "Honeyfall Block";
                 useStyle = 1;
@@ -32643,7 +32643,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 2788)
+            else if (itemId == 2788)
             {
                 name = "Honeyfall Wall";
                 useStyle = 1;
@@ -32657,7 +32657,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type >= 2789 && type <= 2791)
+            else if (itemId >= 2789 && itemId <= 2791)
             {
                 name = "Walls";
                 useStyle = 1;
@@ -32667,11 +32667,11 @@ namespace Terraria
                 autoReuse = true;
                 maxStack = 999;
                 consumable = true;
-                createWall = 173 + type - 2789;
+                createWall = 173 + itemId - 2789;
                 width = 12;
                 height = 12;
             }
-            else if (type >= 2792 && type <= 2794)
+            else if (itemId >= 2792 && itemId <= 2794)
             {
                 name = "bricks";
                 useStyle = 1;
@@ -32681,11 +32681,11 @@ namespace Terraria
                 autoReuse = true;
                 maxStack = 999;
                 consumable = true;
-                createTile = 346 + type - 2792;
+                createTile = 346 + itemId - 2792;
                 width = 12;
                 height = 12;
             }
-            else if (type == 2795)
+            else if (itemId == 2795)
             {
                 name = "Laser Machinegun";
                 useStyle = 5;
@@ -32706,7 +32706,7 @@ namespace Terraria
                 channel = true;
                 glowMask = 47;
             }
-            else if (type == 2796)
+            else if (itemId == 2796)
             {
                 useStyle = 5;
                 useAnimation = 12;
@@ -32726,7 +32726,7 @@ namespace Terraria
                 rare = 8;
                 knockBack = 2f;
             }
-            else if (type == 2797)
+            else if (itemId == 2797)
             {
                 useStyle = 5;
                 useAnimation = 21;
@@ -32747,7 +32747,7 @@ namespace Terraria
                 rare = 8;
                 knockBack = 3f;
             }
-            else if (type == 2798)
+            else if (itemId == 2798)
             {
                 name = "Laser Drill";
                 useStyle = 5;
@@ -32771,7 +32771,7 @@ namespace Terraria
                 channel = true;
                 glowMask = 39;
             }
-            else if (type == 2799)
+            else if (itemId == 2799)
             {
                 name = "Laser Ruler";
                 width = 10;
@@ -32781,7 +32781,7 @@ namespace Terraria
                 value = buyPrice(0, 1, 0, 0);
                 rare = 1;
             }
-            else if (type == 2800)
+            else if (itemId == 2800)
             {
                 noUseGraphic = true;
                 damage = 0;
@@ -32799,7 +32799,7 @@ namespace Terraria
                 noMelee = true;
                 value = sellPrice(0, 1, 0, 0);
             }
-            else if (type == 2801)
+            else if (itemId == 2801)
             {
                 name = "Moon Mask";
                 width = 28;
@@ -32808,7 +32808,7 @@ namespace Terraria
                 rare = 1;
                 vanity = true;
             }
-            else if (type == 2802)
+            else if (itemId == 2802)
             {
                 name = "Sun Mask";
                 width = 28;
@@ -32817,7 +32817,7 @@ namespace Terraria
                 rare = 1;
                 vanity = true;
             }
-            else if (type == 2803)
+            else if (itemId == 2803)
             {
                 name = "Martian Costume Mask";
                 width = 18;
@@ -32826,7 +32826,7 @@ namespace Terraria
                 vanity = true;
                 value = sellPrice(0, 1, 0, 0);
             }
-            else if (type == 2804)
+            else if (itemId == 2804)
             {
                 name = "Martian Costume Shirt";
                 width = 18;
@@ -32835,7 +32835,7 @@ namespace Terraria
                 vanity = true;
                 value = sellPrice(0, 1, 0, 0);
             }
-            else if (type == 2805)
+            else if (itemId == 2805)
             {
                 name = "Martian Costume Pants";
                 width = 18;
@@ -32844,7 +32844,7 @@ namespace Terraria
                 vanity = true;
                 value = sellPrice(0, 1, 0, 0);
             }
-            else if (type == 2806)
+            else if (itemId == 2806)
             {
                 name = "Martian Uniform Helmet";
                 width = 18;
@@ -32854,7 +32854,7 @@ namespace Terraria
                 value = sellPrice(0, 1, 0, 0);
                 glowMask = 46;
             }
-            else if (type == 2807)
+            else if (itemId == 2807)
             {
                 name = "Martian Uniform Torso";
                 width = 18;
@@ -32864,7 +32864,7 @@ namespace Terraria
                 value = sellPrice(0, 1, 0, 0);
                 glowMask = 45;
             }
-            else if (type == 2808)
+            else if (itemId == 2808)
             {
                 name = "Martian Uniform Pants";
                 width = 18;
@@ -32873,7 +32873,7 @@ namespace Terraria
                 vanity = true;
                 value = sellPrice(0, 1, 0, 0);
             }
-            else if (type == 2822)
+            else if (itemId == 2822)
             {
                 name = "Martian Platform";
                 useStyle = 1;
@@ -32888,7 +32888,7 @@ namespace Terraria
                 width = 8;
                 height = 10;
             }
-            else if (type == 2810)
+            else if (itemId == 2810)
             {
                 name = "Martian Bathtub";
                 useStyle = 1;
@@ -32904,7 +32904,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2811)
+            else if (itemId == 2811)
             {
                 name = "Martian Bed";
                 useStyle = 1;
@@ -32920,7 +32920,7 @@ namespace Terraria
                 height = 20;
                 value = 2000;
             }
-            else if (type == 2823)
+            else if (itemId == 2823)
             {
                 name = "Martian Sofa";
                 useStyle = 1;
@@ -32936,7 +32936,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2825)
+            else if (itemId == 2825)
             {
                 name = "Martian Table Lamp";
                 useStyle = 1;
@@ -32952,7 +32952,7 @@ namespace Terraria
                 height = 20;
                 value = 1500;
             }
-            else if (type == 2818)
+            else if (itemId == 2818)
             {
                 noWet = true;
                 name = "Martian Hover Candle";
@@ -32968,7 +32968,7 @@ namespace Terraria
                 width = 8;
                 height = 18;
             }
-            else if (type == 2812)
+            else if (itemId == 2812)
             {
                 name = "Martian Chair";
                 useStyle = 1;
@@ -32983,7 +32983,7 @@ namespace Terraria
                 width = 12;
                 height = 30;
             }
-            else if (type == 2813)
+            else if (itemId == 2813)
             {
                 name = "Martian Chandelier";
                 useStyle = 1;
@@ -32999,7 +32999,7 @@ namespace Terraria
                 height = 26;
                 value = 3000;
             }
-            else if (type == 2814)
+            else if (itemId == 2814)
             {
                 name = "Martian Chest";
                 useStyle = 1;
@@ -33015,7 +33015,7 @@ namespace Terraria
                 height = 22;
                 value = 500;
             }
-            else if (type == 2815)
+            else if (itemId == 2815)
             {
                 name = "Martian Door";
                 useStyle = 1;
@@ -33030,7 +33030,7 @@ namespace Terraria
                 height = 28;
                 value = 200;
             }
-            else if (type == 2816)
+            else if (itemId == 2816)
             {
                 name = "Martian Dresser";
                 useStyle = 1;
@@ -33046,7 +33046,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2820)
+            else if (itemId == 2820)
             {
                 name = "Martian Lantern";
                 useStyle = 1;
@@ -33061,7 +33061,7 @@ namespace Terraria
                 height = 28;
                 placeStyle = 33;
             }
-            else if (type == 2821)
+            else if (itemId == 2821)
             {
                 name = "Martian Piano";
                 useStyle = 1;
@@ -33077,7 +33077,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2824)
+            else if (itemId == 2824)
             {
                 name = "Martian Table";
                 useStyle = 1;
@@ -33093,7 +33093,7 @@ namespace Terraria
                 height = 20;
                 value = 300;
             }
-            else if (type == 2819)
+            else if (itemId == 2819)
             {
                 name = "Martian Lamppost";
                 useStyle = 1;
@@ -33109,7 +33109,7 @@ namespace Terraria
                 height = 24;
                 value = 500;
             }
-            else if (type == 2826)
+            else if (itemId == 2826)
             {
                 name = "Martian Work Bench";
                 useStyle = 1;
@@ -33126,7 +33126,7 @@ namespace Terraria
                 value = 150;
                 toolTip = "Used for basic crafting";
             }
-            else if (type == 2817)
+            else if (itemId == 2817)
             {
                 name = "Martian Holobookcase";
                 useStyle = 1;
@@ -33142,7 +33142,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 28;
             }
-            else if (type == 2809)
+            else if (itemId == 2809)
             {
                 name = "Martian Astro Clock";
                 useStyle = 1;
@@ -33158,7 +33158,7 @@ namespace Terraria
                 value = 300;
                 placeStyle = 24;
             }
-            else if (type >= 2827 && type <= 2855)
+            else if (itemId >= 2827 && itemId <= 2855)
             {
                 name = "Sink";
                 useStyle = 1;
@@ -33169,12 +33169,12 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 172;
-                placeStyle = type - 2827;
+                placeStyle = itemId - 2827;
                 width = 20;
                 height = 20;
                 value = 300;
             }
-            else if (type == 2856)
+            else if (itemId == 2856)
             {
                 name = "White Lunatic Hood";
                 width = 28;
@@ -33184,7 +33184,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 10, 0, 0);
             }
-            else if (type == 2857)
+            else if (itemId == 2857)
             {
                 name = "Blue Lunatic Hood";
                 width = 28;
@@ -33194,7 +33194,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 10, 0, 0);
             }
-            else if (type == 2858)
+            else if (itemId == 2858)
             {
                 name = "White Lunatic Robe";
                 width = 18;
@@ -33204,7 +33204,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 10, 0, 0);
             }
-            else if (type == 2859)
+            else if (itemId == 2859)
             {
                 name = "Blue Lunatic Robe";
                 width = 18;
@@ -33214,7 +33214,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 10, 0, 0);
             }
-            else if (type == 2860)
+            else if (itemId == 2860)
             {
                 name = "Martian Conduit Plating";
                 useStyle = 1;
@@ -33229,7 +33229,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 2861)
+            else if (itemId == 2861)
             {
                 name = "Martian Conduit Wall";
                 useStyle = 1;
@@ -33244,7 +33244,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 2862)
+            else if (itemId == 2862)
             {
                 name = "HiTek Sunglasses";
                 width = 28;
@@ -33255,7 +33255,7 @@ namespace Terraria
                 vanity = true;
                 glowMask = 97;
             }
-            else if (type == 2863)
+            else if (itemId == 2863)
             {
                 name = "Martian Hair Dye";
                 width = 20;
@@ -33271,7 +33271,7 @@ namespace Terraria
                 useTime = 17;
                 consumable = true;
             }
-            else if (type == 2864)
+            else if (itemId == 2864)
             {
                 name = "Martian Dye";
                 glowMask = 99;
@@ -33281,7 +33281,7 @@ namespace Terraria
                 value = sellPrice(0, 1, 50, 0);
                 rare = 3;
             }
-            else if (type == 2865)
+            else if (itemId == 2865)
             {
                 name = "Castle Marsberg";
                 useStyle = 1;
@@ -33297,7 +33297,7 @@ namespace Terraria
                 value = buyPrice(0, 2, 0, 0);
                 placeStyle = 27;
             }
-            else if (type == 2866)
+            else if (itemId == 2866)
             {
                 name = "Martia Lisa";
                 useStyle = 1;
@@ -33313,7 +33313,7 @@ namespace Terraria
                 value = buyPrice(0, 2, 0, 0);
                 placeStyle = 28;
             }
-            else if (type == 2867)
+            else if (itemId == 2867)
             {
                 name = "The Truth Is Up There";
                 useStyle = 1;
@@ -33329,7 +33329,7 @@ namespace Terraria
                 value = buyPrice(0, 2, 0, 0);
                 placeStyle = 29;
             }
-            else if (type == 2868)
+            else if (itemId == 2868)
             {
                 name = "Smoke Block";
                 useStyle = 1;
@@ -33344,7 +33344,7 @@ namespace Terraria
                 height = 12;
                 value = buyPrice(0, 0, 1, 0);
             }
-            else if (type == 2869)
+            else if (itemId == 2869)
             {
                 name = "Living Flame Dye";
                 width = 20;
@@ -33353,7 +33353,7 @@ namespace Terraria
                 value = sellPrice(0, 1, 50, 0);
                 rare = 3;
             }
-            else if (type == 2870)
+            else if (itemId == 2870)
             {
                 name = "Living Rainbow Dye";
                 width = 20;
@@ -33362,7 +33362,7 @@ namespace Terraria
                 value = sellPrice(0, 1, 50, 0);
                 rare = 3;
             }
-            else if (type == 2871)
+            else if (itemId == 2871)
             {
                 name = "Shadow Dye";
                 width = 20;
@@ -33371,7 +33371,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 75, 0);
                 rare = 2;
             }
-            else if (type == 2872)
+            else if (itemId == 2872)
             {
                 name = "Negative Dye";
                 width = 20;
@@ -33380,7 +33380,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 75, 0);
                 rare = 2;
             }
-            else if (type == 2873)
+            else if (itemId == 2873)
             {
                 name = "Living Ocean Dye";
                 width = 20;
@@ -33389,7 +33389,7 @@ namespace Terraria
                 value = sellPrice(0, 1, 50, 0);
                 rare = 3;
             }
-            else if (type == 2874)
+            else if (itemId == 2874)
             {
                 name = "Brown Dye";
                 width = 20;
@@ -33398,7 +33398,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 2875)
+            else if (itemId == 2875)
             {
                 name = "Brown and Black Dye";
                 width = 20;
@@ -33407,7 +33407,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 2876)
+            else if (itemId == 2876)
             {
                 name = "Bright Brown Dye";
                 width = 20;
@@ -33416,7 +33416,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 2877)
+            else if (itemId == 2877)
             {
                 name = "Brown and Silver Dye";
                 width = 20;
@@ -33425,7 +33425,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 2878)
+            else if (itemId == 2878)
             {
                 name = "Wisp Dye";
                 width = 20;
@@ -33435,7 +33435,7 @@ namespace Terraria
                 rare = 3;
                 glowMask = 105;
             }
-            else if (type == 2879)
+            else if (itemId == 2879)
             {
                 name = "Pixie Dye";
                 width = 20;
@@ -33445,7 +33445,7 @@ namespace Terraria
                 rare = 3;
                 glowMask = 104;
             }
-            else if (type == 2880)
+            else if (itemId == 2880)
             {
                 name = "Spellbound Edge";
                 useStyle = 1;
@@ -33464,7 +33464,7 @@ namespace Terraria
                 value = sellPrice(0, 10, 0, 0);
                 melee = true;
             }
-            else if (type == 2882)
+            else if (itemId == 2882)
             {
                 name = "Charged Blaster Cannon";
                 useStyle = 5;
@@ -33486,7 +33486,7 @@ namespace Terraria
                 channel = true;
                 glowMask = 102;
             }
-            else if (type == 2883)
+            else if (itemId == 2883)
             {
                 name = "Chlorophyte Dye";
                 width = 20;
@@ -33496,7 +33496,7 @@ namespace Terraria
                 rare = 3;
                 glowMask = 103;
             }
-            else if (type == 2885)
+            else if (itemId == 2885)
             {
                 name = "Infernal Wisp Dye";
                 width = 20;
@@ -33506,7 +33506,7 @@ namespace Terraria
                 rare = 3;
                 glowMask = 106;
             }
-            else if (type == 2884)
+            else if (itemId == 2884)
             {
                 name = "Unicorn Wisp Dye";
                 width = 20;
@@ -33516,7 +33516,7 @@ namespace Terraria
                 rare = 3;
                 glowMask = 107;
             }
-            else if (type == 2887)
+            else if (itemId == 2887)
             {
                 name = "Vicious Mushroom";
                 width = 16;
@@ -33524,7 +33524,7 @@ namespace Terraria
                 maxStack = 99;
                 value = 50;
             }
-            else if (type == 2886)
+            else if (itemId == 2886)
             {
                 damage = 0;
                 useStyle = 1;
@@ -33542,7 +33542,7 @@ namespace Terraria
                 value = 100;
                 toolTip = "Removes the Hallow";
             }
-            else if (type == 2888)
+            else if (itemId == 2888)
             {
                 useStyle = 5;
                 useAnimation = 23;
@@ -33561,7 +33561,7 @@ namespace Terraria
                 value = 27000;
                 ranged = true;
             }
-            else if (type >= 2889 && type <= 2895)
+            else if (itemId >= 2889 && itemId <= 2895)
             {
                 name = "Gold Critter";
                 useStyle = 1;
@@ -33573,15 +33573,15 @@ namespace Terraria
                 consumable = true;
                 width = 12;
                 height = 12;
-                makeNPC = (short)(442 + type - 2889);
+                makeNPC = (short)(442 + itemId - 2889);
                 noUseGraphic = true;
                 value = sellPrice(0, 10, 0, 0);
                 rare = 2;
-                if (type != 2895 && type != 2893 && type != 2891)
+                if (itemId != 2895 && itemId != 2893 && itemId != 2891)
                     return;
                 bait = 50;
             }
-            else if (type == 2896)
+            else if (itemId == 2896)
             {
                 useStyle = 1;
                 name = "Sticky Dynamite";
@@ -33599,7 +33599,7 @@ namespace Terraria
                 value = buyPrice(0, 0, 20, 0);
                 rare = 1;
             }
-            else if (type >= 2897 && type <= 2994)
+            else if (itemId >= 2897 && itemId <= 2994)
             {
                 name = "Monster Banner";
                 useStyle = 1;
@@ -33610,13 +33610,13 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 91;
-                placeStyle = 109 + type - 2897;
+                placeStyle = 109 + itemId - 2897;
                 width = 10;
                 height = 24;
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 2995)
+            else if (itemId == 2995)
             {
                 name = "Sparky Painting";
                 useStyle = 1;
@@ -33632,7 +33632,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 10, 0);
                 placeStyle = 30;
             }
-            else if (type == 2996)
+            else if (itemId == 2996)
             {
                 name = "Vine Rope";
                 useStyle = 1;
@@ -33648,7 +33648,7 @@ namespace Terraria
                 tileBoost += 3;
                 toolTip = "Can be climbed on";
             }
-            else if (type == 2997)
+            else if (itemId == 2997)
             {
                 name = "Unity Potion";
                 maxStack = 30;
@@ -33660,7 +33660,7 @@ namespace Terraria
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 2998)
+            else if (itemId == 2998)
             {
                 name = "Summoner Emblem";
                 width = 24;
@@ -33670,7 +33670,7 @@ namespace Terraria
                 value = 100000;
                 rare = 4;
             }
-            else if (type == 2999)
+            else if (itemId == 2999)
             {
                 rare = 1;
                 name = "Bewitching Table";
@@ -33688,7 +33688,7 @@ namespace Terraria
             }
             else
             {
-                if (type != 3000)
+                if (itemId != 3000)
                     return;
                 rare = 1;
                 name = "Alchemy Table";
@@ -33706,9 +33706,9 @@ namespace Terraria
             }
         }
 
-        public void SetDefaults4(int type)
+        public void SetDefaults4(int itemId)
         {
-            if (type == 3001)
+            if (itemId == 3001)
             {
                 rare = 1;
                 name = "StrangeBrew";
@@ -33726,7 +33726,7 @@ namespace Terraria
                 potion = true;
                 value = buyPrice(0, 0, 5, 0);
             }
-            else if (type == 3061)
+            else if (itemId == 3061)
             {
                 name = "Architect Gizmo Pack";
                 width = 30;
@@ -33736,7 +33736,7 @@ namespace Terraria
                 value = buyPrice(0, 20, 0, 0);
                 backSlot = 8;
             }
-            else if (type == 3002)
+            else if (itemId == 3002)
             {
                 alpha = 0;
                 color = new Color((int)255, (int)255, (int)255, 0);
@@ -33756,7 +33756,7 @@ namespace Terraria
                 value = buyPrice(0, 0, 1, 50);
                 holdStyle = 1;
             }
-            else if (type == 3003)
+            else if (itemId == 3003)
             {
                 name = "Bone Arrow";
                 shootSpeed = 3.5f;
@@ -33771,7 +33771,7 @@ namespace Terraria
                 value = buyPrice(0, 0, 0, 15);
                 ranged = true;
             }
-            else if (type == 3004)
+            else if (itemId == 3004)
             {
                 flame = true;
                 noWet = true;
@@ -33790,7 +33790,7 @@ namespace Terraria
                 height = 12;
                 value = buyPrice(0, 0, 1, 0);
             }
-            else if (type == 3005)
+            else if (itemId == 3005)
             {
                 useStyle = 1;
                 name = "Vine Rope Coil";
@@ -33808,7 +33808,7 @@ namespace Terraria
                 noMelee = true;
                 toolTip = "Throw to create a climbable line of vine rope";
             }
-            else if (type == 3006)
+            else if (itemId == 3006)
             {
                 mana = 10;
                 autoReuse = true;
@@ -33828,7 +33828,7 @@ namespace Terraria
                 value = sellPrice(0, 8, 0, 0);
                 magic = true;
             }
-            else if (type == 3007)
+            else if (itemId == 3007)
             {
                 autoReuse = true;
                 name = "Dart Pistol";
@@ -33850,7 +33850,7 @@ namespace Terraria
                 rare = 5;
                 scale = 0.9f;
             }
-            else if (type == 3008)
+            else if (itemId == 3008)
             {
                 autoReuse = true;
                 name = "Dart Rifle";
@@ -33872,7 +33872,7 @@ namespace Terraria
                 rare = 5;
                 scale = 1f;
             }
-            else if (type == 3009)
+            else if (itemId == 3009)
             {
                 name = "Crystal Dart";
                 shoot = 477;
@@ -33887,7 +33887,7 @@ namespace Terraria
                 rare = 3;
                 consumable = true;
             }
-            else if (type == 3010)
+            else if (itemId == 3010)
             {
                 name = "Cursed Dart";
                 shoot = 478;
@@ -33902,7 +33902,7 @@ namespace Terraria
                 rare = 3;
                 consumable = true;
             }
-            else if (type == 3011)
+            else if (itemId == 3011)
             {
                 name = "Ichor Dart";
                 shoot = 479;
@@ -33917,7 +33917,7 @@ namespace Terraria
                 rare = 3;
                 consumable = true;
             }
-            else if (type == 3012)
+            else if (itemId == 3012)
             {
                 autoReuse = true;
                 name = "Chain Guillotines";
@@ -33937,7 +33937,7 @@ namespace Terraria
                 melee = true;
                 noUseGraphic = true;
             }
-            else if (type == 3013)
+            else if (itemId == 3013)
             {
                 name = "Fetid Baghnakhs";
                 useStyle = 1;
@@ -33956,7 +33956,7 @@ namespace Terraria
                 value = sellPrice(0, 8, 0, 0);
                 melee = true;
             }
-            else if (type == 3014)
+            else if (itemId == 3014)
             {
                 mana = 40;
                 autoReuse = true;
@@ -33977,7 +33977,7 @@ namespace Terraria
                 value = sellPrice(0, 8, 0, 0);
                 magic = true;
             }
-            else if (type == 3024)
+            else if (itemId == 3024)
             {
                 name = "Skiphs's Dye";
                 width = 20;
@@ -33986,7 +33986,7 @@ namespace Terraria
                 rare = 9;
                 value = sellPrice(0, 3, 0, 0);
             }
-            else if (type == 3599)
+            else if (itemId == 3599)
             {
                 name = "Loki's Dye";
                 width = 20;
@@ -33995,7 +33995,7 @@ namespace Terraria
                 rare = 9;
                 value = sellPrice(0, 3, 0, 0);
             }
-            else if (type == 3015)
+            else if (itemId == 3015)
             {
                 name = "Putrid Scent";
                 width = 24;
@@ -34006,7 +34006,7 @@ namespace Terraria
                 value = sellPrice(0, 8, 0, 0);
                 rare = 6;
             }
-            else if (type == 3016)
+            else if (itemId == 3016)
             {
                 name = "Flesh Knuckles";
                 width = 24;
@@ -34017,7 +34017,7 @@ namespace Terraria
                 value = sellPrice(0, 8, 0, 0);
                 rare = 5;
             }
-            else if (type == 3017)
+            else if (itemId == 3017)
             {
                 name = "Flower Boots";
                 width = 16;
@@ -34028,7 +34028,7 @@ namespace Terraria
                 value = sellPrice(0, 8, 0, 0);
                 shoeSlot = 16;
             }
-            else if (type == 3018)
+            else if (itemId == 3018)
             {
                 name = "Seedler";
                 useStyle = 1;
@@ -34046,7 +34046,7 @@ namespace Terraria
                 rare = 5;
                 melee = true;
             }
-            else if (type == 3019)
+            else if (itemId == 3019)
             {
                 autoReuse = true;
                 useStyle = 5;
@@ -34067,14 +34067,14 @@ namespace Terraria
                 ranged = true;
                 toolTip = "Shoots a charged arrow";
             }
-            else if (type >= 3020 && type <= 3023)
+            else if (itemId >= 3020 && itemId <= 3023)
             {
                 name = "Hook";
                 noUseGraphic = true;
                 damage = 0;
                 useStyle = 5;
                 shootSpeed = 15f;
-                shoot = 486 + type - 3020;
+                shoot = 486 + itemId - 3020;
                 width = 18;
                 height = 28;
                 useSound = 1;
@@ -34084,7 +34084,7 @@ namespace Terraria
                 noMelee = true;
                 value = sellPrice(0, 8, 0, 0);
             }
-            else if (type == 3025)
+            else if (itemId == 3025)
             {
                 name = "Plaid Dye";
                 width = 20;
@@ -34093,7 +34093,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 75, 0);
                 rare = 2;
             }
-            else if (type == 3026)
+            else if (itemId == 3026)
             {
                 name = "Reflective Silver Dye";
                 width = 20;
@@ -34102,7 +34102,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 75, 0);
                 rare = 2;
             }
-            else if (type == 3027)
+            else if (itemId == 3027)
             {
                 name = "Reflective Gold Dye";
                 width = 20;
@@ -34111,7 +34111,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 75, 0);
                 rare = 2;
             }
-            else if (type == 3190)
+            else if (itemId == 3190)
             {
                 name = "Reflective Dye";
                 width = 20;
@@ -34120,7 +34120,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 75, 0);
                 rare = 2;
             }
-            else if (type == 3038)
+            else if (itemId == 3038)
             {
                 name = "Hades Dye";
                 width = 20;
@@ -34129,7 +34129,7 @@ namespace Terraria
                 value = sellPrice(0, 1, 50, 0);
                 rare = 3;
             }
-            else if (type == 3597)
+            else if (itemId == 3597)
             {
                 name = "Burning Hades Dye";
                 width = 20;
@@ -34138,7 +34138,7 @@ namespace Terraria
                 value = sellPrice(0, 1, 50, 0);
                 rare = 3;
             }
-            else if (type == 3600)
+            else if (itemId == 3600)
             {
                 name = "Shadowflame Hades Dye";
                 width = 20;
@@ -34147,7 +34147,7 @@ namespace Terraria
                 value = sellPrice(0, 1, 50, 0);
                 rare = 3;
             }
-            else if (type == 3598)
+            else if (itemId == 3598)
             {
                 name = "Grim Dye";
                 width = 20;
@@ -34156,7 +34156,7 @@ namespace Terraria
                 value = sellPrice(0, 1, 50, 0);
                 rare = 3;
             }
-            else if (type == 3029)
+            else if (itemId == 3029)
             {
                 useStyle = 5;
                 autoReuse = true;
@@ -34176,7 +34176,7 @@ namespace Terraria
                 rare = 6;
                 knockBack = 2.25f;
             }
-            else if (type == 3030)
+            else if (itemId == 3030)
             {
                 channel = true;
                 damage = 40;
@@ -34196,7 +34196,7 @@ namespace Terraria
                 melee = true;
                 noUseGraphic = true;
             }
-            else if (type == 3031 || type == 3032)
+            else if (itemId == 3031 || itemId == 3032)
             {
                 useStyle = 1;
                 useTurn = true;
@@ -34209,7 +34209,7 @@ namespace Terraria
                 value = sellPrice(0, 10, 0, 0);
                 tileBoost += 2;
             }
-            else if (type == 3036)
+            else if (itemId == 3036)
             {
                 name = "Fish Finder";
                 width = 24;
@@ -34218,7 +34218,7 @@ namespace Terraria
                 value = sellPrice(0, 3, 0, 0);
                 accessory = true;
             }
-            else if (type == 3037)
+            else if (itemId == 3037)
             {
                 name = "Weather Radio";
                 width = 24;
@@ -34227,7 +34227,7 @@ namespace Terraria
                 value = sellPrice(0, 1, 0, 0);
                 accessory = true;
             }
-            else if (type == 3033)
+            else if (itemId == 3033)
             {
                 name = "Gold Ring";
                 width = 16;
@@ -34236,7 +34236,7 @@ namespace Terraria
                 rare = 5;
                 value = 50000;
             }
-            else if (type == 3034)
+            else if (itemId == 3034)
             {
                 name = "Coin Ring";
                 width = 16;
@@ -34245,7 +34245,7 @@ namespace Terraria
                 rare = 5;
                 value = 100000;
             }
-            else if (type == 3035)
+            else if (itemId == 3035)
             {
                 name = "Greedy Ring";
                 width = 16;
@@ -34254,7 +34254,7 @@ namespace Terraria
                 rare = 6;
                 value = 150000;
             }
-            else if (type == 3039)
+            else if (itemId == 3039)
             {
                 name = "Twilight Dye";
                 width = 20;
@@ -34263,7 +34263,7 @@ namespace Terraria
                 value = sellPrice(0, 1, 50, 0);
                 rare = 3;
             }
-            else if (type == 3040)
+            else if (itemId == 3040)
             {
                 name = "Acid Dye";
                 width = 20;
@@ -34272,7 +34272,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 75, 0);
                 rare = 2;
             }
-            else if (type == 3028)
+            else if (itemId == 3028)
             {
                 name = "Blue Acid Dye";
                 width = 20;
@@ -34281,7 +34281,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 75, 0);
                 rare = 2;
             }
-            else if (type == 3041)
+            else if (itemId == 3041)
             {
                 name = "Glowing Mushroom Dye";
                 width = 20;
@@ -34290,7 +34290,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 75, 0);
                 rare = 2;
             }
-            else if (type == 3042)
+            else if (itemId == 3042)
             {
                 name = "Phase Dye";
                 width = 20;
@@ -34299,7 +34299,7 @@ namespace Terraria
                 value = sellPrice(0, 1, 50, 0);
                 rare = 3;
             }
-            else if (type == 3043)
+            else if (itemId == 3043)
             {
                 damage = 0;
                 useStyle = 1;
@@ -34315,7 +34315,7 @@ namespace Terraria
                 value = buyPrice(0, 10, 0, 0);
                 buffType = 152;
             }
-            else if (type == 3044)
+            else if (itemId == 3044)
             {
                 name = "Music Box (Lunar Boss?)";
                 useStyle = 1;
@@ -34332,7 +34332,7 @@ namespace Terraria
                 value = 100000;
                 accessory = true;
             }
-            else if (type == 3045)
+            else if (itemId == 3045)
             {
                 flame = true;
                 noWet = true;
@@ -34352,7 +34352,7 @@ namespace Terraria
                 value = 500;
                 rare = 1;
             }
-            else if (type >= 3046 && type <= 3050)
+            else if (itemId >= 3046 && itemId <= 3050)
             {
                 name = "Campfire";
                 useStyle = 1;
@@ -34363,12 +34363,12 @@ namespace Terraria
                 maxStack = 999;
                 consumable = true;
                 createTile = 215;
-                placeStyle = 1 + type - 3046;
+                placeStyle = 1 + itemId - 3046;
                 width = 12;
                 height = 12;
                 toolTip = "Life regen is increased when near a campfire";
             }
-            else if (type == 3051)
+            else if (itemId == 3051)
             {
                 mana = 13;
                 damage = 19;
@@ -34388,7 +34388,7 @@ namespace Terraria
                 magic = true;
                 autoReuse = true;
             }
-            else if (type == 3052)
+            else if (itemId == 3052)
             {
                 autoReuse = true;
                 useStyle = 5;
@@ -34408,7 +34408,7 @@ namespace Terraria
                 value = sellPrice(0, 2, 0, 0);
                 ranged = true;
             }
-            else if (type == 3053)
+            else if (itemId == 3053)
             {
                 autoReuse = true;
                 rare = 5;
@@ -34429,7 +34429,7 @@ namespace Terraria
                 noUseGraphic = true;
                 crit = 3;
             }
-            else if (type == 3054)
+            else if (itemId == 3054)
             {
                 crit = 3;
                 autoReuse = true;
@@ -34449,7 +34449,7 @@ namespace Terraria
                 melee = true;
                 rare = 5;
             }
-            else if (type >= 3055 && type <= 3059)
+            else if (itemId >= 3055 && itemId <= 3059)
             {
                 name = "Painting";
                 useStyle = 1;
@@ -34463,9 +34463,9 @@ namespace Terraria
                 width = 30;
                 height = 30;
                 value = sellPrice(0, 0, 10, 0);
-                placeStyle = 31 + type - 3055;
+                placeStyle = 31 + itemId - 3055;
             }
-            else if (type == 3060)
+            else if (itemId == 3060)
             {
                 damage = 0;
                 useStyle = 1;
@@ -34481,7 +34481,7 @@ namespace Terraria
                 value = sellPrice(0, 7, 50, 0);
                 buffType = 154;
             }
-            else if (type == 3062)
+            else if (itemId == 3062)
             {
                 channel = true;
                 damage = 0;
@@ -34499,7 +34499,7 @@ namespace Terraria
                 value = 10000;
                 buffType = 155;
             }
-            else if (type == 3063)
+            else if (itemId == 3063)
             {
                 rare = 10;
                 useSound = 1;
@@ -34518,7 +34518,7 @@ namespace Terraria
                 value = sellPrice(0, 20, 0, 0);
                 autoReuse = true;
             }
-            else if (type == 3064)
+            else if (itemId == 3064)
             {
                 name = "Sundial";
                 useStyle = 1;
@@ -34534,7 +34534,7 @@ namespace Terraria
                 value = sellPrice(0, 3, 0, 0);
                 rare = 7;
             }
-            else if (type == 3065)
+            else if (itemId == 3065)
             {
                 rare = 9;
                 useSound = 105;
@@ -34553,7 +34553,7 @@ namespace Terraria
                 value = sellPrice(0, 20, 0, 0);
                 autoReuse = true;
             }
-            else if (type == 3066)
+            else if (itemId == 3066)
             {
                 name = "Marble Block";
                 useStyle = 1;
@@ -34567,7 +34567,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3067)
+            else if (itemId == 3067)
             {
                 name = "Hellstone Brick Wall";
                 useStyle = 1;
@@ -34581,7 +34581,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3068)
+            else if (itemId == 3068)
             {
                 name = "Guide to Making Cordage";
                 width = 16;
@@ -34590,7 +34590,7 @@ namespace Terraria
                 rare = 1;
                 value = 50000;
             }
-            else if (type == 3069)
+            else if (itemId == 3069)
             {
                 mana = 2;
                 damage = 8;
@@ -34608,7 +34608,7 @@ namespace Terraria
                 value = 5000;
                 magic = true;
             }
-            else if (type >= 3070 && type <= 3076)
+            else if (itemId >= 3070 && itemId <= 3076)
             {
                 name = "Gold Critter Cage";
                 useStyle = 1;
@@ -34618,13 +34618,13 @@ namespace Terraria
                 autoReuse = true;
                 maxStack = 99;
                 consumable = true;
-                createTile = 358 + type - 3070;
+                createTile = 358 + itemId - 3070;
                 width = 12;
                 height = 12;
                 value = sellPrice(0, 10, 0, 0);
                 rare = 2;
             }
-            else if (type == 3077)
+            else if (itemId == 3077)
             {
                 name = "Silk Rope";
                 useStyle = 1;
@@ -34641,7 +34641,7 @@ namespace Terraria
                 tileBoost += 3;
                 toolTip = "Can be climbed on";
             }
-            else if (type == 3078)
+            else if (itemId == 3078)
             {
                 name = "Web Rope";
                 useStyle = 1;
@@ -34658,7 +34658,7 @@ namespace Terraria
                 tileBoost += 3;
                 toolTip = "Can be climbed on";
             }
-            else if (type == 3081)
+            else if (itemId == 3081)
             {
                 name = "Marble";
                 useStyle = 1;
@@ -34672,7 +34672,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3082)
+            else if (itemId == 3082)
             {
                 name = "Marble Wall";
                 useStyle = 1;
@@ -34686,7 +34686,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3083)
+            else if (itemId == 3083)
             {
                 name = "Marble Block Wall";
                 useStyle = 1;
@@ -34700,7 +34700,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3084)
+            else if (itemId == 3084)
             {
                 name = "Radar";
                 width = 24;
@@ -34709,7 +34709,7 @@ namespace Terraria
                 rare = 1;
                 value = sellPrice(0, 1, 0, 0);
             }
-            else if (type == 3085)
+            else if (itemId == 3085)
             {
                 name = "Gold Lock Box";
                 width = 12;
@@ -34720,7 +34720,7 @@ namespace Terraria
                 maxStack = 99;
                 value = buyPrice(0, 2, 0, 0);
             }
-            else if (type == 3086)
+            else if (itemId == 3086)
             {
                 name = "Granite";
                 useStyle = 1;
@@ -34734,7 +34734,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3080)
+            else if (itemId == 3080)
             {
                 useStyle = 1;
                 name = "Web Rope Coil";
@@ -34753,7 +34753,7 @@ namespace Terraria
                 value = 100;
                 toolTip = "Throw to create a climbable line of rope";
             }
-            else if (type == 3079)
+            else if (itemId == 3079)
             {
                 useStyle = 1;
                 name = "Silk Rope Coil";
@@ -34772,7 +34772,7 @@ namespace Terraria
                 value = 100;
                 toolTip = "Throw to create a climbable line of rope";
             }
-            else if (type == 3087)
+            else if (itemId == 3087)
             {
                 name = "Granite Block";
                 useStyle = 1;
@@ -34786,7 +34786,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3088)
+            else if (itemId == 3088)
             {
                 name = "Granite Wall";
                 useStyle = 1;
@@ -34800,7 +34800,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3089)
+            else if (itemId == 3089)
             {
                 name = "Granite Block Wall";
                 useStyle = 1;
@@ -34814,7 +34814,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3090)
+            else if (itemId == 3090)
             {
                 name = "Royal Gel";
                 width = 16;
@@ -34825,7 +34825,7 @@ namespace Terraria
                 value = 100000;
                 expert = true;
             }
-            else if (type == 3091 || type == 3092)
+            else if (itemId == 3091 || itemId == 3092)
             {
                 name = "Mimic Key";
                 width = 14;
@@ -34835,7 +34835,7 @@ namespace Terraria
                 useAnimation = 20;
                 useTime = 20;
             }
-            else if (type == 3093)
+            else if (itemId == 3093)
             {
                 name = "Herb Bag";
                 width = 12;
@@ -34845,7 +34845,7 @@ namespace Terraria
                 maxStack = 99;
                 value = sellPrice(0, 0, 10, 0);
             }
-            else if (type == 3094)
+            else if (itemId == 3094)
             {
                 useStyle = 1;
                 name = "Javelin";
@@ -34864,7 +34864,7 @@ namespace Terraria
                 knockBack = 4.75f;
                 thrown = true;
             }
-            else if (type == 3095)
+            else if (itemId == 3095)
             {
                 name = "Tally Counter";
                 width = 24;
@@ -34873,7 +34873,7 @@ namespace Terraria
                 rare = 1;
                 value = sellPrice(0, 1, 0, 0);
             }
-            else if (type == 3097)
+            else if (itemId == 3097)
             {
                 melee = true;
                 damage = 30;
@@ -34888,7 +34888,7 @@ namespace Terraria
                 knockBack = 9f;
                 expert = true;
             }
-            else if (type == 3098)
+            else if (itemId == 3098)
             {
                 name = "Butcher's Chainsaw";
                 useStyle = 5;
@@ -34909,7 +34909,7 @@ namespace Terraria
                 melee = true;
                 channel = true;
             }
-            else if (type == 3099)
+            else if (itemId == 3099)
             {
                 name = "Stopwatch";
                 width = 24;
@@ -34918,7 +34918,7 @@ namespace Terraria
                 rare = 1;
                 value = sellPrice(0, 1, 0, 0);
             }
-            else if (type == 3100)
+            else if (itemId == 3100)
             {
                 name = "Meteorite Brick";
                 useStyle = 1;
@@ -34932,7 +34932,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3101)
+            else if (itemId == 3101)
             {
                 name = "Meteorite Brick Wall";
                 useStyle = 1;
@@ -34946,7 +34946,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3102)
+            else if (itemId == 3102)
             {
                 name = "Metal Detector";
                 width = 24;
@@ -34955,7 +34955,7 @@ namespace Terraria
                 rare = 1;
                 value = sellPrice(0, 1, 0, 0);
             }
-            else if (type == 3103)
+            else if (itemId == 3103)
             {
                 name = "Endless Quiver";
                 shootSpeed = 3f;
@@ -34969,7 +34969,7 @@ namespace Terraria
                 ranged = true;
                 rare = 2;
             }
-            else if (type == 3104)
+            else if (itemId == 3104)
             {
                 name = "Endless Musket Pouch";
                 shootSpeed = 4f;
@@ -34983,7 +34983,7 @@ namespace Terraria
                 ranged = true;
                 rare = 2;
             }
-            else if (type == 3105)
+            else if (itemId == 3105)
             {
                 magic = true;
                 mana = 30;
@@ -35003,7 +35003,7 @@ namespace Terraria
                 noMelee = true;
                 value = sellPrice(0, 2, 0, 0);
             }
-            else if (type == 3106)
+            else if (itemId == 3106)
             {
                 autoReuse = true;
                 name = "Psycho Knife";
@@ -35020,7 +35020,7 @@ namespace Terraria
                 value = sellPrice(0, 5, 0, 0);
                 melee = true;
             }
-            else if (type == 3107)
+            else if (itemId == 3107)
             {
                 useStyle = 5;
                 autoReuse = true;
@@ -35039,7 +35039,7 @@ namespace Terraria
                 rare = 8;
                 ranged = true;
             }
-            else if (type == 3108)
+            else if (itemId == 3108)
             {
                 name = "Nail";
                 shootSpeed = 6f;
@@ -35055,7 +35055,7 @@ namespace Terraria
                 ranged = true;
                 rare = 8;
             }
-            else if (type == 3109)
+            else if (itemId == 3109)
             {
                 name = "Night Vision Helmet";
                 width = 22;
@@ -35066,7 +35066,7 @@ namespace Terraria
                 value = sellPrice(0, 2, 0, 0);
                 toolTip = "Improves vision";
             }
-            else if (type == 3110)
+            else if (itemId == 3110)
             {
                 name = "Celestial Shell";
                 width = 16;
@@ -35077,7 +35077,7 @@ namespace Terraria
                 toolTip2 = "Minor increases to all stats";
                 value = 700000;
             }
-            else if (type == 3111)
+            else if (itemId == 3111)
             {
                 name = "Pink Gel";
                 width = 10;
@@ -35087,7 +35087,7 @@ namespace Terraria
                 toolTip = "'Bouncy and sweet!'";
                 value = 15;
             }
-            else if (type == 3112)
+            else if (itemId == 3112)
             {
                 color = new Color((int)255, (int)255, (int)255, 0);
                 useStyle = 1;
@@ -35107,7 +35107,7 @@ namespace Terraria
                 toolTip = "Works when wet";
                 toolTip2 = "Very bouncy";
             }
-            else if (type == 3113)
+            else if (itemId == 3113)
             {
                 name = "Pink Slime Block";
                 createTile = 371;
@@ -35122,7 +35122,7 @@ namespace Terraria
                 maxStack = 999;
                 consumable = true;
             }
-            else if (type == 3114)
+            else if (itemId == 3114)
             {
                 flame = true;
                 noWet = true;
@@ -35141,7 +35141,7 @@ namespace Terraria
                 useAnimation = 15;
                 useTime = 10;
             }
-            else if (type == 3115)
+            else if (itemId == 3115)
             {
                 useStyle = 1;
                 name = "Bouncy Bomb";
@@ -35161,7 +35161,7 @@ namespace Terraria
                 toolTip = "A small explosion that will destroy some tiles";
                 toolTip2 = "Very bouncy";
             }
-            else if (type == 3116)
+            else if (itemId == 3116)
             {
                 useStyle = 5;
                 name = "Bouncy Grenade";
@@ -35183,7 +35183,7 @@ namespace Terraria
                 toolTip2 = "Very bouncy";
                 thrown = true;
             }
-            else if (type == 3117)
+            else if (itemId == 3117)
             {
                 flame = true;
                 noWet = true;
@@ -35202,7 +35202,7 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
             }
-            else if (type >= 3203 && type <= 3208)
+            else if (itemId >= 3203 && itemId <= 3208)
             {
                 name = "Biome Crate";
                 width = 12;
@@ -35211,7 +35211,7 @@ namespace Terraria
                 toolTip = "Right click to open";
                 maxStack = 99;
                 createTile = 376;
-                placeStyle = 3 + type - 3203;
+                placeStyle = 3 + itemId - 3203;
                 useAnimation = 15;
                 useTime = 15;
                 autoReuse = true;
@@ -35219,7 +35219,7 @@ namespace Terraria
                 consumable = true;
                 value = sellPrice(0, 1, 0, 0);
             }
-            else if (type == 3209)
+            else if (itemId == 3209)
             {
                 name = "Crystal Serpent";
                 mana = 9;
@@ -35239,7 +35239,7 @@ namespace Terraria
                 rare = 5;
                 noMelee = true;
             }
-            else if (type == 3210)
+            else if (itemId == 3210)
             {
                 name = "Toxikcarp";
                 useSound = 111;
@@ -35258,7 +35258,7 @@ namespace Terraria
                 rare = 5;
                 noMelee = true;
             }
-            else if (type == 3211)
+            else if (itemId == 3211)
             {
                 name = "Bladetongue";
                 useStyle = 1;
@@ -35275,7 +35275,7 @@ namespace Terraria
                 value = sellPrice(0, 4, 0, 0);
                 melee = true;
             }
-            else if (type == 3212)
+            else if (itemId == 3212)
             {
                 name = "Shark Tooth Necklace";
                 width = 22;
@@ -35286,7 +35286,7 @@ namespace Terraria
                 value = sellPrice(0, 1, 0, 0);
                 neckSlot = 7;
             }
-            else if (type == 3213)
+            else if (itemId == 3213)
             {
                 name = "Money Trough";
                 useStyle = 1;
@@ -35300,7 +35300,7 @@ namespace Terraria
                 rare = 3;
                 value = sellPrice(0, 2, 0, 0);
             }
-            else if (type == 3119)
+            else if (itemId == 3119)
             {
                 name = "DPS Meter";
                 width = 24;
@@ -35309,7 +35309,7 @@ namespace Terraria
                 rare = 1;
                 value = sellPrice(0, 1, 0, 0);
             }
-            else if (type == 3118)
+            else if (itemId == 3118)
             {
                 name = "Lifeform Analyzer";
                 width = 24;
@@ -35318,7 +35318,7 @@ namespace Terraria
                 rare = 1;
                 value = sellPrice(0, 1, 0, 0);
             }
-            else if (type == 3096)
+            else if (itemId == 3096)
             {
                 name = "Sextant";
                 width = 24;
@@ -35327,7 +35327,7 @@ namespace Terraria
                 rare = 1;
                 value = sellPrice(0, 1, 0, 0);
             }
-            else if (type == 3120)
+            else if (itemId == 3120)
             {
                 name = "Fisherman's Guide";
                 width = 24;
@@ -35336,7 +35336,7 @@ namespace Terraria
                 value = sellPrice(0, 1, 0, 0);
                 accessory = true;
             }
-            else if (type == 3121)
+            else if (itemId == 3121)
             {
                 name = "Goblin Tech";
                 width = 24;
@@ -35345,7 +35345,7 @@ namespace Terraria
                 value = sellPrice(0, 3, 0, 0);
                 accessory = true;
             }
-            else if (type == 3122)
+            else if (itemId == 3122)
             {
                 name = "REK";
                 width = 24;
@@ -35354,7 +35354,7 @@ namespace Terraria
                 value = sellPrice(0, 3, 0, 0);
                 accessory = true;
             }
-            else if (type == 3123)
+            else if (itemId == 3123)
             {
                 name = "PDA";
                 width = 24;
@@ -35363,7 +35363,7 @@ namespace Terraria
                 value = sellPrice(0, 5, 0, 0);
                 accessory = true;
             }
-            else if (type == 3124)
+            else if (itemId == 3124)
             {
                 name = "Cell Phone";
                 width = 24;
@@ -35376,7 +35376,7 @@ namespace Terraria
                 useSound = 6;
                 useAnimation = 90;
             }
-            else if (type == 3159 || type == 3160 || type == 3161)
+            else if (itemId == 3159 || itemId == 3160 || itemId == 3161)
             {
                 name = "Bathtubs";
                 useStyle = 1;
@@ -35387,17 +35387,17 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 90;
-                if (type == 3159)
+                if (itemId == 3159)
                     placeStyle = 28;
-                else if (type == 3160)
+                else if (itemId == 3160)
                     placeStyle = 30;
-                else if (type == 3161)
+                else if (itemId == 3161)
                     placeStyle = 29;
                 width = 20;
                 height = 20;
                 value = 300;
             }
-            else if (type == 3162 || type == 3163 || type == 3164)
+            else if (itemId == 3162 || itemId == 3163 || itemId == 3164)
             {
                 name = "Beds";
                 useStyle = 1;
@@ -35411,20 +35411,20 @@ namespace Terraria
                 width = 28;
                 height = 20;
                 value = 2000;
-                if (type == 3162)
+                if (itemId == 3162)
                     placeStyle = 28;
-                else if (type == 3163)
+                else if (itemId == 3163)
                 {
                     placeStyle = 30;
                 }
                 else
                 {
-                    if (type != 3164)
+                    if (itemId != 3164)
                         return;
                     placeStyle = 29;
                 }
             }
-            else if (type == 3165 || type == 3166 || type == 3167)
+            else if (itemId == 3165 || itemId == 3166 || itemId == 3167)
             {
                 name = "Bookcases";
                 useStyle = 1;
@@ -35438,20 +35438,20 @@ namespace Terraria
                 width = 20;
                 height = 20;
                 value = 300;
-                if (type == 3165)
+                if (itemId == 3165)
                     placeStyle = 29;
-                else if (type == 3166)
+                else if (itemId == 3166)
                 {
                     placeStyle = 31;
                 }
                 else
                 {
-                    if (type != 3167)
+                    if (itemId != 3167)
                         return;
                     placeStyle = 30;
                 }
             }
-            else if (type == 3168 || type == 3169 || type == 3170)
+            else if (itemId == 3168 || itemId == 3169 || itemId == 3170)
             {
                 name = "Candelabras";
                 useStyle = 1;
@@ -35465,20 +35465,20 @@ namespace Terraria
                 width = 20;
                 height = 20;
                 value = 1500;
-                if (type == 3168)
+                if (itemId == 3168)
                     placeStyle = 28;
-                else if (type == 3169)
+                else if (itemId == 3169)
                 {
                     placeStyle = 30;
                 }
                 else
                 {
-                    if (type != 3170)
+                    if (itemId != 3170)
                         return;
                     placeStyle = 29;
                 }
             }
-            else if (type == 3171 || type == 3172 || type == 3173)
+            else if (itemId == 3171 || itemId == 3172 || itemId == 3173)
             {
                 name = "Candles";
                 noWet = true;
@@ -35492,20 +35492,20 @@ namespace Terraria
                 createTile = 33;
                 width = 8;
                 height = 18;
-                if (type == 3171)
+                if (itemId == 3171)
                     placeStyle = 27;
-                else if (type == 3172)
+                else if (itemId == 3172)
                 {
                     placeStyle = 29;
                 }
                 else
                 {
-                    if (type != 3173)
+                    if (itemId != 3173)
                         return;
                     placeStyle = 28;
                 }
             }
-            else if (type == 3174 || type == 3175 || type == 3176)
+            else if (itemId == 3174 || itemId == 3175 || itemId == 3176)
             {
                 name = "Chairs";
                 useStyle = 1;
@@ -35518,20 +35518,20 @@ namespace Terraria
                 createTile = 15;
                 width = 12;
                 height = 30;
-                if (type == 3174)
+                if (itemId == 3174)
                     placeStyle = 33;
-                else if (type == 3175)
+                else if (itemId == 3175)
                 {
                     placeStyle = 35;
                 }
                 else
                 {
-                    if (type != 3176)
+                    if (itemId != 3176)
                         return;
                     placeStyle = 34;
                 }
             }
-            else if (type == 3177 || type == 3178 || type == 3179)
+            else if (itemId == 3177 || itemId == 3178 || itemId == 3179)
             {
                 name = "Chandeliers";
                 useStyle = 1;
@@ -35545,20 +35545,20 @@ namespace Terraria
                 width = 26;
                 height = 26;
                 value = 3000;
-                if (type == 3177)
+                if (itemId == 3177)
                     placeStyle = 34;
-                else if (type == 3178)
+                else if (itemId == 3178)
                 {
                     placeStyle = 36;
                 }
                 else
                 {
-                    if (type != 3179)
+                    if (itemId != 3179)
                         return;
                     placeStyle = 35;
                 }
             }
-            else if (type == 3180 || type == 3181 || type == 3125)
+            else if (itemId == 3180 || itemId == 3181 || itemId == 3125)
             {
                 name = "Chests";
                 useStyle = 1;
@@ -35572,20 +35572,20 @@ namespace Terraria
                 width = 26;
                 height = 22;
                 value = 500;
-                if (type == 3180)
+                if (itemId == 3180)
                     placeStyle = 49;
-                else if (type == 3181)
+                else if (itemId == 3181)
                 {
                     placeStyle = 51;
                 }
                 else
                 {
-                    if (type != 3125)
+                    if (itemId != 3125)
                         return;
                     placeStyle = 50;
                 }
             }
-            else if (type == 3126 || type == 3127 || type == 3128)
+            else if (itemId == 3126 || itemId == 3127 || itemId == 3128)
             {
                 name = "Clocks";
                 useStyle = 1;
@@ -35599,20 +35599,20 @@ namespace Terraria
                 width = 20;
                 height = 20;
                 value = 300;
-                if (type == 3126)
+                if (itemId == 3126)
                     placeStyle = 25;
-                else if (type == 3127)
+                else if (itemId == 3127)
                 {
                     placeStyle = 27;
                 }
                 else
                 {
-                    if (type != 3128)
+                    if (itemId != 3128)
                         return;
                     placeStyle = 26;
                 }
             }
-            else if (type == 3129 || type == 3130 || type == 3131)
+            else if (itemId == 3129 || itemId == 3130 || itemId == 3131)
             {
                 name = "Doors";
                 useStyle = 1;
@@ -35625,20 +35625,20 @@ namespace Terraria
                 width = 14;
                 height = 28;
                 value = 200;
-                if (type == 3129)
+                if (itemId == 3129)
                     placeStyle = 33;
-                else if (type == 3130)
+                else if (itemId == 3130)
                 {
                     placeStyle = 35;
                 }
                 else
                 {
-                    if (type != 3131)
+                    if (itemId != 3131)
                         return;
                     placeStyle = 34;
                 }
             }
-            else if (type == 3132 || type == 3133 || type == 3134)
+            else if (itemId == 3132 || itemId == 3133 || itemId == 3134)
             {
                 name = "Dressers";
                 useStyle = 1;
@@ -35652,20 +35652,20 @@ namespace Terraria
                 width = 20;
                 height = 20;
                 value = 300;
-                if (type == 3132)
+                if (itemId == 3132)
                     placeStyle = 25;
-                else if (type == 3133)
+                else if (itemId == 3133)
                 {
                     placeStyle = 27;
                 }
                 else
                 {
-                    if (type != 3134)
+                    if (itemId != 3134)
                         return;
                     placeStyle = 26;
                 }
             }
-            else if (type == 3135 || type == 3136 || type == 3137)
+            else if (itemId == 3135 || itemId == 3136 || itemId == 3137)
             {
                 name = "Lamps";
                 useStyle = 1;
@@ -35679,20 +35679,20 @@ namespace Terraria
                 width = 10;
                 height = 24;
                 value = 500;
-                if (type == 3135)
+                if (itemId == 3135)
                     placeStyle = 28;
-                else if (type == 3136)
+                else if (itemId == 3136)
                 {
                     placeStyle = 30;
                 }
                 else
                 {
-                    if (type != 3137)
+                    if (itemId != 3137)
                         return;
                     placeStyle = 29;
                 }
             }
-            else if (type == 3138 || type == 3139 || type == 3140)
+            else if (itemId == 3138 || itemId == 3139 || itemId == 3140)
             {
                 name = "Lanterns";
                 useStyle = 1;
@@ -35705,20 +35705,20 @@ namespace Terraria
                 createTile = 42;
                 width = 12;
                 height = 28;
-                if (type == 3138)
+                if (itemId == 3138)
                     placeStyle = 34;
-                else if (type == 3139)
+                else if (itemId == 3139)
                 {
                     placeStyle = 36;
                 }
                 else
                 {
-                    if (type != 3140)
+                    if (itemId != 3140)
                         return;
                     placeStyle = 35;
                 }
             }
-            else if (type == 3141 || type == 3142 || type == 3143)
+            else if (itemId == 3141 || itemId == 3142 || itemId == 3143)
             {
                 name = "Pianos";
                 useStyle = 1;
@@ -35732,20 +35732,20 @@ namespace Terraria
                 width = 20;
                 height = 20;
                 value = 300;
-                if (type == 3141)
+                if (itemId == 3141)
                     placeStyle = 27;
-                else if (type == 3142)
+                else if (itemId == 3142)
                 {
                     placeStyle = 29;
                 }
                 else
                 {
-                    if (type != 3143)
+                    if (itemId != 3143)
                         return;
                     placeStyle = 28;
                 }
             }
-            else if (type == 3144 || type == 3145 || type == 3146)
+            else if (itemId == 3144 || itemId == 3145 || itemId == 3146)
             {
                 name = "Platforms";
                 useStyle = 1;
@@ -35758,20 +35758,20 @@ namespace Terraria
                 createTile = 19;
                 width = 8;
                 height = 10;
-                if (type == 3144)
+                if (itemId == 3144)
                     placeStyle = 27;
-                else if (type == 3145)
+                else if (itemId == 3145)
                 {
                     placeStyle = 29;
                 }
                 else
                 {
-                    if (type != 3146)
+                    if (itemId != 3146)
                         return;
                     placeStyle = 28;
                 }
             }
-            else if (type == 3147 || type == 3148 || type == 3149)
+            else if (itemId == 3147 || itemId == 3148 || itemId == 3149)
             {
                 name = "Sinks";
                 useStyle = 1;
@@ -35785,20 +35785,20 @@ namespace Terraria
                 width = 20;
                 height = 20;
                 value = 300;
-                if (type == 3147)
+                if (itemId == 3147)
                     placeStyle = 29;
-                else if (type == 3148)
+                else if (itemId == 3148)
                 {
                     placeStyle = 31;
                 }
                 else
                 {
-                    if (type != 3149)
+                    if (itemId != 3149)
                         return;
                     placeStyle = 30;
                 }
             }
-            else if (type == 3150 || type == 3151 || type == 3152)
+            else if (itemId == 3150 || itemId == 3151 || itemId == 3152)
             {
                 name = "Sofas";
                 useStyle = 1;
@@ -35812,20 +35812,20 @@ namespace Terraria
                 width = 20;
                 height = 20;
                 value = 300;
-                if (type == 3150)
+                if (itemId == 3150)
                     placeStyle = 30;
-                else if (type == 3151)
+                else if (itemId == 3151)
                 {
                     placeStyle = 32;
                 }
                 else
                 {
-                    if (type != 3152)
+                    if (itemId != 3152)
                         return;
                     placeStyle = 31;
                 }
             }
-            else if (type == 3153 || type == 3154 || type == 3155)
+            else if (itemId == 3153 || itemId == 3154 || itemId == 3155)
             {
                 name = "Tables";
                 useStyle = 1;
@@ -35839,20 +35839,20 @@ namespace Terraria
                 width = 26;
                 height = 20;
                 value = 300;
-                if (type == 3153)
+                if (itemId == 3153)
                     placeStyle = 32;
-                else if (type == 3154)
+                else if (itemId == 3154)
                 {
                     placeStyle = 34;
                 }
                 else
                 {
-                    if (type != 3155)
+                    if (itemId != 3155)
                         return;
                     placeStyle = 33;
                 }
             }
-            else if (type == 3156 || type == 3157 || type == 3158)
+            else if (itemId == 3156 || itemId == 3157 || itemId == 3158)
             {
                 name = "Workbenchs";
                 useStyle = 1;
@@ -35866,20 +35866,20 @@ namespace Terraria
                 width = 28;
                 height = 14;
                 value = 150;
-                if (type == 3156)
+                if (itemId == 3156)
                     placeStyle = 28;
-                else if (type == 3157)
+                else if (itemId == 3157)
                 {
                     placeStyle = 30;
                 }
                 else
                 {
-                    if (type != 3158)
+                    if (itemId != 3158)
                         return;
                     placeStyle = 29;
                 }
             }
-            else if (type == 3182)
+            else if (itemId == 3182)
             {
                 name = "Magic Water Dropper";
                 useStyle = 1;
@@ -35894,7 +35894,7 @@ namespace Terraria
                 height = 24;
                 value = sellPrice(0, 0, 1, 0);
             }
-            else if (type == 3183)
+            else if (itemId == 3183)
             {
                 name = "Golden Bug Net";
                 useTurn = true;
@@ -35908,7 +35908,7 @@ namespace Terraria
                 rare = 4;
                 scale = 1.15f;
             }
-            else if (type == 3184)
+            else if (itemId == 3184)
             {
                 name = "Magic Lava Dropper";
                 useStyle = 1;
@@ -35923,7 +35923,7 @@ namespace Terraria
                 height = 24;
                 value = sellPrice(0, 0, 1, 0);
             }
-            else if (type == 3185)
+            else if (itemId == 3185)
             {
                 name = "Magic Honey Dropper";
                 useStyle = 1;
@@ -35938,7 +35938,7 @@ namespace Terraria
                 height = 24;
                 value = sellPrice(0, 0, 1, 0);
             }
-            else if (type == 3186)
+            else if (itemId == 3186)
             {
                 name = "Empty Dropper";
                 maxStack = 999;
@@ -35946,7 +35946,7 @@ namespace Terraria
                 height = 24;
                 value = buyPrice(0, 0, 1, 0);
             }
-            else if (type == 3187)
+            else if (itemId == 3187)
             {
                 name = "Gladiator Helmet";
                 width = 18;
@@ -35955,7 +35955,7 @@ namespace Terraria
                 headSlot = 180;
                 value = 20000;
             }
-            else if (type == 3188)
+            else if (itemId == 3188)
             {
                 name = "Gladiator Breastplate";
                 width = 18;
@@ -35964,7 +35964,7 @@ namespace Terraria
                 bodySlot = 182;
                 value = 16000;
             }
-            else if (type == 3189)
+            else if (itemId == 3189)
             {
                 name = "Gladiator Leggings";
                 width = 18;
@@ -35973,7 +35973,7 @@ namespace Terraria
                 legSlot = 122;
                 value = 12000;
             }
-            else if (type >= 3191 && type <= 3194)
+            else if (itemId >= 3191 && itemId <= 3194)
             {
                 name = "Grub";
                 useStyle = 1;
@@ -35985,18 +35985,18 @@ namespace Terraria
                 consumable = true;
                 width = 12;
                 height = 12;
-                makeNPC = (short)(484 + type - 3191);
+                makeNPC = (short)(484 + itemId - 3191);
                 noUseGraphic = true;
-                if (type == 3192)
+                if (itemId == 3192)
                     bait = 15;
-                else if (type == 3193)
+                else if (itemId == 3193)
                     bait = 25;
-                else if (type == 3194)
+                else if (itemId == 3194)
                     bait = 40;
                 else
                     bait = 35;
             }
-            else if (type == 3195)
+            else if (itemId == 3195)
             {
                 name = "Grub Soup";
                 useSound = 3;
@@ -36014,7 +36014,7 @@ namespace Terraria
                 toolTip = "Minor improvements to all stats";
                 value = 1000;
             }
-            else if (type == 3196)
+            else if (itemId == 3196)
             {
                 useStyle = 1;
                 name = "Bomb Fish";
@@ -36034,7 +36034,7 @@ namespace Terraria
                 toolTip = "A small explosion that will destroy some tiles";
                 rare = 1;
             }
-            else if (type == 3197)
+            else if (itemId == 3197)
             {
                 rare = 1;
                 useStyle = 1;
@@ -36055,7 +36055,7 @@ namespace Terraria
                 knockBack = 3.5f;
                 thrown = true;
             }
-            else if (type == 3198)
+            else if (itemId == 3198)
             {
                 rare = 1;
                 name = "Sharpening Station";
@@ -36071,7 +36071,7 @@ namespace Terraria
                 height = 22;
                 value = 100000;
             }
-            else if (type == 3199)
+            else if (itemId == 3199)
             {
                 name = "Ice Mirror";
                 useTurn = true;
@@ -36085,7 +36085,7 @@ namespace Terraria
                 rare = 1;
                 value = 50000;
             }
-            else if (type == 3200)
+            else if (itemId == 3200)
             {
                 name = "Sailfish Boots";
                 width = 28;
@@ -36096,7 +36096,7 @@ namespace Terraria
                 value = 50000;
                 shoeSlot = 17;
             }
-            else if (type == 3201)
+            else if (itemId == 3201)
             {
                 name = "Tsunami in a Bottle";
                 width = 16;
@@ -36107,7 +36107,7 @@ namespace Terraria
                 value = 50000;
                 waistSlot = 11;
             }
-            else if (type == 3202)
+            else if (itemId == 3202)
             {
                 rare = 1;
                 name = "Target Dummy";
@@ -36123,7 +36123,7 @@ namespace Terraria
                 height = 30;
                 value = sellPrice(0, 0, 1, 0);
             }
-            else if (type == 3214)
+            else if (itemId == 3214)
             {
                 name = "Bubble";
                 useStyle = 1;
@@ -36138,7 +36138,7 @@ namespace Terraria
                 height = 12;
                 value = buyPrice(0, 0, 2, 0);
             }
-            else if (type >= 3215 && type <= 3222)
+            else if (itemId >= 3215 && itemId <= 3222)
             {
                 name = "Planter Box";
                 useStyle = 1;
@@ -36149,12 +36149,12 @@ namespace Terraria
                 maxStack = 999;
                 consumable = true;
                 createTile = 380;
-                placeStyle = type - 3215;
+                placeStyle = itemId - 3215;
                 width = 24;
                 height = 20;
                 value = buyPrice(0, 0, 1, 0);
             }
-            else if (type == 3223)
+            else if (itemId == 3223)
             {
                 name = "Brain of Confusion";
                 width = 22;
@@ -36165,7 +36165,7 @@ namespace Terraria
                 value = 50000;
                 expert = true;
             }
-            else if (type == 3224)
+            else if (itemId == 3224)
             {
                 name = "Worm Scarf";
                 width = 22;
@@ -36177,7 +36177,7 @@ namespace Terraria
                 neckSlot = 8;
                 expert = true;
             }
-            else if (type == 3225)
+            else if (itemId == 3225)
             {
                 name = "Balloon Pufferfish";
                 width = 14;
@@ -36188,7 +36188,7 @@ namespace Terraria
                 toolTip = "Increases jump height";
                 balloonSlot = 11;
             }
-            else if (type == 3226)
+            else if (itemId == 3226)
             {
                 name = "Lazure's Helmet";
                 width = 28;
@@ -36197,7 +36197,7 @@ namespace Terraria
                 rare = 9;
                 vanity = true;
             }
-            else if (type == 3227)
+            else if (itemId == 3227)
             {
                 name = "Lazure's Armor";
                 width = 18;
@@ -36206,7 +36206,7 @@ namespace Terraria
                 rare = 9;
                 vanity = true;
             }
-            else if (type == 3228)
+            else if (itemId == 3228)
             {
                 name = "Lazure's Wings";
                 width = 24;
@@ -36216,7 +36216,7 @@ namespace Terraria
                 wingSlot = 28;
                 value = 400000;
             }
-            else if (type >= 3229 && type <= 3233)
+            else if (itemId >= 3229 && itemId <= 3233)
             {
                 name = "Grave Marker";
                 useTurn = true;
@@ -36226,11 +36226,11 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 85;
-                placeStyle = 6 + type - 3229;
+                placeStyle = 6 + itemId - 3229;
                 width = 20;
                 height = 20;
             }
-            else if (type == 3234)
+            else if (itemId == 3234)
             {
                 name = "Crystal Block";
                 useStyle = 1;
@@ -36244,7 +36244,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type >= 3235 && type <= 3237)
+            else if (itemId >= 3235 && itemId <= 3237)
             {
                 name = "Music Boxes";
                 useStyle = 1;
@@ -36254,14 +36254,14 @@ namespace Terraria
                 autoReuse = true;
                 consumable = true;
                 createTile = 139;
-                placeStyle = 33 + type - 3235;
+                placeStyle = 33 + itemId - 3235;
                 width = 24;
                 height = 24;
                 rare = 4;
                 value = 100000;
                 accessory = true;
             }
-            else if (type == 3238)
+            else if (itemId == 3238)
             {
                 name = "Crystal Wall";
                 useStyle = 1;
@@ -36275,7 +36275,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3239)
+            else if (itemId == 3239)
             {
                 name = "Trap Door";
                 useStyle = 1;
@@ -36289,7 +36289,7 @@ namespace Terraria
                 width = 20;
                 height = 12;
             }
-            else if (type == 3240)
+            else if (itemId == 3240)
             {
                 name = "Tall Gate";
                 useStyle = 1;
@@ -36303,7 +36303,7 @@ namespace Terraria
                 width = 18;
                 height = 26;
             }
-            else if (type == 3241)
+            else if (itemId == 3241)
             {
                 name = "Balloon Sharkron";
                 width = 14;
@@ -36314,7 +36314,7 @@ namespace Terraria
                 toolTip = "Increases jump height";
                 balloonSlot = 12;
             }
-            else if (type == 3242)
+            else if (itemId == 3242)
             {
                 name = "Tax Collector's Hat";
                 width = 18;
@@ -36323,7 +36323,7 @@ namespace Terraria
                 vanity = true;
                 headSlot = 182;
             }
-            else if (type == 3243)
+            else if (itemId == 3243)
             {
                 name = "Tax Collector's Suit";
                 width = 18;
@@ -36332,7 +36332,7 @@ namespace Terraria
                 vanity = true;
                 bodySlot = 184;
             }
-            else if (type == 3244)
+            else if (itemId == 3244)
             {
                 name = "Tax Collector's Pants";
                 width = 18;
@@ -36341,7 +36341,7 @@ namespace Terraria
                 vanity = true;
                 legSlot = 124;
             }
-            else if (type == 3245)
+            else if (itemId == 3245)
             {
                 name = "Bone Glove";
                 width = 16;
@@ -36361,7 +36361,7 @@ namespace Terraria
                 noUseGraphic = true;
                 expert = true;
             }
-            else if (type == 3246)
+            else if (itemId == 3246)
             {
                 name = "Clothier's Jacket";
                 width = 18;
@@ -36370,7 +36370,7 @@ namespace Terraria
                 vanity = true;
                 bodySlot = 185;
             }
-            else if (type == 3247)
+            else if (itemId == 3247)
             {
                 name = "Clothier's Pants";
                 width = 18;
@@ -36379,7 +36379,7 @@ namespace Terraria
                 vanity = true;
                 legSlot = 125;
             }
-            else if (type == 3248)
+            else if (itemId == 3248)
             {
                 name = "Dye Trader's Turban";
                 width = 18;
@@ -36388,7 +36388,7 @@ namespace Terraria
                 vanity = true;
                 headSlot = 183;
             }
-            else if (type == 3249)
+            else if (itemId == 3249)
             {
                 mana = 10;
                 damage = 50;
@@ -36409,7 +36409,7 @@ namespace Terraria
                 value = sellPrice(0, 5, 0, 0);
                 summon = true;
             }
-            else if (type == 3250 || type == 3251 || type == 3252)
+            else if (itemId == 3250 || itemId == 3251 || itemId == 3252)
             {
                 name = "Horseshoe Balloons";
                 width = 20;
@@ -36417,9 +36417,9 @@ namespace Terraria
                 rare = 4;
                 value = 45000;
                 accessory = true;
-                balloonSlot = (sbyte)(13 + type - 3250);
+                balloonSlot = (sbyte)(13 + itemId - 3250);
             }
-            else if (type == 3253)
+            else if (itemId == 3253)
             {
                 name = "Lava Lamp";
                 useStyle = 1;
@@ -36436,7 +36436,7 @@ namespace Terraria
                 rare = 1;
                 glowMask = 129;
             }
-            else if (type >= 3254 && type <= 3257)
+            else if (itemId >= 3254 && itemId <= 3257)
             {
                 name = "Critter Cage";
                 useStyle = 1;
@@ -36446,11 +36446,11 @@ namespace Terraria
                 autoReuse = true;
                 maxStack = 99;
                 consumable = true;
-                createTile = 391 + type - 3254;
+                createTile = 391 + itemId - 3254;
                 width = 12;
                 height = 12;
             }
-            else if (type == 3258)
+            else if (itemId == 3258)
             {
                 name = "Slap Hand";
                 useStyle = 1;
@@ -36468,7 +36468,7 @@ namespace Terraria
                 melee = true;
                 crit = 15;
             }
-            else if (type == 3260)
+            else if (itemId == 3260)
             {
                 useStyle = 4;
                 name = "Blessed Apple";
@@ -36483,7 +36483,7 @@ namespace Terraria
                 mountType = 10;
                 value = sellPrice(0, 5, 0, 0);
             }
-            else if (type == 3259)
+            else if (itemId == 3259)
             {
                 name = "Twilight Hair Dye";
                 width = 20;
@@ -36498,7 +36498,7 @@ namespace Terraria
                 useTime = 17;
                 consumable = true;
             }
-            else if (type == 3261)
+            else if (itemId == 3261)
             {
                 name = "Spectre Bar";
                 width = 20;
@@ -36515,7 +36515,7 @@ namespace Terraria
                 createTile = 239;
                 placeStyle = 21;
             }
-            else if (type == 3262 || type >= 3278 && type <= 3292 || type >= 3315 && type <= 3317)
+            else if (itemId == 3262 || itemId >= 3278 && itemId <= 3292 || itemId >= 3315 && itemId <= 3317)
             {
                 name = "Yoyo";
                 useStyle = 5;
@@ -36526,46 +36526,46 @@ namespace Terraria
                 melee = true;
                 channel = true;
                 noMelee = true;
-                shoot = 541 + type - 3278;
+                shoot = 541 + itemId - 3278;
                 useAnimation = 25;
                 useTime = 25;
                 shootSpeed = 16f;
-                if (type == 3278)
+                if (itemId == 3278)
                 {
                     knockBack = 2.5f;
                     damage = 9;
                     value = sellPrice(0, 0, 1, 0);
                     rare = 0;
                 }
-                else if (type == 3285)
+                else if (itemId == 3285)
                 {
                     knockBack = 3.5f;
                     damage = 14;
                     value = sellPrice(0, 0, 50, 0);
                     rare = 1;
                 }
-                else if (type == 3279)
+                else if (itemId == 3279)
                 {
                     knockBack = 4.5f;
                     damage = 16;
                     value = sellPrice(0, 1, 0, 0);
                     rare = 1;
                 }
-                else if (type == 3280)
+                else if (itemId == 3280)
                 {
                     knockBack = 4f;
                     damage = 17;
                     value = sellPrice(0, 1, 0, 0);
                     rare = 1;
                 }
-                else if (type == 3281)
+                else if (itemId == 3281)
                 {
                     knockBack = 3.75f;
                     damage = 20;
                     value = sellPrice(0, 1, 30, 0);
                     rare = 3;
                 }
-                else if (type == 3317)
+                else if (itemId == 3317)
                 {
                     knockBack = 3.85f;
                     damage = 22;
@@ -36573,14 +36573,14 @@ namespace Terraria
                     rare = 3;
                     shoot = 564;
                 }
-                else if (type == 3282)
+                else if (itemId == 3282)
                 {
                     knockBack = 4.3f;
                     damage = 27;
                     value = sellPrice(0, 1, 80, 0);
                     rare = 3;
                 }
-                else if (type == 3262)
+                else if (itemId == 3262)
                 {
                     knockBack = 3.25f;
                     damage = 21;
@@ -36588,7 +36588,7 @@ namespace Terraria
                     rare = 2;
                     shoot = 534;
                 }
-                else if (type == 3315)
+                else if (itemId == 3315)
                 {
                     knockBack = 3.25f;
                     damage = 29;
@@ -36596,7 +36596,7 @@ namespace Terraria
                     rare = 3;
                     shoot = 562;
                 }
-                else if (type == 3316)
+                else if (itemId == 3316)
                 {
                     knockBack = 3.8f;
                     damage = 34;
@@ -36604,55 +36604,55 @@ namespace Terraria
                     rare = 3;
                     shoot = 563;
                 }
-                else if (type == 3283)
+                else if (itemId == 3283)
                 {
                     knockBack = 3.15f;
                     damage = 39;
                     value = sellPrice(0, 4, 0, 0);
                     rare = 4;
                 }
-                else if (type == 3289)
+                else if (itemId == 3289)
                 {
                     knockBack = 2.8f;
                     damage = 43;
                     value = sellPrice(0, 4, 0, 0);
                     rare = 4;
                 }
-                else if (type == 3290)
+                else if (itemId == 3290)
                 {
                     knockBack = 4.5f;
                     damage = 41;
                     value = sellPrice(0, 4, 0, 0);
                     rare = 4;
                 }
-                else if (type == 3284)
+                else if (itemId == 3284)
                 {
                     knockBack = 3.8f;
                     damage = 47;
                     value = buyPrice(0, 25, 0, 0);
                     rare = 5;
                 }
-                else if (type == 3286)
+                else if (itemId == 3286)
                 {
                     knockBack = 3.1f;
                     damage = 60;
                     value = sellPrice(0, 5, 0, 0);
                     rare = 7;
                 }
-                else if (type == 3291)
+                else if (itemId == 3291)
                 {
                     knockBack = 4.3f;
                     damage = 90;
                     value = sellPrice(0, 11, 0, 0);
                     rare = 8;
                 }
-                else if (type == 3288 || type == 3287)
+                else if (itemId == 3288 || itemId == 3287)
                 {
                     knockBack = 8.5f;
                     damage = 180;
                     rare = 9;
                 }
-                else if (type == 3292)
+                else if (itemId == 3292)
                 {
                     knockBack = 3.5f;
                     damage = 115;
@@ -36667,7 +36667,7 @@ namespace Terraria
                     value = sellPrice(0, 1, 0, 0);
                 }
             }
-            else if (type == 3389)
+            else if (itemId == 3389)
             {
                 name = "Yoyo";
                 useStyle = 5;
@@ -36688,7 +36688,7 @@ namespace Terraria
                 crit = 10;
                 rare = 10;
             }
-            else if (type >= 3293 && type <= 3308)
+            else if (itemId >= 3293 && itemId <= 3308)
             {
                 name = "String";
                 width = 24;
@@ -36696,18 +36696,18 @@ namespace Terraria
                 rare = 1;
                 value = sellPrice(0, 0, 3, 0);
                 accessory = true;
-                if (type == 3307)
+                if (itemId == 3307)
                     stringColor = 27;
-                else if (type == 3306)
+                else if (itemId == 3306)
                     stringColor = 14;
-                else if (type == 3308)
+                else if (itemId == 3308)
                     stringColor = 13;
-                else if (type == 3305)
+                else if (itemId == 3305)
                     stringColor = 28;
                 else
-                    stringColor = 1 + type - 3293;
+                    stringColor = 1 + itemId - 3293;
             }
-            else if (type >= 3309 && type <= 3314)
+            else if (itemId >= 3309 && itemId <= 3314)
             {
                 name = "Counterweight";
                 width = 24;
@@ -36716,7 +36716,7 @@ namespace Terraria
                 value = buyPrice(0, 5, 0, 0);
                 accessory = true;
             }
-            else if (type == 3263)
+            else if (itemId == 3263)
             {
                 name = "Hat";
                 width = 18;
@@ -36725,7 +36725,7 @@ namespace Terraria
                 vanity = true;
                 headSlot = 184;
             }
-            else if (type == 3264)
+            else if (itemId == 3264)
             {
                 name = "Torso";
                 width = 18;
@@ -36734,7 +36734,7 @@ namespace Terraria
                 vanity = true;
                 bodySlot = 186;
             }
-            else if (type == 3265)
+            else if (itemId == 3265)
             {
                 name = "Pants";
                 width = 18;
@@ -36743,7 +36743,7 @@ namespace Terraria
                 vanity = true;
                 legSlot = 126;
             }
-            else if (type == 3266)
+            else if (itemId == 3266)
             {
                 name = "Hat";
                 width = 18;
@@ -36752,7 +36752,7 @@ namespace Terraria
                 headSlot = 185;
                 defense = 4;
             }
-            else if (type == 3267)
+            else if (itemId == 3267)
             {
                 name = "Torso";
                 width = 18;
@@ -36761,7 +36761,7 @@ namespace Terraria
                 bodySlot = 187;
                 defense = 5;
             }
-            else if (type == 3268)
+            else if (itemId == 3268)
             {
                 name = "Pants";
                 width = 18;
@@ -36770,7 +36770,7 @@ namespace Terraria
                 legSlot = (int)127;
                 defense = 4;
             }
-            else if (type == 3269)
+            else if (itemId == 3269)
             {
                 name = "Medusa Head";
                 useStyle = 4;
@@ -36793,7 +36793,7 @@ namespace Terraria
                 magic = true;
                 channel = true;
             }
-            else if (type == 3270)
+            else if (itemId == 3270)
             {
                 name = "Item Frame";
                 useStyle = 1;
@@ -36808,7 +36808,7 @@ namespace Terraria
                 height = 28;
                 rare = 1;
             }
-            else if (type == 3272)
+            else if (itemId == 3272)
             {
                 name = "Hardened Sand";
                 useStyle = 1;
@@ -36822,7 +36822,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3271)
+            else if (itemId == 3271)
             {
                 name = "Sandstone";
                 useStyle = 1;
@@ -36836,7 +36836,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3273)
+            else if (itemId == 3273)
             {
                 name = "Sandstone Wall";
                 useStyle = 1;
@@ -36850,7 +36850,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3344)
+            else if (itemId == 3344)
             {
                 name = "Corrupt Sandstone Wall";
                 useStyle = 1;
@@ -36864,7 +36864,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3345)
+            else if (itemId == 3345)
             {
                 name = "Crimson Sandstone Wall";
                 useStyle = 1;
@@ -36878,7 +36878,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3346)
+            else if (itemId == 3346)
             {
                 name = "Hallow Sandstone Wall";
                 useStyle = 1;
@@ -36892,7 +36892,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3340)
+            else if (itemId == 3340)
             {
                 name = "Hardened Sand Wall";
                 useStyle = 1;
@@ -36906,7 +36906,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3341)
+            else if (itemId == 3341)
             {
                 name = "Corrupt Hardened Sand Wall";
                 useStyle = 1;
@@ -36920,7 +36920,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3342)
+            else if (itemId == 3342)
             {
                 name = "Crimson Hardened Sand Wall";
                 useStyle = 1;
@@ -36934,7 +36934,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3343)
+            else if (itemId == 3343)
             {
                 name = "Hallow Hardened Sand Wall";
                 useStyle = 1;
@@ -36948,7 +36948,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3277)
+            else if (itemId == 3277)
             {
                 name = "Crimson Sandstone";
                 useStyle = 1;
@@ -36962,7 +36962,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3276)
+            else if (itemId == 3276)
             {
                 name = "Corrupt Sandstone";
                 useStyle = 1;
@@ -36976,7 +36976,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3275)
+            else if (itemId == 3275)
             {
                 name = "Crimson Hardened Sand";
                 useStyle = 1;
@@ -36990,7 +36990,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3274)
+            else if (itemId == 3274)
             {
                 name = "Corrupt Hardened Sand";
                 useStyle = 1;
@@ -37004,7 +37004,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3339)
+            else if (itemId == 3339)
             {
                 name = "Hallow Sandstone";
                 useStyle = 1;
@@ -37018,7 +37018,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3338)
+            else if (itemId == 3338)
             {
                 name = "Hallow Hardened Sand";
                 useStyle = 1;
@@ -37032,7 +37032,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3347)
+            else if (itemId == 3347)
             {
                 name = "Desert Fossil Block";
                 useStyle = 1;
@@ -37046,7 +37046,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3348)
+            else if (itemId == 3348)
             {
                 name = "Desert Fossil Wall";
                 useStyle = 1;
@@ -37060,7 +37060,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type >= 3318 && type <= 3332)
+            else if (itemId >= 3318 && itemId <= 3332)
             {
                 name = "Treasure Bag";
                 maxStack = 999;
@@ -37068,35 +37068,35 @@ namespace Terraria
                 width = 24;
                 height = 24;
                 rare = 1;
-                if (type == 3320)
+                if (itemId == 3320)
                     rare = 2;
-                if (type == 3321)
+                if (itemId == 3321)
                     rare = 2;
-                if (type == 3322)
+                if (itemId == 3322)
                     rare = 3;
-                if (type == 3323)
+                if (itemId == 3323)
                     rare = 3;
-                if (type == 3324)
+                if (itemId == 3324)
                     rare = 4;
-                if (type == 3325)
+                if (itemId == 3325)
                     rare = 5;
-                if (type == 3326)
+                if (itemId == 3326)
                     rare = 5;
-                if (type == 3327)
+                if (itemId == 3327)
                     rare = 5;
-                if (type == 3328)
+                if (itemId == 3328)
                     rare = 6;
-                if (type == 3329)
+                if (itemId == 3329)
                     rare = 7;
-                if (type == 3330)
+                if (itemId == 3330)
                     rare = 7;
-                if (type == 3331)
+                if (itemId == 3331)
                     rare = 8;
-                if (type == 3332)
+                if (itemId == 3332)
                     rare = 8;
                 expert = true;
             }
-            else if (type == 3333)
+            else if (itemId == 3333)
             {
                 name = "Hive Backpack";
                 width = 22;
@@ -37107,7 +37107,7 @@ namespace Terraria
                 backSlot = 9;
                 expert = true;
             }
-            else if (type == 3334)
+            else if (itemId == 3334)
             {
                 name = "Yoyo Golve";
                 width = 22;
@@ -37118,7 +37118,7 @@ namespace Terraria
                 handOffSlot = 11;
                 handOnSlot = 18;
             }
-            else if (type == 3335)
+            else if (itemId == 3335)
             {
                 name = "Demon Heart";
                 maxStack = 99;
@@ -37133,7 +37133,7 @@ namespace Terraria
                 value = sellPrice(0, 2, 0, 0);
                 expert = true;
             }
-            else if (type == 3336)
+            else if (itemId == 3336)
             {
                 name = "Spore Sac";
                 width = 22;
@@ -37143,7 +37143,7 @@ namespace Terraria
                 value = sellPrice(0, 4, 0, 0);
                 expert = true;
             }
-            else if (type == 3337)
+            else if (itemId == 3337)
             {
                 name = "Shiny Stone";
                 width = 22;
@@ -37153,7 +37153,7 @@ namespace Terraria
                 value = sellPrice(0, 5, 0, 0);
                 expert = true;
             }
-            else if (type == 3353)
+            else if (itemId == 3353)
             {
                 name = "Minecart Mech";
                 width = 36;
@@ -37163,7 +37163,7 @@ namespace Terraria
                 value = sellPrice(0, 3, 0, 0);
                 expert = true;
             }
-            else if (type == 3355 || type == 3354 || type == 3356)
+            else if (itemId == 3355 || itemId == 3354 || itemId == 3356)
             {
                 name = "Mechanical Piece";
                 width = 20;
@@ -37173,7 +37173,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 50, 0);
                 expert = true;
             }
-            else if (type == 3357 || type == 3358 || type == 3359)
+            else if (itemId == 3357 || itemId == 3358 || itemId == 3359)
             {
                 name = "Trophy";
                 useStyle = 1;
@@ -37187,10 +37187,10 @@ namespace Terraria
                 width = 30;
                 height = 30;
                 value = sellPrice(0, 1, 0, 0);
-                placeStyle = 56 + type - 3357;
+                placeStyle = 56 + itemId - 3357;
                 rare = 1;
             }
-            else if (type == 3360)
+            else if (itemId == 3360)
             {
                 name = "Wand";
                 tileWand = 620;
@@ -37204,7 +37204,7 @@ namespace Terraria
                 height = 10;
                 rare = 1;
             }
-            else if (type == 3361)
+            else if (itemId == 3361)
             {
                 name = "Wand";
                 tileWand = 620;
@@ -37218,7 +37218,7 @@ namespace Terraria
                 height = 10;
                 rare = 1;
             }
-            else if (type == 3362)
+            else if (itemId == 3362)
             {
                 name = "Fallen Tuxedo Shirt";
                 width = 28;
@@ -37228,7 +37228,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 25, 0, 0);
             }
-            else if (type == 3363)
+            else if (itemId == 3363)
             {
                 name = "Fallen Tuxedo Pants";
                 width = 28;
@@ -37238,7 +37238,7 @@ namespace Terraria
                 vanity = true;
                 value = buyPrice(0, 25, 0, 0);
             }
-            else if (type == 3364)
+            else if (itemId == 3364)
             {
                 name = "Fireplace";
                 useStyle = 1;
@@ -37253,7 +37253,7 @@ namespace Terraria
                 height = 28;
                 rare = 1;
             }
-            else if (type == 3365)
+            else if (itemId == 3365)
             {
                 name = "Fireplace";
                 useStyle = 1;
@@ -37268,7 +37268,7 @@ namespace Terraria
                 height = 28;
                 rare = 1;
             }
-            else if (type == 3366)
+            else if (itemId == 3366)
             {
                 name = "Yoyo Bag";
                 width = 24;
@@ -37277,7 +37277,7 @@ namespace Terraria
                 value = sellPrice(0, 3, 0, 0);
                 accessory = true;
             }
-            else if (type == 3367)
+            else if (itemId == 3367)
             {
                 useStyle = 4;
                 name = "Shrimpy Truffle";
@@ -37293,7 +37293,7 @@ namespace Terraria
                 value = sellPrice(0, 5, 0, 0);
                 expert = true;
             }
-            else if (type == 3368)
+            else if (itemId == 3368)
             {
                 name = "Arkhalis";
                 width = 14;
@@ -37314,7 +37314,7 @@ namespace Terraria
                 shootSpeed = 15f;
                 value = 40000;
             }
-            else if (type == 3369)
+            else if (itemId == 3369)
             {
                 name = "Confetti Cannon";
                 useStyle = 1;
@@ -37331,7 +37331,7 @@ namespace Terraria
                 rare = 3;
                 value = buyPrice(0, 25, 0, 0);
             }
-            else if (type == 3370)
+            else if (itemId == 3370)
             {
                 name = "Music Box (Towers)";
                 useStyle = 1;
@@ -37348,7 +37348,7 @@ namespace Terraria
                 value = 100000;
                 accessory = true;
             }
-            else if (type == 3371)
+            else if (itemId == 3371)
             {
                 name = "Music Box (Goblins)";
                 useStyle = 1;
@@ -37365,16 +37365,16 @@ namespace Terraria
                 value = 100000;
                 accessory = true;
             }
-            else if (type >= 3372 && type <= 3373)
+            else if (itemId >= 3372 && itemId <= 3373)
             {
                 name = "Skeletron Mask";
                 width = 28;
                 height = 20;
-                headSlot = type + 186 - 3372;
+                headSlot = itemId + 186 - 3372;
                 rare = 1;
                 vanity = true;
             }
-            else if (type == 3374)
+            else if (itemId == 3374)
             {
                 name = "Fossil Helmet";
                 width = 18;
@@ -37384,7 +37384,7 @@ namespace Terraria
                 rare = 1;
                 value = sellPrice(0, 0, 30, 0);
             }
-            else if (type == 3375)
+            else if (itemId == 3375)
             {
                 name = "Fossil Plate";
                 width = 18;
@@ -37394,7 +37394,7 @@ namespace Terraria
                 rare = 1;
                 value = sellPrice(0, 0, 50, 0);
             }
-            else if (type == 3376)
+            else if (itemId == 3376)
             {
                 name = "Fossil Greaves";
                 width = 18;
@@ -37404,7 +37404,7 @@ namespace Terraria
                 rare = 1;
                 value = sellPrice(0, 0, 40, 0);
             }
-            else if (type == 3377)
+            else if (itemId == 3377)
             {
                 name = "Ember Staff";
                 mana = 7;
@@ -37424,7 +37424,7 @@ namespace Terraria
                 rare = 1;
                 noMelee = true;
             }
-            else if (type == 3378)
+            else if (itemId == 3378)
             {
                 name = "Bone Javelin";
                 shoot = 598;
@@ -37446,7 +37446,7 @@ namespace Terraria
                 value = 50;
                 rare = 1;
             }
-            else if (type == 3379)
+            else if (itemId == 3379)
             {
                 autoReuse = true;
                 useStyle = 1;
@@ -37468,7 +37468,7 @@ namespace Terraria
                 thrown = true;
                 rare = 1;
             }
-            else if (type == 3380)
+            else if (itemId == 3380)
             {
                 name = "Fossil Ore";
                 useStyle = 1;
@@ -37483,7 +37483,7 @@ namespace Terraria
                 height = 12;
                 rare = 1;
             }
-            else if (type == 3381)
+            else if (itemId == 3381)
             {
                 name = "Stardust Helmet";
                 width = 18;
@@ -37492,7 +37492,7 @@ namespace Terraria
                 headSlot = 189;
                 rare = 10;
             }
-            else if (type == 3382)
+            else if (itemId == 3382)
             {
                 name = "Stardust Breastplate";
                 width = 18;
@@ -37501,7 +37501,7 @@ namespace Terraria
                 bodySlot = 190;
                 rare = 10;
             }
-            else if (type == 3383)
+            else if (itemId == 3383)
             {
                 name = "Stardust Leggings";
                 width = 18;
@@ -37510,7 +37510,7 @@ namespace Terraria
                 legSlot = 130;
                 rare = 10;
             }
-            else if (type == 3384)
+            else if (itemId == 3384)
             {
                 name = "Portal Gun";
                 useStyle = 5;
@@ -37529,7 +37529,7 @@ namespace Terraria
                 channel = true;
                 autoReuse = true;
             }
-            else if (type >= 3385 && type <= 3388)
+            else if (itemId >= 3385 && itemId <= 3388)
             {
                 name = "Strange Plant";
                 width = 20;
@@ -37537,7 +37537,7 @@ namespace Terraria
                 maxStack = 99;
                 value = 10000;
                 rare = -11;
-                placeStyle = type - 3385 + 8;
+                placeStyle = itemId - 3385 + 8;
                 createTile = 227;
                 useStyle = 1;
                 useTurn = true;
@@ -37546,7 +37546,7 @@ namespace Terraria
                 autoReuse = true;
                 consumable = true;
             }
-            else if (type >= 3390 && type <= 3452)
+            else if (itemId >= 3390 && itemId <= 3452)
             {
                 name = "Monster Banner";
                 useStyle = 1;
@@ -37557,18 +37557,18 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 91;
-                placeStyle = 207 + type - 3390;
+                placeStyle = 207 + itemId - 3390;
                 width = 10;
                 height = 24;
                 value = 1000;
                 rare = 1;
             }
-            else if (type >= 3453 && type <= 3455)
+            else if (itemId >= 3453 && itemId <= 3455)
             {
                 name = "Nebulae";
                 width = 12;
                 height = 12;
-                switch (type)
+                switch (itemId)
                 {
                     case 3453:
                         buffType = 179;
@@ -37581,7 +37581,7 @@ namespace Terraria
                         break;
                 }
             }
-            else if (type >= 3456 && type <= 3459)
+            else if (itemId >= 3456 && itemId <= 3459)
             {
                 name = "Fragment";
                 width = 18;
@@ -37590,7 +37590,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 20, 0);
                 rare = 9;
             }
-            else if (type == 3460)
+            else if (itemId == 3460)
             {
                 name = "Lunar Ore";
                 useStyle = 1;
@@ -37606,7 +37606,7 @@ namespace Terraria
                 rare = 10;
                 value = sellPrice(0, 1, 20, 0) / 4;
             }
-            else if (type == 3461)
+            else if (itemId == 3461)
             {
                 name = "Lunar Brick";
                 useStyle = 1;
@@ -37620,44 +37620,44 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3462)
+            else if (itemId == 3462)
             {
                 SetDefaults3(2772);
-                type = 3462;
+                itemId = 3462;
                 name = "Stardust Axe";
                 glowMask = 174;
             }
-            else if (type == 3463)
+            else if (itemId == 3463)
             {
                 SetDefaults3(2773);
-                type = 3463;
+                itemId = 3463;
                 name = "Stardust Chainsaw";
                 shoot = 610;
                 glowMask = 175;
             }
-            else if (type == 3464)
+            else if (itemId == 3464)
             {
                 SetDefaults3(2774);
-                type = 3464;
+                itemId = 3464;
                 name = "Stardust Drill";
                 shoot = 609;
                 glowMask = 176;
             }
-            else if (type == 3465)
+            else if (itemId == 3465)
             {
                 SetDefaults3(2775);
-                type = 3465;
+                itemId = 3465;
                 name = "Stardust Hammer";
                 glowMask = 177;
             }
-            else if (type == 3466)
+            else if (itemId == 3466)
             {
                 SetDefaults3(2776);
-                type = 3466;
+                itemId = 3466;
                 name = "Stardust Pickaxe";
                 glowMask = 178;
             }
-            else if (type == 3467)
+            else if (itemId == 3467)
             {
                 name = "Luminite";
                 width = 20;
@@ -37674,7 +37674,7 @@ namespace Terraria
                 createTile = 239;
                 placeStyle = 22;
             }
-            else if (type >= 3468 && type <= 3471)
+            else if (itemId >= 3468 && itemId <= 3471)
             {
                 name = "Wings";
                 width = 22;
@@ -37683,9 +37683,9 @@ namespace Terraria
                 toolTip = "Allows flight and slow fall";
                 value = buyPrice(0, 10, 0, 0);
                 rare = 10;
-                wingSlot = (sbyte)(29 + type - 3468);
+                wingSlot = (sbyte)(29 + itemId - 3468);
             }
-            else if (type == 3472)
+            else if (itemId == 3472)
             {
                 name = "Lunar Brick Wall";
                 useStyle = 1;
@@ -37699,7 +37699,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3473)
+            else if (itemId == 3473)
             {
                 name = "Solar Eruption";
                 useStyle = 5;
@@ -37720,7 +37720,7 @@ namespace Terraria
                 melee = true;
                 damage = 105;
             }
-            else if (type == 3474)
+            else if (itemId == 3474)
             {
                 mana = 10;
                 damage = 60;
@@ -37740,7 +37740,7 @@ namespace Terraria
                 value = sellPrice(0, 10, 0, 0);
                 summon = true;
             }
-            else if (type == 3475)
+            else if (itemId == 3475)
             {
                 name = "Vortex Beater";
                 useStyle = 5;
@@ -37763,7 +37763,7 @@ namespace Terraria
                 useAmmo = 14;
                 autoReuse = true;
             }
-            else if (type == 3476)
+            else if (itemId == 3476)
             {
                 mana = 40;
                 damage = 80;
@@ -37785,7 +37785,7 @@ namespace Terraria
                 glowMask = 194;
                 holdStyle = 1;
             }
-            else if (type == 3477)
+            else if (itemId == 3477)
             {
                 useStyle = 1;
                 name = "Blood Water";
@@ -37806,7 +37806,7 @@ namespace Terraria
                 value = 200;
                 toolTip = "Spreads the Crimson to some blocks";
             }
-            else if (type == 3478)
+            else if (itemId == 3478)
             {
                 name = "Wedding Veil";
                 width = 18;
@@ -37815,7 +37815,7 @@ namespace Terraria
                 value = 5000;
                 vanity = true;
             }
-            else if (type == 3479)
+            else if (itemId == 3479)
             {
                 name = "Wedding Dress";
                 width = 18;
@@ -37824,7 +37824,7 @@ namespace Terraria
                 value = 5000;
                 vanity = true;
             }
-            else if (type >= 3522 && type <= 3525)
+            else if (itemId >= 3522 && itemId <= 3525)
             {
                 name = "Lunar Hamaxe";
                 useTurn = true;
@@ -37843,7 +37843,7 @@ namespace Terraria
                 value = sellPrice(0, 5, 0, 0);
                 melee = true;
                 tileBoost += 4;
-                switch (type)
+                switch (itemId)
                 {
                     case 3523:
                         glowMask = 196;
@@ -37856,10 +37856,10 @@ namespace Terraria
                         break;
                 }
             }
-            else if (type == 3521)
+            else if (itemId == 3521)
             {
                 SetDefaults1(1);
-                this.itemId = type;
+                this.itemId = itemId;
                 useTime = 17;
                 pick = 55;
                 useAnimation = 20;
@@ -37867,28 +37867,28 @@ namespace Terraria
                 damage = 6;
                 value = 10000;
             }
-            else if (type == 3520)
+            else if (itemId == 3520)
             {
                 SetDefaults1(4);
-                this.itemId = type;
+                this.itemId = itemId;
                 useAnimation = 20;
                 damage = 13;
                 scale = 1.05f;
                 value = 9000;
             }
-            else if (type == 3519)
+            else if (itemId == 3519)
             {
                 SetDefaults1(6);
-                this.itemId = type;
+                this.itemId = itemId;
                 damage = 11;
                 useAnimation = 11;
                 scale = 0.95f;
                 value = 7000;
             }
-            else if (type == 3517)
+            else if (itemId == 3517)
             {
                 SetDefaults1(7);
-                this.itemId = type;
+                this.itemId = itemId;
                 useAnimation = 28;
                 useTime = 23;
                 scale = 1.25f;
@@ -37896,10 +37896,10 @@ namespace Terraria
                 hammer = 55;
                 value = 8000;
             }
-            else if (type == 3518)
+            else if (itemId == 3518)
             {
                 SetDefaults1(10);
-                this.itemId = type;
+                this.itemId = itemId;
                 useTime = 18;
                 axe = 11;
                 useAnimation = 26;
@@ -37907,19 +37907,19 @@ namespace Terraria
                 damage = 7;
                 value = 8000;
             }
-            else if (type == 3516)
+            else if (itemId == 3516)
             {
                 SetDefaults1(99);
-                this.itemId = type;
+                this.itemId = itemId;
                 useAnimation = 26;
                 useTime = 26;
                 damage = 11;
                 value = 7000;
             }
-            else if (type == 3515)
+            else if (itemId == 3515)
             {
                 SetDefaults1(1);
-                this.itemId = type;
+                this.itemId = itemId;
                 useTime = 11;
                 pick = 45;
                 useAnimation = 19;
@@ -37927,27 +37927,27 @@ namespace Terraria
                 damage = 6;
                 value = 5000;
             }
-            else if (type == 3514)
+            else if (itemId == 3514)
             {
                 SetDefaults1(4);
-                this.itemId = type;
+                this.itemId = itemId;
                 useAnimation = 21;
                 damage = 11;
                 value = 4500;
             }
-            else if (type == 3513)
+            else if (itemId == 3513)
             {
                 SetDefaults1(6);
-                this.itemId = type;
+                this.itemId = itemId;
                 damage = 9;
                 useAnimation = 12;
                 scale = 0.95f;
                 value = 3500;
             }
-            else if (type == 3511)
+            else if (itemId == 3511)
             {
                 SetDefaults1(7);
-                this.itemId = type;
+                this.itemId = itemId;
                 useAnimation = 29;
                 useTime = 19;
                 scale = 1.25f;
@@ -37955,10 +37955,10 @@ namespace Terraria
                 hammer = 45;
                 value = 4000;
             }
-            else if (type == 3512)
+            else if (itemId == 3512)
             {
                 SetDefaults1(10);
-                this.itemId = type;
+                this.itemId = itemId;
                 useTime = 18;
                 axe = 10;
                 useAnimation = 26;
@@ -37966,19 +37966,19 @@ namespace Terraria
                 damage = 6;
                 value = 4000;
             }
-            else if (type == 3510)
+            else if (itemId == 3510)
             {
                 SetDefaults1(99);
-                this.itemId = type;
+                this.itemId = itemId;
                 useAnimation = 27;
                 useTime = 27;
                 damage = 9;
                 value = 3500;
             }
-            else if (type == 3509)
+            else if (itemId == 3509)
             {
                 SetDefaults1(1);
-                this.itemId = type;
+                this.itemId = itemId;
                 useTime = 15;
                 pick = 35;
                 useAnimation = 23;
@@ -37987,27 +37987,27 @@ namespace Terraria
                 tileBoost = -1;
                 value = 500;
             }
-            else if (type == 3508)
+            else if (itemId == 3508)
             {
                 SetDefaults1(4);
-                this.itemId = type;
+                this.itemId = itemId;
                 useAnimation = 23;
                 damage = 8;
                 value = 450;
             }
-            else if (type == 3507)
+            else if (itemId == 3507)
             {
                 SetDefaults1(6);
-                this.itemId = type;
+                this.itemId = itemId;
                 damage = 5;
                 useAnimation = 13;
                 scale = 0.8f;
                 value = 350;
             }
-            else if (type == 3505)
+            else if (itemId == 3505)
             {
                 SetDefaults1(7);
-                this.itemId = type;
+                this.itemId = itemId;
                 useAnimation = 33;
                 useTime = 23;
                 scale = 1.1f;
@@ -38016,10 +38016,10 @@ namespace Terraria
                 tileBoost = -1;
                 value = 400;
             }
-            else if (type == 3506)
+            else if (itemId == 3506)
             {
                 SetDefaults1(10);
-                this.itemId = type;
+                this.itemId = itemId;
                 useTime = 21;
                 axe = 7;
                 useAnimation = 30;
@@ -38028,19 +38028,19 @@ namespace Terraria
                 tileBoost = -1;
                 value = 400;
             }
-            else if (type == 3504)
+            else if (itemId == 3504)
             {
                 SetDefaults1(99);
-                this.itemId = type;
+                this.itemId = itemId;
                 useAnimation = 29;
                 useTime = 29;
                 damage = 6;
                 value = 350;
             }
-            else if (type == 3503)
+            else if (itemId == 3503)
             {
                 SetDefaults1(1);
-                this.itemId = type;
+                this.itemId = itemId;
                 useTime = 14;
                 pick = 35;
                 useAnimation = 21;
@@ -38048,27 +38048,27 @@ namespace Terraria
                 scale = 0.95f;
                 value = 750;
             }
-            else if (type == 3502)
+            else if (itemId == 3502)
             {
                 SetDefaults1(4);
-                this.itemId = type;
+                this.itemId = itemId;
                 useAnimation = 22;
                 damage = 9;
                 value = 675;
             }
-            else if (type == 3501)
+            else if (itemId == 3501)
             {
                 SetDefaults1(6);
-                this.itemId = type;
+                this.itemId = itemId;
                 damage = 7;
                 useAnimation = 12;
                 scale = 0.85f;
                 value = 525;
             }
-            else if (type == 3499)
+            else if (itemId == 3499)
             {
                 SetDefaults1(7);
-                this.itemId = type;
+                this.itemId = itemId;
                 useAnimation = 31;
                 useTime = 21;
                 scale = 1.15f;
@@ -38076,10 +38076,10 @@ namespace Terraria
                 hammer = 38;
                 value = 600;
             }
-            else if (type == 3500)
+            else if (itemId == 3500)
             {
                 SetDefaults1(10);
-                this.itemId = type;
+                this.itemId = itemId;
                 useTime = 20;
                 axe = 8;
                 useAnimation = 28;
@@ -38087,19 +38087,19 @@ namespace Terraria
                 damage = 4;
                 value = 600;
             }
-            else if (type == 3498)
+            else if (itemId == 3498)
             {
                 SetDefaults1(99);
-                this.itemId = type;
+                this.itemId = itemId;
                 useAnimation = 28;
                 useTime = 28;
                 damage = 7;
                 value = 525;
             }
-            else if (type == 3497)
+            else if (itemId == 3497)
             {
                 SetDefaults1(1);
-                this.itemId = type;
+                this.itemId = itemId;
                 useTime = 12;
                 pick = 43;
                 useAnimation = 19;
@@ -38107,27 +38107,27 @@ namespace Terraria
                 scale = 1.025f;
                 value = 3000;
             }
-            else if (type == 3496)
+            else if (itemId == 3496)
             {
                 SetDefaults1(4);
-                this.itemId = type;
+                this.itemId = itemId;
                 useAnimation = 21;
                 damage = 11;
                 value = 2700;
             }
-            else if (type == 3495)
+            else if (itemId == 3495)
             {
                 SetDefaults1(6);
-                this.itemId = type;
+                this.itemId = itemId;
                 damage = 9;
                 useAnimation = 12;
                 scale = 0.925f;
                 value = 2100;
             }
-            else if (type == 3493)
+            else if (itemId == 3493)
             {
                 SetDefaults1(7);
-                this.itemId = type;
+                this.itemId = itemId;
                 useAnimation = 29;
                 useTime = 19;
                 scale = 1.225f;
@@ -38135,10 +38135,10 @@ namespace Terraria
                 hammer = 43;
                 value = 2400;
             }
-            else if (type == 3494)
+            else if (itemId == 3494)
             {
                 SetDefaults1(10);
-                this.itemId = type;
+                this.itemId = itemId;
                 useTime = 19;
                 axe = 10;
                 useAnimation = 28;
@@ -38146,19 +38146,19 @@ namespace Terraria
                 damage = 6;
                 value = 2400;
             }
-            else if (type == 3492)
+            else if (itemId == 3492)
             {
                 SetDefaults1(99);
-                this.itemId = type;
+                this.itemId = itemId;
                 useAnimation = 27;
                 useTime = 27;
                 damage = 9;
                 value = 2100;
             }
-            else if (type == 3491)
+            else if (itemId == 3491)
             {
                 SetDefaults1(1);
-                this.itemId = type;
+                this.itemId = itemId;
                 useTime = 19;
                 pick = 50;
                 useAnimation = 21;
@@ -38166,28 +38166,28 @@ namespace Terraria
                 damage = 6;
                 value = 7500;
             }
-            else if (type == 3490)
+            else if (itemId == 3490)
             {
                 SetDefaults1(4);
-                this.itemId = type;
+                this.itemId = itemId;
                 useAnimation = 20;
                 damage = 12;
                 scale *= 1.025f;
                 value = 6750;
             }
-            else if (type == 3489)
+            else if (itemId == 3489)
             {
                 SetDefaults1(6);
-                this.itemId = type;
+                this.itemId = itemId;
                 damage = 10;
                 useAnimation = 11;
                 scale = 0.95f;
                 value = 5250;
             }
-            else if (type == 3487)
+            else if (itemId == 3487)
             {
                 SetDefaults1(7);
-                this.itemId = type;
+                this.itemId = itemId;
                 useAnimation = 28;
                 useTime = 25;
                 scale = 1.25f;
@@ -38195,10 +38195,10 @@ namespace Terraria
                 hammer = 50;
                 value = 6000;
             }
-            else if (type == 3488)
+            else if (itemId == 3488)
             {
                 SetDefaults1(10);
-                this.itemId = type;
+                this.itemId = itemId;
                 useTime = 18;
                 axe = 11;
                 useAnimation = 26;
@@ -38206,19 +38206,19 @@ namespace Terraria
                 damage = 7;
                 value = 4000;
             }
-            else if (type == 3486)
+            else if (itemId == 3486)
             {
                 SetDefaults1(99);
-                this.itemId = type;
+                this.itemId = itemId;
                 useAnimation = 26;
                 useTime = 26;
                 damage = 10;
                 value = 5250;
             }
-            else if (type == 3485)
+            else if (itemId == 3485)
             {
                 SetDefaults1(1);
-                this.itemId = type;
+                this.itemId = itemId;
                 useTime = 15;
                 pick = 59;
                 useAnimation = 19;
@@ -38226,28 +38226,28 @@ namespace Terraria
                 damage = 7;
                 value = 15000;
             }
-            else if (type == 3484)
+            else if (itemId == 3484)
             {
                 SetDefaults1(4);
-                this.itemId = type;
+                this.itemId = itemId;
                 useAnimation = 19;
                 damage = 15;
                 scale = 1.075f;
                 value = 13500;
             }
-            else if (type == 3483)
+            else if (itemId == 3483)
             {
                 SetDefaults1(6);
-                this.itemId = type;
+                this.itemId = itemId;
                 damage = 13;
                 useAnimation = 10;
                 scale = 0.975f;
                 value = 10500;
             }
-            else if (type == 3481)
+            else if (itemId == 3481)
             {
                 SetDefaults1(7);
-                this.itemId = type;
+                this.itemId = itemId;
                 useAnimation = 27;
                 useTime = 21;
                 scale = 1.275f;
@@ -38255,10 +38255,10 @@ namespace Terraria
                 hammer = 59;
                 value = 12000;
             }
-            else if (type == 3482)
+            else if (itemId == 3482)
             {
                 SetDefaults1(10);
-                this.itemId = type;
+                this.itemId = itemId;
                 useTime = 17;
                 axe = 12;
                 useAnimation = 25;
@@ -38266,16 +38266,16 @@ namespace Terraria
                 damage = 8;
                 value = 12000;
             }
-            else if (type == 3480)
+            else if (itemId == 3480)
             {
                 SetDefaults1(99);
-                this.itemId = type;
+                this.itemId = itemId;
                 useAnimation = 25;
                 useTime = 25;
                 damage = 13;
                 value = 10500;
             }
-            else if (type == 3526)
+            else if (itemId == 3526)
             {
                 name = "Solar Dye";
                 width = 20;
@@ -38284,7 +38284,7 @@ namespace Terraria
                 value = sellPrice(0, 2, 50, 0);
                 rare = 4;
             }
-            else if (type == 3527)
+            else if (itemId == 3527)
             {
                 name = "Nebula Dye";
                 width = 20;
@@ -38293,7 +38293,7 @@ namespace Terraria
                 value = sellPrice(0, 2, 50, 0);
                 rare = 4;
             }
-            else if (type == 3528)
+            else if (itemId == 3528)
             {
                 name = "Vortex Dye";
                 width = 20;
@@ -38302,7 +38302,7 @@ namespace Terraria
                 value = sellPrice(0, 2, 50, 0);
                 rare = 4;
             }
-            else if (type == 3529)
+            else if (itemId == 3529)
             {
                 name = "Stardust Dye";
                 width = 20;
@@ -38311,7 +38311,7 @@ namespace Terraria
                 value = sellPrice(0, 2, 50, 0);
                 rare = 4;
             }
-            else if (type == 3530)
+            else if (itemId == 3530)
             {
                 name = "Void Dye";
                 width = 20;
@@ -38320,7 +38320,7 @@ namespace Terraria
                 value = sellPrice(0, 2, 50, 0);
                 rare = 4;
             }
-            else if (type == 3531)
+            else if (itemId == 3531)
             {
                 mana = 10;
                 damage = 60;
@@ -38340,7 +38340,7 @@ namespace Terraria
                 value = sellPrice(0, 10, 0, 0);
                 summon = true;
             }
-            else if (type == 3540)
+            else if (itemId == 3540)
             {
                 name = "Phantasm";
                 useStyle = 5;
@@ -38363,7 +38363,7 @@ namespace Terraria
                 useAmmo = 1;
                 autoReuse = true;
             }
-            else if (type == 3532)
+            else if (itemId == 3532)
             {
                 name = "Bacon";
                 useSound = 2;
@@ -38381,7 +38381,7 @@ namespace Terraria
                 toolTip = "Minor improvements to all stats";
                 value = 1000;
             }
-            else if (type == 3541)
+            else if (itemId == 3541)
             {
                 name = "Last Prism";
                 useStyle = 5;
@@ -38403,7 +38403,7 @@ namespace Terraria
                 magic = true;
                 channel = true;
             }
-            else if (type == 3533)
+            else if (itemId == 3533)
             {
                 name = "Shifting Sands Dye";
                 width = 20;
@@ -38412,7 +38412,7 @@ namespace Terraria
                 value = sellPrice(0, 1, 50, 0);
                 rare = 3;
             }
-            else if (type == 3534)
+            else if (itemId == 3534)
             {
                 name = "Mirage Dye";
                 width = 20;
@@ -38421,7 +38421,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 75, 0);
                 rare = 2;
             }
-            else if (type == 3535)
+            else if (itemId == 3535)
             {
                 name = "Shifting Pearlsands Dye";
                 width = 20;
@@ -38430,7 +38430,7 @@ namespace Terraria
                 value = sellPrice(0, 1, 50, 0);
                 rare = 3;
             }
-            else if (type == 3536)
+            else if (itemId == 3536)
             {
                 name = "Vortex Monolith";
                 width = 22;
@@ -38447,7 +38447,7 @@ namespace Terraria
                 rare = 9;
                 value = buyPrice(0, 5, 0, 0);
             }
-            else if (type == 3537)
+            else if (itemId == 3537)
             {
                 name = "Nebula Monolith";
                 width = 22;
@@ -38464,7 +38464,7 @@ namespace Terraria
                 rare = 9;
                 value = buyPrice(1, 0, 0, 0);
             }
-            else if (type == 3538)
+            else if (itemId == 3538)
             {
                 name = "Stardust Monolith";
                 width = 22;
@@ -38481,7 +38481,7 @@ namespace Terraria
                 rare = 9;
                 value = buyPrice(1, 0, 0, 0);
             }
-            else if (type == 3539)
+            else if (itemId == 3539)
             {
                 name = "Solar Monolith";
                 width = 22;
@@ -38498,7 +38498,7 @@ namespace Terraria
                 rare = 9;
                 value = buyPrice(1, 0, 0, 0);
             }
-            else if (type == 3542)
+            else if (itemId == 3542)
             {
                 name = "Nebula Blaze";
                 useStyle = 5;
@@ -38520,7 +38520,7 @@ namespace Terraria
                 noUseGraphic = true;
                 glowMask = 207;
             }
-            else if (type == 3543)
+            else if (itemId == 3543)
             {
                 name = "Daybreak";
                 shoot = 636;
@@ -38540,7 +38540,7 @@ namespace Terraria
                 value = sellPrice(0, 10, 0, 0);
                 rare = 10;
             }
-            else if (type == 3544)
+            else if (itemId == 3544)
             {
                 name = "Super Healing Potion";
                 useSound = 3;
@@ -38557,7 +38557,7 @@ namespace Terraria
                 rare = 7;
                 value = 1500;
             }
-            else if (type == 3545)
+            else if (itemId == 3545)
             {
                 name = "Detonator";
                 useStyle = 1;
@@ -38573,7 +38573,7 @@ namespace Terraria
                 rare = 1;
                 mech = true;
             }
-            else if (type == 3547)
+            else if (itemId == 3547)
             {
                 useStyle = 1;
                 name = "Bouncy Dynamite";
@@ -38591,7 +38591,7 @@ namespace Terraria
                 value = buyPrice(0, 0, 20, 0);
                 rare = 1;
             }
-            else if (type == 3546)
+            else if (itemId == 3546)
             {
                 crit = 10;
                 useStyle = 5;
@@ -38612,7 +38612,7 @@ namespace Terraria
                 rare = 10;
                 ranged = true;
             }
-            else if (type == 3350)
+            else if (itemId == 3350)
             {
                 useStyle = 5;
                 useAnimation = 24;
@@ -38632,10 +38632,10 @@ namespace Terraria
                 ranged = true;
                 crit = 7;
             }
-            else if (type == 3352)
+            else if (itemId == 3352)
             {
                 SetDefaults1(4);
-                this.itemId = type;
+                this.itemId = itemId;
                 useAnimation = 12;
                 useTime = 12;
                 damage = 14;
@@ -38644,10 +38644,10 @@ namespace Terraria
                 rare = 2;
                 value = sellPrice(0, 0, 50, 0);
             }
-            else if (type == 3351)
+            else if (itemId == 3351)
             {
                 SetDefaults1(4);
-                this.itemId = type;
+                this.itemId = itemId;
                 useAnimation = 15;
                 useTime = 15;
                 damage = 16;
@@ -38656,10 +38656,10 @@ namespace Terraria
                 rare = 2;
                 value = sellPrice(0, 0, 50, 0);
             }
-            else if (type == 3349)
+            else if (itemId == 3349)
             {
                 SetDefaults1(4);
-                this.itemId = type;
+                this.itemId = itemId;
                 useAnimation = 18;
                 useTime = 18;
                 damage = 20;
@@ -38668,7 +38668,7 @@ namespace Terraria
                 rare = 2;
                 value = sellPrice(0, 0, 50, 0);
             }
-            else if (type == 3548)
+            else if (itemId == 3548)
             {
                 useStyle = 5;
                 name = "Party Grenade";
@@ -38689,7 +38689,7 @@ namespace Terraria
                 rare = 2;
                 thrown = true;
             }
-            else if (type == 3549)
+            else if (itemId == 3549)
             {
                 name = "Lunar Crafting Station";
                 useStyle = 1;
@@ -38704,7 +38704,7 @@ namespace Terraria
                 height = 28;
                 rare = 10;
             }
-            else if (type == 3563)
+            else if (itemId == 3563)
             {
                 name = "Squirrel";
                 useStyle = 1;
@@ -38719,7 +38719,7 @@ namespace Terraria
                 noUseGraphic = true;
                 makeNPC = 538;
             }
-            else if (type == 3564)
+            else if (itemId == 3564)
             {
                 name = "Gold Critter";
                 useStyle = 1;
@@ -38736,7 +38736,7 @@ namespace Terraria
                 value = sellPrice(0, 10, 0, 0);
                 rare = 2;
             }
-            else if (type == 3565)
+            else if (itemId == 3565)
             {
                 name = "Critter Cage";
                 useStyle = 1;
@@ -38750,7 +38750,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3566)
+            else if (itemId == 3566)
             {
                 name = "Gold Critter Cage";
                 useStyle = 1;
@@ -38766,7 +38766,7 @@ namespace Terraria
                 value = sellPrice(0, 10, 0, 0);
                 rare = 2;
             }
-            else if (type == 3550)
+            else if (itemId == 3550)
             {
                 name = "Flame And Silver Dye";
                 width = 20;
@@ -38775,7 +38775,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 3551)
+            else if (itemId == 3551)
             {
                 name = "Green Flame And Silver Dye";
                 width = 20;
@@ -38784,7 +38784,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 3552)
+            else if (itemId == 3552)
             {
                 name = "Blue Flame And Silver Dye";
                 width = 20;
@@ -38793,7 +38793,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 3553)
+            else if (itemId == 3553)
             {
                 name = "Reflective Copper Dye";
                 width = 20;
@@ -38802,7 +38802,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 75, 0);
                 rare = 2;
             }
-            else if (type == 3554)
+            else if (itemId == 3554)
             {
                 name = "Reflective Obsidian Dye";
                 width = 20;
@@ -38811,7 +38811,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 75, 0);
                 rare = 2;
             }
-            else if (type == 3555)
+            else if (itemId == 3555)
             {
                 name = "Reflective Metal Dye";
                 width = 20;
@@ -38820,7 +38820,7 @@ namespace Terraria
                 value = sellPrice(0, 0, 75, 0);
                 rare = 2;
             }
-            else if (type == 3556)
+            else if (itemId == 3556)
             {
                 name = "Midnight Rainbow Dye";
                 width = 20;
@@ -38829,7 +38829,7 @@ namespace Terraria
                 value = sellPrice(0, 1, 50, 0);
                 rare = 3;
             }
-            else if (type == 3557)
+            else if (itemId == 3557)
             {
                 name = "Black And White Dye";
                 width = 20;
@@ -38838,7 +38838,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 3558)
+            else if (itemId == 3558)
             {
                 name = "Bright Silver Dye";
                 width = 20;
@@ -38847,7 +38847,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 3559)
+            else if (itemId == 3559)
             {
                 name = "Silver And Black Dye";
                 width = 20;
@@ -38856,7 +38856,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 3560)
+            else if (itemId == 3560)
             {
                 name = "Red Acid Dye";
                 width = 20;
@@ -38865,7 +38865,7 @@ namespace Terraria
                 value = 10000;
                 rare = 1;
             }
-            else if (type == 3561)
+            else if (itemId == 3561)
             {
                 name = "Gel Dye";
                 width = 20;
@@ -38874,7 +38874,7 @@ namespace Terraria
                 value = sellPrice(0, 1, 50, 0);
                 rare = 3;
             }
-            else if (type == 3562)
+            else if (itemId == 3562)
             {
                 name = "Pink Gel Dye";
                 width = 20;
@@ -38883,7 +38883,7 @@ namespace Terraria
                 value = sellPrice(0, 1, 50, 0);
                 rare = 3;
             }
-            else if (type == 3567)
+            else if (itemId == 3567)
             {
                 name = "Phaser Bullet";
                 shootSpeed = 2f;
@@ -38900,7 +38900,7 @@ namespace Terraria
                 rare = 9;
                 value = sellPrice(0, 0, 0, 2);
             }
-            else if (type == 3568)
+            else if (itemId == 3568)
             {
                 name = "Luminite Arrow";
                 shootSpeed = 3f;
@@ -38917,7 +38917,7 @@ namespace Terraria
                 rare = 9;
                 value = sellPrice(0, 0, 0, 2);
             }
-            else if (type == 3569)
+            else if (itemId == 3569)
             {
                 mana = 10;
                 damage = 50;
@@ -38936,7 +38936,7 @@ namespace Terraria
                 rare = 10;
                 summon = true;
             }
-            else if (type == 3571)
+            else if (itemId == 3571)
             {
                 mana = 10;
                 damage = 150;
@@ -38955,7 +38955,7 @@ namespace Terraria
                 rare = 10;
                 summon = true;
             }
-            else if (type == 3570)
+            else if (itemId == 3570)
             {
                 autoReuse = true;
                 name = "Flare Staff";
@@ -38975,7 +38975,7 @@ namespace Terraria
                 noMelee = true;
                 useSound = 88;
             }
-            else if (type == 3572)
+            else if (itemId == 3572)
             {
                 noUseGraphic = true;
                 damage = 0;
@@ -38992,7 +38992,7 @@ namespace Terraria
                 noMelee = true;
                 value = sellPrice(0, 10, 0, 0);
             }
-            else if (type >= 3573 && type <= 3576)
+            else if (itemId >= 3573 && itemId <= 3576)
             {
                 name = "Lunar Block";
                 useStyle = 1;
@@ -39002,11 +39002,11 @@ namespace Terraria
                 autoReuse = true;
                 maxStack = 999;
                 consumable = true;
-                createTile = 415 + type - 3573;
+                createTile = 415 + itemId - 3573;
                 width = 12;
                 height = 12;
             }
-            else if (type == 3577)
+            else if (itemId == 3577)
             {
                 channel = true;
                 damage = 0;
@@ -39024,7 +39024,7 @@ namespace Terraria
                 value = sellPrice(0, 10, 0, 0);
                 buffType = 190;
             }
-            else if (type == 3578)
+            else if (itemId == 3578)
             {
                 name = "If you're reading this, hi";
                 width = 28;
@@ -39033,7 +39033,7 @@ namespace Terraria
                 rare = 9;
                 vanity = true;
             }
-            else if (type == 3579)
+            else if (itemId == 3579)
             {
                 name = "Yes, this is my dev armor, deal with it";
                 width = 18;
@@ -39042,7 +39042,7 @@ namespace Terraria
                 rare = 9;
                 vanity = true;
             }
-            else if (type == 3580)
+            else if (itemId == 3580)
             {
                 name = "Isn't this glorious?";
                 width = 18;
@@ -39053,7 +39053,7 @@ namespace Terraria
                 accessory = true;
                 value = 400000;
             }
-            else if (type == 3581)
+            else if (itemId == 3581)
             {
                 name = "Dark...";
                 width = 18;
@@ -39062,7 +39062,7 @@ namespace Terraria
                 vanity = true;
                 accessory = true;
             }
-            else if (type == 3582)
+            else if (itemId == 3582)
             {
                 name = "Jimm's Wings";
                 width = 24;
@@ -39072,7 +39072,7 @@ namespace Terraria
                 wingSlot = 34;
                 value = 400000;
             }
-            else if (type == 3583)
+            else if (itemId == 3583)
             {
                 name = "Testokun";
                 width = 28;
@@ -39081,7 +39081,7 @@ namespace Terraria
                 rare = 9;
                 vanity = true;
             }
-            else if (type == 3584)
+            else if (itemId == 3584)
             {
                 name = "Living Leaf Wall";
                 useStyle = 1;
@@ -39095,7 +39095,7 @@ namespace Terraria
                 width = 12;
                 height = 12;
             }
-            else if (type == 3585)
+            else if (itemId == 3585)
             {
                 name = "Skiphs's Helm";
                 width = 28;
@@ -39104,7 +39104,7 @@ namespace Terraria
                 rare = 9;
                 vanity = true;
             }
-            else if (type == 3586)
+            else if (itemId == 3586)
             {
                 name = "Skiphs's Shirt";
                 width = 28;
@@ -39113,7 +39113,7 @@ namespace Terraria
                 rare = 9;
                 vanity = true;
             }
-            else if (type == 3587)
+            else if (itemId == 3587)
             {
                 name = "Skiphs's Pants";
                 width = 18;
@@ -39122,7 +39122,7 @@ namespace Terraria
                 rare = 9;
                 vanity = true;
             }
-            else if (type == 3588)
+            else if (itemId == 3588)
             {
                 name = "Skiphs's Wings";
                 width = 24;
@@ -39132,7 +39132,7 @@ namespace Terraria
                 wingSlot = 35;
                 value = 400000;
             }
-            else if (type == 3589)
+            else if (itemId == 3589)
             {
                 name = "Loki's Helm";
                 width = 28;
@@ -39141,7 +39141,7 @@ namespace Terraria
                 rare = 9;
                 vanity = true;
             }
-            else if (type == 3590)
+            else if (itemId == 3590)
             {
                 name = "Loki's Shirt";
                 width = 28;
@@ -39150,7 +39150,7 @@ namespace Terraria
                 rare = 9;
                 vanity = true;
             }
-            else if (type == 3591)
+            else if (itemId == 3591)
             {
                 name = "Loki's Pants";
                 width = 18;
@@ -39159,7 +39159,7 @@ namespace Terraria
                 rare = 9;
                 vanity = true;
             }
-            else if (type == 3592)
+            else if (itemId == 3592)
             {
                 name = "Loki's Wings";
                 width = 24;
@@ -39169,7 +39169,7 @@ namespace Terraria
                 wingSlot = 36;
                 value = 400000;
             }
-            else if (type >= 3593 && type <= 3594)
+            else if (itemId >= 3593 && itemId <= 3594)
             {
                 name = "Monster Banner";
                 useStyle = 1;
@@ -39180,13 +39180,13 @@ namespace Terraria
                 maxStack = 99;
                 consumable = true;
                 createTile = 91;
-                placeStyle = 270 + type - 3593;
+                placeStyle = 270 + itemId - 3593;
                 width = 10;
                 height = 24;
                 value = 1000;
                 rare = 1;
             }
-            else if (type == 3595)
+            else if (itemId == 3595)
             {
                 name = "Trophy";
                 useStyle = 1;
@@ -39205,7 +39205,7 @@ namespace Terraria
             }
             else
             {
-                if (type != 3596)
+                if (itemId != 3596)
                     return;
                 name = "moonlord painting";
                 useStyle = 1;
