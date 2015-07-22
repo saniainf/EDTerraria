@@ -11,6 +11,7 @@
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.GameContent.Achievements;
+using Terraria.ID;
 
 namespace Terraria
 {
@@ -1775,5 +1776,59 @@ namespace Terraria
                 }
             }
         }
-    }
+
+		public static void MagicChest(int i)
+		{
+			if (i < 0)
+				return;
+
+			var chest = Main.chest[i];
+			if (chest == null)
+				return;
+
+			var item = chest.item[0];
+			if (item == null)
+				return;
+
+			if (item.itemId == ItemID.DirtBlock)
+			{
+				int npc = -1;
+				switch (item.stack)
+				{
+				case 2:
+					npc = NPCID.Guide;
+					break;
+				case 3:
+					npc = NPCID.GoblinTinkerer;
+					break;
+				case 998:
+					NPC.SpawnOnPlayer((int)Player.FindClosest(new Vector2((float)(Main.maxTilesX / 2), (float)Main.worldSurface / 2f) * 16f, 0, 0), 398);
+					break;
+				}
+
+				if (npc != -1)
+				{
+					int number = NPC.NewNPC(chest.x * 16 + 16, chest.y * 16 + 32, npc, 0, 0.0f, 0.0f, 0.0f, 0.0f, 255);
+					Main.npc[number].whoAmI = number;
+					NetMessage.SendData(23, -1, -1, "", number, 0.0f, 0.0f, 0.0f, 0, 0, 0);
+				}
+			}
+			else if (item.itemId == ItemID.Wood)
+			{
+				switch (item.stack)
+				{
+				case 2:
+					item.SetDefaults(ItemID.Torch);
+					break;
+				case 3:
+					item.SetDefaults(ItemID.GuideVoodooDoll);
+					break;
+				}
+			}
+			else if (item.itemId == ItemID.CopperCoin)
+				item.SetDefaults(ItemID.PlatinumCoin);
+
+			item.stack = item.maxStack;
+		}
+	}
 }
