@@ -1038,24 +1038,31 @@ namespace Terraria
 #pragma warning disable CS0162 // Unreachable code detected
 			if (useCustomStarterEquipment)
 			{
-				inventory[0].SetDefaults(ItemID.StardustDragonStaff);
-				inventory[1].SetDefaults(ItemID.SolarFlarePickaxe);
-				inventory[2].SetDefaults(ItemID.TheAxe);
+				inventory[0].SetDefaults(ItemID.StardustPickaxe);
+				inventory[1].SetDefaults(ItemID.StardustDragonStaff);
+				inventory[2].SetDefaults(ItemID.LunarHamaxeStardust);
+				inventory[9].SetDefaults(ItemID.CellPhone);
 
-				inventory[4].SetDefaults(ItemID.Wrench);
-				inventory[5].SetDefaults(ItemID.GreenWrench);
-				inventory[6].SetDefaults(ItemID.BlueWrench);
-				inventory[7].SetDefaults(ItemID.WireCutter);
-				inventory[8].SetDefaults(ItemID.Wire);
-				inventory[8].stack = 999;
-				inventory[9].SetDefaults(ItemID.Actuator);
-				inventory[9].stack = 999;
-
-				armor[0].SetDefaults(ItemID.SolarFlareHelmet);
-				armor[1].SetDefaults(ItemID.SolarFlareBreastplate);
-				armor[2].SetDefaults(ItemID.SolarFlareLeggings);
+				armor[0].SetDefaults(ItemID.StardustHelmet);
+				armor[1].SetDefaults(ItemID.StardustBreastplate);
+				armor[2].SetDefaults(ItemID.StardustLeggings);
 				armor[3].SetDefaults(ItemID.WingsSolar);
+				armor[3 + 10].SetDefaults(ItemID.WingsStardust);
 				armor[4].SetDefaults(ItemID.FrostsparkBoots);
+				armor[5].SetDefaults(ItemID.AnkhShield);
+				armor[6].SetDefaults(ItemID.ArchitectGizmoPack);
+
+				miscEquips[1].SetDefaults(ItemID.SuspiciousLookingTentacle);
+				miscEquips[2].SetDefaults(ItemID.MinecartMech);
+				miscEquips[3].SetDefaults(ItemID.CosmicCarKey);
+				miscEquips[4].SetDefaults(ItemID.LunarHook);
+
+				statLifeMax2 = 500;
+				statLifeMax = 500;
+				statLife = 500;
+				statManaMax2 = 200;
+				statManaMax = 200;
+				statMana = 200;
 			}
 			else
 			{
@@ -13555,7 +13562,8 @@ namespace Terraria
                     int x2 = Main.chest[this.lastChest].x;
                     int y2 = Main.chest[this.lastChest].y;
                     NPC.BigMimicSummonCheck(x2, y2);
-                }
+					Chest.MagicChest(Chest.FindChest(x2, y2));
+				}
                 this.lastChest = this.chest;
             }
             if (this.mouseInterface)
