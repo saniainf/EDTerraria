@@ -161,6 +161,7 @@ namespace Terraria
             if (Main.rand == null)
                 Main.rand = new Random();
             int prefix = prefixId;
+            ItemPrefix itemPrefix;
             float damageMod = 1f;
             float knockbackMod = 1f;
             float speedMod = 1f;
@@ -231,7 +232,7 @@ namespace Terraria
                 if (prefixId == -1 && (prefix == 7 || prefix == 8 || (prefix == 9 || prefix == 10) || (prefix == 11 || prefix == 22 || (prefix == 23 || prefix == 24)) || (prefix == 29 || prefix == 30 || (prefix == 31 || prefix == 39) || (prefix == 40 || prefix == 56 || (prefix == 41 || prefix == 47))) || (prefix == 48 || prefix == 49)) && Main.rand.Next(3) != 0)
                     prefix = 0;
 
-                ItemPrefix itemPrefix;
+                // Append correct stat modifiers to the prefix value
                 if (DB.ItemPrefixes.TryGetValue(prefix, out itemPrefix))
                 {
                     damageMod = itemPrefix.damageMod;
@@ -243,32 +244,14 @@ namespace Terraria
                     critStrikeMod = itemPrefix.critStrikeMod;
                 }
 
-                if (damageMod != 1.0 && Math.Round(damage * (double)damageMod) == damage)
-                {
-                    flag = true;
-                    prefix = -1;
-                }
-                if (speedMod != 1.0 && Math.Round(useAnimation * (double)speedMod) == useAnimation)
-                {
-                    flag = true;
-                    prefix = -1;
-                }
-                if (manaCostMod != 1.0 && Math.Round(mana * (double)manaCostMod) == mana)
-                {
-                    flag = true;
-                    prefix = -1;
-                }
-                if (knockbackMod != 1.0 && knockBack == 0.0)
-                {
-                    flag = true;
-                    prefix = -1;
-                }
-                if (prefixId == -2 && prefix == 0)
+                if ((damageMod != 1.0 && Math.Round(damage * (double)damageMod) == damage) || (speedMod != 1.0 && Math.Round(useAnimation * (double)speedMod) == useAnimation) ||
+                    (manaCostMod != 1.0 && Math.Round(mana * (double)manaCostMod) == mana) || (knockbackMod != 1.0 && knockBack == 0.0) || (prefixId == -2 && prefix == 0))
                 {
                     flag = true;
                     prefix = -1;
                 }
             }
+            // Calculate correct stats based on modifiers
             damage = (int)Math.Round(damage * (double)damageMod);
             useAnimation = (int)Math.Round(useAnimation * (double)speedMod);
             useTime = (int)Math.Round(useTime * (double)speedMod);
@@ -278,23 +261,32 @@ namespace Terraria
             scale = scale * sizeMod;
             shootSpeed = shootSpeed * velocityMod;
             crit += critStrikeMod;
-            float sellValueMod = (float)(1.0 * damageMod * (2.0 - speedMod) * (2.0 - manaCostMod) * sizeMod * knockbackMod * velocityMod * (1.0 + crit * 0.0199999995529652));
-            if (prefix == 62 || prefix == 69 || (prefix == 73 || prefix == 77))
-                sellValueMod *= 1.05f;
+            float sellValueModifier = (float)(1.0 * damageMod * (2.0 - speedMod) * (2.0 - manaCostMod) * sizeMod * knockbackMod * velocityMod * (1.0 + crit * 0.0199999995529652));
+
+            // Append prefix sell value modifier if it contains a sell value modifier
+            if (DB.ItemPrefixes.TryGetValue(prefix, out itemPrefix) && (itemPrefix.sellValueMod != 0))
+            {
+                sellValueModifier *= itemPrefix.sellValueMod;
+            }
+
+            /*if (prefix == 62 || prefix == 69 || (prefix == 73 || prefix == 77))
+                sellValueModifier *= 1.05f;
             if (prefix == 63 || prefix == 70 || (prefix == 74 || prefix == 78) || prefix == 67)
-                sellValueMod *= 1.1f;
+                sellValueModifier *= 1.1f;
             if (prefix == 64 || prefix == 71 || (prefix == 75 || prefix == 79) || prefix == 66)
-                sellValueMod *= 1.15f;
+                sellValueModifier *= 1.15f;
             if (prefix == 65 || prefix == 72 || (prefix == 76 || prefix == 80) || prefix == 68)
-                sellValueMod *= 1.2f;
-            if (sellValueMod >= 1.2)
+                sellValueModifier *= 1.2f;*/
+
+            if (sellValueModifier >= 1.2)
                 rare += 2;
-            else if (sellValueMod >= 1.05)
+            else if (sellValueModifier >= 1.05)
                 ++rare;
-            else if (sellValueMod <= 0.8)
+            else if (sellValueModifier <= 0.8)
                 rare -= 2;
-            else if (sellValueMod <= 0.95)
+            else if (sellValueModifier <= 0.95)
                 --rare;
+
             if (rare > -11)
             {
                 if (rare < -1)
@@ -302,7 +294,7 @@ namespace Terraria
                 if (rare > 11)
                     rare = 11;
             }
-            value = (int)(value * (double)(sellValueMod * sellValueMod));
+            value = (int)(value * (double)(sellValueModifier * sellValueModifier));
             prefix = (byte)prefix;
             return true;
         }
