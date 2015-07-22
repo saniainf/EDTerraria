@@ -62,7 +62,7 @@ namespace Terraria.Graphics.Capture
                 return;
 
             bool flag = Main.keyState.IsKeyDown(Keys.F1);
-            if (flag && !KeyToggleActiveHeld && (Main.mouseItem.type == 0 || Active) && !Main.CaptureModeDisabled)
+            if (flag && !KeyToggleActiveHeld && (Main.mouseItem.itemId == 0 || Active) && !Main.CaptureModeDisabled)
                 ToggleCamera(!Active);
             KeyToggleActiveHeld = flag;
             if (!Active)

@@ -216,7 +216,7 @@ namespace Terraria
             {
                 if (!list.Contains(index))
                 {
-                    switch (inv[index].type)
+                    switch (inv[index].itemId)
                     {
                         case 71:
                             num += (long)inv[index].stack;

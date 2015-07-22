@@ -1850,7 +1850,7 @@ namespace Terraria
                     mountedPlayer.doubleJumpUnicorn = true;
                     if ((double)Math.Abs(mountedPlayer.velocity.X) > (double)mountedPlayer.mount.DashSpeed - (double)mountedPlayer.mount.RunSpeed / 2.0)
                         mountedPlayer.noKnockback = true;
-                    if (mountedPlayer.itemAnimation <= 0 || mountedPlayer.inventory[mountedPlayer.selectedItem].type != 1260)
+                    if (mountedPlayer.itemAnimation <= 0 || mountedPlayer.inventory[mountedPlayer.selectedItem].itemId != 1260)
                         break;
                     AchievementsHelper.HandleSpecialEvent(mountedPlayer, 5);
                     break;

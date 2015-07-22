@@ -312,7 +312,7 @@ namespace Terraria
                             }
                             else if (local_24 <= 58)
                             {
-                                int local_31 = local_28[local_29].type;
+                                int local_31 = local_28[local_29].itemId;
                                 int local_32 = local_28[local_29].stack;
                                 local_28[local_29] = new Item();
                                 local_28[local_29].netDefaults(local_27);
@@ -323,7 +323,7 @@ namespace Terraria
                                 if (number3 == Main.myPlayer && Main.netMode == 1)
                                 {
                                     Main.player[number3].inventoryChestStack[local_24] = false;
-                                    if (local_28[local_29].stack != local_32 || local_28[local_29].type != local_31)
+                                    if (local_28[local_29].stack != local_32 || local_28[local_29].itemId != local_31)
                                         Main.PlaySound(7, -1, -1, 1);
                                 }
                             }
@@ -857,7 +857,7 @@ namespace Terraria
                         {
                             Item obj = new Item();
                             obj.netDefaults(type1);
-                            index7 = Item.NewItem((int)vector2_1.X, (int)vector2_1.Y, obj.width, obj.height, obj.type, Stack, true, 0, false);
+                            index7 = Item.NewItem((int)vector2_1.X, (int)vector2_1.Y, obj.width, obj.height, obj.itemId, Stack, true, 0, false);
                         }
                         Item obj1 = Main.item[index7];
                         obj1.netDefaults(type1);
@@ -1672,7 +1672,7 @@ namespace Terraria
                         Player player13 = Main.player[index19];
                         Main.harpNote = number2_1;
                         int Style = 26;
-                        if (player13.inventory[player13.selectedItem].type == 507)
+                        if (player13.inventory[player13.selectedItem].itemId == 507)
                             Style = 35;
                         Main.PlaySound(2, (int)player13.position.X, (int)player13.position.Y, Style);
                         break;

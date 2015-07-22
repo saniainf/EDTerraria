@@ -291,7 +291,7 @@ namespace Terraria.GameContent.UI
                 list.Add(11);
             if (plr.poisoned || ((NPC)anchor.entity).poisoned || plr.ZoneJungle)
                 list.Add(8);
-            if (plr.inventory[plr.selectedItem].type != 215 && Main.rand.Next(3) != 0)
+            if (plr.inventory[plr.selectedItem].itemId != 215 && Main.rand.Next(3) != 0)
                 return;
             list.Add(10);
         }

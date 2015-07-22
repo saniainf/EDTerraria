@@ -57,7 +57,7 @@ namespace Terraria.UI
         public static void OverrideHover(Item[] inv, int context = 0, int slot = 0)
         {
             Item obj = inv[slot];
-            if (Main.keyState.IsKeyDown(Keys.LeftShift) && obj.type > 0 && (obj.stack > 0 && !inv[slot].favorited))
+            if (Main.keyState.IsKeyDown(Keys.LeftShift) && obj.itemId > 0 && (obj.stack > 0 && !inv[slot].favorited))
             {
                 switch (context)
                 {
@@ -109,13 +109,13 @@ namespace Terraria.UI
             }
             if (!Main.keyState.IsKeyDown(Keys.LeftAlt) || !ItemSlot.canFavoriteAt[context])
                 return;
-            if (obj.type > 0 && obj.stack > 0 && Main.chatMode)
+            if (obj.itemId > 0 && obj.stack > 0 && Main.chatMode)
             {
                 Main.cursorOverride = 2;
             }
             else
             {
-                if (obj.type <= 0 || obj.stack <= 0)
+                if (obj.itemId <= 0 || obj.stack <= 0)
                     return;
                 Main.cursorOverride = 3;
             }
@@ -183,12 +183,12 @@ namespace Terraria.UI
             }
             if (Main.keyState.IsKeyDown(Keys.LeftShift) && flag)
             {
-                if (inv[slot].type <= 0)
+                if (inv[slot].itemId <= 0)
                     return;
                 if (Main.npcShop > 0 && !inv[slot].favorited)
                 {
                     Chest chest = Main.instance.shop[Main.npcShop];
-                    if (inv[slot].type >= 71 && inv[slot].type <= 74)
+                    if (inv[slot].itemId >= 71 && inv[slot].itemId <= 74)
                         return;
                     if (player.SellItem(inv[slot].value, inv[slot].stack))
                     {
@@ -226,7 +226,7 @@ namespace Terraria.UI
                 switch (ItemSlot.PickItemMovementAction(inv, context, slot, Main.mouseItem))
                 {
                     case 0:
-                        if (context == 6 && Main.mouseItem.type != 0)
+                        if (context == 6 && Main.mouseItem.itemId != 0)
                             inv[slot].SetDefaults(0, false);
                         Utils.Swap<Item>(ref inv[slot], ref Main.mouseItem);
                         if (inv[slot].stack > 0)
@@ -247,7 +247,7 @@ namespace Terraria.UI
                                     break;
                             }
                         }
-                        if (inv[slot].type == 0 || inv[slot].stack < 1)
+                        if (inv[slot].itemId == 0 || inv[slot].stack < 1)
                             inv[slot] = new Item();
                         if (Main.mouseItem.IsTheSameAs(inv[slot]))
                         {
@@ -267,9 +267,9 @@ namespace Terraria.UI
                                 }
                             }
                         }
-                        if (Main.mouseItem.type == 0 || Main.mouseItem.stack < 1)
+                        if (Main.mouseItem.itemId == 0 || Main.mouseItem.stack < 1)
                             Main.mouseItem = new Item();
-                        if (Main.mouseItem.type > 0 || inv[slot].type > 0)
+                        if (Main.mouseItem.itemId > 0 || inv[slot].itemId > 0)
                         {
                             Recipe.FindRecipes();
                             Main.PlaySound(7, -1, -1, 1);
@@ -281,7 +281,7 @@ namespace Terraria.UI
                         }
                         break;
                     case 1:
-                        if (Main.mouseItem.stack == 1 && Main.mouseItem.type > 0 && (inv[slot].type > 0 && inv[slot].IsNotTheSameAs(Main.mouseItem)))
+                        if (Main.mouseItem.stack == 1 && Main.mouseItem.itemId > 0 && (inv[slot].itemId > 0 && inv[slot].IsNotTheSameAs(Main.mouseItem)))
                         {
                             Utils.Swap<Item>(ref inv[slot], ref Main.mouseItem);
                             Main.PlaySound(7, -1, -1, 1);
@@ -308,14 +308,14 @@ namespace Terraria.UI
                         }
                         else
                         {
-                            if (Main.mouseItem.type == 0 && inv[slot].type > 0)
+                            if (Main.mouseItem.itemId == 0 && inv[slot].itemId > 0)
                             {
                                 Utils.Swap<Item>(ref inv[slot], ref Main.mouseItem);
-                                if (inv[slot].type == 0 || inv[slot].stack < 1)
+                                if (inv[slot].itemId == 0 || inv[slot].stack < 1)
                                     inv[slot] = new Item();
-                                if (Main.mouseItem.type == 0 || Main.mouseItem.stack < 1)
+                                if (Main.mouseItem.itemId == 0 || Main.mouseItem.stack < 1)
                                     Main.mouseItem = new Item();
-                                if (Main.mouseItem.type > 0 || inv[slot].type > 0)
+                                if (Main.mouseItem.itemId > 0 || inv[slot].itemId > 0)
                                 {
                                     Recipe.FindRecipes();
                                     Main.PlaySound(7, -1, -1, 1);
@@ -323,16 +323,16 @@ namespace Terraria.UI
                                 }
                                 break;
                             }
-                            if (Main.mouseItem.type > 0 && inv[slot].type == 0)
+                            if (Main.mouseItem.itemId > 0 && inv[slot].itemId == 0)
                             {
                                 if (Main.mouseItem.stack == 1)
                                 {
                                     Utils.Swap<Item>(ref inv[slot], ref Main.mouseItem);
-                                    if (inv[slot].type == 0 || inv[slot].stack < 1)
+                                    if (inv[slot].itemId == 0 || inv[slot].stack < 1)
                                         inv[slot] = new Item();
-                                    if (Main.mouseItem.type == 0 || Main.mouseItem.stack < 1)
+                                    if (Main.mouseItem.itemId == 0 || Main.mouseItem.stack < 1)
                                         Main.mouseItem = new Item();
-                                    if (Main.mouseItem.type > 0 || inv[slot].type > 0)
+                                    if (Main.mouseItem.itemId > 0 || inv[slot].itemId > 0)
                                     {
                                         Recipe.FindRecipes();
                                         Main.PlaySound(7, -1, -1, 1);
@@ -341,7 +341,7 @@ namespace Terraria.UI
                                 else
                                 {
                                     --Main.mouseItem.stack;
-                                    inv[slot].SetDefaults(Main.mouseItem.type, false);
+                                    inv[slot].SetDefaults(Main.mouseItem.itemId, false);
                                     Recipe.FindRecipes();
                                     Main.PlaySound(7, -1, -1, 1);
                                 }
@@ -371,7 +371,7 @@ namespace Terraria.UI
                         }
                         break;
                     case 2:
-                        if (Main.mouseItem.stack == 1 && (int)Main.mouseItem.dye > 0 && (inv[slot].type > 0 && inv[slot].type != Main.mouseItem.type))
+                        if (Main.mouseItem.stack == 1 && (int)Main.mouseItem.dye > 0 && (inv[slot].itemId > 0 && inv[slot].itemId != Main.mouseItem.itemId))
                         {
                             Utils.Swap<Item>(ref inv[slot], ref Main.mouseItem);
                             Main.PlaySound(7, -1, -1, 1);
@@ -398,14 +398,14 @@ namespace Terraria.UI
                         }
                         else
                         {
-                            if (Main.mouseItem.type == 0 && inv[slot].type > 0)
+                            if (Main.mouseItem.itemId == 0 && inv[slot].itemId > 0)
                             {
                                 Utils.Swap<Item>(ref inv[slot], ref Main.mouseItem);
-                                if (inv[slot].type == 0 || inv[slot].stack < 1)
+                                if (inv[slot].itemId == 0 || inv[slot].stack < 1)
                                     inv[slot] = new Item();
-                                if (Main.mouseItem.type == 0 || Main.mouseItem.stack < 1)
+                                if (Main.mouseItem.itemId == 0 || Main.mouseItem.stack < 1)
                                     Main.mouseItem = new Item();
-                                if (Main.mouseItem.type > 0 || inv[slot].type > 0)
+                                if (Main.mouseItem.itemId > 0 || inv[slot].itemId > 0)
                                 {
                                     Recipe.FindRecipes();
                                     Main.PlaySound(7, -1, -1, 1);
@@ -413,16 +413,16 @@ namespace Terraria.UI
                                 }
                                 break;
                             }
-                            if ((int)Main.mouseItem.dye > 0 && inv[slot].type == 0)
+                            if ((int)Main.mouseItem.dye > 0 && inv[slot].itemId == 0)
                             {
                                 if (Main.mouseItem.stack == 1)
                                 {
                                     Utils.Swap<Item>(ref inv[slot], ref Main.mouseItem);
-                                    if (inv[slot].type == 0 || inv[slot].stack < 1)
+                                    if (inv[slot].itemId == 0 || inv[slot].stack < 1)
                                         inv[slot] = new Item();
-                                    if (Main.mouseItem.type == 0 || Main.mouseItem.stack < 1)
+                                    if (Main.mouseItem.itemId == 0 || Main.mouseItem.stack < 1)
                                         Main.mouseItem = new Item();
-                                    if (Main.mouseItem.type > 0 || inv[slot].type > 0)
+                                    if (Main.mouseItem.itemId > 0 || inv[slot].itemId > 0)
                                     {
                                         Recipe.FindRecipes();
                                         Main.PlaySound(7, -1, -1, 1);
@@ -431,7 +431,7 @@ namespace Terraria.UI
                                 else
                                 {
                                     --Main.mouseItem.stack;
-                                    inv[slot].SetDefaults(Main.mouseItem.type, false);
+                                    inv[slot].SetDefaults(Main.mouseItem.itemId, false);
                                     Recipe.FindRecipes();
                                     Main.PlaySound(7, -1, -1, 1);
                                 }
@@ -519,12 +519,12 @@ namespace Terraria.UI
                 num = 0;
             else if (context == 1)
             {
-                if (checkItem.type == 0 || checkItem.type == 71 || (checkItem.type == 72 || checkItem.type == 73) || checkItem.type == 74)
+                if (checkItem.itemId == 0 || checkItem.itemId == 71 || (checkItem.itemId == 72 || checkItem.itemId == 73) || checkItem.itemId == 74)
                     num = 0;
             }
             else if (context == 2)
             {
-                if ((checkItem.type == 0 || checkItem.ammo > 0 || checkItem.bait > 0) && !checkItem.notAmmo || checkItem.type == 530)
+                if ((checkItem.itemId == 0 || checkItem.ammo > 0 || checkItem.bait > 0) && !checkItem.notAmmo || checkItem.itemId == 530)
                     num = 0;
             }
             else if (context == 3)
@@ -533,69 +533,69 @@ namespace Terraria.UI
                 num = 0;
             else if (context == 5)
             {
-                if (checkItem.Prefix(-3) || checkItem.type == 0)
+                if (checkItem.Prefix(-3) || checkItem.itemId == 0)
                     num = 0;
             }
             else if (context == 6)
                 num = 0;
             else if (context == 7)
             {
-                if (checkItem.material || checkItem.type == 0)
+                if (checkItem.material || checkItem.itemId == 0)
                     num = 0;
             }
             else if (context == 8)
             {
-                if (checkItem.type == 0 || checkItem.headSlot > -1 && slot == 0 || (checkItem.bodySlot > -1 && slot == 1 || checkItem.legSlot > -1 && slot == 2))
+                if (checkItem.itemId == 0 || checkItem.headSlot > -1 && slot == 0 || (checkItem.bodySlot > -1 && slot == 1 || checkItem.legSlot > -1 && slot == 2))
                     num = 1;
             }
             else if (context == 9)
             {
-                if (checkItem.type == 0 || checkItem.headSlot > -1 && slot == 10 || (checkItem.bodySlot > -1 && slot == 11 || checkItem.legSlot > -1 && slot == 12))
+                if (checkItem.itemId == 0 || checkItem.headSlot > -1 && slot == 10 || (checkItem.bodySlot > -1 && slot == 11 || checkItem.legSlot > -1 && slot == 12))
                     num = 1;
             }
             else if (context == 10)
             {
-                if (checkItem.type == 0 || checkItem.accessory && !ItemSlot.AccCheck(checkItem, slot))
+                if (checkItem.itemId == 0 || checkItem.accessory && !ItemSlot.AccCheck(checkItem, slot))
                     num = 1;
             }
             else if (context == 11)
             {
-                if (checkItem.type == 0 || checkItem.accessory && !ItemSlot.AccCheck(checkItem, slot))
+                if (checkItem.itemId == 0 || checkItem.accessory && !ItemSlot.AccCheck(checkItem, slot))
                     num = 1;
             }
             else if (context == 12)
                 num = 2;
             else if (context == 15)
             {
-                if (checkItem.type == 0 && inv[slot].type > 0)
+                if (checkItem.itemId == 0 && inv[slot].itemId > 0)
                 {
                     if (player.BuyItem(inv[slot].value))
                         num = 3;
                 }
-                else if (inv[slot].type == 0 && checkItem.type > 0 && (checkItem.type < 71 || checkItem.type > 74))
+                else if (inv[slot].itemId == 0 && checkItem.itemId > 0 && (checkItem.itemId < 71 || checkItem.itemId > 74))
                     num = 4;
             }
             else if (context == 16)
             {
-                if (checkItem.type == 0 || Main.projHook[checkItem.shoot])
+                if (checkItem.itemId == 0 || Main.projHook[checkItem.shoot])
                     num = 1;
             }
             else if (context == 17)
             {
-                if (checkItem.type == 0 || checkItem.mountType != -1 && !MountID.Sets.Cart[checkItem.mountType])
+                if (checkItem.itemId == 0 || checkItem.mountType != -1 && !MountID.Sets.Cart[checkItem.mountType])
                     num = 1;
             }
             else if (context == 19)
             {
-                if (checkItem.type == 0 || checkItem.buffType > 0 && Main.vanityPet[checkItem.buffType] && !Main.lightPet[checkItem.buffType])
+                if (checkItem.itemId == 0 || checkItem.buffType > 0 && Main.vanityPet[checkItem.buffType] && !Main.lightPet[checkItem.buffType])
                     num = 1;
             }
             else if (context == 18)
             {
-                if (checkItem.type == 0 || checkItem.mountType != -1 && MountID.Sets.Cart[checkItem.mountType])
+                if (checkItem.itemId == 0 || checkItem.mountType != -1 && MountID.Sets.Cart[checkItem.mountType])
                     num = 1;
             }
-            else if (context == 20 && (checkItem.type == 0 || checkItem.buffType > 0 && Main.lightPet[checkItem.buffType]))
+            else if (context == 20 && (checkItem.itemId == 0 || checkItem.buffType > 0 && Main.lightPet[checkItem.buffType]))
                 num = 1;
             return num;
         }
@@ -617,11 +617,11 @@ namespace Terraria.UI
             if (context == 0)
             {
                 flag1 = true;
-                if (Main.mouseRight && inv[slot].type >= 3318 && inv[slot].type <= 3332)
+                if (Main.mouseRight && inv[slot].itemId >= 3318 && inv[slot].itemId <= 3332)
                 {
                     if (Main.mouseRightRelease)
                     {
-                        player.OpenBossBag(inv[slot].type);
+                        player.OpenBossBag(inv[slot].itemId);
                         --inv[slot].stack;
                         if (inv[slot].stack == 0)
                             inv[slot].SetDefaults(0, false);
@@ -631,11 +631,11 @@ namespace Terraria.UI
                         Recipe.FindRecipes();
                     }
                 }
-                else if (Main.mouseRight && (inv[slot].type >= 2334 && inv[slot].type <= 2336 || inv[slot].type >= 3203 && inv[slot].type <= 3208))
+                else if (Main.mouseRight && (inv[slot].itemId >= 2334 && inv[slot].itemId <= 2336 || inv[slot].itemId >= 3203 && inv[slot].itemId <= 3208))
                 {
                     if (Main.mouseRightRelease)
                     {
-                        player.openCrate(inv[slot].type);
+                        player.openCrate(inv[slot].itemId);
                         --inv[slot].stack;
                         if (inv[slot].stack == 0)
                             inv[slot].SetDefaults(0, false);
@@ -645,7 +645,7 @@ namespace Terraria.UI
                         Recipe.FindRecipes();
                     }
                 }
-                else if (Main.mouseRight && inv[slot].type == 3093)
+                else if (Main.mouseRight && inv[slot].itemId == 3093)
                 {
                     if (Main.mouseRightRelease)
                     {
@@ -659,7 +659,7 @@ namespace Terraria.UI
                         Recipe.FindRecipes();
                     }
                 }
-                else if (Main.mouseRight && inv[slot].type == 1774)
+                else if (Main.mouseRight && inv[slot].itemId == 1774)
                 {
                     if (Main.mouseRightRelease)
                     {
@@ -673,7 +673,7 @@ namespace Terraria.UI
                         Recipe.FindRecipes();
                     }
                 }
-                else if (Main.mouseRight && inv[slot].type == 3085)
+                else if (Main.mouseRight && inv[slot].itemId == 3085)
                 {
                     if (Main.mouseRightRelease && player.consumeItem(327))
                     {
@@ -687,7 +687,7 @@ namespace Terraria.UI
                         Recipe.FindRecipes();
                     }
                 }
-                else if (Main.mouseRight && inv[slot].type == 1869)
+                else if (Main.mouseRight && inv[slot].itemId == 1869)
                 {
                     if (Main.mouseRightRelease)
                     {
@@ -701,7 +701,7 @@ namespace Terraria.UI
                         Recipe.FindRecipes();
                     }
                 }
-                else if (Main.mouseRight && Main.mouseRightRelease && (inv[slot].type == 599 || inv[slot].type == 600 || inv[slot].type == 601))
+                else if (Main.mouseRight && Main.mouseRightRelease && (inv[slot].itemId == 599 || inv[slot].itemId == 600 || inv[slot].itemId == 601))
                 {
                     Main.PlaySound(7, -1, -1, 1);
                     Main.stackSplit = 30;
@@ -727,7 +727,7 @@ namespace Terraria.UI
             else if (context == 9 || context == 11)
             {
                 flag1 = true;
-                if (Main.mouseRight && Main.mouseRightRelease && (inv[slot].type > 0 && inv[slot].stack > 0 || inv[slot - 10].type > 0 && inv[slot - 10].stack > 0))
+                if (Main.mouseRight && Main.mouseRightRelease && (inv[slot].itemId > 0 && inv[slot].stack > 0 || inv[slot - 10].itemId > 0 && inv[slot - 10].stack > 0))
                 {
                     bool flag2 = true;
                     if (flag2 && context == 11 && (int)inv[slot].wingSlot > 0)
@@ -767,7 +767,7 @@ namespace Terraria.UI
             else if (context == 12)
             {
                 flag1 = true;
-                if (Main.mouseRight && Main.mouseRightRelease && (Main.mouseItem.stack < Main.mouseItem.maxStack && Main.mouseItem.type > 0) && (inv[slot].type > 0 && Main.mouseItem.type == inv[slot].type))
+                if (Main.mouseRight && Main.mouseRightRelease && (Main.mouseItem.stack < Main.mouseItem.maxStack && Main.mouseItem.itemId > 0) && (inv[slot].itemId > 0 && Main.mouseItem.itemId == inv[slot].itemId))
                 {
                     ++Main.mouseItem.stack;
                     inv[slot].SetDefaults(0, false);
@@ -778,16 +778,16 @@ namespace Terraria.UI
             {
                 flag1 = true;
                 Chest chest = Main.instance.shop[Main.npcShop];
-                if (Main.stackSplit <= 1 && Main.mouseRight && inv[slot].type > 0 && (Main.mouseItem.IsTheSameAs(inv[slot]) || Main.mouseItem.type == 0))
+                if (Main.stackSplit <= 1 && Main.mouseRight && inv[slot].itemId > 0 && (Main.mouseItem.IsTheSameAs(inv[slot]) || Main.mouseItem.itemId == 0))
                 {
                     int num = Main.superFastStack + 1;
                     for (int index = 0; index < num; ++index)
                     {
-                        if ((Main.mouseItem.stack < Main.mouseItem.maxStack || Main.mouseItem.type == 0) && (player.BuyItem(inv[slot].value) && inv[slot].stack > 0))
+                        if ((Main.mouseItem.stack < Main.mouseItem.maxStack || Main.mouseItem.itemId == 0) && (player.BuyItem(inv[slot].value) && inv[slot].stack > 0))
                         {
                             if (index == 0)
                                 Main.PlaySound(18, -1, -1, 1);
-                            if (Main.mouseItem.type == 0)
+                            if (Main.mouseItem.itemId == 0)
                             {
                                 Main.mouseItem.netDefaults(inv[slot].netID);
                                 if ((int)inv[slot].prefix != 0)
@@ -883,9 +883,9 @@ namespace Terraria.UI
                     flag2 = false;
                 if (context == 4 && inv[slot].maxStack <= 1)
                     flag2 = false;
-                if (!flag2 || !Main.mouseItem.IsTheSameAs(inv[slot]) && Main.mouseItem.type != 0 || Main.mouseItem.stack >= Main.mouseItem.maxStack && Main.mouseItem.type != 0)
+                if (!flag2 || !Main.mouseItem.IsTheSameAs(inv[slot]) && Main.mouseItem.itemId != 0 || Main.mouseItem.stack >= Main.mouseItem.maxStack && Main.mouseItem.itemId != 0)
                     return;
-                if (Main.mouseItem.type == 0)
+                if (Main.mouseItem.itemId == 0)
                 {
                     Main.mouseItem = inv[slot].Clone();
                     Main.mouseItem.stack = 0;
@@ -924,9 +924,9 @@ namespace Terraria.UI
             Texture2D texture2D1 = Main.inventoryBackTexture;
             Color color2 = Main.inventoryBack;
             bool flag = false;
-            if (obj.type > 0 && obj.stack > 0 && (obj.favorited && context != 13) && (context != 21 && context != 22))
+            if (obj.itemId > 0 && obj.stack > 0 && (obj.favorited && context != 13) && (context != 21 && context != 22))
                 texture2D1 = Main.inventoryBack10Texture;
-            else if (obj.type > 0 && obj.stack > 0 && (ItemSlot.Options.HighlightNewItems && obj.newAndShiny) && (context != 13 && context != 21 && context != 22))
+            else if (obj.itemId > 0 && obj.stack > 0 && (ItemSlot.Options.HighlightNewItems && obj.newAndShiny) && (context != 13 && context != 21 && context != 22))
             {
                 texture2D1 = Main.inventoryBack15Texture;
                 float num2 = (float)((double)((float)Main.mouseTextColor / (float)byte.MaxValue) * 0.200000002980232 + 0.800000011920929);
@@ -1016,7 +1016,7 @@ namespace Terraria.UI
                     num3 = 17;
                     break;
             }
-            if ((obj.type <= 0 || obj.stack <= 0) && num3 != -1)
+            if ((obj.itemId <= 0 || obj.stack <= 0) && num3 != -1)
             {
                 Texture2D texture2D2 = Main.extraTexture[54];
                 Rectangle r = Utils.Frame(texture2D2, 3, 6, num3 % 3, num3 / 3);
@@ -1024,10 +1024,10 @@ namespace Terraria.UI
                 r.Height -= 2;
                 spriteBatch.Draw(texture2D2, position + Utils.Size(texture2D1) / 2f * num1, new Rectangle?(r), Color.White * 0.35f, 0.0f, Utils.Size(r) / 2f, num1, SpriteEffects.None, 0.0f);
             }
-            if (obj.type > 0 && obj.stack > 0)
+            if (obj.itemId > 0 && obj.stack > 0)
             {
-                Texture2D texture2D2 = Main.itemTexture[obj.type];
-                Rectangle r = Main.itemAnimations[obj.type] == null ? Utils.Frame(texture2D2, 1, 1, 0, 0) : Main.itemAnimations[obj.type].GetFrame(texture2D2);
+                Texture2D texture2D2 = Main.itemTexture[obj.itemId];
+                Rectangle r = Main.itemAnimations[obj.itemId] == null ? Utils.Frame(texture2D2, 1, 1, 0, 0) : Main.itemAnimations[obj.itemId].GetFrame(texture2D2);
                 Color currentColor = color1;
                 float scale1 = 1f;
                 ItemSlot.GetItemLight(ref currentColor, ref scale1, obj, false);
@@ -1070,16 +1070,16 @@ namespace Terraria.UI
                         num4 = 0;
                         for (int index = 0; index < 58; ++index)
                         {
-                            if (inv[index].type == num5)
+                            if (inv[index].itemId == num5)
                                 num4 += inv[index].stack;
                         }
                     }
-                    if (obj.type == 509 || obj.type == 851 || obj.type == 850)
+                    if (obj.itemId == 509 || obj.itemId == 851 || obj.itemId == 850)
                     {
                         num4 = 0;
                         for (int index = 0; index < 58; ++index)
                         {
-                            if (inv[index].type == 530)
+                            if (inv[index].itemId == 530)
                                 num4 += inv[index].stack;
                         }
                     }
@@ -1143,7 +1143,7 @@ namespace Terraria.UI
         {
             if (context == 6 && Main.hoverItemName == null)
                 Main.hoverItemName = Lang.inter[3];
-            if (inv[slot].type > 0 && inv[slot].stack > 0)
+            if (inv[slot].itemId > 0 && inv[slot].stack > 0)
             {
                 Main.hoverItemName = inv[slot].name;
                 if (inv[slot].stack > 1)
@@ -1217,7 +1217,7 @@ namespace Terraria.UI
             Player player = Main.player[Main.myPlayer];
             for (int index = 0; index < 10; ++index)
             {
-                if (player.dye[index].type == 0)
+                if (player.dye[index].itemId == 0)
                 {
                     ItemSlot.dyeSlotCount = index;
                     break;
@@ -1267,7 +1267,7 @@ namespace Terraria.UI
                 int num = 5 + Main.player[Main.myPlayer].extraAccessorySlots;
                 for (int index2 = 3; index2 < 3 + num; ++index2)
                 {
-                    if (player.armor[index2].type == 0)
+                    if (player.armor[index2].itemId == 0)
                     {
                         ItemSlot.accSlotCount = index2 - 3;
                         break;
@@ -1391,7 +1391,7 @@ namespace Terraria.UI
 
         public static void GetItemLight(ref Color currentColor, ref float scale, Item item, bool outInTheWorld = false)
         {
-            ItemSlot.GetItemLight(ref currentColor, ref scale, item.type, outInTheWorld);
+            ItemSlot.GetItemLight(ref currentColor, ref scale, item.itemId, outInTheWorld);
         }
 
         public static Color GetItemLight(ref Color currentColor, ref float scale, int type, bool outInTheWorld = false)

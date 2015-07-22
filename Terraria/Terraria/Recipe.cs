@@ -46,7 +46,7 @@ namespace Terraria
             for (int index1 = 0; index1 < Recipe.maxRequirements; ++index1)
             {
                 Item compareItem = this.requiredItem[index1];
-                if (compareItem.type != 0)
+                if (compareItem.itemId != 0)
                 {
                     int num1 = compareItem.stack;
                     if (this.alchemy && Main.player[Main.myPlayer].alchemyTable)
@@ -72,7 +72,7 @@ namespace Terraria
                             Item obj = objArray[index2];
                             if (num1 > 0)
                             {
-                                if (obj.IsTheSameAs(compareItem) || this.useWood(obj.type, compareItem.type) || (this.useSand(obj.type, compareItem.type) || this.useFragment(obj.type, compareItem.type)) || (this.useIronBar(obj.type, compareItem.type) || this.usePressurePlate(obj.type, compareItem.type)))
+                                if (obj.IsTheSameAs(compareItem) || this.useWood(obj.itemId, compareItem.itemId) || (this.useSand(obj.itemId, compareItem.itemId) || this.useFragment(obj.itemId, compareItem.itemId)) || (this.useIronBar(obj.itemId, compareItem.itemId) || this.usePressurePlate(obj.itemId, compareItem.itemId)))
                                 {
                                     if (obj.stack > num1)
                                     {
@@ -102,7 +102,7 @@ namespace Terraria
                                 Item obj = objArray[index2];
                                 if (num1 > 0)
                                 {
-                                    if (obj.IsTheSameAs(compareItem) || this.useWood(obj.type, compareItem.type) || (this.useSand(obj.type, compareItem.type) || this.useIronBar(obj.type, compareItem.type)) || (this.usePressurePlate(obj.type, compareItem.type) || this.useFragment(obj.type, compareItem.type)))
+                                    if (obj.IsTheSameAs(compareItem) || this.useWood(obj.itemId, compareItem.itemId) || (this.useSand(obj.itemId, compareItem.itemId) || this.useIronBar(obj.itemId, compareItem.itemId)) || (this.usePressurePlate(obj.itemId, compareItem.itemId) || this.useFragment(obj.itemId, compareItem.itemId)))
                                     {
                                         if (obj.stack > num1)
                                         {
@@ -236,13 +236,13 @@ namespace Terraria
             for (int index = 0; index < Recipe.maxRecipes; ++index)
                 Main.availableRecipe[index] = 0;
             Main.numAvailableRecipes = 0;
-            if (Main.guideItem.type > 0 && Main.guideItem.stack > 0 && Main.guideItem.name != "")
+            if (Main.guideItem.itemId > 0 && Main.guideItem.stack > 0 && Main.guideItem.name != "")
             {
-                for (int index1 = 0; index1 < Recipe.maxRecipes && Main.recipe[index1].createItem.type != 0; ++index1)
+                for (int index1 = 0; index1 < Recipe.maxRecipes && Main.recipe[index1].createItem.itemId != 0; ++index1)
                 {
-                    for (int index2 = 0; index2 < Recipe.maxRequirements && Main.recipe[index1].requiredItem[index2].type != 0; ++index2)
+                    for (int index2 = 0; index2 < Recipe.maxRequirements && Main.recipe[index1].requiredItem[index2].itemId != 0; ++index2)
                     {
-                        if (Main.guideItem.IsTheSameAs(Main.recipe[index1].requiredItem[index2]) || Main.recipe[index1].useWood(Main.guideItem.type, Main.recipe[index1].requiredItem[index2].type) || (Main.recipe[index1].useSand(Main.guideItem.type, Main.recipe[index1].requiredItem[index2].type) || Main.recipe[index1].useIronBar(Main.guideItem.type, Main.recipe[index1].requiredItem[index2].type)) || (Main.recipe[index1].useFragment(Main.guideItem.type, Main.recipe[index1].requiredItem[index2].type) || Main.recipe[index1].usePressurePlate(Main.guideItem.type, Main.recipe[index1].requiredItem[index2].type)))
+                        if (Main.guideItem.IsTheSameAs(Main.recipe[index1].requiredItem[index2]) || Main.recipe[index1].useWood(Main.guideItem.itemId, Main.recipe[index1].requiredItem[index2].itemId) || (Main.recipe[index1].useSand(Main.guideItem.itemId, Main.recipe[index1].requiredItem[index2].itemId) || Main.recipe[index1].useIronBar(Main.guideItem.itemId, Main.recipe[index1].requiredItem[index2].itemId)) || (Main.recipe[index1].useFragment(Main.guideItem.itemId, Main.recipe[index1].requiredItem[index2].itemId) || Main.recipe[index1].usePressurePlate(Main.guideItem.itemId, Main.recipe[index1].requiredItem[index2].itemId)))
                         {
                             Main.availableRecipe[Main.numAvailableRecipes] = index1;
                             ++Main.numAvailableRecipes;
@@ -294,7 +294,7 @@ namespace Terraria
                         }
                     }
                 }
-                for (int index1 = 0; index1 < Recipe.maxRecipes && Main.recipe[index1].createItem.type != 0; ++index1)
+                for (int index1 = 0; index1 < Recipe.maxRecipes && Main.recipe[index1].createItem.itemId != 0; ++index1)
                 {
                     bool flag1 = true;
                     if (flag1)
@@ -313,13 +313,13 @@ namespace Terraria
                         for (int index2 = 0; index2 < Recipe.maxRequirements; ++index2)
                         {
                             Item obj = Main.recipe[index1].requiredItem[index2];
-                            if (obj.type != 0)
+                            if (obj.itemId != 0)
                             {
                                 int num3 = obj.stack;
                                 bool flag2 = false;
                                 foreach (int invType in dictionary1.Keys)
                                 {
-                                    if (Main.recipe[index1].useWood(invType, obj.type) || Main.recipe[index1].useSand(invType, obj.type) || (Main.recipe[index1].useIronBar(invType, obj.type) || Main.recipe[index1].useFragment(invType, obj.type)) || Main.recipe[index1].usePressurePlate(invType, obj.type))
+                                    if (Main.recipe[index1].useWood(invType, obj.itemId) || Main.recipe[index1].useSand(invType, obj.itemId) || (Main.recipe[index1].useIronBar(invType, obj.itemId) || Main.recipe[index1].useFragment(invType, obj.itemId)) || Main.recipe[index1].usePressurePlate(invType, obj.itemId))
                                     {
                                         num3 -= dictionary1[invType];
                                         flag2 = true;
@@ -10022,7 +10022,7 @@ namespace Terraria
             Recipe.PlatformReturn();
             for (int index1 = 0; index1 < Recipe.numRecipes; ++index1)
             {
-                for (int index2 = 0; Main.recipe[index1].requiredItem[index2].type > 0; ++index2)
+                for (int index2 = 0; Main.recipe[index1].requiredItem[index2].itemId > 0; ++index2)
                     Main.recipe[index1].requiredItem[index2].checkMat();
                 Main.recipe[index1].createItem.checkMat();
             }
@@ -10034,11 +10034,11 @@ namespace Terraria
             int num = Recipe.numRecipes;
             for (int index1 = 0; index1 < num; ++index1)
             {
-                if (Main.recipe[index1].createItem.createTile == 19 && Main.recipe[index1].requiredItem[1].type == 0)
+                if (Main.recipe[index1].createItem.createTile == 19 && Main.recipe[index1].requiredItem[1].itemId == 0)
                 {
-                    Recipe.newRecipe.createItem.SetDefaults(Main.recipe[index1].requiredItem[0].type, false);
+                    Recipe.newRecipe.createItem.SetDefaults(Main.recipe[index1].requiredItem[0].itemId, false);
                     Recipe.newRecipe.createItem.stack = Main.recipe[index1].requiredItem[0].stack;
-                    Recipe.newRecipe.requiredItem[0].SetDefaults(Main.recipe[index1].createItem.type, false);
+                    Recipe.newRecipe.requiredItem[0].SetDefaults(Main.recipe[index1].createItem.itemId, false);
                     Recipe.newRecipe.requiredItem[0].stack = Main.recipe[index1].createItem.stack;
                     for (int index2 = 0; index2 < Recipe.newRecipe.requiredTile.Length; ++index2)
                         Recipe.newRecipe.requiredTile[index2] = Main.recipe[index1].requiredTile[index2];
@@ -10056,11 +10056,11 @@ namespace Terraria
             int num = Recipe.numRecipes;
             for (int index1 = 0; index1 < num; ++index1)
             {
-                if (Main.recipe[index1].createItem.createWall > 0 && Main.recipe[index1].requiredItem[1].type == 0 && Main.recipe[index1].requiredItem[0].createWall == -1)
+                if (Main.recipe[index1].createItem.createWall > 0 && Main.recipe[index1].requiredItem[1].itemId == 0 && Main.recipe[index1].requiredItem[0].createWall == -1)
                 {
-                    Recipe.newRecipe.createItem.SetDefaults(Main.recipe[index1].requiredItem[0].type, false);
+                    Recipe.newRecipe.createItem.SetDefaults(Main.recipe[index1].requiredItem[0].itemId, false);
                     Recipe.newRecipe.createItem.stack = Main.recipe[index1].requiredItem[0].stack;
-                    Recipe.newRecipe.requiredItem[0].SetDefaults(Main.recipe[index1].createItem.type, false);
+                    Recipe.newRecipe.requiredItem[0].SetDefaults(Main.recipe[index1].createItem.itemId, false);
                     Recipe.newRecipe.requiredItem[0].stack = Main.recipe[index1].createItem.stack;
                     for (int index2 = 0; index2 < Recipe.newRecipe.requiredTile.Length; ++index2)
                         Recipe.newRecipe.requiredTile[index2] = Main.recipe[index1].requiredTile[index2];

@@ -80,28 +80,28 @@ namespace Terraria.GameContent.Achievements
             if (OnItemPickup != null)
             {
                 for (int index = 0; index < 58; ++index)
-                    OnItemPickup(player, (short)player.inventory[index].type, player.inventory[index].stack);
+                    OnItemPickup(player, (short)player.inventory[index].itemId, player.inventory[index].stack);
                 for (int index = 0; index < player.armor.Length; ++index)
-                    OnItemPickup(player, (short)player.armor[index].type, player.armor[index].stack);
+                    OnItemPickup(player, (short)player.armor[index].itemId, player.armor[index].stack);
                 for (int index = 0; index < player.dye.Length; ++index)
-                    OnItemPickup(player, (short)player.dye[index].type, player.dye[index].stack);
+                    OnItemPickup(player, (short)player.dye[index].itemId, player.dye[index].stack);
                 for (int index = 0; index < player.miscEquips.Length; ++index)
-                    OnItemPickup(player, (short)player.miscEquips[index].type, player.miscEquips[index].stack);
+                    OnItemPickup(player, (short)player.miscEquips[index].itemId, player.miscEquips[index].stack);
                 for (int index = 0; index < player.miscDyes.Length; ++index)
-                    OnItemPickup(player, (short)player.miscDyes[index].type, player.miscDyes[index].stack);
+                    OnItemPickup(player, (short)player.miscDyes[index].itemId, player.miscDyes[index].stack);
                 for (int index = 0; index < player.bank.item.Length; ++index)
-                    OnItemPickup(player, (short)player.bank.item[index].type, player.bank.item[index].stack);
+                    OnItemPickup(player, (short)player.bank.item[index].itemId, player.bank.item[index].stack);
                 for (int index = 0; index < player.bank2.item.Length; ++index)
-                    OnItemPickup(player, (short)player.bank2.item[index].type, player.bank2.item[index].stack);
+                    OnItemPickup(player, (short)player.bank2.item[index].itemId, player.bank2.item[index].stack);
             }
 
             if (player.statManaMax > 20)
                 Main.Achievements.GetCondition("STAR_POWER", "Use").Complete();
             if (player.statLifeMax == 500 && player.statManaMax == 200)
                 Main.Achievements.GetCondition("TOPPED_OFF", "Use").Complete();
-            if (player.miscEquips[4].type > 0)
+            if (player.miscEquips[4].itemId > 0)
                 Main.Achievements.GetCondition("HOLD_ON_TIGHT", "Equip").Complete();
-            if (player.miscEquips[3].type > 0)
+            if (player.miscEquips[3].itemId > 0)
                 Main.Achievements.GetCondition("THE_CAVALRY", "Equip").Complete();
 
             for (int index = 0; index < player.armor.Length; ++index)
@@ -121,7 +121,7 @@ namespace Terraria.GameContent.Achievements
             bool flag = true;
             for (int index = 0; index < player.extraAccessorySlots + 3 + 5; ++index)
             {
-                if (player.dye[index].type < 1 || player.dye[index].stack < 1)
+                if (player.dye[index].itemId < 1 || player.dye[index].stack < 1)
                     flag = false;
             }
 
@@ -187,7 +187,7 @@ namespace Terraria.GameContent.Achievements
 
             for (int index = 0; index < player.extraAccessorySlots + 3 + 5; ++index)
             {
-                if (player.dye[index].type < 1 || player.dye[index].stack < 1)
+                if (player.dye[index].itemId < 1 || player.dye[index].stack < 1)
                     return;
             }
 

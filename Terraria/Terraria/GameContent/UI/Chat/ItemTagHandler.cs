@@ -28,7 +28,7 @@ namespace Terraria.GameContent.UI.Chat
             else
                 obj.SetDefaults(text);
 
-            if (obj.type <= 0)
+            if (obj.itemId <= 0)
                 return new TextSnippet(text);
 
             obj.stack = 1;
@@ -110,8 +110,8 @@ namespace Terraria.GameContent.UI.Chat
                 float num2 = 1f;
                 if (Main.netMode != 2 && !Main.dedServ)
                 {
-                    Texture2D texture2D = Main.itemTexture[_item.type];
-                    Rectangle rectangle = Main.itemAnimations[_item.type] == null ? Utils.Frame(texture2D, 1, 1, 0, 0) : Main.itemAnimations[_item.type].GetFrame(texture2D);
+                    Texture2D texture2D = Main.itemTexture[_item.itemId];
+                    Rectangle rectangle = Main.itemAnimations[_item.itemId] == null ? Utils.Frame(texture2D, 1, 1, 0, 0) : Main.itemAnimations[_item.itemId].GetFrame(texture2D);
                     if (rectangle.Height > 32)
                         num2 = 32f / (float)rectangle.Height;
                 }

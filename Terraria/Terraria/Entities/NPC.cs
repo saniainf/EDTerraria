@@ -43062,11 +43062,11 @@ namespace Terraria
             {
                 ushort num4 = Main.tile[Main.chest[chest].x, Main.chest[chest].y].type;
                 int num5 = (int)Main.tile[Main.chest[chest].x, Main.chest[chest].y].frameX / 36;
-                if ((int)num4 == 21 && (num5 < 5 || num5 > 6) && (Main.chest[chest].item[index] != null && Main.chest[chest].item[index].type > 0))
+                if ((int)num4 == 21 && (num5 < 5 || num5 > 6) && (Main.chest[chest].item[index] != null && Main.chest[chest].item[index].itemId > 0))
                 {
-                    if (Main.chest[chest].item[index].type == 3092)
+                    if (Main.chest[chest].item[index].itemId == 3092)
                         num1 += Main.chest[chest].item[index].stack;
-                    else if (Main.chest[chest].item[index].type == 3091)
+                    else if (Main.chest[chest].item[index].itemId == 3091)
                         num2 += Main.chest[chest].item[index].stack;
                     else
                         ++num3;
@@ -46427,15 +46427,15 @@ namespace Terraria
                             NPC.spawnRate = (int)((double)NPC.spawnRate * 0.5);
                             NPC.maxSpawns = (int)((double)NPC.maxSpawns * 2.0);
                         }
-                        if (Main.player[plr].ZoneWaterCandle || Main.player[plr].inventory[Main.player[plr].selectedItem].type == 148)
+                        if (Main.player[plr].ZoneWaterCandle || Main.player[plr].inventory[Main.player[plr].selectedItem].itemId == 148)
                         {
-                            if (!Main.player[plr].ZonePeaceCandle && Main.player[plr].inventory[Main.player[plr].selectedItem].type != 3117)
+                            if (!Main.player[plr].ZonePeaceCandle && Main.player[plr].inventory[Main.player[plr].selectedItem].itemId != 3117)
                             {
                                 NPC.spawnRate = (int)((double)NPC.spawnRate * 0.75);
                                 NPC.maxSpawns = (int)((double)NPC.maxSpawns * 1.5);
                             }
                         }
-                        else if (Main.player[plr].ZonePeaceCandle || Main.player[plr].inventory[Main.player[plr].selectedItem].type == 3117)
+                        else if (Main.player[plr].ZonePeaceCandle || Main.player[plr].inventory[Main.player[plr].selectedItem].itemId == 3117)
                         {
                             NPC.spawnRate = (int)((double)NPC.spawnRate * 1.3);
                             NPC.maxSpawns = (int)((double)NPC.maxSpawns * 0.699999988079071);
@@ -46542,14 +46542,14 @@ namespace Terraria
                             NPC.spawnRangeY = (int)((double)(NPC.sHeight / 16) * 0.7);
                             NPC.safeRangeX = (int)((double)(NPC.sWidth / 16) * 0.52);
                             NPC.safeRangeY = (int)((double)(NPC.sHeight / 16) * 0.52);
-                            if (Main.player[plr].inventory[Main.player[plr].selectedItem].type == 1254 || Main.player[plr].inventory[Main.player[plr].selectedItem].type == 1299 || Main.player[plr].scope)
+                            if (Main.player[plr].inventory[Main.player[plr].selectedItem].itemId == 1254 || Main.player[plr].inventory[Main.player[plr].selectedItem].itemId == 1299 || Main.player[plr].scope)
                             {
                                 float num3 = 1.5f;
-                                if (Main.player[plr].inventory[Main.player[plr].selectedItem].type == 1254 && Main.player[plr].scope)
+                                if (Main.player[plr].inventory[Main.player[plr].selectedItem].itemId == 1254 && Main.player[plr].scope)
                                     num3 = 1.25f;
-                                else if (Main.player[plr].inventory[Main.player[plr].selectedItem].type == 1254)
+                                else if (Main.player[plr].inventory[Main.player[plr].selectedItem].itemId == 1254)
                                     num3 = 1.5f;
-                                else if (Main.player[plr].inventory[Main.player[plr].selectedItem].type == 1299)
+                                else if (Main.player[plr].inventory[Main.player[plr].selectedItem].itemId == 1299)
                                     num3 = 1.5f;
                                 else if (Main.player[plr].scope)
                                     num3 = 2f;
@@ -46885,7 +46885,7 @@ namespace Terraria
                                     NPC.NewNPC(index1 * 16 + 8, y * 16, 399, 0, 0.0f, 0.0f, 0.0f, 0.0f, (int)byte.MaxValue);
                                 else if (Main.hardMode && !NPC.AnyNPCs(87) && (!flag4 && Main.rand.Next(10) == 0))
                                     NPC.NewNPC(index1 * 16 + 8, y * 16, 87, 1, 0.0f, 0.0f, 0.0f, 0.0f, (int)byte.MaxValue);
-                                else if (Main.hardMode && !NPC.AnyNPCs(87) && (!flag4 && Main.rand.Next(10) == 0) && (Main.player[plr].inventory[Main.player[plr].selectedItem].type == 148 || Main.player[plr].ZoneWaterCandle))
+                                else if (Main.hardMode && !NPC.AnyNPCs(87) && (!flag4 && Main.rand.Next(10) == 0) && (Main.player[plr].inventory[Main.player[plr].selectedItem].itemId == 148 || Main.player[plr].ZoneWaterCandle))
                                     NPC.NewNPC(index1 * 16 + 8, y * 16, 87, 1, 0.0f, 0.0f, 0.0f, 0.0f, (int)byte.MaxValue);
                                 else
                                     NPC.NewNPC(index1 * 16 + 8, y * 16, 48, 0, 0.0f, 0.0f, 0.0f, 0.0f, (int)byte.MaxValue);
@@ -48093,7 +48093,7 @@ namespace Terraria
                                     number = NPC.NewNPC(index1 * 16 + 8, y * 16, 195, 0, 0.0f, 0.0f, 0.0f, 0.0f, (int)byte.MaxValue);
                                 else if (Main.hardMode && (double)y > (Main.rockLayer + (double)Main.maxTilesY) / 2.0 && Main.rand.Next(300) == 0)
                                     number = NPC.NewNPC(index1 * 16 + 8, y * 16, 172, 0, 0.0f, 0.0f, 0.0f, 0.0f, (int)byte.MaxValue);
-                                else if ((double)y > (Main.rockLayer + (double)Main.maxTilesY) / 2.0 && (Main.rand.Next(200) == 0 || Main.rand.Next(50) == 0 && Main.player[plr].armor[1].type >= 1282 && (Main.player[plr].armor[1].type <= 1287 && Main.player[plr].armor[0].type != 238)))
+                                else if ((double)y > (Main.rockLayer + (double)Main.maxTilesY) / 2.0 && (Main.rand.Next(200) == 0 || Main.rand.Next(50) == 0 && Main.player[plr].armor[1].itemId >= 1282 && (Main.player[plr].armor[1].itemId <= 1287 && Main.player[plr].armor[0].itemId != 238)))
                                     number = NPC.NewNPC(index1 * 16 + 8, y * 16, 45, 0, 0.0f, 0.0f, 0.0f, 0.0f, (int)byte.MaxValue);
                                 else if (flag9 && Main.rand.Next(5) != 0)
                                     number = Main.rand.Next(6) == 0 || NPC.AnyNPCs(480) ? NPC.NewNPC(index1 * 16 + 8, y * 16, 481, 0, 0.0f, 0.0f, 0.0f, 0.0f, (int)byte.MaxValue) : NPC.NewNPC(index1 * 16 + 8, y * 16, 480, 0, 0.0f, 0.0f, 0.0f, 0.0f, (int)byte.MaxValue);
@@ -49468,7 +49468,7 @@ namespace Terraria
                 int num = 1100;
                 for (int index1 = 0; index1 < (int)byte.MaxValue; ++index1)
                 {
-                    if (Main.player[index1].active && !Main.player[index1].dead && ((double)(this.Center - Main.player[index1].position).Length() < (double)num && Main.player[index1].inventory[Main.player[index1].selectedItem].type == 3006 && Main.player[index1].itemAnimation > 0))
+                    if (Main.player[index1].active && !Main.player[index1].dead && ((double)(this.Center - Main.player[index1].position).Length() < (double)num && Main.player[index1].inventory[Main.player[index1].selectedItem].itemId == 3006 && Main.player[index1].itemAnimation > 0))
                     {
                         if (index1 == Main.myPlayer)
                             ++Main.player[index1].soulDrain;

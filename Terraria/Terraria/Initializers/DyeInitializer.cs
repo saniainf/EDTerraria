@@ -200,13 +200,13 @@ namespace Terraria.Initializers
                 int num1 = 0;
                 for (int index = 0; index < 54; ++index)
                 {
-                    if (player.inventory[index].type == 71)
+                    if (player.inventory[index].itemId == 71)
                         num1 += player.inventory[index].stack;
-                    if (player.inventory[index].type == 72)
+                    if (player.inventory[index].itemId == 72)
                         num1 += player.inventory[index].stack * 100;
-                    if (player.inventory[index].type == 73)
+                    if (player.inventory[index].itemId == 73)
                         num1 += player.inventory[index].stack * 10000;
-                    if (player.inventory[index].type == 74)
+                    if (player.inventory[index].itemId == 74)
                         num1 += player.inventory[index].stack * 1000000;
                 }
                 float num2 = (float)Item.buyPrice(0, 5, 0, 0);
@@ -397,8 +397,8 @@ namespace Terraria.Initializers
         {
             for (int index = 0; index < Recipe.maxRecipes; ++index)
             {
-                Main.recipe[index].createItem.dye = (byte)GameShaders.Armor.GetShaderIdFromItemId(Main.recipe[index].createItem.type);
-                Main.recipe[index].createItem.hairDye = GameShaders.Hair.GetShaderIdFromItemId(Main.recipe[index].createItem.type);
+                Main.recipe[index].createItem.dye = (byte)GameShaders.Armor.GetShaderIdFromItemId(Main.recipe[index].createItem.itemId);
+                Main.recipe[index].createItem.hairDye = GameShaders.Hair.GetShaderIdFromItemId(Main.recipe[index].createItem.itemId);
             }
         }
     }

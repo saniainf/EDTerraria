@@ -84,7 +84,7 @@ namespace Terraria
         public bool instanced;
         public int ownTime;
         public int keepTime;
-        public int type;
+        public int itemId;
         public bool favorited;
         public int holdStyle;
         public int useStyle;
@@ -156,7 +156,7 @@ namespace Terraria
 
         public bool Prefix(int prefixId)
         {
-            if (prefixId == 0 || type == 0)
+            if (prefixId == 0 || itemId == 0)
                 return false;
             if (Main.rand == null)
                 Main.rand = new Random();
@@ -209,7 +209,7 @@ namespace Terraria
 
                     for (int i = 0; i < itemIdGroups.Length; ++i)
                     {
-                        if (itemIdGroups[i].Contains(type))
+                        if (itemIdGroups[i].Contains(itemId))
                         {
                             int random = Main.rand.Next(prefixGroups[i].Length);
                             prefix = prefixGroups[i][random];
@@ -222,7 +222,7 @@ namespace Terraria
                     if(!prefixAssigned)
                     {
                         int[] excludedItemIds = { 267, 562, 563, 564, 565, 566, 567, 568, 569, 570, 571, 572, 573, 574, 576, 1307, 1596, 1597, 1598, 1599, 1600, 1601, 1602, 1603, 1604, 1605, 1606, 1607, 1608, 1609, 1610 };
-                        if (excludedItemIds.Contains(type) || !accessory || vanity)
+                        if (excludedItemIds.Contains(itemId) || !accessory || vanity)
                             return false;
                         prefix = Main.rand.Next(62, 81);
                     }
@@ -268,15 +268,6 @@ namespace Terraria
             {
                 sellValueModifier *= itemPrefix.sellValueMod;
             }
-
-            /*if (prefix == 62 || prefix == 69 || (prefix == 73 || prefix == 77))
-                sellValueModifier *= 1.05f;
-            if (prefix == 63 || prefix == 70 || (prefix == 74 || prefix == 78) || prefix == 67)
-                sellValueModifier *= 1.1f;
-            if (prefix == 64 || prefix == 71 || (prefix == 75 || prefix == 79) || prefix == 66)
-                sellValueModifier *= 1.15f;
-            if (prefix == 65 || prefix == 72 || (prefix == 76 || prefix == 80) || prefix == 68)
-                sellValueModifier *= 1.2f;*/
 
             if (sellValueModifier >= 1.2)
                 rare += 2;
@@ -401,9 +392,9 @@ namespace Terraria
                 }
                 name = "";
                 stack = 0;
-                type = 0;
+                itemId = 0;
             }
-            if (type == 0)
+            if (itemId == 0)
                 return;
             if (flag)
                 material = false;
@@ -421,14 +412,14 @@ namespace Terraria
 
         public bool checkMat()
         {
-            if (type >= 71 && type <= 74)
+            if (itemId >= 71 && itemId <= 74)
             {
                 material = false;
                 return false;
             }
             for (int index1 = 0; index1 < Recipe.numRecipes; ++index1)
             {
-                for (int index2 = 0; Main.recipe[index1].requiredItem[index2].type > 0; ++index2)
+                for (int index2 = 0; Main.recipe[index1].requiredItem[index2].itemId > 0; ++index2)
                 {
                     if (netID == Main.recipe[index1].requiredItem[index2].netID)
                     {
@@ -437,7 +428,7 @@ namespace Terraria
                     }
                 }
             }
-            switch (type)
+            switch (itemId)
             {
                 case 852:
                 case 853:
@@ -37868,7 +37859,7 @@ namespace Terraria
             else if (type == 3521)
             {
                 SetDefaults1(1);
-                this.type = type;
+                this.itemId = type;
                 useTime = 17;
                 pick = 55;
                 useAnimation = 20;
@@ -37879,7 +37870,7 @@ namespace Terraria
             else if (type == 3520)
             {
                 SetDefaults1(4);
-                this.type = type;
+                this.itemId = type;
                 useAnimation = 20;
                 damage = 13;
                 scale = 1.05f;
@@ -37888,7 +37879,7 @@ namespace Terraria
             else if (type == 3519)
             {
                 SetDefaults1(6);
-                this.type = type;
+                this.itemId = type;
                 damage = 11;
                 useAnimation = 11;
                 scale = 0.95f;
@@ -37897,7 +37888,7 @@ namespace Terraria
             else if (type == 3517)
             {
                 SetDefaults1(7);
-                this.type = type;
+                this.itemId = type;
                 useAnimation = 28;
                 useTime = 23;
                 scale = 1.25f;
@@ -37908,7 +37899,7 @@ namespace Terraria
             else if (type == 3518)
             {
                 SetDefaults1(10);
-                this.type = type;
+                this.itemId = type;
                 useTime = 18;
                 axe = 11;
                 useAnimation = 26;
@@ -37919,7 +37910,7 @@ namespace Terraria
             else if (type == 3516)
             {
                 SetDefaults1(99);
-                this.type = type;
+                this.itemId = type;
                 useAnimation = 26;
                 useTime = 26;
                 damage = 11;
@@ -37928,7 +37919,7 @@ namespace Terraria
             else if (type == 3515)
             {
                 SetDefaults1(1);
-                this.type = type;
+                this.itemId = type;
                 useTime = 11;
                 pick = 45;
                 useAnimation = 19;
@@ -37939,7 +37930,7 @@ namespace Terraria
             else if (type == 3514)
             {
                 SetDefaults1(4);
-                this.type = type;
+                this.itemId = type;
                 useAnimation = 21;
                 damage = 11;
                 value = 4500;
@@ -37947,7 +37938,7 @@ namespace Terraria
             else if (type == 3513)
             {
                 SetDefaults1(6);
-                this.type = type;
+                this.itemId = type;
                 damage = 9;
                 useAnimation = 12;
                 scale = 0.95f;
@@ -37956,7 +37947,7 @@ namespace Terraria
             else if (type == 3511)
             {
                 SetDefaults1(7);
-                this.type = type;
+                this.itemId = type;
                 useAnimation = 29;
                 useTime = 19;
                 scale = 1.25f;
@@ -37967,7 +37958,7 @@ namespace Terraria
             else if (type == 3512)
             {
                 SetDefaults1(10);
-                this.type = type;
+                this.itemId = type;
                 useTime = 18;
                 axe = 10;
                 useAnimation = 26;
@@ -37978,7 +37969,7 @@ namespace Terraria
             else if (type == 3510)
             {
                 SetDefaults1(99);
-                this.type = type;
+                this.itemId = type;
                 useAnimation = 27;
                 useTime = 27;
                 damage = 9;
@@ -37987,7 +37978,7 @@ namespace Terraria
             else if (type == 3509)
             {
                 SetDefaults1(1);
-                this.type = type;
+                this.itemId = type;
                 useTime = 15;
                 pick = 35;
                 useAnimation = 23;
@@ -37999,7 +37990,7 @@ namespace Terraria
             else if (type == 3508)
             {
                 SetDefaults1(4);
-                this.type = type;
+                this.itemId = type;
                 useAnimation = 23;
                 damage = 8;
                 value = 450;
@@ -38007,7 +37998,7 @@ namespace Terraria
             else if (type == 3507)
             {
                 SetDefaults1(6);
-                this.type = type;
+                this.itemId = type;
                 damage = 5;
                 useAnimation = 13;
                 scale = 0.8f;
@@ -38016,7 +38007,7 @@ namespace Terraria
             else if (type == 3505)
             {
                 SetDefaults1(7);
-                this.type = type;
+                this.itemId = type;
                 useAnimation = 33;
                 useTime = 23;
                 scale = 1.1f;
@@ -38028,7 +38019,7 @@ namespace Terraria
             else if (type == 3506)
             {
                 SetDefaults1(10);
-                this.type = type;
+                this.itemId = type;
                 useTime = 21;
                 axe = 7;
                 useAnimation = 30;
@@ -38040,7 +38031,7 @@ namespace Terraria
             else if (type == 3504)
             {
                 SetDefaults1(99);
-                this.type = type;
+                this.itemId = type;
                 useAnimation = 29;
                 useTime = 29;
                 damage = 6;
@@ -38049,7 +38040,7 @@ namespace Terraria
             else if (type == 3503)
             {
                 SetDefaults1(1);
-                this.type = type;
+                this.itemId = type;
                 useTime = 14;
                 pick = 35;
                 useAnimation = 21;
@@ -38060,7 +38051,7 @@ namespace Terraria
             else if (type == 3502)
             {
                 SetDefaults1(4);
-                this.type = type;
+                this.itemId = type;
                 useAnimation = 22;
                 damage = 9;
                 value = 675;
@@ -38068,7 +38059,7 @@ namespace Terraria
             else if (type == 3501)
             {
                 SetDefaults1(6);
-                this.type = type;
+                this.itemId = type;
                 damage = 7;
                 useAnimation = 12;
                 scale = 0.85f;
@@ -38077,7 +38068,7 @@ namespace Terraria
             else if (type == 3499)
             {
                 SetDefaults1(7);
-                this.type = type;
+                this.itemId = type;
                 useAnimation = 31;
                 useTime = 21;
                 scale = 1.15f;
@@ -38088,7 +38079,7 @@ namespace Terraria
             else if (type == 3500)
             {
                 SetDefaults1(10);
-                this.type = type;
+                this.itemId = type;
                 useTime = 20;
                 axe = 8;
                 useAnimation = 28;
@@ -38099,7 +38090,7 @@ namespace Terraria
             else if (type == 3498)
             {
                 SetDefaults1(99);
-                this.type = type;
+                this.itemId = type;
                 useAnimation = 28;
                 useTime = 28;
                 damage = 7;
@@ -38108,7 +38099,7 @@ namespace Terraria
             else if (type == 3497)
             {
                 SetDefaults1(1);
-                this.type = type;
+                this.itemId = type;
                 useTime = 12;
                 pick = 43;
                 useAnimation = 19;
@@ -38119,7 +38110,7 @@ namespace Terraria
             else if (type == 3496)
             {
                 SetDefaults1(4);
-                this.type = type;
+                this.itemId = type;
                 useAnimation = 21;
                 damage = 11;
                 value = 2700;
@@ -38127,7 +38118,7 @@ namespace Terraria
             else if (type == 3495)
             {
                 SetDefaults1(6);
-                this.type = type;
+                this.itemId = type;
                 damage = 9;
                 useAnimation = 12;
                 scale = 0.925f;
@@ -38136,7 +38127,7 @@ namespace Terraria
             else if (type == 3493)
             {
                 SetDefaults1(7);
-                this.type = type;
+                this.itemId = type;
                 useAnimation = 29;
                 useTime = 19;
                 scale = 1.225f;
@@ -38147,7 +38138,7 @@ namespace Terraria
             else if (type == 3494)
             {
                 SetDefaults1(10);
-                this.type = type;
+                this.itemId = type;
                 useTime = 19;
                 axe = 10;
                 useAnimation = 28;
@@ -38158,7 +38149,7 @@ namespace Terraria
             else if (type == 3492)
             {
                 SetDefaults1(99);
-                this.type = type;
+                this.itemId = type;
                 useAnimation = 27;
                 useTime = 27;
                 damage = 9;
@@ -38167,7 +38158,7 @@ namespace Terraria
             else if (type == 3491)
             {
                 SetDefaults1(1);
-                this.type = type;
+                this.itemId = type;
                 useTime = 19;
                 pick = 50;
                 useAnimation = 21;
@@ -38178,7 +38169,7 @@ namespace Terraria
             else if (type == 3490)
             {
                 SetDefaults1(4);
-                this.type = type;
+                this.itemId = type;
                 useAnimation = 20;
                 damage = 12;
                 scale *= 1.025f;
@@ -38187,7 +38178,7 @@ namespace Terraria
             else if (type == 3489)
             {
                 SetDefaults1(6);
-                this.type = type;
+                this.itemId = type;
                 damage = 10;
                 useAnimation = 11;
                 scale = 0.95f;
@@ -38196,7 +38187,7 @@ namespace Terraria
             else if (type == 3487)
             {
                 SetDefaults1(7);
-                this.type = type;
+                this.itemId = type;
                 useAnimation = 28;
                 useTime = 25;
                 scale = 1.25f;
@@ -38207,7 +38198,7 @@ namespace Terraria
             else if (type == 3488)
             {
                 SetDefaults1(10);
-                this.type = type;
+                this.itemId = type;
                 useTime = 18;
                 axe = 11;
                 useAnimation = 26;
@@ -38218,7 +38209,7 @@ namespace Terraria
             else if (type == 3486)
             {
                 SetDefaults1(99);
-                this.type = type;
+                this.itemId = type;
                 useAnimation = 26;
                 useTime = 26;
                 damage = 10;
@@ -38227,7 +38218,7 @@ namespace Terraria
             else if (type == 3485)
             {
                 SetDefaults1(1);
-                this.type = type;
+                this.itemId = type;
                 useTime = 15;
                 pick = 59;
                 useAnimation = 19;
@@ -38238,7 +38229,7 @@ namespace Terraria
             else if (type == 3484)
             {
                 SetDefaults1(4);
-                this.type = type;
+                this.itemId = type;
                 useAnimation = 19;
                 damage = 15;
                 scale = 1.075f;
@@ -38247,7 +38238,7 @@ namespace Terraria
             else if (type == 3483)
             {
                 SetDefaults1(6);
-                this.type = type;
+                this.itemId = type;
                 damage = 13;
                 useAnimation = 10;
                 scale = 0.975f;
@@ -38256,7 +38247,7 @@ namespace Terraria
             else if (type == 3481)
             {
                 SetDefaults1(7);
-                this.type = type;
+                this.itemId = type;
                 useAnimation = 27;
                 useTime = 21;
                 scale = 1.275f;
@@ -38267,7 +38258,7 @@ namespace Terraria
             else if (type == 3482)
             {
                 SetDefaults1(10);
-                this.type = type;
+                this.itemId = type;
                 useTime = 17;
                 axe = 12;
                 useAnimation = 25;
@@ -38278,7 +38269,7 @@ namespace Terraria
             else if (type == 3480)
             {
                 SetDefaults1(99);
-                this.type = type;
+                this.itemId = type;
                 useAnimation = 25;
                 useTime = 25;
                 damage = 13;
@@ -38644,7 +38635,7 @@ namespace Terraria
             else if (type == 3352)
             {
                 SetDefaults1(4);
-                this.type = type;
+                this.itemId = type;
                 useAnimation = 12;
                 useTime = 12;
                 damage = 14;
@@ -38656,7 +38647,7 @@ namespace Terraria
             else if (type == 3351)
             {
                 SetDefaults1(4);
-                this.type = type;
+                this.itemId = type;
                 useAnimation = 15;
                 useTime = 15;
                 damage = 16;
@@ -38668,7 +38659,7 @@ namespace Terraria
             else if (type == 3349)
             {
                 SetDefaults1(4);
-                this.type = type;
+                this.itemId = type;
                 useAnimation = 18;
                 useTime = 18;
                 damage = 20;
@@ -39236,74 +39227,74 @@ namespace Terraria
         {
             owner = Main.netMode == 1 || Main.netMode == 2 ? 255 : Main.myPlayer;
             ResetStats(Type);
-            if (type >= 3601)
-                type = 0;
-            if (type == 0)
+            if (itemId >= 3601)
+                itemId = 0;
+            if (itemId == 0)
             {
                 netID = 0;
                 name = "";
                 stack = 0;
             }
-            else if (type <= 1000)
-                SetDefaults1(type);
-            else if (type <= 2001)
-                SetDefaults2(type);
-            else if (type <= 3000)
-                SetDefaults3(type);
+            else if (itemId <= 1000)
+                SetDefaults1(itemId);
+            else if (itemId <= 2001)
+                SetDefaults2(itemId);
+            else if (itemId <= 3000)
+                SetDefaults3(itemId);
             else
-                SetDefaults4(type);
-            dye = (byte)GameShaders.Armor.GetShaderIdFromItemId(type);
+                SetDefaults4(itemId);
+            dye = (byte)GameShaders.Armor.GetShaderIdFromItemId(itemId);
             if (hairDye != 0)
-                hairDye = GameShaders.Hair.GetShaderIdFromItemId(type);
-            if (type == 2015)
+                hairDye = GameShaders.Hair.GetShaderIdFromItemId(itemId);
+            if (itemId == 2015)
                 value = sellPrice(0, 0, 5, 0);
-            if (type == 2016)
+            if (itemId == 2016)
                 value = sellPrice(0, 0, 7, 50);
-            if (type == 2017)
+            if (itemId == 2017)
                 value = sellPrice(0, 0, 7, 50);
-            if (type == 2019)
+            if (itemId == 2019)
                 value = sellPrice(0, 0, 5, 0);
-            if (type == 2018)
+            if (itemId == 2018)
                 value = sellPrice(0, 0, 5, 0);
-            if (type == 3563)
+            if (itemId == 3563)
                 value = sellPrice(0, 0, 5, 0);
-            if (type == 261)
+            if (itemId == 261)
                 value = sellPrice(0, 0, 7, 50);
-            if (type == 2205)
+            if (itemId == 2205)
                 value = sellPrice(0, 0, 12, 50);
-            if (type == 2123)
+            if (itemId == 2123)
                 value = sellPrice(0, 0, 7, 50);
-            if (type == 2122)
+            if (itemId == 2122)
                 value = sellPrice(0, 0, 7, 50);
-            if (type == 2003)
+            if (itemId == 2003)
                 value = sellPrice(0, 0, 20, 0);
-            if (type == 2156)
+            if (itemId == 2156)
                 value = sellPrice(0, 0, 15, 0);
-            if (type == 2157)
+            if (itemId == 2157)
                 value = sellPrice(0, 0, 15, 0);
-            if (type == 2121)
+            if (itemId == 2121)
                 value = sellPrice(0, 0, 15, 0);
-            if (type == 1992)
+            if (itemId == 1992)
                 value = sellPrice(0, 0, 3, 0);
-            if (type == 2004)
+            if (itemId == 2004)
                 value = sellPrice(0, 0, 5, 0);
-            if (type == 2002)
+            if (itemId == 2002)
                 value = sellPrice(0, 0, 5, 0);
-            if (type == 2740)
+            if (itemId == 2740)
                 value = sellPrice(0, 0, 2, 50);
-            if (type == 2006)
+            if (itemId == 2006)
                 value = sellPrice(0, 0, 20, 0);
-            if (type == 3191)
+            if (itemId == 3191)
                 value = sellPrice(0, 0, 20, 0);
-            if (type == 3192)
+            if (itemId == 3192)
                 value = sellPrice(0, 0, 2, 50);
-            if (type == 3193)
+            if (itemId == 3193)
                 value = sellPrice(0, 0, 5, 0);
-            if (type == 3194)
+            if (itemId == 3194)
                 value = sellPrice(0, 0, 10, 0);
-            if (type == 2007)
+            if (itemId == 2007)
                 value = sellPrice(0, 0, 50, 0);
-            if (type == 2673)
+            if (itemId == 2673)
                 value = sellPrice(0, 10, 0, 0);
             if (bait > 0)
             {
@@ -39314,9 +39305,9 @@ namespace Terraria
                 else if (bait >= 15)
                     rare = 1;
             }
-            if (type >= 1994 && type <= 2001)
+            if (itemId >= 1994 && itemId <= 2001)
             {
-                int num = type - 1994;
+                int num = itemId - 1994;
                 if (num == 0)
                     value = sellPrice(0, 0, 5, 0);
                 if (num == 4)
@@ -39334,12 +39325,12 @@ namespace Terraria
                 if (num == 5)
                     value = sellPrice(0, 1, 0, 0);
             }
-            if (type == 483 || type == 1192 || (type == 482 || type == 1185) || (type == 484 || type == 1199 || type == 368))
+            if (itemId == 483 || itemId == 1192 || (itemId == 482 || itemId == 1185) || (itemId == 484 || itemId == 1199 || itemId == 368))
             {
                 autoReuse = true;
                 damage = (int)(damage * 1.15);
             }
-            if (type == 2663 || type == 1720 || (type == 2137 || type == 2155) || (type == 2151 || type == 1704 || (type == 2143 || type == 1710)) || (type == 2238 || type == 2133 || (type == 2147 || type == 2405) || (type == 1716 || type == 1705)))
+            if (itemId == 2663 || itemId == 1720 || (itemId == 2137 || itemId == 2155) || (itemId == 2151 || itemId == 1704 || (itemId == 2143 || itemId == 1710)) || (itemId == 2238 || itemId == 2133 || (itemId == 2147 || itemId == 2405) || (itemId == 1716 || itemId == 1705)))
                 value = sellPrice(0, 2, 0, 0);
             if (Main.projHook[shoot])
             {
@@ -39347,21 +39338,21 @@ namespace Terraria
                 useTime = 0;
                 useAnimation = 0;
             }
-            if (type >= 1803 && type <= 1807)
-                SetDefaults(1533 + type - 1803, false);
+            if (itemId >= 1803 && itemId <= 1807)
+                SetDefaults(1533 + itemId - 1803, false);
             if (dye > 0)
                 maxStack = 99;
             if (createTile == 19)
                 maxStack = 999;
-            netID = type;
+            netID = itemId;
             if (!noMatCheck)
                 checkMat();
             name = Lang.itemName(netID, false);
             CheckTip();
-            if (type <= 0 || type >= 3601 || !ItemID.Sets.Deprecated[type])
+            if (itemId <= 0 || itemId >= 3601 || !ItemID.Sets.Deprecated[itemId])
                 return;
             netID = 0;
-            type = 0;
+            itemId = 0;
             stack = 0;
             name = "";
         }
@@ -39464,7 +39455,7 @@ namespace Terraria
             balloonSlot = -1;
             uniqueStack = false;
             favorited = false;
-            type = Type;
+            itemId = Type;
         }
 
         public static string VersionName(string oldName, int release)
@@ -39506,7 +39497,7 @@ namespace Terraria
 
         public Color GetAlpha(Color newColor)
         {
-            switch (type)
+            switch (itemId)
             {
                 case 3522:
                 case 2782:
@@ -39635,7 +39626,7 @@ namespace Terraria
             int num3 = 0;
             for (int index = 0; index < 200; ++index)
             {
-                if (Main.item[index].active && Main.item[index].type == type)
+                if (Main.item[index].active && Main.item[index].itemId == type)
                 {
                     ++num1;
                     Vector2 vector2 = new Vector2(x, y);
@@ -39716,7 +39707,7 @@ namespace Terraria
                 if (!beingGrabbed)
                 {
                     bool flag1 = true;
-                    switch (type)
+                    switch (itemId)
                     {
                         case 71:
                         case 72:
@@ -39725,13 +39716,13 @@ namespace Terraria
                             flag1 = false;
                             break;
                     }
-                    if (ItemID.Sets.NebulaPickup[type])
+                    if (ItemID.Sets.NebulaPickup[itemId])
                         flag1 = false;
-                    if (owner == Main.myPlayer && flag1 && (createTile >= 0 || createWall > 0 || ammo > 0 && !notAmmo || (consumable || type >= 205 && type <= 207) || (type == 1128 || type == 530 || (dye > 0 || paint > 0) || material)) && stack < maxStack)
+                    if (owner == Main.myPlayer && flag1 && (createTile >= 0 || createWall > 0 || ammo > 0 && !notAmmo || (consumable || itemId >= 205 && itemId <= 207) || (itemId == 1128 || itemId == 530 || (dye > 0 || paint > 0) || material)) && stack < maxStack)
                     {
                         for (int number = i + 1; number < 400; ++number)
                         {
-                            if (Main.item[number].active && Main.item[number].type == type && (Main.item[number].stack > 0 && Main.item[number].owner == owner) && (Math.Abs((position.X + (width / 2) - (Main.item[number].position.X + (Main.item[number].width / 2)))) + Math.Abs((position.Y + (height / 2) - (Main.item[number].position.Y + (Main.item[number].height / 2))))) < 30.0)
+                            if (Main.item[number].active && Main.item[number].itemId == itemId && (Main.item[number].stack > 0 && Main.item[number].owner == owner) && (Math.Abs((position.X + (width / 2) - (Main.item[number].position.X + (Main.item[number].width / 2)))) + Math.Abs((position.Y + (height / 2) - (Main.item[number].position.Y + (Main.item[number].height / 2))))) < 30.0)
                             {
                                 position = (position + Main.item[number].position) / 2f;
                                 velocity = (velocity + Main.item[number].velocity) / 2f;
@@ -39753,7 +39744,7 @@ namespace Terraria
                             }
                         }
                     }
-                    if (Main.netMode != 2 && Main.expertMode && (owner == Main.myPlayer && type >= 71) && type <= 74)
+                    if (Main.netMode != 2 && Main.expertMode && (owner == Main.myPlayer && itemId >= 71) && itemId <= 74)
                     {
                         Rectangle rectangle1 = new Rectangle((int)position.X, (int)position.Y, width, height);
                         for (int index1 = 0; index1 < 200; ++index1)
@@ -39762,11 +39753,11 @@ namespace Terraria
                             {
                                 float num2 = stack;
                                 float num3 = 1f;
-                                if (type == 72)
+                                if (itemId == 72)
                                     num3 = 100f;
-                                if (type == 73)
+                                if (itemId == 73)
                                     num3 = 10000f;
-                                if (type == 74)
+                                if (itemId == 74)
                                     num3 = 1000000f;
                                 float num4 = num2 * num3;
                                 float num5 = Main.npc[index1].extraValue;
@@ -39781,9 +39772,9 @@ namespace Terraria
                                     if (rectangle1.Intersects(rectangle2))
                                     {
                                         float num6 = Main.rand.Next(50, 76) * 0.01f;
-                                        if (type == 71)
+                                        if (itemId == 71)
                                             num6 += Main.rand.Next(51) * 0.01f;
-                                        if (type == 72)
+                                        if (itemId == 72)
                                             num6 += Main.rand.Next(26) * 0.01f;
                                         if (num6 > 1.0)
                                             num6 = 1f;
@@ -39810,7 +39801,7 @@ namespace Terraria
                             }
                         }
                     }
-                    if (ItemID.Sets.ItemNoGravity[type])
+                    if (ItemID.Sets.ItemNoGravity[itemId])
                     {
                         velocity.X *= 0.95f;
                         if (velocity.X < 0.1 && velocity.X > -0.1)
@@ -39920,12 +39911,12 @@ namespace Terraria
                     velocity.Y = vector4.W;
                     if (lavaWet)
                     {
-                        if (type == 267)
+                        if (itemId == 267)
                         {
                             if (Main.netMode != 1)
                             {
                                 active = false;
-                                type = 0;
+                                itemId = 0;
                                 name = "";
                                 stack = 0;
                                 for (int number = 0; number < 200; ++number)
@@ -39941,87 +39932,87 @@ namespace Terraria
                                 NetMessage.SendData(21, -1, -1, "", i, 0.0f, 0.0f, 0.0f, 0, 0, 0);
                             }
                         }
-                        else if (owner == Main.myPlayer && type != 312 && (type != 318 && type != 173) && (type != 174 && type != 175 && (type != 2701 && rare == 0)))
+                        else if (owner == Main.myPlayer && itemId != 312 && (itemId != 318 && itemId != 173) && (itemId != 174 && itemId != 175 && (itemId != 2701 && rare == 0)))
                         {
                             active = false;
-                            type = 0;
+                            itemId = 0;
                             name = "";
                             stack = 0;
                             if (Main.netMode != 0)
                                 NetMessage.SendData(21, -1, -1, "", i, 0.0f, 0.0f, 0.0f, 0, 0, 0);
                         }
                     }
-                    if (type == 3191)
+                    if (itemId == 3191)
                     {
                         float num2 = Main.rand.Next(90, 111) * 0.01f * (float)((Main.essScale + 0.5) / 2.0);
                         Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.3f * num2, 0.1f * num2, 0.25f * num2);
                     }
-                    else if (type == 520 || type == 3454)
+                    else if (itemId == 520 || itemId == 3454)
                     {
                         float num2 = Main.rand.Next(90, 111) * 0.01f * Main.essScale;
                         Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.5f * num2, 0.1f * num2, 0.25f * num2);
                     }
-                    else if (type == 521 || type == 3455)
+                    else if (itemId == 521 || itemId == 3455)
                     {
                         float num2 = Main.rand.Next(90, 111) * 0.01f * Main.essScale;
                         Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.25f * num2, 0.1f * num2, 0.5f * num2);
                     }
-                    else if (type == 547 || type == 3453)
+                    else if (itemId == 547 || itemId == 3453)
                     {
                         float num2 = Main.rand.Next(90, 111) * 0.01f * Main.essScale;
                         Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.5f * num2, 0.3f * num2, 0.05f * num2);
                     }
-                    else if (type == 548)
+                    else if (itemId == 548)
                     {
                         float num2 = Main.rand.Next(90, 111) * 0.01f * Main.essScale;
                         Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.1f * num2, 0.1f * num2, 0.6f * num2);
                     }
-                    else if (type == 575)
+                    else if (itemId == 575)
                     {
                         float num2 = Main.rand.Next(90, 111) * 0.01f * Main.essScale;
                         Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.1f * num2, 0.3f * num2, 0.5f * num2);
                     }
-                    else if (type == 549)
+                    else if (itemId == 549)
                     {
                         float num2 = Main.rand.Next(90, 111) * 0.01f * Main.essScale;
                         Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.1f * num2, 0.5f * num2, 0.2f * num2);
                     }
-                    else if (type == 58 || type == 1734 || type == 1867)
+                    else if (itemId == 58 || itemId == 1734 || itemId == 1867)
                     {
                         float num2 = Main.rand.Next(90, 111) * 0.01f * (Main.essScale * 0.5f);
                         Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.5f * num2, 0.1f * num2, 0.1f * num2);
                     }
-                    else if (type == 184 || type == 1735 || type == 1868)
+                    else if (itemId == 184 || itemId == 1735 || itemId == 1868)
                     {
                         float num2 = Main.rand.Next(90, 111) * 0.01f * (Main.essScale * 0.5f);
                         Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.1f * num2, 0.1f * num2, 0.5f * num2);
                     }
-                    else if (type == 522)
+                    else if (itemId == 522)
                     {
                         float num2 = Main.rand.Next(90, 111) * 0.01f * (Main.essScale * 0.2f);
                         Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.5f * num2, 1f * num2, 0.1f * num2);
                     }
-                    else if (type == 1332)
+                    else if (itemId == 1332)
                     {
                         float num2 = Main.rand.Next(90, 111) * 0.01f * (Main.essScale * 0.2f);
                         Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 1f * num2, 1f * num2, 0.1f * num2);
                     }
-                    else if (type == 3456)
+                    else if (itemId == 3456)
                         Lighting.AddLight(Center, new Vector3(0.2f, 0.4f, 0.5f) * Main.essScale);
-                    else if (type == 3457)
+                    else if (itemId == 3457)
                         Lighting.AddLight(Center, new Vector3(0.4f, 0.2f, 0.5f) * Main.essScale);
-                    else if (type == 3458)
+                    else if (itemId == 3458)
                         Lighting.AddLight(Center, new Vector3(0.5f, 0.4f, 0.2f) * Main.essScale);
-                    else if (type == 3459)
+                    else if (itemId == 3459)
                         Lighting.AddLight(Center, new Vector3(0.2f, 0.2f, 0.5f) * Main.essScale);
-                    if (type == 75 && Main.dayTime)
+                    if (itemId == 75 && Main.dayTime)
                     {
                         for (int index = 0; index < 10; ++index)
                             Dust.NewDust(position, width, height, 15, velocity.X, velocity.Y, 150, new Color(), 1.2f);
                         for (int index = 0; index < 3; ++index)
                             Gore.NewGore(position, new Vector2(velocity.X, velocity.Y), Main.rand.Next(16, 18), 1f);
                         active = false;
-                        type = 0;
+                        itemId = 0;
                         stack = 0;
                         if (Main.netMode == 2)
                             NetMessage.SendData(21, -1, -1, "", i, 0.0f, 0.0f, 0.0f, 0, 0, 0);
@@ -40029,7 +40020,7 @@ namespace Terraria
                 }
                 else
                     beingGrabbed = false;
-                if (type == 501)
+                if (itemId == 501)
                 {
                     if (Main.rand.Next(6) == 0)
                     {
@@ -40038,55 +40029,55 @@ namespace Terraria
                         Main.dust[index].scale *= 0.5f;
                     }
                 }
-                else if (type == 1970)
+                else if (itemId == 1970)
                     Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.75f, 0.0f, 0.75f);
-                else if (type == 1972)
+                else if (itemId == 1972)
                     Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.0f, 0.0f, 0.75f);
-                else if (type == 1971)
+                else if (itemId == 1971)
                     Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.75f, 0.75f, 0.0f);
-                else if (type == 1973)
+                else if (itemId == 1973)
                     Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.0f, 0.75f, 0.0f);
-                else if (type == 1974)
+                else if (itemId == 1974)
                     Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.75f, 0.0f, 0.0f);
-                else if (type == 1975)
+                else if (itemId == 1975)
                     Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.75f, 0.75f, 0.75f);
-                else if (type == 1976)
+                else if (itemId == 1976)
                     Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.75f, 0.375f, 0.0f);
-                else if (type == 2679)
+                else if (itemId == 2679)
                     Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.6f, 0.0f, 0.6f);
-                else if (type == 2687)
+                else if (itemId == 2687)
                     Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.0f, 0.0f, 0.6f);
-                else if (type == 2689)
+                else if (itemId == 2689)
                     Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.6f, 0.6f, 0.0f);
-                else if (type == 2683)
+                else if (itemId == 2683)
                     Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.0f, 0.6f, 0.0f);
-                else if (type == 2685)
+                else if (itemId == 2685)
                     Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.6f, 0.0f, 0.0f);
-                else if (type == 2681)
+                else if (itemId == 2681)
                     Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.6f, 0.6f, 0.6f);
-                else if (type == 2677)
+                else if (itemId == 2677)
                     Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.6f, 0.375f, 0.0f);
-                else if (type == 8 || type == 105)
+                else if (itemId == 8 || itemId == 105)
                 {
                     if (!wet)
                         Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 1f, 0.95f, 0.8f);
                 }
-                else if (type == 2701)
+                else if (itemId == 2701)
                     Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.7f, 0.65f, 0.55f);
-                else if (type == 523)
+                else if (itemId == 523)
                     Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.85f, 1f, 0.7f);
-                else if (type == 974)
+                else if (itemId == 974)
                 {
                     if (!wet)
                         Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.7f, 0.85f, 1f);
                 }
-                else if (type == 1333)
+                else if (itemId == 1333)
                     Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 1.25f, 1.25f, 0.8f);
-                else if (type == 3045)
+                else if (itemId == 3045)
                     Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), Main.DiscoR / 255, Main.DiscoG / 255, Main.DiscoB / 255);
-                else if (type == 3004)
+                else if (itemId == 3004)
                     Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.95f, 0.65f, 1.3f);
-                else if (type == 2274)
+                else if (itemId == 2274)
                 {
                     float R = 0.75f;
                     float G = 1.35f;
@@ -40094,14 +40085,14 @@ namespace Terraria
                     if (!wet)
                         Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), R, G, B);
                 }
-                else if (type >= 427 && type <= 432)
+                else if (itemId >= 427 && itemId <= 432)
                 {
                     if (!wet)
                     {
                         float R = 0.0f;
                         float G = 0.0f;
                         float B = 0.0f;
-                        int num2 = type - 426;
+                        int num2 = itemId - 426;
                         if (num2 == 1)
                         {
                             R = 0.1f;
@@ -40141,39 +40132,39 @@ namespace Terraria
                         Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), R, G, B);
                     }
                 }
-                else if (type == 2777 || type == 2778 || (type == 2779 || type == 2780) || (type == 2781 || type == 2760 || (type == 2761 || type == 2762)) || type == 3524)
+                else if (itemId == 2777 || itemId == 2778 || (itemId == 2779 || itemId == 2780) || (itemId == 2781 || itemId == 2760 || (itemId == 2761 || itemId == 2762)) || itemId == 3524)
                     Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.4f, 0.16f, 0.36f);
-                else if (type == 2772 || type == 2773 || (type == 2774 || type == 2775) || (type == 2776 || type == 2757 || (type == 2758 || type == 2759)) || type == 3523)
+                else if (itemId == 2772 || itemId == 2773 || (itemId == 2774 || itemId == 2775) || (itemId == 2776 || itemId == 2757 || (itemId == 2758 || itemId == 2759)) || itemId == 3523)
                     Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.0f, 0.36f, 0.4f);
-                else if (type == 2782 || type == 2783 || (type == 2784 || type == 2785) || (type == 2786 || type == 2763 || (type == 2764 || type == 2765)) || type == 3522)
+                else if (itemId == 2782 || itemId == 2783 || (itemId == 2784 || itemId == 2785) || (itemId == 2786 || itemId == 2763 || (itemId == 2764 || itemId == 2765)) || itemId == 3522)
                     Lighting.AddLight((int)((position.X + (width / 2)) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.5f, 0.25f, 0.05f);
-                else if (type == 3462 || type == 3463 || (type == 3464 || type == 3465) || (type == 3466 || type == 3381 || (type == 3382 || type == 3383)) || type == 3525)
+                else if (itemId == 3462 || itemId == 3463 || (itemId == 3464 || itemId == 3465) || (itemId == 3466 || itemId == 3381 || (itemId == 3382 || itemId == 3383)) || itemId == 3525)
                     Lighting.AddLight(Center, 0.3f, 0.3f, 0.2f);
-                else if (type == 41)
+                else if (itemId == 41)
                 {
                     if (!wet)
                         Lighting.AddLight((int)((position.X + width) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 1f, 0.75f, 0.55f);
                 }
-                else if (type == 988)
+                else if (itemId == 988)
                 {
                     if (!wet)
                         Lighting.AddLight((int)((position.X + width) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.35f, 0.65f, 1f);
                 }
-                else if (type == 282)
+                else if (itemId == 282)
                     Lighting.AddLight((int)((position.X + width) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.7f, 1f, 0.8f);
-                else if (type == 286)
+                else if (itemId == 286)
                     Lighting.AddLight((int)((position.X + width) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.7f, 0.8f, 1f);
-                else if (type == 3112)
+                else if (itemId == 3112)
                     Lighting.AddLight((int)((position.X + width) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 1f, 0.6f, 0.85f);
-                else if (type == 3002)
+                else if (itemId == 3002)
                     Lighting.AddLight((int)((position.X + width) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 1.05f, 0.95f, 0.55f);
-                else if (type == 331)
+                else if (itemId == 331)
                     Lighting.AddLight((int)((position.X + width) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.55f, 0.75f, 0.6f);
-                else if (type == 183)
+                else if (itemId == 183)
                     Lighting.AddLight((int)((position.X + width) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.15f, 0.45f, 0.9f);
-                else if (type == 75)
+                else if (itemId == 75)
                     Lighting.AddLight((int)((position.X + width) / 16.0), (int)((position.Y + (height / 2)) / 16.0), 0.8f, 0.7f, 0.1f);
-                if (type == 75)
+                if (itemId == 75)
                 {
                     if (Main.rand.Next(25) == 0)
                         Dust.NewDust(position, width, height, 58, velocity.X * 0.5f, velocity.Y * 0.5f, 150, new Color(), 1.2f);
@@ -40182,7 +40173,7 @@ namespace Terraria
                 }
                 if (spawnTime < 2147483646)
                 {
-                    if (type == 58 || type == 184 || (type == 1867 || type == 1868) || (type == 1734 || type == 1735))
+                    if (itemId == 58 || itemId == 184 || (itemId == 1867 || itemId == 1868) || (itemId == 1734 || itemId == 1735))
                         spawnTime += 4;
                     ++spawnTime;
                 }
@@ -40273,7 +40264,7 @@ namespace Terraria
                 Vector2 vector2 = obj.velocity * 0.0f;
                 obj.velocity = vector2;
             }
-            if (Type == 520 || Type == 521 || Main.item[index1].type >= 0 && ItemID.Sets.NebulaPickup[Main.item[index1].type])
+            if (Type == 520 || Type == 521 || Main.item[index1].itemId >= 0 && ItemID.Sets.NebulaPickup[Main.item[index1].itemId])
             {
                 Main.item[index1].velocity.X = Main.rand.Next(-30, 31) * 0.1f;
                 Main.item[index1].velocity.Y = Main.rand.Next(-30, 31) * 0.1f;
@@ -40281,7 +40272,7 @@ namespace Terraria
             Main.item[index1].active = true;
             Main.item[index1].spawnTime = 0;
             Main.item[index1].stack = Stack;
-            if (ItemSlot.Options.HighlightNewItems && Main.item[index1].type >= 0 && !ItemID.Sets.NeverShiny[Main.item[index1].type])
+            if (ItemSlot.Options.HighlightNewItems && Main.item[index1].itemId >= 0 && !ItemID.Sets.NeverShiny[Main.item[index1].itemId])
                 Main.item[index1].newAndShiny = true;
             if (Main.netMode == 2 && !noBroadcast)
             {
@@ -40308,9 +40299,9 @@ namespace Terraria
                 if (ownIgnore != index2 && Main.player[index2].active && Main.player[index2].ItemSpace(Main.item[whoAmI]))
                 {
                     float num2 = Math.Abs(Main.player[index2].position.X + (Main.player[index2].width / 2) - position.X - (width / 2)) + Math.Abs(Main.player[index2].position.Y + (Main.player[index2].height / 2) - position.Y - height);
-                    if (Main.player[index2].manaMagnet && (type == 184 || type == 1735 || type == 1868))
+                    if (Main.player[index2].manaMagnet && (itemId == 184 || itemId == 1735 || itemId == 1868))
                         num2 -= manaGrabRange;
-                    if (Main.player[index2].lifeMagnet && (type == 58 || type == 1734 || type == 1867))
+                    if (Main.player[index2].lifeMagnet && (itemId == 58 || itemId == 1734 || itemId == 1867))
                         num2 -= lifeGrabRange;
                     if (num2 < NPC.sWidth && num2 < num1)
                     {
@@ -40335,7 +40326,7 @@ namespace Terraria
         public bool IsTheSameAs(Item compareItem)
         {
             if (netID == compareItem.netID)
-                return type == compareItem.type;
+                return itemId == compareItem.itemId;
             return false;
         }
 

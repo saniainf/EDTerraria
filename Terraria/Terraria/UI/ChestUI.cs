@@ -239,7 +239,7 @@ namespace Terraria.UI
                 Chest chest = Main.chest[player.chest];
                 for (int index = 0; index < 40; ++index)
                 {
-                    if (chest.item[index].type > 0)
+                    if (chest.item[index].itemId > 0)
                     {
                         chest.item[index].position = player.Center;
                         chest.item[index] = player.GetItem(Main.myPlayer, chest.item[index], false, false);
@@ -252,7 +252,7 @@ namespace Terraria.UI
             {
                 for (int index = 0; index < 40; ++index)
                 {
-                    if (player.bank2.item[index].type > 0)
+                    if (player.bank2.item[index].itemId > 0)
                     {
                         player.bank2.item[index].position = player.Center;
                         player.bank2.item[index] = player.GetItem(Main.myPlayer, player.bank2.item[index], false, false);
@@ -263,7 +263,7 @@ namespace Terraria.UI
             {
                 for (int index = 0; index < 40; ++index)
                 {
-                    if (player.bank.item[index].type > 0)
+                    if (player.bank.item[index].itemId > 0)
                     {
                         player.bank.item[index].position = player.Center;
                         player.bank.item[index] = player.GetItem(Main.myPlayer, player.bank.item[index], false, false);
@@ -283,7 +283,7 @@ namespace Terraria.UI
                 ChestUI.MoveCoins(player.inventory, player.bank.item);
             for (int index1 = 49; index1 >= 10; --index1)
             {
-                if (player.inventory[index1].stack > 0 && player.inventory[index1].type > 0 && !player.inventory[index1].favorited)
+                if (player.inventory[index1].stack > 0 && player.inventory[index1].itemId > 0 && !player.inventory[index1].favorited)
                 {
                     if (player.inventory[index1].maxStack > 1)
                     {
@@ -310,7 +310,7 @@ namespace Terraria.UI
                                         }
                                         break;
                                     }
-                                    if (chest.item[index2].type == 0)
+                                    if (chest.item[index2].itemId == 0)
                                     {
                                         chest.item[index2] = player.inventory[index1].Clone();
                                         player.inventory[index1].SetDefaults(0, false);
@@ -334,7 +334,7 @@ namespace Terraria.UI
                                         player.inventory[index1].SetDefaults(0, false);
                                         break;
                                     }
-                                    if (player.bank2.item[index2].type == 0)
+                                    if (player.bank2.item[index2].itemId == 0)
                                     {
                                         player.bank2.item[index2] = player.inventory[index1].Clone();
                                         player.inventory[index1].SetDefaults(0, false);
@@ -354,7 +354,7 @@ namespace Terraria.UI
                                     player.inventory[index1].SetDefaults(0, false);
                                     break;
                                 }
-                                if (player.bank.item[index2].type == 0)
+                                if (player.bank.item[index2].itemId == 0)
                                 {
                                     player.bank.item[index2] = player.inventory[index1].Clone();
                                     player.inventory[index1].SetDefaults(0, false);
@@ -436,12 +436,12 @@ namespace Terraria.UI
             bool[] flagArray = new bool[objArray2.Length];
             for (int index = 0; index < 40; ++index)
             {
-                if (objArray2[index].type > 0 && objArray2[index].stack > 0 && objArray2[index].maxStack > 1 && (objArray2[index].type < 71 || objArray2[index].type > 74))
+                if (objArray2[index].itemId > 0 && objArray2[index].stack > 0 && objArray2[index].maxStack > 1 && (objArray2[index].itemId < 71 || objArray2[index].itemId > 74))
                 {
                     list2.Add(index);
                     list1.Add(objArray2[index].netID);
                 }
-                if (objArray2[index].type == 0 || objArray2[index].stack <= 0)
+                if (objArray2[index].itemId == 0 || objArray2[index].stack <= 0)
                     list3.Add(index);
             }
             int num1 = 50;
@@ -588,7 +588,7 @@ namespace Terraria.UI
             List<int> list2 = new List<int>();
             for (int index = 57; index >= 0; --index)
             {
-                if ((index < 50 || index >= 54) && (inv[index].type < 71 || inv[index].type > 74))
+                if ((index < 50 || index >= 54) && (inv[index].itemId < 71 || inv[index].itemId > 74))
                 {
                     if (inv[index].stack > 0 && inv[index].maxStack > 1 && (int)inv[index].prefix == 0)
                     {
@@ -596,7 +596,7 @@ namespace Terraria.UI
                         if (inv[index].stack < inv[index].maxStack)
                             list1.Add(index);
                     }
-                    else if (inv[index].stack == 0 || inv[index].netID == 0 || inv[index].type == 0)
+                    else if (inv[index].stack == 0 || inv[index].netID == 0 || inv[index].itemId == 0)
                         list2.Add(index);
                 }
             }
@@ -674,7 +674,7 @@ namespace Terraria.UI
             for (int index = 0; index < cInv.Length; ++index)
             {
                 numArray2[index] = -1;
-                if (cInv[index].stack < 1 || cInv[index].type < 1)
+                if (cInv[index].stack < 1 || cInv[index].itemId < 1)
                 {
                     list2.Add(index);
                     cInv[index] = new Item();
@@ -682,13 +682,13 @@ namespace Terraria.UI
                 if (cInv[index] != null && cInv[index].stack > 0)
                 {
                     int num = 0;
-                    if (cInv[index].type == 71)
+                    if (cInv[index].itemId == 71)
                         num = 1;
-                    if (cInv[index].type == 72)
+                    if (cInv[index].itemId == 72)
                         num = 2;
-                    if (cInv[index].type == 73)
+                    if (cInv[index].itemId == 73)
                         num = 3;
-                    if (cInv[index].type == 74)
+                    if (cInv[index].itemId == 74)
                         num = 4;
                     numArray2[index] = num - 1;
                     if (num > 0)
@@ -708,13 +708,13 @@ namespace Terraria.UI
                 if (index != 58 && pInv[index] != null && pInv[index].stack > 0)
                 {
                     int num = 0;
-                    if (pInv[index].type == 71)
+                    if (pInv[index].itemId == 71)
                         num = 1;
-                    if (pInv[index].type == 72)
+                    if (pInv[index].itemId == 72)
                         num = 2;
-                    if (pInv[index].type == 73)
+                    if (pInv[index].itemId == 73)
                         num = 3;
-                    if (pInv[index].type == 74)
+                    if (pInv[index].itemId == 74)
                         num = 4;
                     if (num > 0)
                     {
@@ -734,7 +734,7 @@ namespace Terraria.UI
             }
             for (int index1 = 0; index1 < 40; ++index1)
             {
-                if (numArray2[index1] >= 0 && cInv[index1].type == 0)
+                if (numArray2[index1] >= 0 && cInv[index1].itemId == 0)
                 {
                     int index2 = index1;
                     int index3 = numArray2[index1];
@@ -754,7 +754,7 @@ namespace Terraria.UI
             }
             for (int index1 = 0; index1 < 40; ++index1)
             {
-                if (numArray2[index1] >= 0 && cInv[index1].type == 0)
+                if (numArray2[index1] >= 0 && cInv[index1].itemId == 0)
                 {
                     int index2 = index1;
                     int index3 = 3;
@@ -860,7 +860,7 @@ namespace Terraria.UI
                             }
                             break;
                         }
-                        if (objArray[index].type == 0)
+                        if (objArray[index].itemId == 0)
                         {
                             objArray[index] = I.Clone();
                             I.SetDefaults(0, false);
@@ -940,7 +940,7 @@ namespace Terraria.UI
                             }
                             break;
                         }
-                        if (objArray1[index].type == 0)
+                        if (objArray1[index].itemId == 0)
                         {
                             objArray1[index] = obj.Clone();
                             obj.SetDefaults(0, false);

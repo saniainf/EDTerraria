@@ -10312,7 +10312,7 @@ namespace Terraria
                         type = -1;
                     if (flag1)
                     {
-                        if (Main.player[owner].inventory[Main.player[owner].selectedItem].type != 2422)
+                        if (Main.player[owner].inventory[Main.player[owner].selectedItem].itemId != 2422)
                             return;
                         if (flag7)
                             Type = 2331;

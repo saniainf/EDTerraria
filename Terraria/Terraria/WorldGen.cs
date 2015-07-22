@@ -28293,7 +28293,7 @@ namespace Terraria
                                                 num85 = 0x935;
                                             }
                                             int num86 = Player.FindClosest(new Vector2((float)(i * 0x10), (float)(j * 0x10)), 0x10, 0x10);
-                                            if (Main.player[num86].inventory[Main.player[num86].selectedItem].type == 0xd5)
+                                            if (Main.player[num86].inventory[Main.player[num86].selectedItem].itemId == 0xd5)
                                             {
                                                 Item.NewItem(i * 0x10, j * 0x10, 0x10, 0x10, num85, genRand.Next(1, 6), false, 0, false);
                                                 Item.NewItem(i * 0x10, j * 0x10, 0x10, 0x10, trackItem, genRand.Next(1, 3), false, 0, false);

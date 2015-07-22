@@ -177,7 +177,7 @@ namespace Terraria
                 {
                     for (int index = 0; index < Main.chest[i].item.Length; ++index)
                     {
-                        if (Main.chest[i].item[index].type > 0 && Main.chest[i].item[index].stack > 0)
+                        if (Main.chest[i].item[index].itemId > 0 && Main.chest[i].item[index].stack > 0)
                         {
                             if (item.IsTheSameAs(Main.chest[i].item[index]))
                             {
@@ -204,7 +204,7 @@ namespace Terraria
                     {
                         for (int index = 0; index < Main.chest[i].item.Length; ++index)
                         {
-                            if (Main.chest[i].item[index].type == 0 || Main.chest[i].item[index].stack == 0)
+                            if (Main.chest[i].item[index].itemId == 0 || Main.chest[i].item[index].stack == 0)
                             {
                                 Main.chest[i].item[index] = item.Clone();
                                 item.SetDefaults(0, false);
@@ -377,7 +377,7 @@ namespace Terraria
                 {
                     for (int index2 = 0; index2 < 40; ++index2)
                     {
-                        if (chest.item[index2] != null && chest.item[index2].type > 0 && chest.item[index2].stack > 0)
+                        if (chest.item[index2] != null && chest.item[index2].itemId > 0 && chest.item[index2].stack > 0)
                             return false;
                     }
                     return true;
@@ -395,7 +395,7 @@ namespace Terraria
                 {
                     for (int index2 = 0; index2 < 40; ++index2)
                     {
-                        if (chest.item[index2] != null && chest.item[index2].type > 0 && chest.item[index2].stack > 0)
+                        if (chest.item[index2] != null && chest.item[index2].itemId > 0 && chest.item[index2].stack > 0)
                             return false;
                     }
                     Main.chest[index1] = null;
@@ -432,7 +432,7 @@ namespace Terraria
         {
             for (int index = 0; index < 39; ++index)
             {
-                if (item[index] == null || item[index].type == 0)
+                if (item[index] == null || item[index].itemId == 0)
                 {
                     item[index] = newItem.Clone();
                     item[index].favorited = false;
@@ -658,7 +658,7 @@ namespace Terraria
                 }
                 for (int index14 = 0; index14 < 58; ++index14)
                 {
-                    if (Main.player[Main.myPlayer].inventory[index14].type == 930)
+                    if (Main.player[Main.myPlayer].inventory[index14].itemId == 930)
                     {
                         item[index13].SetDefaults(931, false);
                         int index15 = index13 + 1;
@@ -1625,13 +1625,13 @@ namespace Terraria
                 long num = 0L;
                 for (int index3 = 0; index3 < 54; ++index3)
                 {
-                    if (Main.player[Main.myPlayer].inventory[index3].type == 71)
+                    if (Main.player[Main.myPlayer].inventory[index3].itemId == 71)
                         num += Main.player[Main.myPlayer].inventory[index3].stack;
-                    if (Main.player[Main.myPlayer].inventory[index3].type == 72)
+                    if (Main.player[Main.myPlayer].inventory[index3].itemId == 72)
                         num += (Main.player[Main.myPlayer].inventory[index3].stack * 100);
-                    if (Main.player[Main.myPlayer].inventory[index3].type == 73)
+                    if (Main.player[Main.myPlayer].inventory[index3].itemId == 73)
                         num += (Main.player[Main.myPlayer].inventory[index3].stack * 10000);
-                    if (Main.player[Main.myPlayer].inventory[index3].type == 74)
+                    if (Main.player[Main.myPlayer].inventory[index3].itemId == 74)
                         num += (Main.player[Main.myPlayer].inventory[index3].stack * 1000000);
                 }
                 if (num >= 1000000L)

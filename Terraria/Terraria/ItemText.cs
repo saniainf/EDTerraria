@@ -34,7 +34,7 @@ namespace Terraria
 
         public static void NewText(Item newItem, int stack, bool noStack = false, bool longText = false)
         {
-            bool flag = newItem.type >= 71 && newItem.type <= 74;
+            bool flag = newItem.itemId >= 71 && newItem.itemId <= 74;
             if (!Main.showItemText || newItem.name == null || (!newItem.active || Main.netMode == 2))
                 return;
             for (int index = 0; index < 20; ++index)
@@ -66,13 +66,13 @@ namespace Terraria
                     if (flag && Main.itemText[index].coinText)
                     {
                         int num = 0;
-                        if (newItem.type == 71)
+                        if (newItem.itemId == 71)
                             num += newItem.stack;
-                        else if (newItem.type == 72)
+                        else if (newItem.itemId == 72)
                             num += 100 * newItem.stack;
-                        else if (newItem.type == 73)
+                        else if (newItem.itemId == 73)
                             num += 10000 * newItem.stack;
-                        else if (newItem.type == 74)
+                        else if (newItem.itemId == 74)
                             num += 1000000 * newItem.stack;
                         Main.itemText[index].coinValue += num;
                         string text3 = ItemText.ValueToName(Main.itemText[index].coinValue);
@@ -191,16 +191,16 @@ namespace Terraria
             if (longText)
                 Main.itemText[index1].lifeTime *= 5;
             Main.itemText[index1].coinValue = 0;
-            Main.itemText[index1].coinText = newItem.type >= 71 && newItem.type <= 74;
+            Main.itemText[index1].coinText = newItem.itemId >= 71 && newItem.itemId <= 74;
             if (!Main.itemText[index1].coinText)
                 return;
-            if (newItem.type == 71)
+            if (newItem.itemId == 71)
                 Main.itemText[index1].coinValue += Main.itemText[index1].stack;
-            else if (newItem.type == 72)
+            else if (newItem.itemId == 72)
                 Main.itemText[index1].coinValue += 100 * Main.itemText[index1].stack;
-            else if (newItem.type == 73)
+            else if (newItem.itemId == 73)
                 Main.itemText[index1].coinValue += 10000 * Main.itemText[index1].stack;
-            else if (newItem.type == 74)
+            else if (newItem.itemId == 74)
                 Main.itemText[index1].coinValue += 1000000 * Main.itemText[index1].stack;
             Main.itemText[index1].ValueToName();
             Main.itemText[index1].stack = 1;

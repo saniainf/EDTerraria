@@ -6007,17 +6007,17 @@ namespace Terraria
                 Main.itemName[num18] = item.name;
                 if (item.headSlot > 0)
                 {
-                    Item.headType[item.headSlot] = item.type;
+                    Item.headType[item.headSlot] = item.itemId;
                 }
                 if (item.bodySlot > 0)
                 {
-                    Item.bodyType[item.bodySlot] = item.type;
+                    Item.bodyType[item.bodySlot] = item.itemId;
                 }
                 if (item.legSlot > 0)
                 {
-                    Item.legType[item.legSlot] = item.type;
+                    Item.legType[item.legSlot] = item.itemId;
                 }
-                int type = item.type;
+                int type = item.itemId;
                 if (type <= 1827)
                 {
                     if (type <= 788)
@@ -6135,10 +6135,10 @@ namespace Terraria
                 num18++;
                 continue;
             IL_59BF:
-                Item.staff[item.type] = true;
+                Item.staff[item.itemId] = true;
                 goto IL_59DD;
             IL_59CF:
-                Item.claw[item.type] = true;
+                Item.claw[item.itemId] = true;
                 goto IL_59DD;
             }
             Main.InitLifeBytes();
@@ -12611,7 +12611,7 @@ namespace Terraria
             int num3 = Main.mouseY + 10;
             Microsoft.Xna.Framework.Color color = new Microsoft.Xna.Framework.Color((int)Main.mouseTextColor, (int)Main.mouseTextColor, (int)Main.mouseTextColor, (int)Main.mouseTextColor);
             float num26;
-            if (Main.toolTip.type > 0)
+            if (Main.toolTip.itemId > 0)
             {
                 rare = Main.toolTip.rare;
                 float knockBack = Main.toolTip.knockBack;
@@ -12804,7 +12804,7 @@ namespace Terraria
                         {
                             num13 = (float)((int)(num13 * 1.1f));
                         }
-                        if (Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].type == 3106 && Main.toolTip.type == 3106)
+                        if (Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].itemId == 3106 && Main.toolTip.itemId == 3106)
                         {
                             num13 += num13 * (1f - Main.player[Main.myPlayer].stealth);
                         }
@@ -12935,7 +12935,7 @@ namespace Terraria
 						});
                         num6++;
                     }
-                    if (Main.toolTip.mana > 0 && (Main.toolTip.type != 127 || !Main.player[Main.myPlayer].spaceGun))
+                    if (Main.toolTip.mana > 0 && (Main.toolTip.itemId != 127 || !Main.player[Main.myPlayer].spaceGun))
                     {
                         array[num6] = string.Concat(new object[]
 						{
@@ -12949,7 +12949,7 @@ namespace Terraria
                     }
                     if (Main.toolTip.createWall > 0 || Main.toolTip.createTile > -1)
                     {
-                        if (Main.toolTip.type != 213 && Main.toolTip.tileWand < 1)
+                        if (Main.toolTip.itemId != 213 && Main.toolTip.tileWand < 1)
                         {
                             array[num6] = Lang.tip[33];
                             num6++;
@@ -12972,7 +12972,7 @@ namespace Terraria
                     }
                     if (Main.toolTip.toolTip != null)
                     {
-                        if (Main.toolTip.type >= 1533 && Main.toolTip.type <= 1537 && !NPC.downedPlantBoss)
+                        if (Main.toolTip.itemId >= 1533 && Main.toolTip.itemId <= 1537 && !NPC.downedPlantBoss)
                         {
                             array[num6] = Lang.tip[59];
                         }
@@ -13006,7 +13006,7 @@ namespace Terraria
                         array[num6] = text;
                         num6++;
                     }
-                    if (Main.toolTip.type == 3262 || Main.toolTip.type == 3282 || Main.toolTip.type == 3283 || Main.toolTip.type == 3284 || Main.toolTip.type == 3285 || Main.toolTip.type == 3286 || Main.toolTip.type == 3316 || Main.toolTip.type == 3315 || Main.toolTip.type == 3317 || Main.toolTip.type == 3389)
+                    if (Main.toolTip.itemId == 3262 || Main.toolTip.itemId == 3282 || Main.toolTip.itemId == 3283 || Main.toolTip.itemId == 3284 || Main.toolTip.itemId == 3285 || Main.toolTip.itemId == 3286 || Main.toolTip.itemId == 3316 || Main.toolTip.itemId == 3315 || Main.toolTip.itemId == 3317 || Main.toolTip.itemId == 3389)
                     {
                         array[num6] = " ";
                         num = num6;
@@ -17851,11 +17851,11 @@ namespace Terraria
                     Item item = new Item();
                     item.netDefaults(num302);
                     item.Prefix(num303);
-                    Texture2D texture2D2 = Main.itemTexture[item.type];
+                    Texture2D texture2D2 = Main.itemTexture[item.itemId];
                     Microsoft.Xna.Framework.Rectangle value6;
-                    if (Main.itemAnimations[item.type] != null)
+                    if (Main.itemAnimations[item.itemId] != null)
                     {
-                        value6 = Main.itemAnimations[item.type].GetFrame(texture2D2);
+                        value6 = Main.itemAnimations[item.itemId].GetFrame(texture2D2);
                     }
                     else
                     {
@@ -17892,11 +17892,11 @@ namespace Terraria
                 {
                     TEItemFrame tEItemFrame = (TEItemFrame)TileEntity.ByPosition[new Point16(num292, num293)];
                     Item item2 = tEItemFrame.item;
-                    Texture2D texture2D3 = Main.itemTexture[item2.type];
+                    Texture2D texture2D3 = Main.itemTexture[item2.itemId];
                     Microsoft.Xna.Framework.Rectangle value7;
-                    if (Main.itemAnimations[item2.type] != null)
+                    if (Main.itemAnimations[item2.itemId] != null)
                     {
-                        value7 = Main.itemAnimations[item2.type].GetFrame(texture2D3);
+                        value7 = Main.itemAnimations[item2.itemId].GetFrame(texture2D3);
                     }
                     else
                     {
@@ -22115,7 +22115,7 @@ namespace Terraria
                 num = mountedCenter.X;
                 num2 = mountedCenter.Y;
                 num2 += Main.player[projectile.owner].gfxOffY;
-                int type = Main.player[projectile.owner].inventory[Main.player[projectile.owner].selectedItem].type;
+                int type = Main.player[projectile.owner].inventory[Main.player[projectile.owner].selectedItem].itemId;
                 float gravDir = Main.player[projectile.owner].gravDir;
                 if (type == 2289)
                 {
@@ -25025,7 +25025,7 @@ namespace Terraria
                         Main.spriteBatch.Draw(Main.magicPixel, value34 - Main.screenPosition + value35, new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, 1, 1)), color44, num231, Vector2.One / 2f, new Vector2(2f, num230 - num233), spriteEffects, 0f);
                     }
                 }
-                Texture2D texture2D28 = Main.itemTexture[Main.player[projectile.owner].inventory[Main.player[projectile.owner].selectedItem].type];
+                Texture2D texture2D28 = Main.itemTexture[Main.player[projectile.owner].inventory[Main.player[projectile.owner].selectedItem].itemId];
                 Microsoft.Xna.Framework.Color color45 = Lighting.GetColor((int)vector39.X / 16, (int)vector39.Y / 16);
                 Main.spriteBatch.Draw(texture2D28, vector39 - Main.screenPosition + value33 * num232, null, color45, projectile.rotation + 1.57079637f + ((spriteEffects == SpriteEffects.None) ? 3.14159274f : 0f), new Vector2((float)((spriteEffects == SpriteEffects.None) ? 0 : texture2D28.Width), (float)texture2D28.Height / 2f) + Vector2.UnitY * 1f, Main.player[projectile.owner].inventory[Main.player[projectile.owner].selectedItem].scale, spriteEffects, 0f);
                 Main.spriteBatch.Draw(Main.glowMaskTexture[39], vector39 - Main.screenPosition + value33 * num232, null, new Microsoft.Xna.Framework.Color(255, 255, 255, 0), projectile.rotation + 1.57079637f + ((spriteEffects == SpriteEffects.None) ? 3.14159274f : 0f), new Vector2((float)((spriteEffects == SpriteEffects.None) ? 0 : texture2D28.Width), (float)texture2D28.Height / 2f) + Vector2.UnitY * 1f, Main.player[projectile.owner].inventory[Main.player[projectile.owner].selectedItem].scale, spriteEffects, 0f);
@@ -26198,7 +26198,7 @@ namespace Terraria
             for (int i = 0; i < 16 + drawPlayer.extraAccessorySlots * 2; i++)
             {
                 int num = i % 10;
-                if (drawPlayer.dye[num] != null && drawPlayer.armor[i].type > 0 && drawPlayer.armor[i].stack > 0 && drawPlayer.armor[i].faceSlot > 0 && drawPlayer.armor[i].faceSlot < 9)
+                if (drawPlayer.dye[num] != null && drawPlayer.armor[i].itemId > 0 && drawPlayer.armor[i].stack > 0 && drawPlayer.armor[i].faceSlot > 0 && drawPlayer.armor[i].faceSlot < 9)
                 {
                     byte arg_74_0 = drawPlayer.dye[num].dye;
                 }
@@ -26490,7 +26490,7 @@ namespace Terraria
             for (int i = 0; i < 20; i++)
             {
                 int num7 = i % 10;
-                if (drawPlayer.dye[num7] != null && drawPlayer.armor[i].type > 0 && drawPlayer.armor[i].stack > 0 && (i / 10 >= 1 || !drawPlayer.hideVisual[num7] || drawPlayer.armor[i].wingSlot > 0 || drawPlayer.armor[i].type == 934))
+                if (drawPlayer.dye[num7] != null && drawPlayer.armor[i].itemId > 0 && drawPlayer.armor[i].stack > 0 && (i / 10 >= 1 || !drawPlayer.hideVisual[num7] || drawPlayer.armor[i].wingSlot > 0 || drawPlayer.armor[i].itemId == 934))
                 {
                     if (drawPlayer.armor[i].handOnSlot > 0 && drawPlayer.armor[i].handOnSlot < 19)
                     {
@@ -26536,7 +26536,7 @@ namespace Terraria
                     {
                         shader12 = (int)drawPlayer.dye[num7].dye;
                     }
-                    if (drawPlayer.armor[i].type == 934)
+                    if (drawPlayer.armor[i].itemId == 934)
                     {
                         shader13 = (int)drawPlayer.dye[num7].dye;
                     }
@@ -27255,7 +27255,7 @@ namespace Terraria
                 }
             }
             float num42 = 1f;
-            if (drawPlayer.inventory[drawPlayer.selectedItem].type == 3106)
+            if (drawPlayer.inventory[drawPlayer.selectedItem].itemId == 3106)
             {
                 float num43 = drawPlayer.stealth;
                 if ((double)num43 < 0.03)
@@ -27499,10 +27499,10 @@ namespace Terraria
                 Main.playerDrawData.Add(value);
             }
             bool flag8 = false;
-            if ((drawPlayer.wings == 0 || drawPlayer.velocity.Y == 0f) && (drawPlayer.inventory[drawPlayer.selectedItem].type == 1178 || drawPlayer.inventory[drawPlayer.selectedItem].type == 779 || drawPlayer.inventory[drawPlayer.selectedItem].type == 1295 || drawPlayer.inventory[drawPlayer.selectedItem].type == 1910 || drawPlayer.turtleArmor || drawPlayer.body == 106 || drawPlayer.body == 170))
+            if ((drawPlayer.wings == 0 || drawPlayer.velocity.Y == 0f) && (drawPlayer.inventory[drawPlayer.selectedItem].itemId == 1178 || drawPlayer.inventory[drawPlayer.selectedItem].itemId == 779 || drawPlayer.inventory[drawPlayer.selectedItem].itemId == 1295 || drawPlayer.inventory[drawPlayer.selectedItem].itemId == 1910 || drawPlayer.turtleArmor || drawPlayer.body == 106 || drawPlayer.body == 170))
             {
                 flag8 = true;
-                int type2 = drawPlayer.inventory[drawPlayer.selectedItem].type;
+                int type2 = drawPlayer.inventory[drawPlayer.selectedItem].itemId;
                 int num50 = 1;
                 float num51 = -4f;
                 float num52 = -8f;
@@ -27996,12 +27996,12 @@ namespace Terraria
                     {
                         int num61 = 0;
                         int num62 = 0;
-                        if (drawPlayer.armor[num62] != null && drawPlayer.armor[num62].type == 205 && drawPlayer.armor[num62].stack > 0)
+                        if (drawPlayer.armor[num62] != null && drawPlayer.armor[num62].itemId == 205 && drawPlayer.armor[num62].stack > 0)
                         {
                             num61 += drawPlayer.armor[num62].stack;
                         }
                         num62 = 10;
-                        if (drawPlayer.armor[num62] != null && drawPlayer.armor[num62].type == 205 && drawPlayer.armor[num62].stack > 0)
+                        if (drawPlayer.armor[num62] != null && drawPlayer.armor[num62].itemId == 205 && drawPlayer.armor[num62].stack > 0)
                         {
                             num61 += drawPlayer.armor[num62].stack;
                         }
@@ -28118,7 +28118,7 @@ namespace Terraria
                 num = Main.playerDrawData.Count;
             }
             Microsoft.Xna.Framework.Color color28 = Lighting.GetColor((int)((double)Position.X + (double)drawPlayer.width * 0.5) / 16, (int)(((double)Position.Y + (double)drawPlayer.height * 0.5) / 16.0));
-            if (drawPlayer.inventory[drawPlayer.selectedItem].type == 678)
+            if (drawPlayer.inventory[drawPlayer.selectedItem].itemId == 678)
             {
                 color28 = Microsoft.Xna.Framework.Color.White;
             }
@@ -28142,11 +28142,11 @@ namespace Terraria
                 float arg_7DC4_0 = (1f + num75 * 10f) / 11f;
                 color28 = color28.MultiplyRGBA(new Microsoft.Xna.Framework.Color(Vector4.Lerp(Vector4.One, new Vector4(0f, 0.12f, 0.16f, 0f), 1f - num75)));
             }
-            if (shadow == 0f && !drawPlayer.frozen && (drawPlayer.itemAnimation > 0 || (drawPlayer.inventory[drawPlayer.selectedItem].holdStyle > 0 && !drawPlayer.pulley)) && drawPlayer.inventory[drawPlayer.selectedItem].type > 0 && !drawPlayer.dead && !drawPlayer.inventory[drawPlayer.selectedItem].noUseGraphic && (!drawPlayer.wet || !drawPlayer.inventory[drawPlayer.selectedItem].noWet))
+            if (shadow == 0f && !drawPlayer.frozen && (drawPlayer.itemAnimation > 0 || (drawPlayer.inventory[drawPlayer.selectedItem].holdStyle > 0 && !drawPlayer.pulley)) && drawPlayer.inventory[drawPlayer.selectedItem].itemId > 0 && !drawPlayer.dead && !drawPlayer.inventory[drawPlayer.selectedItem].noUseGraphic && (!drawPlayer.wet || !drawPlayer.inventory[drawPlayer.selectedItem].noWet))
             {
                 string arg_7EA0_0 = drawPlayer.name;
                 ItemSlot.GetItemLight(ref color28, drawPlayer.inventory[drawPlayer.selectedItem], false);
-                if (drawPlayer.inventory[drawPlayer.selectedItem].type == 3476)
+                if (drawPlayer.inventory[drawPlayer.selectedItem].itemId == 3476)
                 {
                     Texture2D texture2D6 = Main.extraTexture[64];
                     Microsoft.Xna.Framework.Rectangle rectangle3 = texture2D6.Frame(1, 9, 0, drawPlayer.miscCounter % 54 / 6);
@@ -28160,14 +28160,14 @@ namespace Terraria
                 }
                 else if (drawPlayer.inventory[drawPlayer.selectedItem].useStyle == 5)
                 {
-                    bool flag9 = Item.staff[drawPlayer.inventory[drawPlayer.selectedItem].type];
+                    bool flag9 = Item.staff[drawPlayer.inventory[drawPlayer.selectedItem].itemId];
                     if (flag9)
                     {
                         float num76 = drawPlayer.itemRotation + 0.785f * (float)drawPlayer.direction;
                         int num77 = 0;
                         int num78 = 0;
-                        Vector2 zero = new Vector2(0f, (float)Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Height);
-                        if (drawPlayer.inventory[drawPlayer.selectedItem].type == 3210)
+                        Vector2 zero = new Vector2(0f, (float)Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Height);
+                        if (drawPlayer.inventory[drawPlayer.selectedItem].itemId == 3210)
                         {
                             num77 = 8 * -drawPlayer.direction;
                             num78 = 2 * (int)drawPlayer.gravDir;
@@ -28177,8 +28177,8 @@ namespace Terraria
                             if (drawPlayer.direction == -1)
                             {
                                 num76 += 1.57f;
-                                zero = new Vector2((float)Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Width, 0f);
-                                num77 -= Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Width;
+                                zero = new Vector2((float)Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Width, 0f);
+                                num77 -= Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Width;
                             }
                             else
                             {
@@ -28188,55 +28188,55 @@ namespace Terraria
                         }
                         else if (drawPlayer.direction == -1)
                         {
-                            zero = new Vector2((float)Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Width, (float)Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Height);
-                            num77 -= Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Width;
+                            zero = new Vector2((float)Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Width, (float)Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Height);
+                            num77 -= Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Width;
                         }
-                        value = new DrawData(Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type], new Vector2((float)((int)(value2.X - Main.screenPosition.X + zero.X + (float)num77)), (float)((int)(value2.Y - Main.screenPosition.Y + (float)num78))), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Width, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Height)), drawPlayer.inventory[drawPlayer.selectedItem].GetAlpha(color28), num76, zero, drawPlayer.inventory[drawPlayer.selectedItem].scale, effect, 0);
+                        value = new DrawData(Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId], new Vector2((float)((int)(value2.X - Main.screenPosition.X + zero.X + (float)num77)), (float)((int)(value2.Y - Main.screenPosition.Y + (float)num78))), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Width, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Height)), drawPlayer.inventory[drawPlayer.selectedItem].GetAlpha(color28), num76, zero, drawPlayer.inventory[drawPlayer.selectedItem].scale, effect, 0);
                         Main.playerDrawData.Add(value);
                     }
                     else
                     {
-                        Vector2 vector7 = new Vector2((float)(Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Width / 2), (float)(Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Height / 2));
-                        Vector2 vector8 = this.DrawPlayerItemPos(drawPlayer.gravDir, drawPlayer.inventory[drawPlayer.selectedItem].type);
+                        Vector2 vector7 = new Vector2((float)(Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Width / 2), (float)(Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Height / 2));
+                        Vector2 vector8 = this.DrawPlayerItemPos(drawPlayer.gravDir, drawPlayer.inventory[drawPlayer.selectedItem].itemId);
                         int num79 = (int)vector8.X;
                         vector7.Y = vector8.Y;
-                        Vector2 origin4 = new Vector2((float)(-(float)num79), (float)(Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Height / 2));
+                        Vector2 origin4 = new Vector2((float)(-(float)num79), (float)(Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Height / 2));
                         if (drawPlayer.direction == -1)
                         {
-                            origin4 = new Vector2((float)(Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Width + num79), (float)(Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Height / 2));
+                            origin4 = new Vector2((float)(Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Width + num79), (float)(Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Height / 2));
                         }
-                        value = new DrawData(Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type], new Vector2((float)((int)(value2.X - Main.screenPosition.X + vector7.X)), (float)((int)(value2.Y - Main.screenPosition.Y + vector7.Y))), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Width, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Height)), drawPlayer.inventory[drawPlayer.selectedItem].GetAlpha(color28), drawPlayer.itemRotation, origin4, drawPlayer.inventory[drawPlayer.selectedItem].scale, effect, 0);
+                        value = new DrawData(Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId], new Vector2((float)((int)(value2.X - Main.screenPosition.X + vector7.X)), (float)((int)(value2.Y - Main.screenPosition.Y + vector7.Y))), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Width, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Height)), drawPlayer.inventory[drawPlayer.selectedItem].GetAlpha(color28), drawPlayer.itemRotation, origin4, drawPlayer.inventory[drawPlayer.selectedItem].scale, effect, 0);
                         Main.playerDrawData.Add(value);
                         if (drawPlayer.inventory[drawPlayer.selectedItem].color != default(Microsoft.Xna.Framework.Color))
                         {
-                            value = new DrawData(Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type], new Vector2((float)((int)(value2.X - Main.screenPosition.X + vector7.X)), (float)((int)(value2.Y - Main.screenPosition.Y + vector7.Y))), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Width, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Height)), drawPlayer.inventory[drawPlayer.selectedItem].GetColor(color28), drawPlayer.itemRotation, origin4, drawPlayer.inventory[drawPlayer.selectedItem].scale, effect, 0);
+                            value = new DrawData(Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId], new Vector2((float)((int)(value2.X - Main.screenPosition.X + vector7.X)), (float)((int)(value2.Y - Main.screenPosition.Y + vector7.Y))), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Width, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Height)), drawPlayer.inventory[drawPlayer.selectedItem].GetColor(color28), drawPlayer.itemRotation, origin4, drawPlayer.inventory[drawPlayer.selectedItem].scale, effect, 0);
                             Main.playerDrawData.Add(value);
                         }
                         if (drawPlayer.inventory[drawPlayer.selectedItem].glowMask != -1)
                         {
-                            value = new DrawData(Main.glowMaskTexture[(int)drawPlayer.inventory[drawPlayer.selectedItem].glowMask], new Vector2((float)((int)(value2.X - Main.screenPosition.X + vector7.X)), (float)((int)(value2.Y - Main.screenPosition.Y + vector7.Y))), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Width, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Height)), new Microsoft.Xna.Framework.Color(250, 250, 250, drawPlayer.inventory[drawPlayer.selectedItem].alpha), drawPlayer.itemRotation, origin4, drawPlayer.inventory[drawPlayer.selectedItem].scale, effect, 0);
+                            value = new DrawData(Main.glowMaskTexture[(int)drawPlayer.inventory[drawPlayer.selectedItem].glowMask], new Vector2((float)((int)(value2.X - Main.screenPosition.X + vector7.X)), (float)((int)(value2.Y - Main.screenPosition.Y + vector7.Y))), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Width, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Height)), new Microsoft.Xna.Framework.Color(250, 250, 250, drawPlayer.inventory[drawPlayer.selectedItem].alpha), drawPlayer.itemRotation, origin4, drawPlayer.inventory[drawPlayer.selectedItem].scale, effect, 0);
                             Main.playerDrawData.Add(value);
                         }
                     }
                 }
                 else if (drawPlayer.gravDir == -1f)
                 {
-                    value = new DrawData(Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type], new Vector2((float)((int)(value2.X - Main.screenPosition.X)), (float)((int)(value2.Y - Main.screenPosition.Y))), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Width, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Height)), drawPlayer.inventory[drawPlayer.selectedItem].GetAlpha(color28), drawPlayer.itemRotation, new Vector2((float)Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Width * 0.5f - (float)Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Width * 0.5f * (float)drawPlayer.direction, 0f), drawPlayer.inventory[drawPlayer.selectedItem].scale, effect, 0);
+                    value = new DrawData(Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId], new Vector2((float)((int)(value2.X - Main.screenPosition.X)), (float)((int)(value2.Y - Main.screenPosition.Y))), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Width, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Height)), drawPlayer.inventory[drawPlayer.selectedItem].GetAlpha(color28), drawPlayer.itemRotation, new Vector2((float)Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Width * 0.5f - (float)Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Width * 0.5f * (float)drawPlayer.direction, 0f), drawPlayer.inventory[drawPlayer.selectedItem].scale, effect, 0);
                     Main.playerDrawData.Add(value);
                     if (drawPlayer.inventory[drawPlayer.selectedItem].color != default(Microsoft.Xna.Framework.Color))
                     {
-                        value = new DrawData(Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type], new Vector2((float)((int)(value2.X - Main.screenPosition.X)), (float)((int)(value2.Y - Main.screenPosition.Y))), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Width, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Height)), drawPlayer.inventory[drawPlayer.selectedItem].GetColor(color28), drawPlayer.itemRotation, new Vector2((float)Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Width * 0.5f - (float)Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Width * 0.5f * (float)drawPlayer.direction, 0f), drawPlayer.inventory[drawPlayer.selectedItem].scale, effect, 0);
+                        value = new DrawData(Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId], new Vector2((float)((int)(value2.X - Main.screenPosition.X)), (float)((int)(value2.Y - Main.screenPosition.Y))), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Width, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Height)), drawPlayer.inventory[drawPlayer.selectedItem].GetColor(color28), drawPlayer.itemRotation, new Vector2((float)Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Width * 0.5f - (float)Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Width * 0.5f * (float)drawPlayer.direction, 0f), drawPlayer.inventory[drawPlayer.selectedItem].scale, effect, 0);
                         Main.playerDrawData.Add(value);
                     }
                     if (drawPlayer.inventory[drawPlayer.selectedItem].glowMask != -1)
                     {
-                        value = new DrawData(Main.glowMaskTexture[(int)drawPlayer.inventory[drawPlayer.selectedItem].glowMask], new Vector2((float)((int)(value2.X - Main.screenPosition.X)), (float)((int)(value2.Y - Main.screenPosition.Y))), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Width, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Height)), new Microsoft.Xna.Framework.Color(250, 250, 250, drawPlayer.inventory[drawPlayer.selectedItem].alpha), drawPlayer.itemRotation, new Vector2((float)Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Width * 0.5f - (float)Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Width * 0.5f * (float)drawPlayer.direction, 0f), drawPlayer.inventory[drawPlayer.selectedItem].scale, effect, 0);
+                        value = new DrawData(Main.glowMaskTexture[(int)drawPlayer.inventory[drawPlayer.selectedItem].glowMask], new Vector2((float)((int)(value2.X - Main.screenPosition.X)), (float)((int)(value2.Y - Main.screenPosition.Y))), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Width, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Height)), new Microsoft.Xna.Framework.Color(250, 250, 250, drawPlayer.inventory[drawPlayer.selectedItem].alpha), drawPlayer.itemRotation, new Vector2((float)Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Width * 0.5f - (float)Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Width * 0.5f * (float)drawPlayer.direction, 0f), drawPlayer.inventory[drawPlayer.selectedItem].scale, effect, 0);
                         Main.playerDrawData.Add(value);
                     }
                 }
                 else
                 {
-                    if (drawPlayer.inventory[drawPlayer.selectedItem].type == 425 || drawPlayer.inventory[drawPlayer.selectedItem].type == 507)
+                    if (drawPlayer.inventory[drawPlayer.selectedItem].itemId == 425 || drawPlayer.inventory[drawPlayer.selectedItem].itemId == 507)
                     {
                         if (drawPlayer.gravDir == 1f)
                         {
@@ -28258,7 +28258,7 @@ namespace Terraria
                             effect = SpriteEffects.FlipHorizontally;
                         }
                     }
-                    int type3 = drawPlayer.inventory[drawPlayer.selectedItem].type;
+                    int type3 = drawPlayer.inventory[drawPlayer.selectedItem].itemId;
                     value = new DrawData(Main.itemTexture[type3], new Vector2((float)((int)(value2.X - Main.screenPosition.X)), (float)((int)(value2.Y - Main.screenPosition.Y))), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[type3].Width, Main.itemTexture[type3].Height)), drawPlayer.inventory[drawPlayer.selectedItem].GetAlpha(color28), drawPlayer.itemRotation, new Vector2((float)Main.itemTexture[type3].Width * 0.5f - (float)Main.itemTexture[type3].Width * 0.5f * (float)drawPlayer.direction, (float)Main.itemTexture[type3].Height), drawPlayer.inventory[drawPlayer.selectedItem].scale, effect, 0);
                     Main.playerDrawData.Add(value);
                     if (drawPlayer.inventory[drawPlayer.selectedItem].color != default(Microsoft.Xna.Framework.Color))
@@ -28347,16 +28347,16 @@ namespace Terraria
                 value.shader = shader2;
                 Main.playerDrawData.Add(value);
             }
-            if (drawPlayer.inventory[drawPlayer.selectedItem].type > -1 && Item.claw[drawPlayer.inventory[drawPlayer.selectedItem].type] && shadow == 0f && !drawPlayer.frozen && (drawPlayer.itemAnimation > 0 || (drawPlayer.inventory[drawPlayer.selectedItem].holdStyle > 0 && !drawPlayer.pulley)) && drawPlayer.inventory[drawPlayer.selectedItem].type > 0 && !drawPlayer.dead && !drawPlayer.inventory[drawPlayer.selectedItem].noUseGraphic && (!drawPlayer.wet || !drawPlayer.inventory[drawPlayer.selectedItem].noWet))
+            if (drawPlayer.inventory[drawPlayer.selectedItem].itemId > -1 && Item.claw[drawPlayer.inventory[drawPlayer.selectedItem].itemId] && shadow == 0f && !drawPlayer.frozen && (drawPlayer.itemAnimation > 0 || (drawPlayer.inventory[drawPlayer.selectedItem].holdStyle > 0 && !drawPlayer.pulley)) && drawPlayer.inventory[drawPlayer.selectedItem].itemId > 0 && !drawPlayer.dead && !drawPlayer.inventory[drawPlayer.selectedItem].noUseGraphic && (!drawPlayer.wet || !drawPlayer.inventory[drawPlayer.selectedItem].noWet))
             {
                 if (drawPlayer.gravDir == -1f)
                 {
-                    value = new DrawData(Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type], new Vector2((float)((int)(value2.X - Main.screenPosition.X)), (float)((int)(value2.Y - Main.screenPosition.Y))), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Width, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Height)), drawPlayer.inventory[drawPlayer.selectedItem].GetAlpha(color28), drawPlayer.itemRotation, new Vector2((float)Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Width * 0.5f - (float)Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type].Width * 0.5f * (float)drawPlayer.direction, 0f), drawPlayer.inventory[drawPlayer.selectedItem].scale, effect, 0);
+                    value = new DrawData(Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId], new Vector2((float)((int)(value2.X - Main.screenPosition.X)), (float)((int)(value2.Y - Main.screenPosition.Y))), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Width, Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Height)), drawPlayer.inventory[drawPlayer.selectedItem].GetAlpha(color28), drawPlayer.itemRotation, new Vector2((float)Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Width * 0.5f - (float)Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].itemId].Width * 0.5f * (float)drawPlayer.direction, 0f), drawPlayer.inventory[drawPlayer.selectedItem].scale, effect, 0);
                     Main.playerDrawData.Add(value);
                 }
                 else
                 {
-                    int type4 = drawPlayer.inventory[drawPlayer.selectedItem].type;
+                    int type4 = drawPlayer.inventory[drawPlayer.selectedItem].itemId;
                     value = new DrawData(Main.itemTexture[type4], new Vector2((float)((int)(value2.X - Main.screenPosition.X)), (float)((int)(value2.Y - Main.screenPosition.Y))), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[type4].Width, Main.itemTexture[type4].Height)), drawPlayer.inventory[drawPlayer.selectedItem].GetAlpha(color28), drawPlayer.itemRotation, new Vector2((float)Main.itemTexture[type4].Width * 0.5f - (float)Main.itemTexture[type4].Width * 0.5f * (float)drawPlayer.direction, (float)Main.itemTexture[type4].Height), drawPlayer.inventory[drawPlayer.selectedItem].scale, effect, 0);
                     Main.playerDrawData.Add(value);
                 }
@@ -28532,12 +28532,12 @@ namespace Terraria
             int arg_4B_0 = (int)((double)item.position.Y + (double)item.height * 0.5) / 16;
             int arg_51_0 = Lighting.offScreenTiles;
             Microsoft.Xna.Framework.Color color = Lighting.GetColor((int)((double)item.position.X + (double)item.width * 0.5) / 16, (int)((double)item.position.Y + (double)item.height * 0.5) / 16);
-            if (!Main.gamePaused && base.IsActive && item.type >= 71 && item.type <= 74 && (double)(Math.Abs(item.velocity.X) + Math.Abs(item.velocity.Y)) > 0.2)
+            if (!Main.gamePaused && base.IsActive && item.itemId >= 71 && item.itemId <= 74 && (double)(Math.Abs(item.velocity.X) + Math.Abs(item.velocity.Y)) > 0.2)
             {
                 float num = (float)Main.rand.Next(500) - (Math.Abs(item.velocity.X) + Math.Abs(item.velocity.Y)) * 20f;
-                int num2 = item.type - 72;
+                int num2 = item.itemId - 72;
                 num -= (float)(num2 * 20);
-                int type = 244 + item.type - 71;
+                int type = 244 + item.itemId - 71;
                 if (item.isBeingGrabbed)
                 {
                     num /= 100f;
@@ -28552,11 +28552,11 @@ namespace Terraria
             float scale = 1f;
             Microsoft.Xna.Framework.Color alpha = item.GetAlpha(color);
             ItemSlot.GetItemLight(ref alpha, ref scale, item, false);
-            float num4 = (float)(item.height - Main.itemTexture[item.type].Height);
-            float num5 = (float)(item.width / 2 - Main.itemTexture[item.type].Width / 2);
-            if (item.type >= 71 && item.type <= 74)
+            float num4 = (float)(item.height - Main.itemTexture[item.itemId].Height);
+            float num5 = (float)(item.width / 2 - Main.itemTexture[item.itemId].Width / 2);
+            if (item.itemId >= 71 && item.itemId <= 74)
             {
-                int num6 = item.type - 71;
+                int num6 = item.itemId - 71;
                 Main.itemFrameCounter[whoami]++;
                 if (Main.itemFrameCounter[whoami] > 5)
                 {
@@ -28570,10 +28570,10 @@ namespace Terraria
                 int width = Main.coinTexture[num6].Width;
                 int num7 = Main.coinTexture[num6].Height / 8;
                 num5 = (float)(item.width / 2 - Main.coinTexture[num6].Width / 2);
-                Main.spriteBatch.Draw(Main.coinTexture[num6], new Vector2(item.position.X - Main.screenPosition.X + (float)(width / 2) + num5, item.position.Y - Main.screenPosition.Y + (float)(num7 / 2) + num4), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, Main.itemFrame[whoami] * num7 + 1, Main.itemTexture[item.type].Width, num7)), alpha, rotation, new Vector2((float)(width / 2), (float)(num7 / 2)), scale, SpriteEffects.None, 0f);
+                Main.spriteBatch.Draw(Main.coinTexture[num6], new Vector2(item.position.X - Main.screenPosition.X + (float)(width / 2) + num5, item.position.Y - Main.screenPosition.Y + (float)(num7 / 2) + num4), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, Main.itemFrame[whoami] * num7 + 1, Main.itemTexture[item.itemId].Width, num7)), alpha, rotation, new Vector2((float)(width / 2), (float)(num7 / 2)), scale, SpriteEffects.None, 0f);
                 return;
             }
-            if (ItemID.Sets.NebulaPickup[item.type])
+            if (ItemID.Sets.NebulaPickup[item.itemId])
             {
                 Main.itemFrameCounter[whoami]++;
                 if (Main.itemFrameCounter[whoami] > 5)
@@ -28585,13 +28585,13 @@ namespace Terraria
                 {
                     Main.itemFrame[whoami] = 0;
                 }
-                Microsoft.Xna.Framework.Rectangle rectangle = Main.itemTexture[item.type].Frame(1, 4, 0, Main.itemFrame[whoami]);
+                Microsoft.Xna.Framework.Rectangle rectangle = Main.itemTexture[item.itemId].Frame(1, 4, 0, Main.itemFrame[whoami]);
                 num5 = (float)(item.width / 2 - rectangle.Width / 2);
                 num4 = (float)(item.height - rectangle.Height);
-                Main.spriteBatch.Draw(Main.itemTexture[item.type], new Vector2(item.position.X - Main.screenPosition.X + (float)(rectangle.Width / 2) + num5, item.position.Y - Main.screenPosition.Y + (float)(rectangle.Height / 2) + num4), new Microsoft.Xna.Framework.Rectangle?(rectangle), alpha, rotation, rectangle.Size() / 2f, scale, SpriteEffects.None, 0f);
+                Main.spriteBatch.Draw(Main.itemTexture[item.itemId], new Vector2(item.position.X - Main.screenPosition.X + (float)(rectangle.Width / 2) + num5, item.position.Y - Main.screenPosition.Y + (float)(rectangle.Height / 2) + num4), new Microsoft.Xna.Framework.Rectangle?(rectangle), alpha, rotation, rectangle.Size() / 2f, scale, SpriteEffects.None, 0f);
                 return;
             }
-            if (ItemID.Sets.AnimatesAsSoul[item.type])
+            if (ItemID.Sets.AnimatesAsSoul[item.itemId])
             {
                 Main.itemFrameCounter[whoami]++;
                 if (Main.itemFrameCounter[whoami] > 5)
@@ -28603,25 +28603,25 @@ namespace Terraria
                 {
                     Main.itemFrame[whoami] = 0;
                 }
-                Microsoft.Xna.Framework.Rectangle rectangle2 = Main.itemTexture[item.type].Frame(1, 4, 0, Main.itemFrame[whoami]);
+                Microsoft.Xna.Framework.Rectangle rectangle2 = Main.itemTexture[item.itemId].Frame(1, 4, 0, Main.itemFrame[whoami]);
                 num5 = (float)(item.width / 2 - rectangle2.Width / 2);
                 num4 = (float)(item.height - rectangle2.Height);
-                Main.spriteBatch.Draw(Main.itemTexture[item.type], new Vector2(item.position.X - Main.screenPosition.X + (float)(rectangle2.Width / 2) + num5, item.position.Y - Main.screenPosition.Y + (float)(rectangle2.Height / 2) + num4), new Microsoft.Xna.Framework.Rectangle?(rectangle2), alpha, rotation, rectangle2.Size() / 2f, scale, SpriteEffects.None, 0f);
+                Main.spriteBatch.Draw(Main.itemTexture[item.itemId], new Vector2(item.position.X - Main.screenPosition.X + (float)(rectangle2.Width / 2) + num5, item.position.Y - Main.screenPosition.Y + (float)(rectangle2.Height / 2) + num4), new Microsoft.Xna.Framework.Rectangle?(rectangle2), alpha, rotation, rectangle2.Size() / 2f, scale, SpriteEffects.None, 0f);
                 return;
             }
-            if (item.type >= 1522 && item.type <= 1527)
+            if (item.itemId >= 1522 && item.itemId <= 1527)
             {
-                Main.spriteBatch.Draw(Main.itemTexture[item.type], new Vector2(item.position.X - Main.screenPosition.X + (float)(Main.itemTexture[item.type].Width / 2) + num5, item.position.Y - Main.screenPosition.Y + (float)(Main.itemTexture[item.type].Height / 2) + num4 + 2f), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[item.type].Width, Main.itemTexture[item.type].Height)), new Microsoft.Xna.Framework.Color(250, 250, 250, (int)(Main.mouseTextColor / 2)), rotation, new Vector2((float)(Main.itemTexture[item.type].Width / 2), (float)(Main.itemTexture[item.type].Height / 2)), (float)Main.mouseTextColor / 1000f + 0.8f, SpriteEffects.None, 0f);
+                Main.spriteBatch.Draw(Main.itemTexture[item.itemId], new Vector2(item.position.X - Main.screenPosition.X + (float)(Main.itemTexture[item.itemId].Width / 2) + num5, item.position.Y - Main.screenPosition.Y + (float)(Main.itemTexture[item.itemId].Height / 2) + num4 + 2f), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[item.itemId].Width, Main.itemTexture[item.itemId].Height)), new Microsoft.Xna.Framework.Color(250, 250, 250, (int)(Main.mouseTextColor / 2)), rotation, new Vector2((float)(Main.itemTexture[item.itemId].Width / 2), (float)(Main.itemTexture[item.itemId].Height / 2)), (float)Main.mouseTextColor / 1000f + 0.8f, SpriteEffects.None, 0f);
                 return;
             }
-            Main.spriteBatch.Draw(Main.itemTexture[item.type], new Vector2(item.position.X - Main.screenPosition.X + (float)(Main.itemTexture[item.type].Width / 2) + num5, item.position.Y - Main.screenPosition.Y + (float)(Main.itemTexture[item.type].Height / 2) + num4 + 2f), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[item.type].Width, Main.itemTexture[item.type].Height)), alpha, rotation, new Vector2((float)(Main.itemTexture[item.type].Width / 2), (float)(Main.itemTexture[item.type].Height / 2)), scale, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(Main.itemTexture[item.itemId], new Vector2(item.position.X - Main.screenPosition.X + (float)(Main.itemTexture[item.itemId].Width / 2) + num5, item.position.Y - Main.screenPosition.Y + (float)(Main.itemTexture[item.itemId].Height / 2) + num4 + 2f), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[item.itemId].Width, Main.itemTexture[item.itemId].Height)), alpha, rotation, new Vector2((float)(Main.itemTexture[item.itemId].Width / 2), (float)(Main.itemTexture[item.itemId].Height / 2)), scale, SpriteEffects.None, 0f);
             if (item.color != default(Microsoft.Xna.Framework.Color))
             {
-                Main.spriteBatch.Draw(Main.itemTexture[item.type], new Vector2(item.position.X - Main.screenPosition.X + (float)(Main.itemTexture[item.type].Width / 2) + num5, item.position.Y - Main.screenPosition.Y + (float)(Main.itemTexture[item.type].Height / 2) + num4 + 2f), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[item.type].Width, Main.itemTexture[item.type].Height)), item.GetColor(color), rotation, new Vector2((float)(Main.itemTexture[item.type].Width / 2), (float)(Main.itemTexture[item.type].Height / 2)), scale, SpriteEffects.None, 0f);
+                Main.spriteBatch.Draw(Main.itemTexture[item.itemId], new Vector2(item.position.X - Main.screenPosition.X + (float)(Main.itemTexture[item.itemId].Width / 2) + num5, item.position.Y - Main.screenPosition.Y + (float)(Main.itemTexture[item.itemId].Height / 2) + num4 + 2f), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[item.itemId].Width, Main.itemTexture[item.itemId].Height)), item.GetColor(color), rotation, new Vector2((float)(Main.itemTexture[item.itemId].Width / 2), (float)(Main.itemTexture[item.itemId].Height / 2)), scale, SpriteEffects.None, 0f);
             }
             if (item.glowMask != -1)
             {
-                Main.spriteBatch.Draw(Main.glowMaskTexture[(int)item.glowMask], new Vector2(item.position.X - Main.screenPosition.X + (float)(Main.itemTexture[item.type].Width / 2) + num5, item.position.Y - Main.screenPosition.Y + (float)(Main.itemTexture[item.type].Height / 2) + num4 + 2f), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[item.type].Width, Main.itemTexture[item.type].Height)), new Microsoft.Xna.Framework.Color(250, 250, 250, item.alpha), rotation, new Vector2((float)(Main.itemTexture[item.type].Width / 2), (float)(Main.itemTexture[item.type].Height / 2)), scale, SpriteEffects.None, 0f);
+                Main.spriteBatch.Draw(Main.glowMaskTexture[(int)item.glowMask], new Vector2(item.position.X - Main.screenPosition.X + (float)(Main.itemTexture[item.itemId].Width / 2) + num5, item.position.Y - Main.screenPosition.Y + (float)(Main.itemTexture[item.itemId].Height / 2) + num4 + 2f), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[item.itemId].Width, Main.itemTexture[item.itemId].Height)), new Microsoft.Xna.Framework.Color(250, 250, 250, item.alpha), rotation, new Vector2((float)(Main.itemTexture[item.itemId].Width / 2), (float)(Main.itemTexture[item.itemId].Height / 2)), scale, SpriteEffects.None, 0f);
             }
         }
         protected void DrawRain()
@@ -28828,27 +28828,27 @@ namespace Terraria
                 {
                     flag3 = false;
                 }
-                if (Main.player[Main.myPlayer].inventory[i].type == 11 || Main.player[Main.myPlayer].inventory[i].type == 12 || Main.player[Main.myPlayer].inventory[i].type == 13 || Main.player[Main.myPlayer].inventory[i].type == 14)
+                if (Main.player[Main.myPlayer].inventory[i].itemId == 11 || Main.player[Main.myPlayer].inventory[i].itemId == 12 || Main.player[Main.myPlayer].inventory[i].itemId == 13 || Main.player[Main.myPlayer].inventory[i].itemId == 14)
                 {
                     flag4 = true;
                 }
-                if (Main.player[Main.myPlayer].inventory[i].type == 19 || Main.player[Main.myPlayer].inventory[i].type == 20 || Main.player[Main.myPlayer].inventory[i].type == 21 || Main.player[Main.myPlayer].inventory[i].type == 22)
+                if (Main.player[Main.myPlayer].inventory[i].itemId == 19 || Main.player[Main.myPlayer].inventory[i].itemId == 20 || Main.player[Main.myPlayer].inventory[i].itemId == 21 || Main.player[Main.myPlayer].inventory[i].itemId == 22)
                 {
                     flag5 = true;
                 }
-                if (Main.player[Main.myPlayer].inventory[i].type == 75)
+                if (Main.player[Main.myPlayer].inventory[i].itemId == 75)
                 {
                     flag6 = true;
                 }
-                if (Main.player[Main.myPlayer].inventory[i].type == 38)
+                if (Main.player[Main.myPlayer].inventory[i].itemId == 38)
                 {
                     flag7 = true;
                 }
-                if (Main.player[Main.myPlayer].inventory[i].type == 68 || Main.player[Main.myPlayer].inventory[i].type == 70 || Main.player[Main.myPlayer].inventory[i].type == 1330)
+                if (Main.player[Main.myPlayer].inventory[i].itemId == 68 || Main.player[Main.myPlayer].inventory[i].itemId == 70 || Main.player[Main.myPlayer].inventory[i].itemId == 1330)
                 {
                     flag8 = true;
                 }
-                if (Main.player[Main.myPlayer].inventory[i].type == 84)
+                if (Main.player[Main.myPlayer].inventory[i].itemId == 84)
                 {
                     flag9 = true;
                 }
@@ -29329,7 +29329,7 @@ namespace Terraria
                 Item item = new Item();
                 item.netDefaults(Main.npcChatCornerItem);
                 float num3 = 1f;
-                Texture2D texture2D = Main.itemTexture[item.type];
+                Texture2D texture2D = Main.itemTexture[item.itemId];
                 if (texture2D.Width > 32 || texture2D.Height > 32)
                 {
                     if (texture2D.Width > texture2D.Height)
@@ -30187,7 +30187,7 @@ namespace Terraria
             for (int i = 0; i < cInv.Length; i++)
             {
                 array2[i] = -1;
-                if (cInv[i].stack < 1 || cInv[i].type < 1)
+                if (cInv[i].stack < 1 || cInv[i].itemId < 1)
                 {
                     list2.Add(i);
                     cInv[i] = new Item();
@@ -30195,19 +30195,19 @@ namespace Terraria
                 if (cInv[i] != null && cInv[i].stack > 0)
                 {
                     int num = 0;
-                    if (cInv[i].type == 71)
+                    if (cInv[i].itemId == 71)
                     {
                         num = 1;
                     }
-                    if (cInv[i].type == 72)
+                    if (cInv[i].itemId == 72)
                     {
                         num = 2;
                     }
-                    if (cInv[i].type == 73)
+                    if (cInv[i].itemId == 73)
                     {
                         num = 3;
                     }
-                    if (cInv[i].type == 74)
+                    if (cInv[i].itemId == 74)
                     {
                         num = 4;
                     }
@@ -30231,19 +30231,19 @@ namespace Terraria
                 if (j != 58 && pInv[j] != null && pInv[j].stack > 0)
                 {
                     int num2 = 0;
-                    if (pInv[j].type == 71)
+                    if (pInv[j].itemId == 71)
                     {
                         num2 = 1;
                     }
-                    if (pInv[j].type == 72)
+                    if (pInv[j].itemId == 72)
                     {
                         num2 = 2;
                     }
-                    if (pInv[j].type == 73)
+                    if (pInv[j].itemId == 73)
                     {
                         num2 = 3;
                     }
-                    if (pInv[j].type == 74)
+                    if (pInv[j].itemId == 74)
                     {
                         num2 = 4;
                     }
@@ -30265,7 +30265,7 @@ namespace Terraria
             }
             for (int l = 0; l < 40; l++)
             {
-                if (array2[l] >= 0 && cInv[l].type == 0)
+                if (array2[l] >= 0 && cInv[l].itemId == 0)
                 {
                     int num3 = l;
                     int num4 = array2[l];
@@ -30289,7 +30289,7 @@ namespace Terraria
             }
             for (int m = 0; m < 40; m++)
             {
-                if (array2[m] >= 0 && cInv[m].type == 0)
+                if (array2[m] >= 0 && cInv[m].itemId == 0)
                 {
                     int num5 = m;
                     for (int n = 3; n >= 0; n--)
@@ -30574,7 +30574,7 @@ namespace Terraria
                     {
                         Main.player[Main.myPlayer].mouseInterface = true;
                         ItemSlot.OverrideHover(Main.player[Main.myPlayer].inventory, 0, num5);
-                        if (Main.player[Main.myPlayer].inventoryChestStack[num5] && (Main.player[Main.myPlayer].inventory[num5].type == 0 || Main.player[Main.myPlayer].inventory[num5].stack == 0))
+                        if (Main.player[Main.myPlayer].inventoryChestStack[num5] && (Main.player[Main.myPlayer].inventory[num5].itemId == 0 || Main.player[Main.myPlayer].inventory[num5].stack == 0))
                         {
                             Main.player[Main.myPlayer].inventoryChestStack[num5] = false;
                         }
@@ -30898,7 +30898,7 @@ namespace Terraria
                                 text = Main.npc[num24].displayName + " the " + Main.npc[num24].name;
                             }
                             Main.player[Main.myPlayer].mouseInterface = true;
-                            if (Main.mouseLeftRelease && Main.mouseLeft && Main.mouseItem.type == 0)
+                            if (Main.mouseLeftRelease && Main.mouseLeft && Main.mouseItem.itemId == 0)
                             {
                                 Main.PlaySound(12, -1, -1, 1);
                                 this.mouseNPC = n;
@@ -30926,7 +30926,7 @@ namespace Terraria
                         num21++;
                     }
                 }
-                if (text != "" && Main.mouseItem.type == 0)
+                if (text != "" && Main.mouseItem.itemId == 0)
                 {
                     this.MouseText(text, 0, 0);
                 }
@@ -30942,7 +30942,7 @@ namespace Terraria
                 int num32 = 8 + Main.player[Main.myPlayer].extraAccessorySlots;
                 bool flag4 = false;
                 int num33 = num32 - 1;
-                if (num32 == 8 && (Main.player[Main.myPlayer].armor[8].type > 0 || Main.player[Main.myPlayer].armor[18].type > 0 || Main.player[Main.myPlayer].dye[8].type > 0))
+                if (num32 == 8 && (Main.player[Main.myPlayer].armor[8].itemId > 0 || Main.player[Main.myPlayer].armor[18].itemId > 0 || Main.player[Main.myPlayer].dye[8].itemId > 0))
                 {
                     num32 = 9;
                     flag4 = true;
@@ -30953,7 +30953,7 @@ namespace Terraria
                 for (int num34 = 0; num34 < num32; num34++)
                 {
                     bool flag5 = false;
-                    if (flag4 && num34 == num32 - 1 && Main.mouseItem.type > 0)
+                    if (flag4 && num34 == num32 - 1 && Main.mouseItem.itemId > 0)
                     {
                         flag5 = true;
                     }
@@ -31053,7 +31053,7 @@ namespace Terraria
                 for (int num40 = 10; num40 < 10 + num32; num40++)
                 {
                     bool flag6 = false;
-                    if (flag4 && num40 == 10 + num32 - 1 && Main.mouseItem.type > 0)
+                    if (flag4 && num40 == 10 + num32 - 1 && Main.mouseItem.itemId > 0)
                     {
                         flag6 = true;
                     }
@@ -31101,7 +31101,7 @@ namespace Terraria
                 for (int num43 = 0; num43 < num32; num43++)
                 {
                     bool flag7 = false;
-                    if (flag4 && num43 == num32 - 1 && Main.mouseItem.type > 0)
+                    if (flag4 && num43 == num32 - 1 && Main.mouseItem.itemId > 0)
                     {
                         flag7 = true;
                     }
@@ -31192,7 +31192,7 @@ namespace Terraria
                     int num48 = 50;
                     int num49 = 270;
                     string text2 = Lang.inter[46] + ": ";
-                    if (Main.reforgeItem.type > 0)
+                    if (Main.reforgeItem.itemId > 0)
                     {
                         int num50 = Main.reforgeItem.value;
                         if (Main.player[Main.myPlayer].discount)
@@ -31363,7 +31363,7 @@ namespace Terraria
                     int num59 = 331;
                     num59 += num46;
                     string text4;
-                    if (Main.guideItem.type > 0)
+                    if (Main.guideItem.itemId > 0)
                     {
                         text4 = Lang.inter[21] + " " + Main.guideItem.name;
                         Main.spriteBatch.DrawString(Main.fontMouseText, Lang.inter[22], new Vector2((float)num58, (float)(num59 + 118)), color3, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
@@ -31498,9 +31498,9 @@ namespace Terraria
                         if (Main.mouseX >= num68 && (float)Main.mouseX <= (float)num68 + (float)Main.inventoryBackTexture.Width * Main.inventoryScale && Main.mouseY >= num69 && (float)Main.mouseY <= (float)num69 + (float)Main.inventoryBackTexture.Height * Main.inventoryScale)
                         {
                             Main.player[Main.myPlayer].mouseInterface = true;
-                            if (Main.focusRecipe == num67 && Main.guideItem.type == 0)
+                            if (Main.focusRecipe == num67 && Main.guideItem.itemId == 0)
                             {
-                                if ((Main.mouseItem.type == 0 || (Main.mouseItem.IsTheSameAs(Main.recipe[Main.availableRecipe[num67]].createItem) && Main.mouseItem.stack + Main.recipe[Main.availableRecipe[num67]].createItem.stack <= Main.mouseItem.maxStack)) && !Main.player[Main.myPlayer].IsStackingItems())
+                                if ((Main.mouseItem.itemId == 0 || (Main.mouseItem.IsTheSameAs(Main.recipe[Main.availableRecipe[num67]].createItem) && Main.mouseItem.stack + Main.recipe[Main.availableRecipe[num67]].createItem.stack <= Main.mouseItem.maxStack)) && !Main.player[Main.myPlayer].IsStackingItems())
                                 {
                                     if (Main.mouseLeftRelease && Main.mouseLeft)
                                     {
@@ -31512,12 +31512,12 @@ namespace Terraria
                                         Main.mouseItem.position.Y = Main.player[Main.myPlayer].position.Y + (float)(Main.player[Main.myPlayer].height / 2) - (float)(Main.mouseItem.height / 2);
                                         ItemText.NewText(Main.mouseItem, Main.recipe[Main.availableRecipe[num67]].createItem.stack, false, false);
                                         Main.recipe[Main.availableRecipe[num67]].Create();
-                                        if (Main.mouseItem.type > 0 || Main.recipe[Main.availableRecipe[num67]].createItem.type > 0)
+                                        if (Main.mouseItem.itemId > 0 || Main.recipe[Main.availableRecipe[num67]].createItem.itemId > 0)
                                         {
                                             Main.PlaySound(7, -1, -1, 1);
                                         }
                                     }
-                                    else if (Main.stackSplit <= 1 && Main.mouseRight && (Main.mouseItem.stack < Main.mouseItem.maxStack || Main.mouseItem.type == 0))
+                                    else if (Main.stackSplit <= 1 && Main.mouseRight && (Main.mouseItem.stack < Main.mouseItem.maxStack || Main.mouseItem.itemId == 0))
                                     {
                                         if (Main.stackSplit == 0)
                                         {
@@ -31538,7 +31538,7 @@ namespace Terraria
                                         Main.mouseItem.position.Y = Main.player[Main.myPlayer].position.Y + (float)(Main.player[Main.myPlayer].height / 2) - (float)(Main.mouseItem.height / 2);
                                         ItemText.NewText(Main.mouseItem, Main.recipe[Main.availableRecipe[num67]].createItem.stack, false, false);
                                         Main.recipe[Main.availableRecipe[num67]].Create();
-                                        if (Main.mouseItem.type > 0 || Main.recipe[Main.availableRecipe[num67]].createItem.type > 0)
+                                        if (Main.mouseItem.itemId > 0 || Main.recipe[Main.availableRecipe[num67]].createItem.itemId > 0)
                                         {
                                             Main.PlaySound(7, -1, -1, 1);
                                         }
@@ -31581,7 +31581,7 @@ namespace Terraria
                 if (Main.numAvailableRecipes > 0)
                 {
                     int num72 = 0;
-                    while (num72 < Recipe.maxRequirements && Main.recipe[Main.availableRecipe[Main.focusRecipe]].requiredItem[num72].type != 0)
+                    while (num72 < Recipe.maxRequirements && Main.recipe[Main.availableRecipe[Main.focusRecipe]].requiredItem[num72].itemId != 0)
                     {
                         int num73 = 80 + num72 * 40;
                         int num74 = 380 + num46;
@@ -31617,23 +31617,23 @@ namespace Terraria
                             Main.player[Main.myPlayer].mouseInterface = true;
                             Main.hoverItemName = Main.recipe[Main.availableRecipe[Main.focusRecipe]].requiredItem[num72].name;
                             Main.toolTip = Main.recipe[Main.availableRecipe[Main.focusRecipe]].requiredItem[num72].Clone();
-                            if (Main.recipe[Main.availableRecipe[Main.focusRecipe]].anyIronBar && Main.recipe[Main.availableRecipe[Main.focusRecipe]].requiredItem[num72].type == 22)
+                            if (Main.recipe[Main.availableRecipe[Main.focusRecipe]].anyIronBar && Main.recipe[Main.availableRecipe[Main.focusRecipe]].requiredItem[num72].itemId == 22)
                             {
                                 Main.toolTip.name = Lang.misc[37] + " " + Main.itemName[22];
                             }
-                            else if (Main.recipe[Main.availableRecipe[Main.focusRecipe]].anyWood && Main.recipe[Main.availableRecipe[Main.focusRecipe]].requiredItem[num72].type == 9)
+                            else if (Main.recipe[Main.availableRecipe[Main.focusRecipe]].anyWood && Main.recipe[Main.availableRecipe[Main.focusRecipe]].requiredItem[num72].itemId == 9)
                             {
                                 Main.toolTip.name = Lang.misc[37] + " " + Main.itemName[9];
                             }
-                            else if (Main.recipe[Main.availableRecipe[Main.focusRecipe]].anySand && Main.recipe[Main.availableRecipe[Main.focusRecipe]].requiredItem[num72].type == 169)
+                            else if (Main.recipe[Main.availableRecipe[Main.focusRecipe]].anySand && Main.recipe[Main.availableRecipe[Main.focusRecipe]].requiredItem[num72].itemId == 169)
                             {
                                 Main.toolTip.name = Lang.misc[37] + " " + Main.itemName[169];
                             }
-                            else if (Main.recipe[Main.availableRecipe[Main.focusRecipe]].anyFragment && Main.recipe[Main.availableRecipe[Main.focusRecipe]].requiredItem[num72].type == 3458)
+                            else if (Main.recipe[Main.availableRecipe[Main.focusRecipe]].anyFragment && Main.recipe[Main.availableRecipe[Main.focusRecipe]].requiredItem[num72].itemId == 3458)
                             {
                                 Main.toolTip.name = Lang.misc[37] + " " + Lang.misc[51];
                             }
-                            else if (Main.recipe[Main.availableRecipe[Main.focusRecipe]].anyPressurePlate && Main.recipe[Main.availableRecipe[Main.focusRecipe]].requiredItem[num72].type == 542)
+                            else if (Main.recipe[Main.availableRecipe[Main.focusRecipe]].anyPressurePlate && Main.recipe[Main.availableRecipe[Main.focusRecipe]].requiredItem[num72].itemId == 542)
                             {
                                 Main.toolTip.name = Lang.misc[37] + " " + Lang.misc[38];
                             }
@@ -32107,7 +32107,7 @@ namespace Terraria
                 {
                     if (Main.item[i].active)
                     {
-                        Microsoft.Xna.Framework.Rectangle value = new Microsoft.Xna.Framework.Rectangle((int)((double)Main.item[i].position.X + (double)Main.item[i].width * 0.5 - (double)Main.itemTexture[Main.item[i].type].Width * 0.5), (int)(Main.item[i].position.Y + (float)Main.item[i].height - (float)Main.itemTexture[Main.item[i].type].Height), Main.itemTexture[Main.item[i].type].Width, Main.itemTexture[Main.item[i].type].Height);
+                        Microsoft.Xna.Framework.Rectangle value = new Microsoft.Xna.Framework.Rectangle((int)((double)Main.item[i].position.X + (double)Main.item[i].width * 0.5 - (double)Main.itemTexture[Main.item[i].itemId].Width * 0.5), (int)(Main.item[i].position.Y + (float)Main.item[i].height - (float)Main.itemTexture[Main.item[i].itemId].Height), Main.itemTexture[Main.item[i].itemId].Width, Main.itemTexture[Main.item[i].itemId].Height);
                         if (rectangle.Intersects(value))
                         {
                             Main.player[Main.myPlayer].showItemIcon = false;
@@ -34688,9 +34688,9 @@ namespace Terraria
             this.GUIHotbarDraw();
             if (Main.mouseItem.stack <= 0)
             {
-                Main.mouseItem.type = 0;
+                Main.mouseItem.itemId = 0;
             }
-            if (Main.hoverItemName != null && Main.hoverItemName != "" && Main.mouseItem.type == 0)
+            if (Main.hoverItemName != null && Main.hoverItemName != "" && Main.mouseItem.itemId == 0)
             {
                 Main.player[Main.myPlayer].showItemIcon = false;
                 this.MouseText(Main.hoverItemName, Main.rare, 0);
@@ -34776,7 +34776,7 @@ namespace Terraria
                 Main.spriteBatch.Draw(Main.cursorTextures[0], new Vector2((float)(Main.mouseX + 1), (float)(Main.mouseY + 1)), null, new Microsoft.Xna.Framework.Color((int)((float)Main.cursorColor.R * 0.2f), (int)((float)Main.cursorColor.G * 0.2f), (int)((float)Main.cursorColor.B * 0.2f), (int)((float)Main.cursorColor.A * 0.5f)), 0f, default(Vector2), Main.cursorScale * 1.1f, SpriteEffects.None, 0f);
                 Main.spriteBatch.Draw(Main.cursorTextures[0], new Vector2((float)Main.mouseX, (float)Main.mouseY), null, Main.cursorColor, 0f, default(Vector2), Main.cursorScale, SpriteEffects.None, 0f);
             }
-            if (Main.mouseItem.type > 0 && Main.mouseItem.stack > 0)
+            if (Main.mouseItem.itemId > 0 && Main.mouseItem.stack > 0)
             {
                 this.mouseNPC = -1;
                 Main.player[Main.myPlayer].showItemIcon = false;
@@ -34867,9 +34867,9 @@ namespace Terraria
             {
                 Main.npcChatRelease = true;
             }
-            if (Main.player[Main.myPlayer].showItemIcon && (Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].type > 0 || Main.player[Main.myPlayer].showItemIcon2 != 0))
+            if (Main.player[Main.myPlayer].showItemIcon && (Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].itemId > 0 || Main.player[Main.myPlayer].showItemIcon2 != 0))
             {
-                int num101 = Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].type;
+                int num101 = Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].itemId;
                 Microsoft.Xna.Framework.Color color8 = Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].GetAlpha(Microsoft.Xna.Framework.Color.White);
                 Microsoft.Xna.Framework.Color color9 = Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].GetColor(Microsoft.Xna.Framework.Color.White);
                 if (Main.player[Main.myPlayer].showItemIcon2 != 0)
@@ -34899,7 +34899,7 @@ namespace Terraria
                 }
                 if (Main.player[Main.myPlayer].showItemIcon2 == 0 && Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].color != default(Microsoft.Xna.Framework.Color))
                 {
-                    Main.spriteBatch.Draw(Main.itemTexture[Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].type], new Vector2((float)(Main.mouseX + 10), (float)(Main.mouseY + 10)), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].type].Width, Main.itemTexture[Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].type].Height)), color9, 0f, default(Vector2), scale7, SpriteEffects.None, 0f);
+                    Main.spriteBatch.Draw(Main.itemTexture[Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].itemId], new Vector2((float)(Main.mouseX + 10), (float)(Main.mouseY + 10)), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, Main.itemTexture[Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].itemId].Width, Main.itemTexture[Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].itemId].Height)), color9, 0f, default(Vector2), scale7, SpriteEffects.None, 0f);
                 }
             }
             Main.player[Main.myPlayer].showItemIcon = false;
@@ -43123,7 +43123,7 @@ namespace Terraria
         {
             for (int i = 0; i < 400; i++)
             {
-                if (Main.item[i].active && Main.item[i].type > 0)
+                if (Main.item[i].active && Main.item[i].itemId > 0)
                 {
                     this.DrawItem(Main.item[i], i);
                 }
@@ -48105,7 +48105,7 @@ namespace Terraria
                 float num4 = 0f;
                 if ((Main.player[Main.myPlayer].noThrow <= 0 && !Main.player[Main.myPlayer].lastMouseInterface) || Main.zoomX != 0f || Main.zoomY != 0f)
                 {
-                    if (Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].type == 1254 && Main.player[Main.myPlayer].scope && Main.mouseRight)
+                    if (Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].itemId == 1254 && Main.player[Main.myPlayer].scope && Main.mouseRight)
                     {
                         int num5 = Main.mouseX;
                         int num6 = Main.mouseY;
@@ -48128,7 +48128,7 @@ namespace Terraria
                         num3 = (float)(num5 - Main.screenWidth / 2) / 1.25f;
                         num4 += (float)(num6 - Main.screenHeight / 2) / 1.25f;
                     }
-                    else if (Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].type == 1254 && Main.mouseRight)
+                    else if (Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].itemId == 1254 && Main.mouseRight)
                     {
                         int num7 = Main.mouseX;
                         int num8 = Main.mouseY;
@@ -48151,7 +48151,7 @@ namespace Terraria
                         num3 = (float)(num7 - Main.screenWidth / 2) / 1.5f;
                         num4 += (float)(num8 - Main.screenHeight / 2) / 1.5f;
                     }
-                    else if (Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].type == 1299 && Main.player[Main.myPlayer].selectedItem != 58)
+                    else if (Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].itemId == 1299 && Main.player[Main.myPlayer].selectedItem != 58)
                     {
                         int num9 = Main.mouseX;
                         int num10 = Main.mouseY;
@@ -51470,19 +51470,19 @@ namespace Terraria
                                         {
                                             if (num42 < 2000000000)
                                             {
-                                                if (Main.player[num44].inventory[num45].type == 71)
+                                                if (Main.player[num44].inventory[num45].itemId == 71)
                                                 {
                                                     num42 += Main.player[num44].inventory[num45].stack;
                                                 }
-                                                if (Main.player[num44].inventory[num45].type == 72)
+                                                if (Main.player[num44].inventory[num45].itemId == 72)
                                                 {
                                                     num42 += Main.player[num44].inventory[num45].stack * 100;
                                                 }
-                                                if (Main.player[num44].inventory[num45].type == 73)
+                                                if (Main.player[num44].inventory[num45].itemId == 73)
                                                 {
                                                     num42 += Main.player[num44].inventory[num45].stack * 10000;
                                                 }
-                                                if (Main.player[num44].inventory[num45].type == 74)
+                                                if (Main.player[num44].inventory[num45].itemId == 74)
                                                 {
                                                     num42 += Main.player[num44].inventory[num45].stack * 1000000;
                                                 }
@@ -51491,13 +51491,13 @@ namespace Terraria
                                             {
                                                 flag6 = true;
                                             }
-                                            if (Main.player[num44].inventory[num45].type == 166 || Main.player[num44].inventory[num45].type == 167 || Main.player[num44].inventory[num45].type == 168 || Main.player[num44].inventory[num45].type == 235 || Main.player[num44].inventory[num45].type == 2896 || Main.player[num44].inventory[num45].type == 3547)
+                                            if (Main.player[num44].inventory[num45].itemId == 166 || Main.player[num44].inventory[num45].itemId == 167 || Main.player[num44].inventory[num45].itemId == 168 || Main.player[num44].inventory[num45].itemId == 235 || Main.player[num44].inventory[num45].itemId == 2896 || Main.player[num44].inventory[num45].itemId == 3547)
                                             {
                                                 flag7 = true;
                                             }
-                                            if (Main.player[num44].inventory[num45].dye > 0 || (Main.player[num44].inventory[num45].type >= 1107 && Main.player[num44].inventory[num45].type <= 1120) || (Main.player[num44].inventory[num45].type >= 3385 && Main.player[num44].inventory[num45].type <= 3388))
+                                            if (Main.player[num44].inventory[num45].dye > 0 || (Main.player[num44].inventory[num45].itemId >= 1107 && Main.player[num44].inventory[num45].itemId <= 1120) || (Main.player[num44].inventory[num45].itemId >= 3385 && Main.player[num44].inventory[num45].itemId <= 3388))
                                             {
-                                                if (Main.player[num44].inventory[num45].type >= 3385 && Main.player[num44].inventory[num45].type <= 3388)
+                                                if (Main.player[num44].inventory[num45].itemId >= 3385 && Main.player[num44].inventory[num45].itemId <= 3388)
                                                 {
                                                     flag9 = true;
                                                 }
